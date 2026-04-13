@@ -30,5 +30,8 @@ Summarize the latest changes in this branch to create a pull request on GitHub.
 - Keep it short and sweet, encapsulating a summary of the implemented feature concisely in imperative form
 - Use `category` specifiers like `feat`, `fix`, `docs`, `chore`, `deps`, etc. (consistent with the Conventional Commits message style)
 - Determine the `scope` of the changes based on the most affected part of the codebase
+- Refer to the GitHub issues provided by the user (if applicable)
+  - Mention these issues in natural-flowing prose (with respect to the pull request description)
+  - Use keywords like `closes`, `fixes`, and `resolves`
 
 </pull-request-title-guidelines>
