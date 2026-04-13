@@ -9,10 +9,10 @@ Core React patterns for component design, state management, and optimization.
 
 ## References
 
-- [Side Effects](references/side-effects.md) — Why `useEffect` is almost never necessary
-- [Conditional State](references/conditional-state.md) — Mount `useState` only when needed
-- [Async Data Loading](references/async-data-loading.md) — Loader/Inner pattern for data fetching
-- [Form Handling](references/form-handling.md) — `decode-formdata` + `valibot` validation
+- [Side Effects](./references/side-effects.md) — Why `useEffect` is almost never necessary
+- [Conditional State](./references/conditional-state.md) — Mount `useState` only when needed
+- [Async Data Loading](./references/async-data-loading.md) — Loader/Inner pattern for data fetching
+- [Form Handling](./references/form-handling.md) — `decode-formdata` + `valibot` validation
 
 ## State Philosophy
 

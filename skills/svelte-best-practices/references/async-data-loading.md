@@ -102,4 +102,4 @@ Imports `content.svelte` (not `form.svelte`). Extends `ContentProps`.
 - `content.svelte` exports `ContentProps`; `index.svelte` extends it
 - `form.svelte` exports `FormProps`; `content.svelte` imports it for type-safe prop forwarding
 - Mutations stay in `form.svelte` — only **queries** move to `content.svelte`
-- Combine with [Conditional State](conditional-state.md) for the full feature module pattern
+- Combine with [Conditional State](./conditional-state.md) for the full feature module pattern

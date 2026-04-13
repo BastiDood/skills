@@ -134,4 +134,4 @@ This pattern applies to any conditionally visible UI:
 - `Dialog.Content` / `Sheet.Content` only mounts when `open=true` → form state is lazy
 - Parent controls open state; `onSuccess` handles close-on-success
 - `form.svelte` exports `FormProps` from a `module` script block so the shell can extend it
-- Follow [Form Handling](form-handling.md) for submit patterns (submitter disabling, Valibot, decode-formdata)
+- Follow [Form Handling](./form-handling.md) for submit patterns (submitter disabling, Valibot, decode-formdata)

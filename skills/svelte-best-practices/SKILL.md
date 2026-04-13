@@ -13,10 +13,10 @@ Core Svelte 5 patterns for component design, state management, and optimization.
 
 ## References
 
-- [Side Effects](references/side-effects.md) — Why `$effect` is almost never necessary
-- [Conditional State](references/conditional-state.md) — Mount `$state` only when needed
-- [Async Data Loading](references/async-data-loading.md) — Outer-loader pattern for data fetching
-- [Form Handling](references/form-handling.md) — `use:enhance` + form actions (SPA fallback: `onsubmit` + TanStack Query)
+- [Side Effects](./references/side-effects.md) — Why `$effect` is almost never necessary
+- [Conditional State](./references/conditional-state.md) — Mount `$state` only when needed
+- [Async Data Loading](./references/async-data-loading.md) — Outer-loader pattern for data fetching
+- [Form Handling](./references/form-handling.md) — `use:enhance` + form actions (SPA fallback: `onsubmit` + TanStack Query)
 
 ## Key Rules
 

@@ -126,7 +126,7 @@ Options: `{ reset?: boolean, invalidateAll?: boolean }`. Default: both `true`.
 
 ### Dialog / Sheet Integration
 
-Close the dialog in the returned callback, then call `update()`. See [Conditional State](conditional-state.md) for the shell/form split pattern.
+Close the dialog in the returned callback, then call `update()`. See [Conditional State](./conditional-state.md) for the shell/form split pattern.
 
 ```svelte
 <script lang="ts">

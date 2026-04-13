@@ -101,4 +101,4 @@ function Component({ id }: Props) {
 - Gate on data presence (`typeof data === 'undefined'`), not truthiness — `null` may be a valid resolved value
 - Mutations stay in the Inner/Form component — only **queries** move to the Loader
 - Inner component only mounts when data exists, so all props are guaranteed non-null
-- Combine with [Conditional State](conditional-state.md) for dialogs/sheets
+- Combine with [Conditional State](./conditional-state.md) for dialogs/sheets
