@@ -1,0 +1,8 @@
+feat(auth)!: add JWT login flow
+
+- Implemented JWT token validation logic
+- Added documentation for the validation component
+- Removes the old password authentication
+
+Signed-off-by: Example <user@example.com>
+Co-authored-by: Author <author@example.com>

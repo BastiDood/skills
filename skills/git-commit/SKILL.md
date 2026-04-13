@@ -4,32 +4,42 @@ description: Generate commit messages following conventional commits and commit 
 compatibility: Requires Git (`git`).
 ---
 
-# Commit
+# Smart Commit
 
-Generate a commit message and commit staged changes using git.
+1. Explore both the staged/unstaged changes in the current working tree.
+2. Realize a mind map of the feature being implemented.
+3. Logically group the changed files/hunks into (possibly several) self-contained atomic commits. Do not hesitate to granularly stage hunks for proper commit isolation.
+4. Strive to keep the codebase in a consistent state after each commit.
+5. Optimize for readability and reviewability of the commit history. The commits should tell the story of how the feature was implemented.
 
-## Guidelines
+## General Guidelines
 
+- Single commits are permitted if sufficiently straightforward
 - Only generate the message for staged files/changes
 - Don't add any files using `git add` - user decides what to add
-- DO NOT add any ads or footers
+- Do NOT add any ads or footers
+- Avoid vague titles: "update", "fix stuff"
+- Avoid overly long or unfocused titles
+- Avoid excessive detail in bullet points
 
-## Format
+## Commit Message Format
 
 ```
-<type>(<scope>): <message title>
+<type>(<scope>)!: <title>
 
-<bullet points summarizing what was updated>
+<summary>
+
+<footer>
 ```
-
-## Rules
 
 - Title: lowercase, no period, max 50 characters
 - Scope: optional, feature affected
-- Body: explain _why_, not just _what_
-- Bullet points: concise and high-level
+- Body: optional if commit is straightforward + self-explanatory
+- Body: must explain _why_ (not just _what_), can be in prose or bullet points (concise and high-level)
+- Body: must disclaim breaking changes if applicable
+- Body: should include issue references if applicable
 
-## Allowed Types
+### Allowed Types
 
 | Type     | Description                           |
 | -------- | ------------------------------------- |
@@ -44,31 +54,4 @@ Generate a commit message and commit staged changes using git.
 
 ## Examples
 
-```
-feat(auth): add JWT login flow
-
-- Implemented JWT token validation logic
-- Added documentation for the validation component
-```
-
-```
-fix(ui): handle null pointer in sidebar
-```
-
-```
-refactor(api): split user controller logic
-
-- Extracted validation into separate module
-- Simplified error handling flow
-```
-
-## Footer (optional)
-
-- Reference issues: `Closes #123`
-- Breaking changes: Start with `BREAKING CHANGE:`
-
-## Avoid
-
-- Vague titles: "update", "fix stuff"
-- Overly long or unfocused titles
-- Excessive detail in bullet points
+- [Full commit message with all the optional details provided](./references/example.txt)
