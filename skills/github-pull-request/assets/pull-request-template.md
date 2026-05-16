@@ -1,8 +1,16 @@
-Insert executive summary of the pull request here in 1-3 paragraphs.
+- Insert executive summary of the pull request here in 1-3 short paragraphs.
+- If applicable: mention any issue/ticket references in natural prose.
+  - Action keywords such as "fixes", "resolves", and "closes" must be woven into description seamlessly.
+  - Avoid lazy and abrupt insertions just for the sake of mentioning the action keywords as an afterthought.
 
 ## Implementation Notes
 
-Insert significant key architectural decisions here (if any).
+- Group the detailed implementation notes into proper sub-sections with concise headings.
+- Expound on the implications of the details noted in the preceding summary.
+- Insert key architectural decisions here (if any) and their justifications.
+- Strive to surface the most relevant implementation features, drawbacks, and limitations to the reviewer without overwhelming them with exact code snippets and file names.
+  - Code snippets and file names are still permitted (if necessary), but only for demonstrative purposes.
+  - Low-fidelity pseudocode and abbreviated file paths are preferred.
 
 <!-- Ignore this section if mostly routine changes. -->
 
