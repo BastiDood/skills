@@ -1,6 +1,6 @@
 ---
 name: github-pull-request
-description: Create a GitHub pull request with auto-detected base branch and structured template. Use when opening a new PR.
+description: Draft a GitHub pull request description using a standardized template. Auto-detects the base branch when diffing the changes. Use when submitting a new PR with a human in the loop for pre-submission approval.
 compatibility: Requires Git (`git`) and the GitHub CLI (`gh`).
 ---
 
