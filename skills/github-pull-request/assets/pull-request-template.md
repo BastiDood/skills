@@ -32,5 +32,3 @@ Exclude mechanical steps that are already run in CI (e.g., running linters, form
   - [ ] Conditional Test Case 2.b
   - [ ] Conditional Test Case 2.c
 - [ ] Test Case 3
-
-<!-- Remind the author that these test cases have to be validated manually before submitting the pull request. -->
