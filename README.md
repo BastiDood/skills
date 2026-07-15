@@ -6,10 +6,11 @@ Shared [Agent Skills](https://agentskills.io) registry for cross-project reuse. 
 
 ### Workflows
 
-| Skill                                           | Description                                       |
-| ----------------------------------------------- | ------------------------------------------------- |
-| [`git-commit`](./git-commit/)                   | Conventional commit message generation            |
-| [`github-pull-request`](./github-pull-request/) | GitHub PR creation with auto-detected base branch |
+| Skill                                                             | Description                                                |
+| ----------------------------------------------------------------- | ---------------------------------------------------------- |
+| [`git-commit`](./git-commit/)                                     | Conventional commit message generation                     |
+| [`github-pull-request`](./github-pull-request/)                   | GitHub PR creation with auto-detected base branch          |
+| [`github-pull-request-comments`](./github-pull-request-comments/) | Verifies, triages, and rebuts GitHub pull request comments |
 
 ### Software Engineering
 
