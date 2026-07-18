@@ -5,9 +5,8 @@ description: Use the `better-all` library for `Promise.all` with automatic DAG-b
 
 ## Documentation
 
-- GitHub Repository: https://github.com/shuding/better-all
-
-Note: This library is not yet indexed in DeepWiki or Context7.
+- If available, use Context7 (Library ID: `/shuding/better-all`) to fetch the latest documentation.
+- If available, use DeepWiki (GitHub Repository: `shuding/better-all`) for implementation details.
 
 # better-all Library
 

@@ -1,16 +1,16 @@
 ---
 name: tanstack-react-query
-description: Data fetching with TanStack React Query using the Loader/Inner pattern. Use when fetching data, managing cache, or implementing mutations in React.
+description: Data fetching with `TanStack React Query` using the Loader/Inner pattern. Use when fetching data, managing cache, or implementing mutations in React.
 ---
 
 # TanStack React Query
 
-Data fetching patterns with TanStack Query for React.
+Data fetching patterns with `TanStack Query` for React.
 
 ## Documentation
 
-- If available, use `context7` (Library ID: `/tanstack/query`) to fetch the latest documentation.
-- If available, use `deepwiki` (GitHub Repository: `TanStack/query`) for implementation details.
+- If available, use Context7 (Library ID: `/tanstack/query`) to fetch the latest documentation.
+- If available, use DeepWiki (GitHub Repository: `TanStack/query`) for implementation details.
 
 ## Loader/Inner Pattern
 

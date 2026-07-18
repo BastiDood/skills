@@ -1,9 +1,9 @@
 ---
 name: shadcn-svelte
-description: UI components with shadcn-svelte and bits-ui. Use when adding UI components, styling, buttons, dialogs, drawers, forms, or any user interface elements.
+description: UI components with `shadcn-svelte` and `bits-ui`. Use when adding UI components, styling, buttons, dialogs, drawers, forms, or any user interface elements.
 ---
 
-# shadcn-svelte + bits-ui UI Components
+# `shadcn-svelte` + `bits-ui` UI Components
 
 Styled UI components built on headless primitives.
 
@@ -11,9 +11,9 @@ Styled UI components built on headless primitives.
 
 ## Documentation
 
-- If available, use `context7` (Library ID: `huntabyte-bits-ui`) to fetch bits-ui documentation.
-- If available, use `context7` (Library ID: `shadcn-svelte`) to fetch shadcn-svelte documentation.
-- If available, use `deepwiki` (GitHub Repository: `huntabyte/bits-ui`) for bits-ui implementation details.
+- If available, use Context7 (Library ID: `/huntabyte/bits-ui`) to fetch `bits-ui` documentation.
+- If available, use Context7 (Library ID: `/huntabyte/shadcn-svelte`) to fetch `shadcn-svelte` documentation.
+- If available, use DeepWiki (GitHub Repository: `huntabyte/bits-ui`) for `bits-ui` implementation details.
 
 ## Adding Components
 
@@ -81,7 +81,7 @@ export function cn(...inputs: ClassValue[]) {
 </button>
 ```
 
-## Wrapping bits-ui Primitives
+## Wrapping `bits-ui` Primitives
 
 ```svelte
 <script lang="ts">

@@ -1,16 +1,16 @@
 ---
 name: tanstack-svelte-query
-description: Data fetching with TanStack Svelte Query using runes-based reactivity. Use when fetching data, managing cache, or implementing mutations in Svelte.
+description: Data fetching with `TanStack Svelte Query` using runes-based reactivity. Use when fetching data, managing cache, or implementing mutations in Svelte.
 ---
 
 # TanStack Svelte Query
 
-Data fetching patterns with TanStack Query for Svelte 5, using runes-based reactivity.
+Data fetching patterns with `TanStack Query` for Svelte 5, using runes-based reactivity.
 
 ## Documentation
 
-- If available, use `context7` (Library ID: `/tanstack/query`) to fetch the latest documentation.
-- If available, use `deepwiki` (GitHub Repository: `TanStack/query`) for implementation details.
+- If available, use Context7 (Library ID: `/tanstack/query`) to fetch the latest documentation.
+- If available, use DeepWiki (GitHub Repository: `TanStack/query`) for implementation details.
 
 ## Query Pattern
 

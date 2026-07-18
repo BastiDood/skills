@@ -1,18 +1,18 @@
 ---
 name: valibot
-description: Schema validation with Valibot. Use when validating data, parsing API responses, defining schemas, or working with type-safe data transformations.
+description: Schema validation with `Valibot`. Use when validating data, parsing API responses, defining schemas, or working with type-safe data transformations.
 ---
 
 # Valibot - Schema Validation
 
 Lightweight, type-safe schema validation library.
 
-**Libraries:** valibot (^1.x)
+**Libraries:** `valibot` (^1.x)
 
 ## Documentation
 
-- If available, use `context7` (Library ID: `fabian-hiller-valibot`) to fetch the latest documentation.
-- If available, use `deepwiki` (GitHub Repository: `fabian-hiller/valibot`) for implementation details.
+- If available, use Context7 (Library ID: `/open-circle/valibot`) to fetch the latest documentation.
+- If available, use DeepWiki (GitHub Repository: `open-circle/valibot`) for implementation details.
 
 ## Import Pattern
 

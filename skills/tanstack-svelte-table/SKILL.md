@@ -1,16 +1,16 @@
 ---
 name: tanstack-svelte-table
-description: Build TanStack Table components in Svelte using the meta field pattern for cell callbacks. Use when creating data tables, implementing sorting, or adding inline editing.
+description: Build `TanStack Table` components in Svelte using the meta field pattern for cell callbacks. Use when creating data tables, implementing sorting, or adding inline editing.
 ---
 
 # TanStack Svelte Table
 
-Data table patterns with TanStack Table for Svelte 5, using the `meta` field for passing behavior to cells.
+Data table patterns with `TanStack Table` for Svelte 5, using the `meta` field for passing behavior to cells.
 
 ## Documentation
 
-- If available, use `context7` (Library ID: `/tanstack/table`) to fetch the latest documentation.
-- If available, use `deepwiki` (GitHub Repository: `TanStack/table`) for implementation details.
+- If available, use Context7 (Library ID: `/tanstack/table`) to fetch the latest documentation.
+- If available, use DeepWiki (GitHub Repository: `TanStack/table`) for implementation details.
 
 ## Core Pattern: Hoisted Columns with Meta
 
