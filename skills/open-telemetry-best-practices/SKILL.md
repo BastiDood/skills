@@ -1,12 +1,12 @@
 ---
-name: open-telemetry
-description: OpenTelemetry-based logging and error handling conventions for structured observability. Use when writing log statements, choosing log levels, formatting log messages, or handling errors with traces.
+name: open-telemetry-best-practices
+description: Opinionated logging and error-handling conventions for OpenTelemetry-compatible systems covering log levels, attribute naming, and error classification. Use when writing log statements, choosing log levels, or handling errors with traces.
 compatibility: Requires OpenTelemetry-compatible systems using the official SDKs.
 ---
 
-# OpenTelemetry Observability
+# OpenTelemetry Best Practices
 
-Language-agnostic conventions for structured logging and error handling with OpenTelemetry-compatible systems.
+Language-agnostic house conventions for structured logging and error handling, layered on top of OpenTelemetry. The level split and attribute prefixes below are our conventions, not OpenTelemetry semantic-convention standards.
 
 ## Log Levels
 
@@ -71,47 +71,9 @@ logger.info("fetched items", entity_type="user", entity_count=len(users))
 logger.debug("api response", response_status=200, response_time_ms=142)
 ```
 
-## Error vs Fatal
-
-### `error` — Handled failure, operation recovers with fallback
-
-```python
-try:
-    result = risky_operation()
-except SomeError:
-    logger.error("operation failed, using fallback", entity_id=id)
-    result = fallback_value
-```
-
-```typescript
-try {
-	result = riskyOperation();
-} catch (err) {
-	logger.error('operation failed, using fallback', { entityId: id, error: err });
-	result = fallbackValue;
-}
-```
-
-### `fatal` — Unrecoverable failure, operation cannot continue
-
-```python
-try:
-    result = critical_operation()
-except CriticalError:
-    logger.fatal("critical operation failed", entity_id=id)
-    raise  # re-throw since we can't recover
-```
-
-```typescript
-try {
-	result = criticalOperation();
-} catch (err) {
-	logger.fatal('critical operation failed', { entityId: id, error: err });
-	throw err; // re-throw since we can't recover
-}
-```
-
 ## Error Classification
+
+Classify every failure before choosing a level. The `error` vs `fatal` split is recoverability: `error` means the operation continues with a fallback; `fatal` means it cannot continue and the exception is re-thrown.
 
 | Error Type                         | Action                                             |
 | ---------------------------------- | -------------------------------------------------- |
@@ -120,11 +82,27 @@ try {
 | Handled (fallback available)       | Log `error`, use fallback value                    |
 | Unknown cause                      | Include full traceback/stack trace in log          |
 
+```typescript
+// error - handled failure, operation recovers with fallback
+try {
+	result = riskyOperation();
+} catch (err) {
+	logger.error('operation failed, using fallback', { entityId: id, error: err });
+	result = fallbackValue;
+}
+
+// fatal - unrecoverable failure, operation cannot continue
+try {
+	result = criticalOperation();
+} catch (err) {
+	logger.fatal('critical operation failed', { entityId: id, error: err });
+	throw err; // re-throw since we can't recover
+}
+```
+
 ## Exception Chaining
 
-Always preserve the exception chain when rethrowing:
-
-### Python
+Never lose the original exception when rethrowing — chaining is mandatory, not optional. Use `from e` (Python) or `{ cause: err }` (TypeScript):
 
 ```python
 try:
@@ -133,8 +111,6 @@ except SpecificError as e:
     raise DomainError(f"Operation failed: {e}") from e
 ```
 
-### TypeScript
-
 ```typescript
 try {
 	await operation();
@@ -142,8 +118,6 @@ try {
 	throw new DomainError(`Operation failed: ${err}`, { cause: err });
 }
 ```
-
-Never lose the original exception — use `from e` (Python) or `{ cause: err }` (TypeScript) to chain exceptions properly.
 
 ## Structured Logging
 

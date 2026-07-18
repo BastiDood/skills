@@ -14,8 +14,8 @@ Otherwise, compile rejected/rebutted items into a listing in the message summary
 
 > Exact quote from the PR comment.
 
-```
-Concise response to the reviewer explaining why the comment is invalid, actionable, or out of scope.
+```markdown
+Concise response to the reviewer explaining why the comment is invalid, unactionable, or out of scope.
 ```
 
 </rebuttal_format>

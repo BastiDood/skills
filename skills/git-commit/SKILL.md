@@ -24,7 +24,7 @@ compatibility: Requires Git (`git`).
 
 ## Commit Message Format
 
-```
+```text
 <type>(<scope>)!: <title>
 
 <summary>

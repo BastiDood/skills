@@ -1,6 +1,6 @@
 ---
 name: svelte-best-practices
-description: Svelte 5 component patterns with runes, minimal state, and type-safe conventions. Use when creating components, managing state, or working with Svelte-specific patterns.
+description: Svelte 5 component patterns with runes, minimal state, and type-safe conventions. Use when creating components, managing state, or handling side effects.
 ---
 
 # Svelte Best Practices
@@ -18,28 +18,17 @@ Core Svelte 5 patterns for component design, state management, and optimization.
 - [Async Data Loading](./references/async-data-loading.md) — Outer-loader pattern for data fetching
 - [Form Handling](./references/form-handling.md) — `use:enhance` + form actions (SPA fallback: `onsubmit` + TanStack Query)
 
-## Key Rules
+## Runes Only, No Stores
 
-1. **Runes only** — No Svelte stores
-2. **No `$effect`** — Side effects in event handlers only
-3. **Discriminated unions** — `const enum` + `switch` for state machines
-4. **Runtime assertions** — Never use `!` non-null assertion
+Runes replace stores for component and application state. Don't introduce `writable`/`derived` stores in new code:
 
-## Runes
+```typescript
+// BAD - store indirection
+import { writable } from 'svelte/store';
+const count = writable(0);
 
-```svelte
-<script lang="ts">
-	let count = $state(0);
-	let items = $state<string[]>([]);
-
-	const doubled = $derived(count * 2);
-	const total = $derived.by(() => {
-		// Useful for multi-statement derivations.
-		return items.reduce((a, b) => a + b.length, 0);
-	});
-
-	let { open = $bindable(false) }: Props = $props();
-</script>
+// GOOD - rune
+let count = $state(0);
 ```
 
 ## Memoization with `$derived`
@@ -78,21 +67,28 @@ For complex `O(n)` (or worse) derivations, use `$derived.by()`:
 
 ## Discriminated Union State Machines
 
+Model multi-step flows as one discriminated union, not parallel state variables that can desynchronize:
+
+```svelte
+<script lang="ts">
+	// BAD - parallel states can contradict each other
+	let isConnecting = $state(false);
+	let lobbyId = $state<string>();
+	let error = $state<Error>();
+
+	// GOOD - one state, every combination valid by construction
+	let lobby = $state<LobbyState>({ status: LobbyStatus.Idle });
+</script>
+```
+
 ```typescript
 const enum LobbyStatus {
 	Idle = 0,
-	Connecting = 1,
-	Active = 2,
-	Error = 3,
+	Active = 1,
 }
 
 interface LobbyIdle {
 	status: LobbyStatus.Idle;
-}
-
-interface LobbyConnecting {
-	status: LobbyStatus.Connecting;
-	userName: string;
 }
 
 interface LobbyActive {
@@ -100,28 +96,10 @@ interface LobbyActive {
 	lobbyId: string;
 }
 
-interface LobbyError {
-	status: LobbyStatus.Error;
-	error: Error;
-}
-
-type LobbyState = LobbyIdle | LobbyConnecting | LobbyActive | LobbyError;
+type LobbyState = LobbyIdle | LobbyActive;
 ```
 
-Use `switch` for exhaustive handling:
-
-```typescript
-switch (state.status) {
-	case LobbyStatus.Idle:
-		return handleIdle();
-	case LobbyStatus.Connecting:
-		return handleConnecting(state.userName);
-	case LobbyStatus.Active:
-		return handleActive(state.lobbyId);
-	case LobbyStatus.Error:
-		return handleError(state.error);
-}
-```
+Handle transitions with an exhaustive `switch` (see the `typescript-best-practices` skill).
 
 ## Type Safety
 
@@ -165,6 +143,8 @@ if (typeof value === 'undefined') throw new Error('Expected value to be defined'
 
 ## Component Props
 
+Extend the native element's attribute type, expose a bindable `ref`, and forward `...restProps` — the same wrapping convention as `shadcn-svelte-best-practices`:
+
 ```svelte
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
@@ -188,26 +168,13 @@ if (typeof value === 'undefined') throw new Error('Expected value to be defined'
 </div>
 ```
 
-## Snippets (Not Slots)
+## Snippets, Not Slots
 
-```svelte
-<!-- Child component -->
-<script lang="ts">
-	import type { Snippet } from 'svelte';
-	let { content }: { content?: Snippet } = $props();
-</script>
-
-{@render content?.()}
-
-<!-- Parent -->
-{#snippet markerContent()}
-	<div class="marker">Custom content</div>
-{/snippet}
-
-<Marker content={markerContent} />
-```
+Use snippets and `{@render}` for component composition, never legacy `<slot>`s — snippets are explicit, typed props (`Snippet`) instead of implicit children channels.
 
 ## Context API
+
+Use `createContext` (requires `svelte >= 5.40`) over raw `getContext`/`setContext` — the tuple is typed end-to-end and its getter throws when no parent has set the context, replacing manual guards:
 
 ```typescript
 import { createContext } from 'svelte';

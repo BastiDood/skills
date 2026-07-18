@@ -6,7 +6,7 @@
 
 ## Outer-Loader Pattern
 
-```
+```text
 index.svelte    → Shell (Dialog/Sheet)
 content.svelte  → Outer loader — runs queries, gates rendering
 form.svelte     → Inner form — pure, receives resolved props

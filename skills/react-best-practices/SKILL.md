@@ -20,7 +20,7 @@ Avoid state variables. Prefer derived values and props. Scope state to the small
 
 ### Derived Values Over State
 
-The only exception to this rule is when the derivation is a non-constant-time operation — that is, O(1) or worse.
+The only exception to this rule is when the derivation is a non-constant-time operation — that is, O(n) or worse.
 
 ```tsx
 // BAD - unnecessary state
@@ -162,9 +162,9 @@ function Component({ data, isLoading, error }: Props) {
 }
 ```
 
-## Context API
+## Context for Forwarded-Only Props
 
-When props would only be forwarded (not used), use context primitives:
+When intermediate components would only forward a prop (never use it), lift it into context instead of threading it through every layer:
 
 ```tsx
 const ValueContext = createContext<{ value: string; setValue: (v: string) => void } | null>(null);
@@ -177,7 +177,7 @@ function Provider({ children }: { children: ReactNode }) {
 
 function useValue() {
 	const ctx = useContext(ValueContext);
-	if (typeof ctx === 'undefined') throw new Error('useValue must be within Provider');
+	if (ctx === null) throw new Error('useValue must be within Provider');
 	return ctx;
 }
 ```

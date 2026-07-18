@@ -19,32 +19,32 @@
 
 | Skill                                                              | Description                                         |
 | ------------------------------------------------------------------ | --------------------------------------------------- |
-| [`better-all`](./skills/better-all/)                               | `better-all` library for DAG-based `Promise.all`    |
+| [`better-all-best-practices`](./skills/better-all-best-practices/) | `better-all` library for DAG-based `Promise.all`    |
 | [`typescript-best-practices`](./skills/typescript-best-practices/) | Inference, exhaustiveness, and strict index access  |
 | [`valibot-best-practices`](./skills/valibot-best-practices/)       | Nullability, discriminated unions, and parse policy |
 
 ## React
 
-| Skill                                                    | Description                                          |
-| -------------------------------------------------------- | ---------------------------------------------------- |
-| [`react-best-practices`](./skills/react-best-practices/) | Component patterns, state, memoization, side effects |
-| [`tanstack-react-query`](./skills/tanstack-react-query/) | TanStack Query with Loader/Inner pattern             |
-| [`tanstack-react-table`](./skills/tanstack-react-table/) | TanStack Table with meta field pattern               |
+| Skill                                                                                  | Description                                           |
+| -------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| [`react-best-practices`](./skills/react-best-practices/)                               | Component patterns, state, memoization, side effects  |
+| [`tanstack-react-query-best-practices`](./skills/tanstack-react-query-best-practices/) | Loader/Inner pattern, query hooks, cache invalidation |
+| [`tanstack-react-table-best-practices`](./skills/tanstack-react-table-best-practices/) | Hoisted columns with the meta field pattern           |
 
 ## Svelte
 
-| Skill                                                      | Description                                       |
-| ---------------------------------------------------------- | ------------------------------------------------- |
-| [`shadcn-svelte`](./skills/shadcn-svelte/)                 | shadcn-svelte + bits-ui component patterns        |
-| [`svelte-best-practices`](./skills/svelte-best-practices/) | Runes, state machines, side effects, memoization  |
-| [`tanstack-svelte-query`](./skills/tanstack-svelte-query/) | TanStack Svelte Query with runes-based reactivity |
-| [`tanstack-svelte-table`](./skills/tanstack-svelte-table/) | TanStack Svelte Table with meta field pattern     |
+| Skill                                                                                    | Description                                          |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| [`shadcn-svelte-best-practices`](./skills/shadcn-svelte-best-practices/)                 | Wrapping Bits UI primitives, variants, styling hooks |
+| [`svelte-best-practices`](./skills/svelte-best-practices/)                               | Runes, state machines, side effects, memoization     |
+| [`tanstack-svelte-query-best-practices`](./skills/tanstack-svelte-query-best-practices/) | Outer-Loader pattern, reactive queries, mutations    |
+| [`tanstack-svelte-table-best-practices`](./skills/tanstack-svelte-table-best-practices/) | Hoisted columns, meta field pattern, reactive data   |
 
 ## Observability
 
-| Skill                                        | Description                                    |
-| -------------------------------------------- | ---------------------------------------------- |
-| [`open-telemetry`](./skills/open-telemetry/) | Structured logging, error handling, log levels |
+| Skill                                                                      | Description                                        |
+| -------------------------------------------------------------------------- | -------------------------------------------------- |
+| [`open-telemetry-best-practices`](./skills/open-telemetry-best-practices/) | Log levels, attribute naming, error classification |
 
 ## Usage
 

@@ -6,7 +6,7 @@
 
 ## Loader/Inner Pattern
 
-```
+```text
 ComponentLoader  → runs queries, handles loading/error/empty states
 ComponentInner   → pure presentation, receives resolved data as props
 ```
