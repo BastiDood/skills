@@ -13,15 +13,15 @@
 
 | Skill                                                                              | Description                                                                                                               |
 | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| [`type-modeling`](./skills/type-modeling/)                                         | TypeScript type modeling and Valibot schema patterns                                                                      |
 | [`vertically-sliced-feature-modules`](./skills/vertically-sliced-feature-modules/) | Feature modules in a [vertically sliced architecture](https://dev.to/somedood/youre-slicing-your-architecture-wrong-4ob9) |
 
 ## TypeScript
 
-| Skill                                | Description                                      |
-| ------------------------------------ | ------------------------------------------------ |
-| [`better-all`](./skills/better-all/) | `better-all` library for DAG-based `Promise.all` |
-| [`valibot`](./skills/valibot/)       | Schema validation with Valibot                   |
+| Skill                                                              | Description                                         |
+| ------------------------------------------------------------------ | --------------------------------------------------- |
+| [`better-all`](./skills/better-all/)                               | `better-all` library for DAG-based `Promise.all`    |
+| [`typescript-best-practices`](./skills/typescript-best-practices/) | Inference, exhaustiveness, and strict index access  |
+| [`valibot-best-practices`](./skills/valibot-best-practices/)       | Nullability, discriminated unions, and parse policy |
 
 ## React
 
