@@ -1,5 +1,13 @@
 # Skills by BastiDood
 
+Some skills conditionally reference MCP servers (used only if available):
+
+| Server                                                         | Purpose                            |
+| -------------------------------------------------------------- | ---------------------------------- |
+| [Context7](https://context7.com/)                              | Latest library documentation       |
+| [DeepWiki](https://docs.devin.ai/work-with-devin/deepwiki-mcp) | Library implementation details     |
+| [Svelte](https://svelte.dev/docs/mcp/overview)                 | Svelte documentation and autofixer |
+
 ## Workflows
 
 | Skill                                                                    | Description                                                 |
@@ -22,6 +30,7 @@
 | [`better-all-best-practices`](./skills/better-all-best-practices/) | `better-all` library for DAG-based `Promise.all`    |
 | [`typescript-best-practices`](./skills/typescript-best-practices/) | Inference, exhaustiveness, and strict index access  |
 | [`valibot-best-practices`](./skills/valibot-best-practices/)       | Nullability, discriminated unions, and parse policy |
+| [`zod-best-practices`](./skills/zod-best-practices/)               | Top-level formats, nullability, and parse policy    |
 
 ## React
 
@@ -45,17 +54,3 @@
 | Skill                                                                      | Description                                        |
 | -------------------------------------------------------------------------- | -------------------------------------------------- |
 | [`open-telemetry-best-practices`](./skills/open-telemetry-best-practices/) | Log levels, attribute naming, error classification |
-
-## Usage
-
-Reference skills from your project's `.claude/` or `.agents/` configuration. Each skill follows the [Agent Skills specification](https://agentskills.io/specification): `SKILL.md` + optional `scripts/`, `references/`, `assets/`.
-
-## MCP Dependencies
-
-Some skills conditionally reference MCP servers (used only if available):
-
-| Server                                                         | Purpose                            |
-| -------------------------------------------------------------- | ---------------------------------- |
-| [Context7](https://context7.com/)                              | Latest library documentation       |
-| [DeepWiki](https://docs.devin.ai/work-with-devin/deepwiki-mcp) | Library implementation details     |
-| [Svelte](https://svelte.dev/docs/mcp/overview)                 | Svelte documentation and autofixer |

@@ -7,7 +7,11 @@ description: Opinionated Valibot schema conventions for nullability, discriminat
 
 Opinionated conventions for `valibot` (^1.x). This is not API documentation (see the footer for that); every section is a rule with a rationale.
 
-Always import as a namespace: `import * as v from 'valibot';`.
+Always import as a namespace:
+
+```typescript
+import * as v from 'valibot';
+```
 
 ## Schema as Single Source of Truth
 
