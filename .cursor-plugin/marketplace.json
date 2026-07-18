@@ -1,0 +1,36 @@
+{
+	"name": "bastidood",
+	"owner": {
+		"name": "Basti Ortiz",
+		"email": "ortiz@bastidood.dev"
+	},
+	"metadata": {
+		"pluginRoot": "plugins"
+	},
+	"plugins": [
+		{
+			"name": "workflows",
+			"source": "workflows"
+		},
+		{
+			"name": "architecture",
+			"source": "architecture"
+		},
+		{
+			"name": "typescript",
+			"source": "typescript"
+		},
+		{
+			"name": "react",
+			"source": "react"
+		},
+		{
+			"name": "svelte",
+			"source": "svelte"
+		},
+		{
+			"name": "observability",
+			"source": "observability"
+		}
+	]
+}

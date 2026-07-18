@@ -1,0 +1,34 @@
+{
+	"name": "bastidood",
+	"owner": {
+		"name": "Basti Ortiz",
+		"email": "ortiz@bastidood.dev"
+	},
+	"description": "Opinionated software engineering skills by BastiDood.",
+	"plugins": [
+		{
+			"name": "workflows",
+			"source": "./plugins/workflows"
+		},
+		{
+			"name": "architecture",
+			"source": "./plugins/architecture"
+		},
+		{
+			"name": "typescript",
+			"source": "./plugins/typescript"
+		},
+		{
+			"name": "react",
+			"source": "./plugins/react"
+		},
+		{
+			"name": "svelte",
+			"source": "./plugins/svelte"
+		},
+		{
+			"name": "observability",
+			"source": "./plugins/observability"
+		}
+	]
+}

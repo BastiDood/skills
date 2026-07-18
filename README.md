@@ -1,5 +1,46 @@
 # Skills by BastiDood
 
+Opinionated software engineering skills distributed as installable plugins for Codex, Claude Code, and Cursor. Each section below is a plugin containing related skills.
+
+<details>
+<summary>Codex</summary>
+
+```sh
+codex plugin marketplace add BastiDood/skills
+
+codex plugin add workflows@bastidood
+codex plugin add architecture@bastidood
+codex plugin add typescript@bastidood
+codex plugin add react@bastidood
+codex plugin add svelte@bastidood
+codex plugin add observability@bastidood
+```
+
+</details>
+
+<details>
+<summary>Claude Code</summary>
+
+```sh
+claude plugin marketplace add BastiDood/skills
+
+claude plugin install workflows@bastidood
+claude plugin install architecture@bastidood
+claude plugin install typescript@bastidood
+claude plugin install react@bastidood
+claude plugin install svelte@bastidood
+claude plugin install observability@bastidood
+```
+
+</details>
+
+<details>
+<summary>Cursor</summary>
+
+For Cursor Teams and Enterprise, import `https://github.com/BastiDood/skills` from **Dashboard → Plugins → Add Marketplace**, then install the desired plugins from **Customize**.
+
+</details>
+
 Some skills conditionally reference MCP servers (used only if available):
 
 | Server                                                         | Purpose                            |
@@ -10,47 +51,47 @@ Some skills conditionally reference MCP servers (used only if available):
 
 ## Workflows
 
-| Skill                                                                    | Description                                                 |
-| ------------------------------------------------------------------------ | ----------------------------------------------------------- |
-| [`adversarial-code-review`](./skills/adversarial-code-review/)           | Adversarial code review against the spec and implementation |
-| [`git-commit`](./skills/git-commit/)                                     | Conventional commit message generation                      |
-| [`github-pull-request`](./skills/github-pull-request/)                   | GitHub PR creation with auto-detected base branch           |
-| [`github-pull-request-comments`](./skills/github-pull-request-comments/) | Verifies, triages, and rebuts GitHub pull request comments  |
+| Skill                                                                                      | Description                                                 |
+| ------------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
+| [`adversarial-code-review`](./plugins/workflows/skills/adversarial-code-review/)           | Adversarial code review against the spec and implementation |
+| [`git-commit`](./plugins/workflows/skills/git-commit/)                                     | Conventional commit message generation                      |
+| [`github-pull-request`](./plugins/workflows/skills/github-pull-request/)                   | GitHub PR creation with auto-detected base branch           |
+| [`github-pull-request-comments`](./plugins/workflows/skills/github-pull-request-comments/) | Verifies, triages, and rebuts GitHub pull request comments  |
 
 ## Architecture
 
-| Skill                                                                              | Description                                                                                                               |
-| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| [`vertically-sliced-feature-modules`](./skills/vertically-sliced-feature-modules/) | Feature modules in a [vertically sliced architecture](https://dev.to/somedood/youre-slicing-your-architecture-wrong-4ob9) |
+| Skill                                                                                                   | Description                                                                                                               |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| [`vertically-sliced-feature-modules`](./plugins/architecture/skills/vertically-sliced-feature-modules/) | Feature modules in a [vertically sliced architecture](https://dev.to/somedood/youre-slicing-your-architecture-wrong-4ob9) |
 
 ## TypeScript
 
-| Skill                                                              | Description                                         |
-| ------------------------------------------------------------------ | --------------------------------------------------- |
-| [`better-all-best-practices`](./skills/better-all-best-practices/) | `better-all` library for DAG-based `Promise.all`    |
-| [`typescript-best-practices`](./skills/typescript-best-practices/) | Inference, exhaustiveness, and strict index access  |
-| [`valibot-best-practices`](./skills/valibot-best-practices/)       | Nullability, discriminated unions, and parse policy |
-| [`zod-best-practices`](./skills/zod-best-practices/)               | Top-level formats, nullability, and parse policy    |
+| Skill                                                                                 | Description                                         |
+| ------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| [`better-all-best-practices`](./plugins/typescript/skills/better-all-best-practices/) | `better-all` library for DAG-based `Promise.all`    |
+| [`typescript-best-practices`](./plugins/typescript/skills/typescript-best-practices/) | Inference, exhaustiveness, and strict index access  |
+| [`valibot-best-practices`](./plugins/typescript/skills/valibot-best-practices/)       | Nullability, discriminated unions, and parse policy |
+| [`zod-best-practices`](./plugins/typescript/skills/zod-best-practices/)               | Top-level formats, nullability, and parse policy    |
 
 ## React
 
-| Skill                                                                                  | Description                                           |
-| -------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| [`react-best-practices`](./skills/react-best-practices/)                               | Component patterns, state, memoization, side effects  |
-| [`tanstack-react-query-best-practices`](./skills/tanstack-react-query-best-practices/) | Loader/Inner pattern, query hooks, cache invalidation |
-| [`tanstack-react-table-best-practices`](./skills/tanstack-react-table-best-practices/) | Hoisted columns with the meta field pattern           |
+| Skill                                                                                                | Description                                           |
+| ---------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| [`react-best-practices`](./plugins/react/skills/react-best-practices/)                               | Component patterns, state, memoization, side effects  |
+| [`tanstack-react-query-best-practices`](./plugins/react/skills/tanstack-react-query-best-practices/) | Loader/Inner pattern, query hooks, cache invalidation |
+| [`tanstack-react-table-best-practices`](./plugins/react/skills/tanstack-react-table-best-practices/) | Hoisted columns with the meta field pattern           |
 
 ## Svelte
 
-| Skill                                                                                    | Description                                          |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| [`shadcn-svelte-best-practices`](./skills/shadcn-svelte-best-practices/)                 | Wrapping Bits UI primitives, variants, styling hooks |
-| [`svelte-best-practices`](./skills/svelte-best-practices/)                               | Runes, state machines, side effects, memoization     |
-| [`tanstack-svelte-query-best-practices`](./skills/tanstack-svelte-query-best-practices/) | Outer-Loader pattern, reactive queries, mutations    |
-| [`tanstack-svelte-table-best-practices`](./skills/tanstack-svelte-table-best-practices/) | Hoisted columns, meta field pattern, reactive data   |
+| Skill                                                                                                   | Description                                          |
+| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| [`shadcn-svelte-best-practices`](./plugins/svelte/skills/shadcn-svelte-best-practices/)                 | Wrapping Bits UI primitives, variants, styling hooks |
+| [`svelte-best-practices`](./plugins/svelte/skills/svelte-best-practices/)                               | Runes, state machines, side effects, memoization     |
+| [`tanstack-svelte-query-best-practices`](./plugins/svelte/skills/tanstack-svelte-query-best-practices/) | Outer-Loader pattern, reactive queries, mutations    |
+| [`tanstack-svelte-table-best-practices`](./plugins/svelte/skills/tanstack-svelte-table-best-practices/) | Hoisted columns, meta field pattern, reactive data   |
 
 ## Observability
 
-| Skill                                                                      | Description                                        |
-| -------------------------------------------------------------------------- | -------------------------------------------------- |
-| [`open-telemetry-best-practices`](./skills/open-telemetry-best-practices/) | Log levels, attribute naming, error classification |
+| Skill                                                                                            | Description                                        |
+| ------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| [`open-telemetry-best-practices`](./plugins/observability/skills/open-telemetry-best-practices/) | Log levels, attribute naming, error classification |
