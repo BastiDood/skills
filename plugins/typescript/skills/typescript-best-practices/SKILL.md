@@ -35,7 +35,7 @@ const m = new Map<string, User>();
 
 ### Exception: Annotate When Inference Widens
 
-Inference infers the *initial* value's type, not the *intended* union. Annotate whenever the intended type is a union that inference would widen or narrow incorrectly:
+Inference infers the _initial_ value's type, not the _intended_ union. Annotate whenever the intended type is a union that inference would widen or narrow incorrectly:
 
 ```typescript
 // useState infers 'idle' from the initial value, rejecting later transitions
