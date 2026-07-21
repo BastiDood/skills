@@ -1,0 +1,11 @@
+{
+	"name": "bastidood-skills",
+	"private": true,
+	"scripts": {
+		"fmt": "oxfmt --check",
+		"fmt:fix": "oxfmt --write"
+	},
+	"devDependencies": {
+		"oxfmt": "^0.59.0"
+	}
+}
