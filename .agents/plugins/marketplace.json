@@ -1,7 +1,7 @@
 {
 	"name": "bastidood",
 	"interface": {
-		"displayName": "Skills by BastiDood"
+		"displayName": "BastiDood"
 	},
 	"plugins": [
 		{
