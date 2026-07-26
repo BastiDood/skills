@@ -27,6 +27,10 @@
 		{
 			"name": "observability",
 			"source": "./plugins/observability"
+		},
+		{
+			"name": "presentations",
+			"source": "./plugins/presentations"
 		}
 	]
 }
