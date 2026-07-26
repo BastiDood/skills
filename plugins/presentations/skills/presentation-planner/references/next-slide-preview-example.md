@@ -39,7 +39,7 @@ Slide 1:
 Slide 2:
 
 - But what does it lose?
-- The details disappear.
+  - The details disappear.
 - [Read slide.]
 - (This changes how we should manage context…)
 
@@ -51,6 +51,6 @@ Slide 3:
 
 <rule_demonstrated>
 
-The final bullet of slides 1 and 2 copies the first spoken bullet or clause of the next slide. Parentheses and the appended ellipsis mark that duplicated span as an upcoming thought, not as speech assigned to the outgoing slide. Exclude each preview from the outgoing slide's word count, character count, and source coverage; count and map the words only where they appear normally on the incoming slide. `[Read slide.]` is a separate non-spoken interaction cue. The final slide has no preview because no spoken thought follows it.
+Copy the next slide's first spoken bullet or clause into the outgoing notes, then mark it with parentheses and an ellipsis. Exclude the preview from outgoing counts and coverage. `[Read slide.]` is a separate non-spoken cue; the final slide has no preview.
 
 </rule_demonstrated>

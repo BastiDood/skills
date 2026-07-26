@@ -24,6 +24,6 @@ Context makes or breaks your experience with an LLM. Garbage in, garbage out. Yo
 
 <rule_demonstrated>
 
-Hierarchy follows meaning, not sentence position or paragraph membership. The third sentence explains the second and becomes its child. The first and fourth sentences perform independent spoken moves and remain level-0 siblings. The on-slide hierarchy selects the one group that carries the visual beat instead of copying every note bullet.
+Nest by meaning, not sentence position or paragraph. The third sentence supports the second; the others remain level-0 siblings. On-slide copy selects the group that carries the visual beat.
 
 </rule_demonstrated>

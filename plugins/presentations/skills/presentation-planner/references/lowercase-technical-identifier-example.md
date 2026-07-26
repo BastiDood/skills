@@ -22,6 +22,6 @@ tokio::spawn creates a task. The task can run concurrently.
 
 <rule_demonstrated>
 
-The lowercase opening is retained because it is a literal identifier, not an all-lowercase prose style. Semantic nesting never licenses case normalization.
+Preserve a lowercase literal identifier; nesting does not license case normalization.
 
 </rule_demonstrated>

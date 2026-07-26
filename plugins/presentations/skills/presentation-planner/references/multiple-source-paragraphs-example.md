@@ -60,6 +60,6 @@ Slide 2:
 
 <rule_demonstrated>
 
-Paragraph boundaries do not determine slide boundaries. Several level-0 note groups can stay together when they form one cumulative spoken beat and fit the pacing limits. Split before the final group when it changes the audience task or creates an overloaded slide. In the two-slide treatment, the outgoing notes preview the first spoken bullet of slide 2 without assigning that source span to slide 1. The final instruction remains one semantic group in either treatment. On-slide content selects the single group that best cues each slide's job; it does not reproduce every top-level note bullet.
+Paragraph boundaries do not determine slide boundaries. Keep cumulative groups together when they fit; split when the audience task or pacing changes. On-slide copy selects one cue, and the outgoing preview does not assign the next slide's source span to the current slide.
 
 </rule_demonstrated>

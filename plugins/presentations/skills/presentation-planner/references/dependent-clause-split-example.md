@@ -24,6 +24,6 @@ The general theme is that skill tradeoffs must be made. If we are to embrace the
 
 <rule_demonstrated>
 
-The second sentence supports the opening conclusion and becomes level 1. Its condition and consequence are easier to deliver separately, so the comma becomes the split boundary and remains attached to the condition. The lowercase `then` remains unchanged. Because the consequence completes the condition rather than starting a new move, it becomes level 2.
+Nest the supporting sentence, then split its condition and consequence at the comma. Keep the comma with the condition and preserve lowercase `then` in the level-2 continuation.
 
 </rule_demonstrated>

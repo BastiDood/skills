@@ -1,20 +1,12 @@
 # Presentation Plan Template
 
-Use this template when writing the final presentation plan. Do not copy this reference title or its contents list into the plan. Start the plan at `# Presentation Plan: <Title>`.
-
-## Contents
-
-- Presentation brief and narrative arc
-- Slide-by-slide implementation plan
-- Cross-deck production notes
-
-## Template
+Use this template for the final plan. Do not copy this reference title. Start at `# Presentation Plan: <Title>`.
 
 # Presentation Plan: <Title>
 
 ## Status
 
-Draft for review
+Draft for Review
 
 ## Presentation Brief
 
@@ -29,21 +21,10 @@ Draft for review
 
 ## Narrative Arc
 
-### Opening
-
-Describe the starting audience state, tension, and promise.
-
-### Development
-
-Describe the cumulative argument, lesson, demonstration, or story.
-
-### Pivot
-
-Describe the decisive conceptual or emotional turn.
-
-### Resolution
-
-Describe how the opening is resolved and what the audience retains or does.
+- Opening:
+- Development:
+- Pivot:
+- Resolution:
 
 ## Slide-by-Slide Implementation Plan
 
@@ -51,8 +32,7 @@ Describe how the opening is resolved and what the audience retains or does.
 
 #### Narrative Purpose
 
-State the one job this slide performs and why it exists at this point.
-
+- Job:
 - Estimated delivery time:
 
 #### Source Allocation
@@ -66,19 +46,7 @@ State the one job this slide performs and why it exists at this point.
 
 #### On-Slide Content
 
-Extract the title and bullets from the source-derived presenter-note passage. Keep bullets in script order and use short contiguous phrases that cue what the speaker says next. Do not paraphrase or synthesize taglines.
-
-For bullet-driven slides, use this hierarchy:
-
-```markdown
-- The main idea starts in **natural sentence case**.
-  - Supporting phrases preserve source capitalization.
-  - Literal identifiers such as `tokio::spawn` keep their exact casing.
-```
-
-Use one main bullet. Add only the sub-bullets needed to support that point. Preserve the words and order within every selected source phrase.
-
-Wrap load-bearing keywords in `**...**` or `*...*` so the slide-production workflow can render them in bold cyan. Include fenced code when code is the slide.
+Insert exact, concise audience-facing content using short contiguous source spans that are understandable at a glance.
 
 #### Slide Treatment
 
@@ -91,24 +59,11 @@ Wrap load-bearing keywords in `**...**` or `*...*` so the slide-production workf
 - Continuity from the previous slide:
 - Alignment mode: Direct or Bridge
 
-> Placeholder: Describe an unresolved required graphic, animation, or transition. Omit this block when no placeholder is needed.
+> Placeholder: Describe an unresolved required element. Omit when none.
 
 #### Presenter Notes (Semantically Structured Script)
 
-Format the assigned source passage as a semantic Markdown hierarchy. Use level 0 for independent spoken moves, level 1 for direct support, and level 2 for source-authored nested material. Preserve the words, capitalization, punctuation at split boundaries, and source order within each span. Do not summarize, polish, correct, embellish, or synthesize spoken language.
-
-```markdown
-- Independent opening claim.
-- A setup with direct support:
-  - Supporting sentence or source list item.
-    - Nested source list item when required.
-- Another independent move from the same source paragraph.
-
-- (First spoken bullet or clause copied from the next slide…)
-- [Non-spoken delivery cue.]
-```
-
-Allow several level-0 groups when they form one cumulative beat. If a slide begins with level-1 or level-2 bullets continued from the previous slide, preserve that indentation without inventing a parent. End each applicable non-final slide with a level-0 parenthesized preview copied from the next slide's first spoken bullet or natural clause. Append an ellipsis and exclude this non-spoken preview from the outgoing slide's pacing counts and source coverage.
+Insert the semantic Markdown hierarchy, delivery cues, and next-thought preview.
 
 #### Transition to the Next Slide
 
@@ -117,7 +72,7 @@ Allow several level-0 groups when they form one cumulative beat. If a slide begi
 - Continuity: State what remains, changes, appears, or disappears.
 - Reason: Explain what the transition communicates.
 
-For the final slide, replace the bridge with `End` and describe the intended closing beat.
+For the final slide, write `None` for the preview, `End` for the slide action, and describe the closing beat.
 
 #### Production Notes
 
@@ -130,26 +85,12 @@ For the final slide, replace the bridge with `End` and describe the intended clo
 
 ### Slide 2 — <Working Title>
 
-Repeat the same headings for every slide.
+Repeat the slide headings for every slide.
 
 ## Cross-Deck Production Notes
 
-### Asset Checklist
-
-List only the photographs, screenshots, logos, code samples, diagrams, quotations, and generated visuals that the plan actually requires. Do not create assets for text-led slides merely to populate this checklist.
-
-### Animation and Transition Map
-
-Collect every non-trivial build, Morph sequence, gallery transition, or timed event in slide order.
-
-### Demonstration and Interaction Cues
-
-Collect live demos, audience exercises, handoffs, and fallback instructions.
-
-### Script Coverage Ledger
-
-Map exact source ranges to slides. Identify deferred and omitted material with reasons. Do not label paraphrased or condensed notes as source coverage.
-
-### Open Decisions
-
-List unresolved choices that require presenter approval before creation.
+- Asset checklist: Required photographs, screenshots, logos, code, diagrams, quotations, and generated visuals.
+- Animation and transition map: Non-trivial builds, Morph sequences, transitions, and timed events in slide order.
+- Demonstration and interaction cues: Live demos, audience exercises, handoffs, and fallbacks.
+- Script coverage ledger: Exact source ranges by slide, plus deferred and omitted material with reasons.
+- Open decisions: Unresolved choices requiring presenter approval before creation.
