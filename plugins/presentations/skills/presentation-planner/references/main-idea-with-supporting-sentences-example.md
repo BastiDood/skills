@@ -8,8 +8,9 @@ Context makes or breaks your experience with an LLM. Garbage in, garbage out. Yo
 
 <expected_on_slide_content>
 
-- **Garbage in, garbage out.**
-  - Your outputs are only as good as the **inputs** you provide.
+- **Garbage in, garbage out**
+- Outputs follow inputs
+- Be mindful of **context**
 
 </expected_on_slide_content>
 
@@ -22,8 +23,23 @@ Context makes or breaks your experience with an LLM. Garbage in, garbage out. Yo
 
 </expected_presenter_notes>
 
+<anti_example>
+
+- Context makes or breaks your experience with an LLM.
+  - Garbage in, garbage out.
+    - Your outputs are only as good as the inputs you provide.
+    - Be mindful of the context you provide.
+
+</anti_example>
+
+<why_the_anti_example_fails>
+
+It mirrors full presenter-note sentences onto the slide and invents one parent-child chain for four distinct semantic moves. The audience must read the script instead of using three compact cues to follow the speaker.
+
+</why_the_anti_example_fails>
+
 <rule_demonstrated>
 
-Nest by meaning, not sentence position or paragraph. The third sentence supports the second; the others remain level-0 siblings. On-slide copy selects the group that carries the visual beat.
+Preserve the complete semantic hierarchy in presenter notes, but compress the visible slide independently. Use sibling cues for the visual summary instead of reproducing the note hierarchy.
 
 </rule_demonstrated>

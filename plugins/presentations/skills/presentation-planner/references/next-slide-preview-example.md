@@ -16,16 +16,16 @@ Advance after the question and let the audience read the comparison before conti
 
 Slide 1:
 
-- **Compaction** preserves the gist.
+- **Compaction** preserves the gist
 
 Slide 2:
 
-- But what does it **lose**?
-  - The **details** disappear.
+- What gets **lost**?
+- The details
 
 Slide 3:
 
-- This changes how we should manage **context**.
+- Manage **context** differently
 
 </expected_on_slide_content>
 
@@ -48,6 +48,27 @@ Slide 3:
 - This changes how we should manage context.
 
 </expected_presenter_notes>
+
+<anti_example>
+
+Slide 1 on-slide content:
+
+- Compaction preserves the gist.
+- (But what does it lose? …)
+
+Slide 1 presenter notes:
+
+- Compaction preserves the gist.
+- (But what does it lose? …)
+- Presenter-note word count includes the preview.
+
+</anti_example>
+
+<why_the_anti_example_fails>
+
+It exposes the private handoff cue to the audience and counts it as spoken source. The preview belongs only at the end of the outgoing presenter notes and only the incoming slide owns its source coverage.
+
+</why_the_anti_example_fails>
 
 <rule_demonstrated>
 

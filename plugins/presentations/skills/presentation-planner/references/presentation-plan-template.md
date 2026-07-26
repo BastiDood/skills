@@ -42,22 +42,23 @@ Draft for Review
 - Ends with:
 - Presenter-note word count:
 - Presenter-note character count:
-- Pacing status: Normal, Review, Split Required, or Explicit Exception
+- Pacing status: Normal, Dense, Very Dense, or Explicit Exception
 
 #### On-Slide Content
 
-Insert exact, concise audience-facing content using short contiguous source spans that are understandable at a glance.
+Insert the complete visible body content. `### Slide N — <Working Title>` supplies the title; do not repeat it here or add `Title:`. Compress source ideas into short audience-facing cues; do not mirror the presenter notes. For a quotation beat, insert only the exact quotation without a title line or bullet marker.
 
 #### Slide Treatment
 
 - Lead format: Text-led, Evidence-led, Relationship-led, or Deliberate pause
 - Composition and hierarchy:
-- Required visual or evidence: Write `None — text-led slide` when no asset is needed.
-- Diagram justification: Complete only for a relationship-led diagram; otherwise write `None`.
-- Required elements and labels: Write `None` when not applicable.
-- Build or emphasis sequence: Write `None` unless staged disclosure improves understanding.
 - Continuity from the previous slide:
 - Alignment mode: Direct or Bridge
+
+- Required visual or evidence (omit when inapplicable):
+- Diagram justification (omit when inapplicable):
+- Required elements and labels (omit when inapplicable):
+- Build or emphasis sequence (omit when inapplicable):
 
 > Placeholder: Describe an unresolved required element. Omit when none.
 
@@ -67,17 +68,19 @@ Insert the semantic Markdown hierarchy, delivery cues, and next-thought preview.
 
 #### Transition to the Next Slide
 
-- Next-thought preview: Copy the exact parenthesized, ellipsis-marked preview used at the end of the presenter notes, or write `None` for the final slide or when no spoken thought follows.
-- Slide action: Cut, Build, Morph, Push, Fade, Wipe, or another explicit action.
+- Next-thought preview: Copy the exact parenthesized, ellipsis-marked preview used at the end of the presenter notes.
+- Slide action: Cut, Build, Morph, Push, Fade, Directional, or another explicit action.
 - Continuity: State what remains, changes, appears, or disappears.
 - Reason: Explain what the transition communicates.
 
-For the final slide, write `None` for the preview, `End` for the slide action, and describe the closing beat.
+For the final slide, omit `Next-thought preview`, write `End` for the slide action, and describe the closing beat.
 
 #### Production Notes
 
-- Required assets or sources: Write `None` when the slide needs no external asset or source.
-- Special production dependencies: List required code, diagrams, or animation; otherwise write `None`.
+Omit this subsection when empty. Otherwise include only applicable items:
+
+- Required assets or sources:
+- Special production dependencies:
 - Accessibility or legibility considerations:
 - Verification needs:
 - Pacing-exception rationale:
@@ -89,8 +92,8 @@ Repeat the slide headings for every slide.
 
 ## Cross-Deck Production Notes
 
-- Asset checklist: Required photographs, screenshots, logos, code, diagrams, quotations, and generated visuals.
-- Animation and transition map: Non-trivial builds, Morph sequences, transitions, and timed events in slide order.
-- Demonstration and interaction cues: Live demos, audience exercises, handoffs, and fallbacks.
-- Script coverage ledger: Exact source ranges by slide, plus deferred and omitted material with reasons.
-- Open decisions: Unresolved choices requiring presenter approval before creation.
+- Asset checklist (omit when empty): Required photographs, screenshots, logos, code, diagrams, quotations, and generated visuals.
+- Animation and transition map (omit when empty): Non-trivial builds, Morph sequences, transitions, and timed events in slide order.
+- Demonstration and interaction cues (omit when empty): Live demos, audience exercises, handoffs, and fallbacks.
+- Script coverage ledger: Exact source ranges assigned to presenter notes; identify exact source spans replaced by `[Read slide.]`, plus deferred and omitted material with reasons.
+- Open decisions (omit when empty): Unresolved choices requiring presenter approval before creation.
