@@ -54,7 +54,7 @@ Slide 1:
   - Each message consumes part of the available space.
 - Compaction preserves the gist.
   - It cannot preserve every detail.
-- (The practical rule is simple…)
+- (The practical rule is simple...)
 
 Slide 2:
 

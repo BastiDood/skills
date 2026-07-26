@@ -37,7 +37,7 @@ Slide 1:
 - The context contains:
   - The system prompt
   - The MCP descriptions
-- (The agent skills…)
+- (The agent skills...)
 
 Slide 2:
 

@@ -34,14 +34,14 @@ Slide 3:
 Slide 1:
 
 - Compaction preserves the gist.
-- (But what does it lose? …)
+- (But what does it lose? ...)
 
 Slide 2:
 
 - But what does it lose?
   - The details disappear.
 - [Read slide.]
-- (This changes how we should manage context…)
+- (This changes how we should manage context...)
 
 Slide 3:
 
@@ -54,12 +54,12 @@ Slide 3:
 Slide 1 on-slide content:
 
 - Compaction preserves the gist.
-- (But what does it lose? …)
+- (But what does it lose? ...)
 
 Slide 1 presenter notes:
 
 - Compaction preserves the gist.
-- (But what does it lose? …)
+- (But what does it lose? ...)
 - Presenter-note word count includes the preview.
 
 </anti_example>

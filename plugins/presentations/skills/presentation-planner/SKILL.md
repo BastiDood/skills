@@ -48,10 +48,10 @@ Infer harmless details from the source and record the assumptions. Ask only when
 
 ### Copy-Level Scope
 
-- Treat visible copy as editorial compression, not a transcript. Preserve the source's meaning and terminology, but shorten, combine, and faithfully paraphrase prose into audience-facing cues. Keep quotations and technical literals exact.
+- Treat visible copy as editorial compression, not a transcript. Preserve the source's meaning and terminology, but shorten, combine, and faithfully paraphrase prose into audience-facing cues. Keep quotation wording and technical literals exact.
 - Prefer phrases and short clauses over complete sentences. Target 2–8 words per cue and treat 12 words as a review ceiling. Exceed it only when exact wording is the beat, as with a quotation, code, formal definition, or deliberate standalone assertion.
 - Make every cue a grammatically complete label, noun phrase, verb phrase, short clause, question, or assertion that carries a whole audience-facing concept. Meaning outranks the word target; never use the first _n_ words of a sentence as a cue.
-- Do not fake compression by clipping a source sentence and appending `...` or `…`. Rewrite it as a complete phrase or short clause. Reserve ellipses for exact quotations, source-authored punctuation, and presenter-note previews.
+- Do not fake compression by clipping a source sentence and appending `...`. Rewrite it as a complete phrase or short clause. Reserve ellipses for exact quotations, source-authored punctuation, and presenter-note previews.
 - Let the source logic determine the hierarchy. Use sibling top-level cues for parallel ideas and children only for genuine support, dependency, or list depth. Do not default to one main bullet with every other idea nested beneath it.
 - Use one dominant line, several sibling cues, a compact hierarchy, or no bullets at all according to the beat. Omit explanatory detail that the presenter notes already carry unless the audience needs it to follow the visual.
 - Use `### Slide N — <Title>` as the slide title. Do not repeat it under `On-Slide Content` or add a `Title:` label. Treat the heading as visible by default; quotation-only and deliberately titleless treatments use it only as the plan identifier.
@@ -59,12 +59,13 @@ Infer harmless details from the source and record the assumptions. Ask only when
 - For a quotation beat, make `On-Slide Content` the exact quotation alone as plain or italic text. Do not add `Title:`, a heading, bullet marker, preface, interpretation, or decorative copy. Put the setup, interpretation, and spoken attribution in presenter notes; add visible attribution only when the user or source requires it.
 - Avoid slogans, marketing taglines, and summaries the speaker cannot locate in the notes.
 - Use natural sentence case for body copy and title case for titles. Preserve source casing for acronyms, names, filenames, commands, paths, identifiers, and quotations; never normalize a literal such as `tokio::spawn`.
+- Use plain ASCII punctuation in Markdown prose and transcribed source text: `'` for apostrophes, `"` for double quotes, and `...` for ellipses. Do not use typographic quotation marks or the single-character ellipsis.
 - Mark one to three load-bearing spans across a compact text group with `**...**` or `*...*` for bold cyan emphasis. Do not emphasize every line.
 - Write titles as speakable claims or questions. Use **Title Case without Prepositions and Articles**, while preserving product, acronym, and identifier casing.
 
 ## Semantically Structured Presenter Notes
 
-Use the assigned source passage for every substantive slide. Preserve its meaning, words, order, casing, punctuation at split boundaries, terminology, humor, candor, and technical precision. Do not summarize, polish, correct, embellish, or synthesize spoken content in presenter notes. This verbatim requirement does not apply to compressed on-slide copy.
+Use the assigned source passage for every substantive slide. Preserve its meaning, words, order, casing, punctuation at split boundaries, terminology, humor, candor, and technical precision, except for the required ASCII punctuation normalization. Do not summarize, polish, correct, embellish, or synthesize spoken content in presenter notes. This verbatim requirement does not apply to compressed on-slide copy.
 
 Format the passage as a semantic Markdown hierarchy:
 
@@ -88,7 +89,7 @@ After allocating the spoken notes, add a next-thought preview to each applicable
 
 - Copy the first spoken bullet of the next slide, or its first natural clause when the bullet is long.
 - Stop after that clause or sentence; never copy several sentences or an entire next-slide note group into the preview.
-- Preserve its words, casing, and punctuation; append an ellipsis, wrap it in parentheses, and place it as the final level-0 bullet: `- (The next thought begins here…)`. Add a leading ellipsis when copying a mid-sentence continuation: `- (… then the consequence follows…)`.
+- Preserve its words, casing, and punctuation; append an ellipsis, wrap it in parentheses, and place it as the final level-0 bullet: `- (The next thought begins here...)`. Add a leading ellipsis when copying a mid-sentence continuation: `- (... then the consequence follows...)`.
 - Treat the preview as non-spoken. Exclude it from the outgoing slide's counts and coverage; assign the source only to the incoming slide.
 - Omit it when no spoken thought follows.
 

@@ -2,9 +2,9 @@
 
 <original_verbatim_text>
 
-The first and foremost myth that I want to dispel is the claim that “CS is now a dying field.” This dangerous rhetoric is only amplified by AI tech bros and CEOs, especially when Dario Amodei (CEO of Anthropic) himself says things like:
+The first and foremost myth that I want to dispel is the claim that "CS is now a dying field." This dangerous rhetoric is only amplified by AI tech bros and CEOs, especially when Dario Amodei (CEO of Anthropic) himself says things like:
 
-> _“I think coding is going away first, or coding is being done by the AI models first, and then the broader task of software engineering will take longer.”_
+> _"I think coding is going away first, or coding is being done by the AI models first, and then the broader task of software engineering will take longer."_
 
 Notably, he predicts that coding itself will disappear.
 
@@ -12,25 +12,25 @@ Notably, he predicts that coding itself will disappear.
 
 <expected_on_slide_content>
 
-_“I think coding is going away first, or coding is being done by the AI models first, and then the broader task of software engineering will take longer.”_
+_"I think coding is going away first, or coding is being done by the AI models first, and then the broader task of software engineering will take longer."_
 
 </expected_on_slide_content>
 
 <expected_presenter_notes>
 
-- The first and foremost myth that I want to dispel is the claim that “CS is now a dying field.”
+- The first and foremost myth that I want to dispel is the claim that "CS is now a dying field."
   - This dangerous rhetoric is only amplified by AI tech bros and CEOs, especially when Dario Amodei (CEO of Anthropic) himself says things like:
 - [Read slide.]
-- (Notably, he predicts that coding itself will disappear.…)
+- (Notably, he predicts that coding itself will disappear....)
 
 </expected_presenter_notes>
 
 <anti_example>
 
-Title: “CS Is Now a Dying Field”
+Title: "CS Is Now a Dying Field"
 
-- The claim that **“CS is now a dying field.”**
-  - _“I think coding is going away first, or coding is being done by the AI models first, and then the broader task of software engineering will take longer.”_
+- The claim that **"CS is now a dying field."**
+  - _"I think coding is going away first, or coding is being done by the AI models first, and then the broader task of software engineering will take longer."_
 
 </anti_example>
 

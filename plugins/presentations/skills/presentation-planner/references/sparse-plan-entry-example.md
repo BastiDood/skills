@@ -11,9 +11,9 @@
 
 #### Source Allocation
 
-- Source section or location: Paragraph beginning “Context makes or breaks”
-- Starts with: “Context makes or breaks”
-- Ends with: “the context you provide.”
+- Source section or location: Paragraph beginning "Context makes or breaks"
+- Starts with: "Context makes or breaks"
+- Ends with: "the context you provide."
 - Presenter-note word count: 31
 - Presenter-note character count: 173
 - Pacing status: Normal
@@ -37,11 +37,11 @@
 - Garbage in, garbage out.
   - Your outputs are only as good as the inputs you provide.
 - Be mindful of the context you provide.
-- (This is especially important because LLMs don’t have infinite memory.…)
+- (This is especially important because LLMs don't have infinite memory....)
 
 #### Transition to the Next Slide
 
-- Next-thought preview: (This is especially important because LLMs don’t have infinite memory.…)
+- Next-thought preview: (This is especially important because LLMs don't have infinite memory....)
 - Slide action: Cut
 - Continuity: Replace the principle with the context-window limit.
 - Reason: Move from the operating rule to the constraint that makes it necessary.

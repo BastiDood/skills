@@ -2,9 +2,9 @@
 
 <original_verbatim_text>
 
-Well, in the past year, I’ve learned that the biggest paradox in this post-AI world is that AI tools don’t make work fewer and easier. Just because we can produce output faster doesn’t mean the work ever ends, right? In reality, AI tools only intensify the work now that we can delegate the tedious parts away. But there will always be more work to do.
+Well, in the past year, I've learned that the biggest paradox in this post-AI world is that AI tools don't make work fewer and easier. Just because we can produce output faster doesn't mean the work ever ends, right? In reality, AI tools only intensify the work now that we can delegate the tedious parts away. But there will always be more work to do.
 
-My job as a software engineer doesn’t stop just because there’s AI in the mix.
+My job as a software engineer doesn't stop just because there's AI in the mix.
 
 - I have to design new systems.
 - I have to maintain and monitor existing systems.
@@ -12,7 +12,7 @@ My job as a software engineer doesn’t stop just because there’s AI in the mi
 - I have to optimize the sluggish parts in apps.
 - I have to debug quickly when production catches on fire.
 
-The main difference is that I can do so much more of that now. The question isn’t whether there is any more work to do, but whether you can handle the intensified volumes of work.
+The main difference is that I can do so much more of that now. The question isn't whether there is any more work to do, but whether you can handle the intensified volumes of work.
 
 </original_verbatim_text>
 
@@ -30,18 +30,18 @@ The main difference is that I can do so much more of that now. The question isn�
 
 <expected_presenter_notes>
 
-- Well, in the past year, I’ve learned that the biggest paradox in this post-AI world is that AI tools don’t make work fewer and easier.
-  - Just because we can produce output faster doesn’t mean the work ever ends, right?
+- Well, in the past year, I've learned that the biggest paradox in this post-AI world is that AI tools don't make work fewer and easier.
+  - Just because we can produce output faster doesn't mean the work ever ends, right?
   - In reality, AI tools only intensify the work now that we can delegate the tedious parts away.
   - But there will always be more work to do.
-- My job as a software engineer doesn’t stop just because there’s AI in the mix.
+- My job as a software engineer doesn't stop just because there's AI in the mix.
   - I have to design new systems.
   - I have to maintain and monitor existing systems.
   - I have to investigate performance bottlenecks.
   - I have to optimize the sluggish parts in apps.
   - I have to debug quickly when production catches on fire.
 - The main difference is that I can do so much more of that now.
-  - The question isn’t whether there is any more work to do, but whether you can handle the intensified volumes of work.
+  - The question isn't whether there is any more work to do, but whether you can handle the intensified volumes of work.
 
 </expected_presenter_notes>
 
@@ -54,7 +54,7 @@ Slide 1:
 
 Slide 2:
 
-- My job as a software engineer doesn’t stop just because there’s AI in the mix.
+- My job as a software engineer doesn't stop just because there's AI in the mix.
   - I have to design new systems.
   - I have to maintain and monitor existing systems.
   - I have to investigate performance bottlenecks.
@@ -64,7 +64,7 @@ Slide 2:
 Slide 3:
 
 - The main difference is that I can do so much more of that now.
-  - The question isn’t whether there is any more work to do, but whether you can handle the intensified volumes of work.
+  - The question isn't whether there is any more work to do, but whether you can handle the intensified volumes of work.
 
 </anti_example>
 
