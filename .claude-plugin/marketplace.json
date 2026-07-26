@@ -5,6 +5,9 @@
 		"email": "ortiz@bastidood.dev"
 	},
 	"description": "Opinionated software engineering skills by BastiDood.",
+	"interface": {
+		"displayName": "BastiDood"
+	},
 	"plugins": [
 		{
 			"name": "workflows",

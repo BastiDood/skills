@@ -1,5 +1,5 @@
 {
-	"$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
 	"name": "observability",
-	"version": "0.1.1"
+	"version": "0.1.1",
+	"interface": { "displayName": "Observability" }
 }

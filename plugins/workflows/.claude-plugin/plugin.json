@@ -1,5 +1,5 @@
 {
-	"$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
 	"name": "workflows",
-	"version": "0.1.2"
+	"version": "0.1.2",
+	"interface": { "displayName": "Workflows" }
 }
