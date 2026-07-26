@@ -1,6 +1,6 @@
 ---
 name: presentation-planner
-description: Turn a long talk script, transcript, outline, or source document into a reviewable, implementation-ready Markdown presentation plan. Use when Codex needs to divide a speaker's material into consistently paced slides, format verbatim source passages as structured presenter-note bullets, extract naturally cased slide cues from those passages, mark emphasized keywords, choose an appropriate slide form for each spoken beat, specify only the visuals and builds the content requires, plan transitions, and produce a standalone plan without creating a slide deck.
+description: Turn a long talk script, transcript, outline, or source document into a reviewable, implementation-ready Markdown presentation plan. Use when Codex needs to divide a speaker's material into consistently paced slides, format source passages as semantically nested presenter-note bullets, extract naturally cased slide cues from those passages, mark emphasized keywords, choose an appropriate slide form for each spoken beat, specify only the visuals and builds the content requires, plan transitions, and produce a standalone plan without creating a slide deck.
 ---
 
 # Basti Presentation Planner
@@ -67,25 +67,37 @@ Infer missing details when the source makes them clear. Ask only about ambiguity
 - Write audience-facing titles as natural claims or questions a presenter could plausibly say aloud.
 - Use **Title Case without Prepositions and Articles** for every presentation title, section title, and slide title. Keep articles such as `a`, `an`, and `the` and prepositions such as `of`, `in`, `for`, `with`, and `to` lowercase unless they are the first or last word. Preserve the intended capitalization of acronyms, product names, and code identifiers.
 
-## Structured Verbatim Presenter Notes
+## Semantically Structured Presenter Notes
 
-Copy the assigned source passage verbatim into the presenter notes for every substantive slide. Preserve the original wording, sentence order, capitalization, grammar, punctuation, terminology, humor, candor, repetition, and level of technical precision.
+Use the assigned source passage as the presenter notes for every substantive slide. Preserve its meaning, vocabulary, source order, capitalization, terminology, humor, candor, and technical precision. Reuse source sentences directly by default.
 
-Do not paraphrase, summarize, polish, correct, reorder, or synthesize presenter-note text. Do not add transitions, jokes, examples, caveats, delivery language, or new ideas. Preserve audience prompts, live-demo cues, pauses, and delivery cues only when they already exist in the source.
+Do not summarize, polish, correct, embellish, or synthesize new spoken content. Structural editing is permitted: split prose into bullets, divide a long sentence at a natural clause boundary, retain source list depth, and mark a source-authored handoff. Preserve all words and their order within each resulting span. Keep the source punctuation at a split boundary.
 
-Format the verbatim passage as a Markdown bullet hierarchy rather than a prose block:
+Format the passage as a semantic Markdown bullet hierarchy rather than a prose block:
 
-- Treat each ordinary source paragraph as one note group.
-- Use the paragraph's key idea, topic sentence, transition, question, or colon-ended setup as the level-0 main bullet.
-- Put its supporting sentences beneath it as level-1 sub-bullets in source order.
-- Use one sentence per bullet by default.
-- Keep two tightly coupled sentences in one bullet when separating them would remove necessary context, especially when the second sentence introduces a list.
-- A sentence may be divided at a natural clause ending in a colon. Keep both resulting spans verbatim and place the introduced material beneath the colon-ended setup.
-- Preserve paragraph boundaries as separate level-0 note groups. Unlike an on-slide bullet hierarchy, one slide's presenter notes may contain multiple main-bullet groups.
-- If one source paragraph contains independent key ideas that would compete as main bullets, prefer an additional slide boundary instead of flattening the paragraph into a long note block.
-- Treat Markdown list markers and indentation as structure only; they are not additions to the spoken script.
+- Use a level-0 bullet for each new spoken move: a claim, transition, question, setup, conclusion, or independent observation.
+- Nest a span only when it supports, explains, qualifies, exemplifies, enumerates, completes, or answers its parent.
+- Keep independent sentences as level-0 siblings even when they came from the same source paragraph. Do not make the first sentence a parent merely because it came first.
+- Allow several level-0 groups on one slide when they perform one cumulative beat and fit the pacing limits. Split them when they create separate audience tasks or exceed those limits.
+- Use one sentence per bullet by default. Keep tightly coupled sentences together when separating them would obscure their relationship.
+- Divide a long sentence at a colon, semicolon, dash, or strong comma boundary when the parts are easier to deliver separately. Make a dependent continuation a child; make an independent continuation a sibling.
+- Preserve the structure of source-authored lists. Put a list introduced by prose one level below its setup and preserve nested list items one further level down. Use levels 0–2 as the normal maximum; go deeper only when the source itself requires it.
+- Treat Markdown list markers and indentation as structure only; they are not spoken additions.
 
-Split the source across slides only at natural sentence, paragraph, or section boundaries. Preserve source order across slides and avoid duplicating passages. Use a source-authored closing sentence or question as the spoken bridge when available; otherwise record that the source contains no spoken bridge.
+Prefer slide boundaries between complete level-0 groups. When pacing or visual continuity requires a split inside a group, retain the continuing bullets' indentation on the next slide, even when that slide begins at level 1 or 2. Do not repeat or invent a parent solely to make the slide-local list self-contained.
+
+After allocating the spoken notes, add a next-thought preview to each applicable non-final slide:
+
+- Copy the first spoken bullet of the next slide, or its first natural clause when the bullet is long.
+- Append an ellipsis, wrap the copied span in parentheses, and place it as the final level-0 bullet of the outgoing slide: `- (The next thought begins here…)`.
+- Preserve the copied words, capitalization, and source punctuation. When the copied span begins mid-sentence, use a leading ellipsis as well: `- (… then the consequence follows…)`.
+- Treat the preview as a non-spoken presenter cue. Speak the source span only when it appears normally on the next slide.
+- Exclude the preview copy from the outgoing slide's word count, character count, and source coverage. Map the source span only to the incoming slide.
+- Omit the preview when there is no next spoken thought, including the final slide.
+
+Preserve source-authored parentheses around spoken asides, pauses, and questions; these remain spoken content and are not next-thought previews.
+
+Use square brackets only for terse, non-spoken delivery cues such as `[Read slide.]`, `[Pause for questions.]`, or `[Advance.]`. Add a cue only when the slide interaction requires it.
 
 ## Presenter Note Pacing
 
@@ -108,7 +120,7 @@ Apply the stricter category reached by either word count or normalized character
 
 Use these counts as a practical proxy for avoiding a presenter-note scrollbar. The application viewport can vary, but the limits preserve the observed pacing distribution.
 
-Count only the verbatim speaker text. Exclude Markdown list markers, indentation, and other structural notation.
+Count only the spoken source text assigned to the slide. Exclude Markdown list markers, indentation, parenthesized next-thought previews copied from the next slide, square-bracket delivery cues, and other structural notation.
 
 ## Transition Grammar
 
@@ -154,15 +166,15 @@ Assign each beat the simplest fitting slide form:
 
 Do not use `diagram` as a generic synonym for `visual`. Do not repeat one diagram template across unrelated beats.
 
-Measure the verbatim passage assigned to each slide. Add a slide boundary when the passage crosses the pacing limits, even when the narrative job or visual remains the same. Preserve the visual through a build, Morph, or near-duplicate slide when needed.
+Measure the spoken passage assigned to each slide. Add a slide boundary when the passage crosses the pacing limits, even when the narrative job or visual remains the same. Preserve the visual through a build, Morph, or near-duplicate slide when needed.
 
 ### 4. Write the Slide Production Script
 
-Copy the assigned presenter-note passage verbatim and format it as structured note bullets. Then extract the on-slide title and bullets from that same passage. Preserve the script's vocabulary, capitalization, and sequence; do not replace it with a synthesized takeaway or tagline.
+Format the assigned presenter-note passage as semantically nested note bullets. Then extract the on-slide title and bullets from that same passage. Preserve the script's vocabulary, capitalization, and sequence; do not replace it with a synthesized takeaway or tagline.
 
 Use direct alignment by default: each visible bullet cues the corresponding current portion of the presenter notes. Use bridge alignment only when the script itself deliberately introduces the next visible idea; identify that choice explicitly in `Slide Treatment`.
 
-For a bullet-driven slide, select one short contiguous source phrase as the main bullet's key idea. Select short contiguous source phrases that support, explain, qualify, or enumerate that idea as sub-bullets. Keep every level verbatim and in source order.
+For a bullet-driven slide, select one short contiguous source phrase as the main bullet's key idea. Select short contiguous source phrases that support, explain, qualify, or enumerate that idea as sub-bullets. Keep every level in source order and preserve the words within each selected span.
 
 Select naturally cased source spans for on-slide bullets. Start prose bullets and sub-bullets with a capitalized source word, but preserve lowercase technical identifiers and other literals exactly. Never convert the body hierarchy into all-lowercase placeholders or title case.
 
@@ -180,7 +192,7 @@ If a required visual cannot yet be specified completely, add a blockquote beginn
 
 Map every material source section to planned slides. Consolidate repetition, but do not silently drop unique reasoning, evidence, caveats, examples, demonstrations, or conclusions.
 
-Do not condense source passages inside presenter notes. Allocate them verbatim, defer them, or omit them explicitly. Record deferred and intentionally omitted material with the reason. Keep optional detail in an appendix only when the audience or delivery format benefits from it.
+Do not condense source passages inside presenter notes. Allocate them faithfully, defer them, or omit them explicitly. Record deferred and intentionally omitted material with the reason. Keep optional detail in an appendix only when the audience or delivery format benefits from it.
 
 ### 6. Review Pacing
 
@@ -198,12 +210,15 @@ Before writing the final plan, [read the complete presentation-plan template](re
 
 ## Few-Shot Examples
 
-Treat the XML tags in these examples as prompt delimiters, not as presentation-plan output. Apply the demonstrated transformation to the user's actual script without changing its words.
+Before producing any plan, read every example below. Treat the XML tags as prompt delimiters, not as presentation-plan output. Apply the demonstrated transformations to the user's actual script without changing the words inside each selected span.
 
-- Before producing any plan, [review the baseline transformation from a main idea to supporting sentences](references/main-idea-with-supporting-sentences-example.md).
-- When a source sentence introduces supporting material with a colon, [follow the colon-ended setup pattern](references/colon-ended-setup-example.md).
-- When a candidate slide contains multiple source paragraphs or independent ideas, [follow the source-splitting example](references/multiple-source-paragraphs-example.md).
+- [Review how semantic dependency determines whether sentences become siblings or children](references/main-idea-with-supporting-sentences-example.md).
+- When prose introduces a list or the source already contains nested items, [preserve the demonstrated list depth](references/colon-ended-setup-example.md).
+- When a candidate slide contains several source paragraphs or independent ideas, [choose between one cumulative beat and a slide split as demonstrated](references/multiple-source-paragraphs-example.md).
 - When an on-slide phrase begins with a lowercase technical identifier, [preserve its casing as demonstrated](references/lowercase-technical-identifier-example.md).
+- When pacing divides a semantic group across slides, [retain the continuation's original indentation](references/cross-slide-continuation-example.md).
+- When a long sentence contains a deliverable dependent clause, [split it without losing its punctuation or lowercase continuation](references/dependent-clause-split-example.md).
+- When one slide hands off to the next, [copy the next spoken thought into the outgoing notes as a parenthesized preview](references/next-slide-preview-example.md).
 
 ## Acceptance Checklist
 
@@ -211,16 +226,22 @@ Before delivery, verify all of the following:
 
 - The plan communicates one coherent audience outcome.
 - Every slide has one necessary narrative job.
-- Every presenter-note body is copied verbatim from a documented source span.
-- No presenter-note text is paraphrased, summarized, polished, reordered, corrected, or synthesized.
+- Every spoken presenter-note span comes from a documented source span.
+- No presenter-note text is summarized, polished, reordered, corrected, embellished, or synthesized.
 - Presenter notes use Markdown list hierarchy, not prose paragraphs.
-- Each ordinary source paragraph maps to a level-0 main bullet with its supporting sentences as level-1 sub-bullets.
-- Presenter-note structure preserves the exact capitalization, punctuation, and order of the source text.
+- Presenter-note nesting expresses semantic dependency rather than paragraph position.
+- Independent spoken moves are level-0 siblings; supporting, explanatory, qualifying, exemplary, enumerative, completing, or answering spans are children.
+- Source-authored list depth is preserved, normally within levels 0–2.
+- Clause splits preserve the source words, punctuation at the boundary, capitalization, and order.
+- A cross-slide continuation retains its prior indentation without an invented or repeated parent.
+- Every applicable non-final slide ends with one parenthesized, ellipsis-marked preview copied from the next slide's first spoken bullet or clause.
+- Parenthesized next-thought previews are non-spoken and excluded from outgoing pacing and coverage; source-authored parenthetical text remains spoken.
+- Square-bracket delivery cues remain terse and non-spoken.
 - On-slide titles and bullets reuse the assigned script's exact vocabulary.
 - On-slide prose bullets use natural sentence case and are never mechanically lowercased or title-cased.
 - Lowercase technical identifiers and other literal tokens preserve their source casing.
-- Every bullet-driven slide has one verbatim main bullet containing the key idea.
-- Supporting sub-bullets are verbatim, subordinate to the main point, and kept in source order.
+- Every bullet-driven slide has one source-derived main bullet containing the key idea.
+- Supporting sub-bullets remain subordinate to the main point and keep source order.
 - Bullet hierarchy follows the corresponding presenter-note passage and acts as a glanceable speaking cue.
 - Load-bearing bullet keywords use `**...**` or `*...*` emphasis markers.
 - Notes stay within 90 words and 525 characters by default; longer notes follow the review, split, and exception rules.
@@ -230,7 +251,7 @@ Before delivery, verify all of the following:
 - Text-led and nearly empty slides contain no filler asset, decorative mini-diagram, or unnecessary visual placeholder.
 - The deck does not repeat one diagram silhouette across unrelated beats.
 - Code, direct evidence, and diagrams receive the full emphasis they require when they carry the beat.
-- Every logical jump uses a source-authored spoken bridge when available or an explicit visual transition.
+- Every transition preserves the intended spoken sequence and identifies the next thought without inventing new language.
 - Motion describes meaning rather than decoration.
 - Every visual placeholder is required and actionable; slides that need no visual contain no placeholder.
 - All material source content is accounted for.

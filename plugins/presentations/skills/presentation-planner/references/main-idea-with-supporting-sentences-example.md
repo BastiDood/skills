@@ -1,29 +1,29 @@
-# Main Idea with Supporting Sentences
+# Semantic Siblings and Supporting Sentences
 
 <original_verbatim_text>
 
-Concurrency lets a server wait on many connections. The work is mostly I/O-bound. Tasks sleep until data arrives.
+Context makes or breaks your experience with an LLM. Garbage in, garbage out. Your outputs are only as good as the inputs you provide. Be mindful of the context you provide.
 
 </original_verbatim_text>
 
 <expected_on_slide_content>
 
-- **Concurrency** lets a server wait on many connections.
-  - The work is mostly **I/O-bound**.
-  - Tasks sleep until data arrives.
+- **Garbage in, garbage out.**
+  - Your outputs are only as good as the **inputs** you provide.
 
 </expected_on_slide_content>
 
 <expected_presenter_notes>
 
-- Concurrency lets a server wait on many connections.
-  - The work is mostly I/O-bound.
-  - Tasks sleep until data arrives.
+- Context makes or breaks your experience with an LLM.
+- Garbage in, garbage out.
+  - Your outputs are only as good as the inputs you provide.
+- Be mindful of the context you provide.
 
 </expected_presenter_notes>
 
 <rule_demonstrated>
 
-The prose begins in sentence case. Both outputs preserve the original wording, capitalization, punctuation, and order. Only the on-slide emphasis markers are added.
+Hierarchy follows meaning, not sentence position or paragraph membership. The third sentence explains the second and becomes its child. The first and fourth sentences perform independent spoken moves and remain level-0 siblings. The on-slide hierarchy selects the one group that carries the visual beat instead of copying every note bullet.
 
 </rule_demonstrated>

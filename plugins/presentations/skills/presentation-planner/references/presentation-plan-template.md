@@ -66,7 +66,7 @@ State the one job this slide performs and why it exists at this point.
 
 #### On-Slide Content
 
-Extract the title and bullets from the verbatim presenter-note passage. Keep bullets in script order and use short contiguous phrases that cue what the speaker says next. Do not paraphrase or synthesize taglines.
+Extract the title and bullets from the source-derived presenter-note passage. Keep bullets in script order and use short contiguous phrases that cue what the speaker says next. Do not paraphrase or synthesize taglines.
 
 For bullet-driven slides, use this hierarchy:
 
@@ -76,7 +76,7 @@ For bullet-driven slides, use this hierarchy:
   - Literal identifiers such as `tokio::spawn` keep their exact casing.
 ```
 
-Use one main bullet. Add only the sub-bullets needed to support that point. Keep every phrase verbatim.
+Use one main bullet. Add only the sub-bullets needed to support that point. Preserve the words and order within every selected source phrase.
 
 Wrap load-bearing keywords in `**...**` or `*...*` so the slide-production workflow can render them in bold cyan. Include fenced code when code is the slide.
 
@@ -93,22 +93,26 @@ Wrap load-bearing keywords in `**...**` or `*...*` so the slide-production workf
 
 > Placeholder: Describe an unresolved required graphic, animation, or transition. Omit this block when no placeholder is needed.
 
-#### Presenter Notes (Structured Verbatim Script)
+#### Presenter Notes (Semantically Structured Script)
 
-Format the assigned source passage as level-0 and level-1 Markdown bullets. Preserve every spoken word, its capitalization, punctuation, and source order. Do not paraphrase, summarize, reorder, correct, or add language.
+Format the assigned source passage as a semantic Markdown hierarchy. Use level 0 for independent spoken moves, level 1 for direct support, and level 2 for source-authored nested material. Preserve the words, capitalization, punctuation at split boundaries, and source order within each span. Do not summarize, polish, correct, embellish, or synthesize spoken language.
 
 ```markdown
-- First sentence of a source paragraph.
-  - Supporting sentence from the same paragraph.
-  - Another supporting sentence from the same paragraph.
+- Independent opening claim.
+- A setup with direct support:
+  - Supporting sentence or source list item.
+    - Nested source list item when required.
+- Another independent move from the same source paragraph.
 
-- First sentence of the next source paragraph.
-  - Supporting sentence from that paragraph.
+- (First spoken bullet or clause copied from the next slide…)
+- [Non-spoken delivery cue.]
 ```
+
+Allow several level-0 groups when they form one cumulative beat. If a slide begins with level-1 or level-2 bullets continued from the previous slide, preserve that indentation without inventing a parent. End each applicable non-final slide with a level-0 parenthesized preview copied from the next slide's first spoken bullet or natural clause. Append an ellipsis and exclude this non-spoken preview from the outgoing slide's pacing counts and source coverage.
 
 #### Transition to the Next Slide
 
-- Spoken bridge: Quote the source-authored line or question that motivates the next slide, or write `None in source`.
+- Next-thought preview: Copy the exact parenthesized, ellipsis-marked preview used at the end of the presenter notes, or write `None` for the final slide or when no spoken thought follows.
 - Slide action: Cut, Build, Morph, Push, Fade, Wipe, or another explicit action.
 - Continuity: State what remains, changes, appears, or disappears.
 - Reason: Explain what the transition communicates.
