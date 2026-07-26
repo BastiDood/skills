@@ -1,6 +1,6 @@
 ---
 name: presentation-planner
-description: Turn a long talk script, transcript, outline, or source document into a reviewable, implementation-ready Markdown presentation plan. Use when Codex needs to divide a speaker's material into consistently paced slides, format verbatim source passages as structured presenter-note bullets, extract naturally cased slide cues from those passages, mark emphasized keywords, specify visuals and builds, plan transitions, and produce a standalone plan without creating a slide deck.
+description: Turn a long talk script, transcript, outline, or source document into a reviewable, implementation-ready Markdown presentation plan. Use when Codex needs to divide a speaker's material into consistently paced slides, format verbatim source passages as structured presenter-note bullets, extract naturally cased slide cues from those passages, mark emphasized keywords, choose an appropriate slide form for each spoken beat, specify only the visuals and builds the content requires, plan transitions, and produce a standalone plan without creating a slide deck.
 ---
 
 # Basti Presentation Planner
@@ -10,6 +10,8 @@ description: Turn a long talk script, transcript, outline, or source document in
 Produce a tactical Markdown production script for a presentation. Make the plan concrete enough that a separate creator can build the deck without rereading or reinterpreting the source script.
 
 Treat the slide as a visual aid for a spoken beat, not as a document. Let the audience look at the slide to understand what the speaker is discussing and listen to the speaker to understand what it means.
+
+Treat text, code, direct evidence, imagery, whitespace, and diagrams as different presentation materials. A diagram is optional, not a completion criterion.
 
 ## Boundaries
 
@@ -30,9 +32,30 @@ Infer missing details when the source makes them clear. Ask only about ambiguity
 
 ## House Principles
 
+### Deck-Level Scope
+
+- Let the content determine the mix of slide forms. Do not set or infer a quota for diagrams, images, charts, screenshots, builds, or transitions.
+- Make the sequence cumulative. Let each slide answer a question raised by the previous slide or create the question answered by the next.
+- Open with context, stakes, tension, or a question. Close by resolving the opening and stating the useful takeaway or action; do not rely on a generic thank-you as the conclusion.
+
+### Slide-Level Scope
+
 - Give each slide one narrative job and one primary claim.
-- Prefer one strong visual composition over grids of cards, panels, badges, or decorative UI.
+- Choose the simplest slide form that makes the beat legible. A text-led assertion, question, concise bullet hierarchy, quotation, or nearly empty beat is complete without a visual asset.
+- Prefer one coherent composition over grids of cards, panels, badges, or decorative UI.
 - Keep visible copy concise enough to understand at a glance.
+- Split the slide when the assigned passage contains more than one independent key idea instead of creating several competing main bullets.
+- Let complete code, a full diagram, a screenshot, a photograph, or a quotation dominate the slide when it is the evidence under discussion. Add no competing prose beyond an essential title or labels.
+- Allow text-only, bullet-only, image-only, code-only, diagram-only, and nearly empty slides when they create a deliberate beat.
+- Prefer another slide over smaller text or denser copy.
+
+### Diagram-Level Scope
+
+- Use a diagram only when relationships, sequence, structure, flow, causality, comparison, or change are central and the diagram improves understanding over direct text or evidence. Do not diagram a concept merely because it can be converted into boxes and arrows.
+- Never default to a repeated prose-left, framed-diagram-right composition. Do not invent decorative mini-diagrams to fill whitespace or satisfy the plan contract.
+
+### Copy-Level Scope
+
 - For bullet-driven slides, use a title or claim plus one main bullet and zero to four supporting sub-bullets as the default, not a quota. Use no bullets when code, a diagram, an image, or another primary visual carries the beat.
 - Derive titles and bullets from the exact vocabulary of the assigned source passage. Avoid synthesized slogans, marketing-style taglines, or abstract summaries that the speaker cannot locate in the notes at a glance.
 - For every bullet-driven slide, use one main bullet containing the verbatim key idea. Place verbatim supporting phrases beneath it as indented sub-bullets.
@@ -40,16 +63,9 @@ Infer missing details when the source makes them clear. Ask only about ambiguity
 - Use natural sentence case for audience-facing prose bullets and sub-bullets. Start them with a capitalized source word whenever the script provides one. Reserve title case for titles.
 - Never mechanically lowercase or title-case on-slide body copy. Preserve the source capitalization of acronyms, proper nouns, product names, file names, commands, paths, handles, code identifiers, and quoted wording.
 - Prefer a self-contained source phrase that begins with the intended capitalization. If the only faithful opening token is a lowercase literal such as `tokio::spawn`, preserve it rather than changing the source.
-- Split the slide when the assigned passage contains more than one independent key idea instead of creating several competing main bullets.
 - Wrap load-bearing keywords in `**bold markers**` or `*italic markers*`. Use one to three emphasized spans per sentence-sized bullet. Treat these markers as instructions for bold cyan emphasis during slide creation.
-- Place the corresponding source passage verbatim in presenter notes. Keep reasoning, qualifications, examples, and connective tissue in their original wording.
-- Let complete code, a full diagram, a screenshot, a photograph, or a quotation dominate the slide when it is the evidence under discussion. Add no competing prose beyond an essential title or labels.
-- Allow image-only, code-only, diagram-only, and nearly empty slides when they create a deliberate beat.
-- Prefer another slide over smaller text or denser copy.
 - Write audience-facing titles as natural claims or questions a presenter could plausibly say aloud.
 - Use **Title Case without Prepositions and Articles** for every presentation title, section title, and slide title. Keep articles such as `a`, `an`, and `the` and prepositions such as `of`, `in`, `for`, `with`, and `to` lowercase unless they are the first or last word. Preserve the intended capitalization of acronyms, product names, and code identifiers.
-- Make the sequence cumulative. Let each slide answer a question raised by the previous slide or create the question answered by the next.
-- Open with context, stakes, tension, or a question. Close by resolving the opening and stating the useful takeaway or action; do not rely on a generic thank-you as the conclusion.
 
 ## Structured Verbatim Presenter Notes
 
@@ -129,7 +145,14 @@ Describe the opening, development, pivot, resolution, and final audience state. 
 
 Divide the script by changes in audience task, not by paragraph length. Create a new beat when the speaker asks a new question, introduces a new claim, changes evidence, shifts emotional register, begins a demonstration, or needs a pause.
 
-Assign each beat a slide form: title, section marker, question, assertion, concise bullets, code, diagram, screenshot, photograph, quotation, demonstration, recap, call to action, or credits.
+Assign each beat the simplest fitting slide form:
+
+- Text-led: title, section marker, question, assertion, concise bullets, quotation, recap, call to action, or credits.
+- Evidence-led: code, screenshot, chart, table, photograph, document excerpt, or demonstration.
+- Relationship-led: a diagram, only when the audience must understand relationships, sequence, structure, flow, causality, comparison, or change.
+- Deliberate pause: a nearly empty slide that holds one phrase, one cue, or no additional content.
+
+Do not use `diagram` as a generic synonym for `visual`. Do not repeat one diagram template across unrelated beats.
 
 Measure the verbatim passage assigned to each slide. Add a slide boundary when the passage crosses the pacing limits, even when the narrative job or visual remains the same. Preserve the visual through a build, Morph, or near-duplicate slide when needed.
 
@@ -137,7 +160,7 @@ Measure the verbatim passage assigned to each slide. Add a slide boundary when t
 
 Copy the assigned presenter-note passage verbatim and format it as structured note bullets. Then extract the on-slide title and bullets from that same passage. Preserve the script's vocabulary, capitalization, and sequence; do not replace it with a synthesized takeaway or tagline.
 
-Use direct alignment by default: each visible bullet cues the corresponding current portion of the presenter notes. Use bridge alignment only when the script itself deliberately introduces the next visible idea; identify that choice explicitly in `Visual Implementation`.
+Use direct alignment by default: each visible bullet cues the corresponding current portion of the presenter notes. Use bridge alignment only when the script itself deliberately introduces the next visible idea; identify that choice explicitly in `Slide Treatment`.
 
 For a bullet-driven slide, select one short contiguous source phrase as the main bullet's key idea. Select short contiguous source phrases that support, explain, qualify, or enumerate that idea as sub-bullets. Keep every level verbatim and in source order.
 
@@ -145,11 +168,13 @@ Select naturally cased source spans for on-slide bullets. Start prose bullets an
 
 Mark one to three load-bearing terms per sentence-sized bullet with `**...**` or `*...*`. Do not emphasize decorative fragments or rewrite the source to create emphasis.
 
-Describe every element a slide-production workflow must implement, including what appears first, what changes, what remains, and what disappears.
+Describe only the elements required by the selected slide form, including what appears first, what changes, what remains, and what disappears. Do not manufacture elements merely to populate the plan contract.
 
-For code slides, include the exact code or identify the exact source range and the intended highlighted lines. For diagrams, name every node, relationship, label, reveal stage, and continuity requirement. For imagery, write a concrete image brief with subject, composition, aspect ratio, placement, and narrative purpose.
+For a text-led slide, write `None — text-led slide` for required visual or evidence and omit visual placeholders. Let typography, placement, emphasis, and whitespace carry the beat.
 
-If a visual cannot yet be specified completely, add a blockquote beginning with `Placeholder:` and describe the ideal graphic, animation, or transition in actionable language.
+For code slides, include the exact code or identify the exact source range and the intended highlighted lines. For diagrams, state the audience relationship the diagram clarifies and why direct text or evidence is insufficient; then name every node, relationship, label, reveal stage, and continuity requirement. For imagery, write a concrete image brief with subject, composition, aspect ratio, placement, and narrative purpose.
+
+If a required visual cannot yet be specified completely, add a blockquote beginning with `Placeholder:` and describe the ideal graphic, animation, or transition in actionable language. Do not add a placeholder to a slide that does not need a visual.
 
 ### 5. Preserve Source Coverage
 
@@ -161,7 +186,7 @@ Do not condense source passages inside presenter notes. Allocate them verbatim, 
 
 Record word count, character count, and pacing status for every substantive note body. Split above the default threshold and justify every retained exception. Estimate speaking time by slide and by section when duration is known. Use more slides for progressive technical explanations and fewer for simple statements. Treat slide count as a consequence of narrative pacing, not a target.
 
-Check for long runs of identical silhouettes. Vary the visual rhythm through content form, not decoration.
+Check for long runs of identical silhouettes. Vary the rhythm through content form, not decoration or interchangeable diagram motifs.
 
 ### 7. Deliver the Markdown Plan
 
@@ -243,16 +268,18 @@ Use one main bullet. Add only the sub-bullets needed to support that point. Keep
 
 Wrap load-bearing keywords in `**...**` or `*...*` so the slide-production workflow can render them in bold cyan. Include fenced code when code is the slide.
 
-#### Visual Implementation
+#### Slide Treatment
 
+- Lead format: Text-led, Evidence-led, Relationship-led, or Deliberate pause
 - Composition and hierarchy:
-- Primary visual or evidence:
-- Elements and labels:
-- Build or emphasis sequence:
+- Required visual or evidence: Write `None — text-led slide` when no asset is needed.
+- Diagram justification: Complete only for a relationship-led diagram; otherwise write `None`.
+- Required elements and labels: Write `None` when not applicable.
+- Build or emphasis sequence: Write `None` unless staged disclosure improves understanding.
 - Continuity from the previous slide:
 - Alignment mode: Direct or Bridge
 
-> Placeholder: Describe an unresolved graphic, animation, or transition when needed.
+> Placeholder: Describe an unresolved required graphic, animation, or transition. Omit this block when no placeholder is needed.
 
 #### Presenter Notes (Structured Verbatim Script)
 
@@ -278,8 +305,8 @@ For the final slide, replace the bridge with `End` and describe the intended clo
 
 #### Production Notes
 
-- Required assets or sources:
-- Code, diagram, or animation dependencies:
+- Required assets or sources: Write `None` when the slide needs no external asset or source.
+- Special production dependencies: List required code, diagrams, or animation; otherwise write `None`.
 - Accessibility or legibility considerations:
 - Verification needs:
 - Pacing-exception rationale:
@@ -293,7 +320,7 @@ Repeat the same headings for every slide.
 
 ### Asset Checklist
 
-Collect every photograph, screenshot, logo, code sample, diagram, quotation, and generated visual required by the plan.
+List only the photographs, screenshots, logos, code samples, diagrams, quotations, and generated visuals that the plan actually requires. Do not create assets for text-led slides merely to populate this checklist.
 
 ### Animation and Transition Map
 
@@ -485,10 +512,14 @@ Before delivery, verify all of the following:
 - Load-bearing bullet keywords use `**...**` or `*...*` emphasis markers.
 - Notes stay within 90 words and 525 characters by default; longer notes follow the review, split, and exception rules.
 - Presentation, section, and slide titles follow Title Case without Prepositions and Articles.
-- Code and diagrams receive the full visual emphasis they require.
+- Every slide uses the simplest fitting lead format, and no slide includes a diagram by default.
+- Every diagram clarifies an audience-critical relationship, sequence, structure, flow, causality, comparison, or change that direct text or evidence would communicate less clearly.
+- Text-led and nearly empty slides contain no filler asset, decorative mini-diagram, or unnecessary visual placeholder.
+- The deck does not repeat one diagram silhouette across unrelated beats.
+- Code, direct evidence, and diagrams receive the full emphasis they require when they carry the beat.
 - Every logical jump uses a source-authored spoken bridge when available or an explicit visual transition.
 - Motion describes meaning rather than decoration.
-- Every visual placeholder is actionable.
+- Every visual placeholder is required and actionable; slides that need no visual contain no placeholder.
 - All material source content is accounted for.
 - A separate slide-production workflow can execute the plan without reading the original script.
 - All high-impact open decisions are visible.
