@@ -25,7 +25,7 @@ Require:
 
 Do not require or inspect reference decks. Treat the house style in this skill as explicit custom formatting and create the deck from scratch. Do not use Codex Grid or imitate a prior deck unless the user explicitly changes the scope of this skill.
 
-Require the plan status to be `Approved for creation`. If the plan remains marked `Draft for review`, contains unresolved narrative decisions, or omits a required slide's audience-facing content or presenter script, stop and request an approved revision. Resolve ordinary production details without escalating them.
+Require the plan status to be `Approved for Creation`. If the plan remains marked `Draft for Review`, contains unresolved narrative decisions, or omits a required slide's audience-facing content or presenter script, stop and request an approved revision. Resolve ordinary production details without escalating them.
 
 ## Authority and Boundaries
 
