@@ -8,31 +8,38 @@
 	"plugins": [
 		{
 			"name": "workflows",
-			"source": "./plugins/workflows"
+			"source": "./plugins/workflows",
+			"strict": true
 		},
 		{
 			"name": "architecture",
-			"source": "./plugins/architecture"
+			"source": "./plugins/architecture",
+			"strict": true
 		},
 		{
 			"name": "typescript",
-			"source": "./plugins/typescript"
+			"source": "./plugins/typescript",
+			"strict": true
 		},
 		{
 			"name": "react",
-			"source": "./plugins/react"
+			"source": "./plugins/react",
+			"strict": true
 		},
 		{
 			"name": "svelte",
-			"source": "./plugins/svelte"
+			"source": "./plugins/svelte",
+			"strict": true
 		},
 		{
 			"name": "observability",
-			"source": "./plugins/observability"
+			"source": "./plugins/observability",
+			"strict": true
 		},
 		{
 			"name": "presentations",
-			"source": "./plugins/presentations"
+			"source": "./plugins/presentations",
+			"strict": true
 		}
 	]
 }
