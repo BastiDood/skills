@@ -1,2 +1,4 @@
 interface:
   display_name: 'TanStack React Table Best Practices'
+  icon_small: './assets/tanstack.svg'
+  icon_large: './assets/tanstack.svg'

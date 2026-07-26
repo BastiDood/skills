@@ -1,2 +1,4 @@
 interface:
   display_name: 'GitHub Pull Request Comments'
+  icon_small: './assets/github-light.svg'
+  icon_large: './assets/github-light.svg'

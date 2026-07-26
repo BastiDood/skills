@@ -1,2 +1,4 @@
 interface:
   display_name: 'Git Commit'
+  icon_small: './assets/git.svg'
+  icon_large: './assets/git.svg'
