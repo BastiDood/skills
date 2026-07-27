@@ -23,9 +23,9 @@ Require:
 - A requested output format and destination, or enough context to apply the Presentations skill defaults.
 - Resolved high-impact decisions that would change the narrative, slide count, mandatory content, or audience outcome.
 
-Do not require or inspect reference decks. Treat the house style in this skill as explicit custom formatting and create the deck from scratch. Do not use Codex Grid or imitate a prior deck unless the user explicitly changes the scope of this skill.
+Use `Basti Slides - Template.pptx` as the deck foundation. Retain its Basti Slides theme, slide master, and existing slide layouts in the delivered `.pptx`; do not fall back to PowerPoint's Default theme or layouts. Do not require or inspect any other reference deck, use Codex Grid, or imitate a prior deck unless the user explicitly changes the scope of this skill.
 
-Require the plan status to be `Approved for creation`. If the plan remains marked `Draft for review`, contains unresolved narrative decisions, or omits a required slide's audience-facing content or presenter script, stop and request an approved revision. Resolve ordinary production details without escalating them.
+Require the plan status to be `Approved for Creation`. If the plan remains marked `Draft for Review`, contains unresolved narrative decisions, or omits a required slide's audience-facing content or presenter script, stop and request an approved revision. Resolve ordinary production details without escalating them.
 
 ## Authority and Boundaries
 
@@ -47,21 +47,34 @@ Treat simplicity and readability as the visual identity.
 - Use JetBrains Mono for code.
 - Use pale gray `#ABB2B1` for primary body text.
 - Use coral `#EF4E4D` for primary title emphasis.
-- Use cyan `#00B0F0`, green `#83C271`, amber `#D19A66`, and purple `#D55FDE` sparingly as semantic accents.
+- Use cyan `#00B0F0` for the main accent, green `#83C271` as a secondary accent. Green mostly applies when needing separation from cyan.
+- Use purple `#D55FDE` as a semantic accent for code keywords.
 - Interpret `**...**` in `On-Slide Content` as bold cyan emphasis. Interpret `*...*` as bold italic cyan emphasis. Remove the Markdown delimiters from rendered text.
 - Keep emphasis selective. Preserve one to three marked spans per sentence-sized bullet and do not add unplanned highlights.
-- Preserve the planned bullet hierarchy. Render the single main bullet as the dominant point and indent supporting sub-bullets clearly without reducing them below the readable body-text range.
+- Preserve the planned bullet hierarchy. Render the single main bullet as the dominant point and indent supporting sub-bullets clearly.
 - Preserve the plan's natural sentence casing for audience-facing bullets and sub-bullets. Never force body copy to lowercase or title case.
 - Preserve the exact casing of acronyms, proper nouns, product names, file names, commands, paths, handles, code identifiers, and quoted wording.
 - Keep title slides minimal.
-- Use **Title Case without Prepositions and Articles** for every presentation title, section title, and slide title. Keep articles such as `a`, `an`, and `the` and prepositions such as `of`, `in`, `for`, `with`, and `to` lowercase unless they are the first or last word. Preserve the intended capitalization of acronyms, product names, and code identifiers.
+- Use the slide title text derived from the plan headings. Do not independently title-case, shorten, or rewrite it. Preserve the intended capitalization of acronyms, product names, and code identifiers.
 - Prefer one flat composition over cards, dashboards, pills, badges, or ornamental UI chrome.
 - Keep margins balanced and alignment obvious.
-- Use approximately 50–60 pt for deck titles, 35–48 pt for slide titles, 24–32 pt for ordinary audience text, and 16–26 pt for code. Change composition or request an approved plan revision before shrinking type.
-- Prevent one-line titles from wrapping.
+- Use 44 pt for slide titles. If this makes a title wrap, decrease its size only enough to keep it on one line; change composition or request an approved plan revision before making it materially smaller.
+- Use 32 pt for main bullet text where space permits, and never use less than 24 pt for main bullet text. Use a smaller size for each sub-bullet level than its parent, while maintaining a 24 pt minimum. If these rules cannot both be met, change the composition or request an approved plan revision rather than breaking the hierarchy or readability floor.
+- Use approximately 50–60 pt for deck titles and 16–26 pt for code. Change composition or request an approved plan revision before shrinking type below the stated minimums.
 - Use large text as the visual when a short statement is the whole beat.
 - Let code, a complete diagram, a screenshot, a photograph, or a quotation occupy the canvas when it is the primary evidence. Add no competing prose beyond essential titles and labels.
 - Vary slide silhouettes through the planned content form rather than decorative styling.
+
+## Basti Slide Layouts
+
+Build the presentation from `Basti Slides - Template.pptx` and retain its existing layouts. Assign a layout before placing content; use the selected layout's placeholders where they serve the planned composition, then add only slide-level shapes or text needed by the plan.
+
+- Use `Title Slide` for the opening title slide.
+- Use `Section Header` for section-divider slides.
+- Use `Title and Text Content` for standard title-and-bullet, title-and-text, or title-and-single-visual slides.
+- Use `Title and Diagram` for title-led diagrams, code, a single dominant visual, or progressive builds.
+
+Never create, duplicate, rename, edit, or delete a slide master, slide layout, or layout placeholder. Never use PowerPoint's Default layouts. Do not manufacture a replacement layout from free-positioned objects; choose the closest existing Basti layout and adapt the slide-level composition within it.
 
 ## Execution Workflow
 
@@ -89,7 +102,7 @@ Use the planned copy exactly. Preserve its words, capitalization, order, hierarc
 
 Render `**...**` spans in bold cyan and `*...*` spans in bold italic cyan. Verify that the emphasized words remain exact excerpts from the corresponding presenter notes and that the bullets retain script order.
 
-For bullet-driven slides, preserve one main bullet containing the key idea and its indented supporting sub-bullets. Do not flatten the hierarchy, promote a supporting phrase, merge levels, or create additional main bullets.
+For bullet-driven slides, preserve 1-3 main bullets containing the key idea and optionally indented supporting sub-bullets. Do not flatten the hierarchy, promote a supporting phrase, merge levels, reorder sub-bullets, or create additional main bullets.
 
 Never paste presenter narration onto the canvas to solve a sparse layout. Sparse slides are valid.
 
@@ -135,7 +148,7 @@ If the implementation tool cannot reproduce a specified transition, preserve the
 
 Follow the Presentations skill's render-and-inspect workflow. Inspect every slide individually at full size and use a contact sheet only for deck-level rhythm.
 
-Fix all unintended overlap, clipping, wrapping, low contrast, broken connectors, inconsistent alignment, unresolved placeholders, missing notes, and incorrect builds. Verify that titles follow Title Case without Prepositions and Articles and remain on one line, prose bullets retain natural sentence case, emphasized keywords render in bold cyan, every bullet-driven slide preserves one dominant main bullet with indented supporting sub-bullets, bullets retain script order, presenter notes retain their level-0 and level-1 paragraph hierarchy, code remains legible, and diagrams have readable labels.
+Fix all unintended overlap, clipping, wrapping, low contrast, broken connectors, inconsistent alignment, unresolved placeholders, missing notes, and incorrect builds. Verify that every slide title exactly matches the `{title text}` portion of its plan heading and remains on one line, prose bullets retain natural sentence case, emphasized keywords render in bold cyan, every bullet-driven slide preserves at most three dominant main bullets with indented supporting sub-bullets, bullets retain script order, presenter notes retain their level-0 and level-1 paragraph hierarchy, code remains legible, and diagrams have readable labels. Verify that every slide uses an existing Basti Slides layout and that no Default layout, new master, or new layout was created.
 
 Review the deck as a sequence. Confirm that progressive visuals preserve continuity, transitions express the planned relationship, and no slide invites the audience to read a wall of text.
 
@@ -149,6 +162,7 @@ Record deviations in the scratch workspace and summarize material deviations in 
 
 Map plan sections as follows:
 
+- The `Slide Number - {title text}` heading identifies the slide and supplies its visible title: use the exact `{title text}` after the first ` - ` delimiter, without the slide number or delimiter. Do not derive the title from `On-Slide Content`.
 - `Presentation Brief` and `Narrative Arc` guide deck-level pacing and quality review; do not render them as slides unless the slide plan says so.
 - `Narrative Purpose` guides implementation judgment; do not expose it to the audience.
 - `Source Allocation` verifies provenance, note length, and pacing status; do not expose it to the audience.
@@ -166,11 +180,12 @@ Deliver only when all of the following are true:
 - Every planned slide exists in the correct order.
 - Every slide preserves its planned narrative purpose.
 - Visible copy remains concise, readable, and audience-facing.
-- Visible titles and bullets preserve the planned script-derived wording and order.
+- Visible titles exactly match the `{title text}` portion of their `Slide Number - {title text}` headings; visible bullets preserve the planned script-derived wording and order.
 - Visible prose bullets preserve the plan's natural sentence case; literal identifiers preserve their exact casing.
 - Bullet-driven slides preserve one verbatim key-idea bullet and verbatim supporting sub-bullets.
 - Markdown emphasis markers render as planned bold-cyan keyword emphasis.
-- Presentation, section, and slide titles follow Title Case without Prepositions and Articles.
+- The delivered deck retains the Basti Slides theme, master, and existing layouts; it contains no PowerPoint Default layout or newly created master or layout.
+- Slide titles use 44 pt unless a smaller size is necessary to keep the exact title on one line; main bullets use 32 pt where possible and never less than 24 pt, with each sub-bullet level smaller than its parent and never less than 24 pt.
 - Presenter notes contain the complete verbatim planned script with no wording or capitalization changes.
 - Presenter-note Markdown becomes actual level-0 and level-1 note paragraphs rather than a flattened prose block or literal Markdown.
 - Note-length exceptions include an explicit rationale.
