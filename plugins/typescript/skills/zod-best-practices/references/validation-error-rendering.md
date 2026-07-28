@@ -1,6 +1,6 @@
 # Validation Error Rendering
 
-When a normal validation branch must surface errors, derive the representation from Zod’s error object rather than discarding its information.
+When a normal validation branch must surface errors, derive the representation from Zod's error object rather than discarding its information.
 
 ```typescript
 const result = CreateKpiInput.safeParse(formData);

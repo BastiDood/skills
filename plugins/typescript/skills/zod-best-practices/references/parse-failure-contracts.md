@@ -1,6 +1,6 @@
 # Parse Failure Contracts
 
-Choose Zod’s parsing API from the failure contract at the boundary.
+Choose Zod's parsing API from the failure contract at the boundary.
 
 - Use `.parse` when invalid input violates a contract and the operation must stop.
 - Use `.safeParse` when invalid input is an expected branch that the caller must render, return, or otherwise handle.

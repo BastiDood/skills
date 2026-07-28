@@ -1,6 +1,6 @@
 # Schema Input and Output
 
-Infer a schema’s output with `z.infer<typeof Schema>`. Use `z.input<typeof Schema>` only when a transform or default makes the accepted input differ from the parsed output.
+Infer a schema's output with `z.infer<typeof Schema>`. Use `z.input<typeof Schema>` only when a transform or default makes the accepted input differ from the parsed output.
 
 ```typescript
 const Timestamp = z.string().transform(value => new Date(value));
