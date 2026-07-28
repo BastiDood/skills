@@ -25,6 +25,11 @@
 			"strict": true
 		},
 		{
+			"name": "python",
+			"source": "./plugins/python",
+			"strict": true
+		},
+		{
 			"name": "react",
 			"source": "./plugins/react",
 			"strict": true

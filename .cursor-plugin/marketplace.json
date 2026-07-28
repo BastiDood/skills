@@ -21,6 +21,10 @@
 			"source": "typescript"
 		},
 		{
+			"name": "python",
+			"source": "python"
+		},
+		{
 			"name": "react",
 			"source": "react"
 		},

@@ -1,5 +1,8 @@
 {
 	"name": "typescript",
-	"version": "0.1.1",
-	"interface": { "displayName": "TypeScript" }
+	"version": "0.1.5",
+	"interface": {
+		"displayName": "TypeScript",
+		"logo": "./assets/typescript.svg"
+	}
 }

@@ -11,6 +11,7 @@ codex plugin marketplace add BastiDood/skills
 codex plugin add workflows@bastidood
 codex plugin add architecture@bastidood
 codex plugin add typescript@bastidood
+codex plugin add python@bastidood
 codex plugin add react@bastidood
 codex plugin add svelte@bastidood
 codex plugin add observability@bastidood
@@ -27,6 +28,7 @@ claude plugin marketplace add BastiDood/skills
 claude plugin install workflows@bastidood
 claude plugin install architecture@bastidood
 claude plugin install typescript@bastidood
+claude plugin install python@bastidood
 claude plugin install react@bastidood
 claude plugin install svelte@bastidood
 claude plugin install observability@bastidood
@@ -37,7 +39,7 @@ claude plugin install observability@bastidood
 <details>
 <summary>Cursor</summary>
 
-For Cursor Teams and Enterprise, import `https://github.com/BastiDood/skills` from **Dashboard → Plugins → Add Marketplace**, then install the desired plugins from **Customize**.
+For Cursor Teams and Enterprise, import `https://github.com/BastiDood/skills` from **Dashboard -> Plugins -> Add Marketplace**, then install the desired plugins from **Customize**.
 
 </details>
 
@@ -62,6 +64,8 @@ Some skills conditionally reference MCP servers (used only if available):
 
 | Skill                                                                                                   | Description                                                                                                               |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| [`code-style`](./plugins/architecture/skills/code-style/)                                               | Explicit, invariant-driven, language-agnostic code rules                                                                  |
+| [`testing-guidelines`](./plugins/architecture/skills/testing-guidelines/)                               | Test project-owned behavior without retesting dependencies                                                                |
 | [`vertically-sliced-feature-modules`](./plugins/architecture/skills/vertically-sliced-feature-modules/) | Feature modules in a [vertically sliced architecture](https://dev.to/somedood/youre-slicing-your-architecture-wrong-4ob9) |
 
 ## TypeScript
@@ -72,6 +76,12 @@ Some skills conditionally reference MCP servers (used only if available):
 | [`typescript-best-practices`](./plugins/typescript/skills/typescript-best-practices/) | Inference, exhaustiveness, and strict index access  |
 | [`valibot-best-practices`](./plugins/typescript/skills/valibot-best-practices/)       | Nullability, discriminated unions, and parse policy |
 | [`zod-best-practices`](./plugins/typescript/skills/zod-best-practices/)               | Top-level formats, nullability, and parse policy    |
+
+## Python
+
+| Skill                                                                     | Description                                                    |
+| ------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| [`python-best-practices`](./plugins/python/skills/python-best-practices/) | Typing, imports, packaging, validation, and resource lifetimes |
 
 ## React
 
