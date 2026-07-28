@@ -1,0 +1,8 @@
+{
+	"name": "python",
+	"version": "0.1.2",
+	"interface": {
+		"displayName": "Python",
+		"logo": "./assets/python.svg"
+	}
+}
