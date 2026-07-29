@@ -5,8 +5,6 @@ description: Turn a talk script, transcript, outline, or source document into an
 
 # Basti Presentation Planner
 
-## Objective
-
 Produce a tactical Markdown production script that a separate creator can execute without rereading or reinterpreting the source. Keep presenter notes complete and scripted while treating each slide as selective visual support for one audience task. A slide may support several chained spoken ideas when they share a visual state or delivery moment.
 
 ## Boundaries
@@ -176,20 +174,20 @@ Use the linked template. Mark the plan `Draft for Review` until the user approve
 
 ## Required References
 
-Before writing the final plan, [read the complete presentation-plan template](references/presentation-plan-template.md). Follow its required headings and field guidance. Use ordinary Markdown headings, paragraphs, lists, blockquotes, and fenced code, and keep the plan readable by a human.
+Before writing the final plan, [read the complete presentation-plan template](./references/presentation-plan-template.md). Follow its required headings and field guidance. Use ordinary Markdown headings, paragraphs, lists, blockquotes, and fenced code, and keep the plan readable by a human.
 
 Before segmenting the source, read every example below in full; do not skip examples based on apparent relevance. Treat the XML tags as prompt delimiters, not plan output. Preserve presenter-note wording while applying the demonstrated editorial compression to visible copy.
 
-- [Separate complete semantic notes from compact, sibling visual cues](references/main-idea-with-supporting-sentences-example.md).
-- When prose introduces a list or the source already contains nested items, [preserve the demonstrated list depth](references/colon-ended-setup-example.md).
-- When a candidate slide contains several source paragraphs or independent ideas, [cluster them by audience task before considering a split](references/multiple-source-paragraphs-example.md).
-- When an on-slide phrase begins with a lowercase technical identifier, [preserve its casing as demonstrated](references/lowercase-technical-identifier-example.md).
-- When pacing divides a semantic group across slides, [retain the continuation's original indentation](references/cross-slide-continuation-example.md).
-- When a long sentence contains a deliverable dependent clause, [split it without losing its punctuation or lowercase continuation](references/dependent-clause-split-example.md).
-- When one slide hands off to the next, [copy the next spoken thought into the outgoing notes as a parenthesized preview](references/next-slide-preview-example.md).
-- To see how a verbose script becomes a compact slide without losing coverage, [compare the clustered visual cues against the full presenter notes](references/speaker-led-compression-example.md).
-- For direct quotations, [keep the canvas blank except for the quotation and move its setup into presenter notes](references/quotation-slide-example.md).
-- For ordinary text-led slides, [omit inapplicable production fields instead of narrating their absence](references/sparse-plan-entry-example.md).
+- [Separate complete semantic notes from compact, sibling visual cues](./references/main-idea-with-supporting-sentences-example.md).
+- When prose introduces a list or the source already contains nested items, [preserve the demonstrated list depth](./references/colon-ended-setup-example.md).
+- When a candidate slide contains several source paragraphs or independent ideas, [cluster them by audience task before considering a split](./references/multiple-source-paragraphs-example.md).
+- When an on-slide phrase begins with a lowercase technical identifier, [preserve its casing as demonstrated](./references/lowercase-technical-identifier-example.md).
+- When pacing divides a semantic group across slides, [retain the continuation's original indentation](./references/cross-slide-continuation-example.md).
+- When a long sentence contains a deliverable dependent clause, [split it without losing its punctuation or lowercase continuation](./references/dependent-clause-split-example.md).
+- When one slide hands off to the next, [copy the next spoken thought into the outgoing notes as a parenthesized preview](./references/next-slide-preview-example.md).
+- To see how a verbose script becomes a compact slide without losing coverage, [compare the clustered visual cues against the full presenter notes](./references/speaker-led-compression-example.md).
+- For direct quotations, [keep the canvas blank except for the quotation and move its setup into presenter notes](./references/quotation-slide-example.md).
+- For ordinary text-led slides, [omit inapplicable production fields instead of narrating their absence](./references/sparse-plan-entry-example.md).
 
 ## Acceptance Checklist
 

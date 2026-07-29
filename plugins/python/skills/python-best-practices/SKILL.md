@@ -5,23 +5,25 @@ description: Opinionated Python 3.13+ conventions for application and library co
 
 # Python Best Practices
 
-Read as many linked references as are relevant to the current task before writing or reviewing Python.
+This skill applies modern Python mechanisms without adding annotation or packaging ceremony. It favors inference, precise structural contracts, explicit runtime validation, side-effect-free imports, and context-managed resource ownership.
 
 ## References
 
-- For obvious types, prefer [inference](./references/inference-and-annotations.md).
-- For behavioral contracts, use [protocols](./references/protocols.md).
-- For related generic types, use [PEP 695 generics](./references/pep-695-generics.md).
-- For finite states, require [exhaustive handling](./references/finite-state-exhaustiveness.md).
-- For `T | None` and other union types, [narrow optional values](./references/optional-narrowing.md).
-- For missing required values, [do not fabricate defaults](./references/no-fabricated-defaults.md).
-- For runtime validation, [do not use assertions](./references/no-runtime-asserts.md).
-- For serialized input, apply [boundary validation](./references/boundary-validation.md).
-- For expected failures, use [narrow exception handling](./references/exception-handling.md).
-- For package APIs, define [explicit public exports](./references/public-exports.md).
-- For installable code, follow [Python naming and `src` layout](./references/naming-and-src-layout.md).
-- For published typing, use [`py.typed` and stubs](./references/py-typed-and-stubs.md).
-- For async resources, use [async context managers](./references/async-context-managers.md).
-- For provider pages, expose [async pagination](./references/async-pagination.md).
-- For buildable packages, declare [per-distribution metadata](./references/project-metadata.md).
-- For repository imports, [do not mutate import paths](./references/no-import-path-mutation.md).
+Read as many linked references as are relevant to the current task before writing or reviewing Python.
+
+- Let the checker infer obvious implementation results; add [annotations](./references/inference-and-annotations.md) only when inference cannot express the contract.
+- Parse serialized input once at the controlled [boundary](./references/boundary-validation.md) so untrusted mappings do not spread inward.
+- Depend on the smallest required behavior with [protocols](./references/protocols.md), not a vendor's concrete client.
+- In Python 3.13+, express caller-relevant relationships with [PEP 695 generics](./references/pep-695-generics.md), avoiding module-level `TypeVar` declarations and needless generics.
+- Make a new finite-state member a type-checking failure with [exhaustive handling](./references/finite-state-exhaustiveness.md).
+- Narrow [optional values](./references/optional-narrowing.md) before use so the owning layer—not a cast or fabricated fallback—decides whether absence is preserved or rejected.
+- Do not turn missing required data into a plausible value; [preserve absence or fail](./references/no-fabricated-defaults.md) at the owning boundary.
+- Keep required runtime checks active under optimization; [do not use assertions](./references/no-runtime-asserts.md) for validation.
+- Catch only expected exceptions at the operation that raises them through [narrow exception handling](./references/exception-handling.md).
+- Keep imports inert and consumer-facing names deliberate with [explicit public exports](./references/public-exports.md).
+- Prevent checkout-dependent imports by following the [Python naming and `src` layout](./references/naming-and-src-layout.md).
+- Publish intentional inline types with [`py.typed`, reserving third-party stubs](./references/py-typed-and-stubs.md) for dependencies that lack complete inline types instead of adding markers merely to silence diagnostics.
+- Make async cleanup inseparable from acquisition with [async context managers](./references/async-context-managers.md).
+- Preserve page boundaries and consumer control over remote traversal through [async pagination](./references/async-pagination.md).
+- Give every independently buildable distribution its own declared [metadata](./references/project-metadata.md) and direct dependencies.
+- Make packaging errors visible by [not mutating import paths](./references/no-import-path-mutation.md).

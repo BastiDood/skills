@@ -4,7 +4,9 @@ description: Writes a GitHub pull request description using a standardized templ
 compatibility: Requires Git (`git`) and the GitHub CLI (`gh`).
 ---
 
-Summarize the latest changes in this branch to create a pull request on GitHub.
+# GitHub Pull Request
+
+Prepare an accurate, reviewer-focused pull request from the finalized branch changes, use the project template to make scope and intent clear, and submit it only after the user approves the description.
 
 <workflow-steps>
 
@@ -13,7 +15,7 @@ Summarize the latest changes in this branch to create a pull request on GitHub.
    BASE=$(gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name')
    ```
 2. Compare the current branch against the base branch to see what changes need to be described in the pull request. Focus on the finalized implementation details. Since pull requests tend to have work-in-progress commits at the beginning, be extra mindful on whether these are still relevant in the finalized snapshot.
-3. Use the [pull request template](assets/pull-request-template.md) to generate a `.scratchpad/PR.md`. Fill in the placeholder sections and text.
+3. Use the [pull request template](./assets/pull-request-template.md) to generate a `.scratchpad/PR.md`. Fill in the placeholder sections and text.
 4. Pause here and prompt the user to check the `.scratchpad/PR.md` before proceeding.
 5. Once edited and approved by the user, fill in the missing details in the following script and then run it:
    ```bash

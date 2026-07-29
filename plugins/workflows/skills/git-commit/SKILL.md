@@ -6,6 +6,8 @@ compatibility: Requires Git (`git`).
 
 # Smart Commit
 
+Turn the current working-tree changes into a clear, reviewable sequence of conventional commits by identifying coherent units of work and preserving a consistent repository state after each commit.
+
 1. Explore both the staged/unstaged changes in the current working tree.
 2. Realize a mind map of the feature being implemented.
 3. Logically group the changed files/hunks into (possibly several) self-contained atomic commits. Do not hesitate to granularly stage hunks for proper commit isolation.

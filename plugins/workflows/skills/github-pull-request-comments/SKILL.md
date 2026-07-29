@@ -4,7 +4,9 @@ description: Verifies, triages, and rebuts unresolved GitHub pull request commen
 compatibility: Requires the GitHub CLI (`gh`).
 ---
 
-Fetch all unresolved comments on the current pull request. Triage them based on whether the feedback is valid, actionable, or in-scope of the intended work.
+# GitHub Pull Request Comments
+
+Evaluate unresolved pull request feedback against concrete evidence, convert confirmed in-scope issues into a focused amendment plan, and provide precise, respectful rebuttals for feedback that does not warrant changes.
 
 Add accepted/confirmed items to your work plan of proposed amendments. Each item must be corroborated by concrete evidence. Confirm through static analysis, runtime experimentation, or manual verification that the concern is warranted. Use "Plan Mode" when deliberating on the next implementation steps.
 

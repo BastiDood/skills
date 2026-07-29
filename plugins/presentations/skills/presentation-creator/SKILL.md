@@ -5,8 +5,6 @@ description: Create and verify a finished PowerPoint presentation from an approv
 
 # Basti Presentation Creator
 
-## Objective
-
 Turn an approved Markdown presentation plan into a finished, visually verified PowerPoint deck. Treat the plan as an execution contract: implement it faithfully, resolve production details, and avoid reopening narrative decisions.
 
 ## Required Companion Workflow

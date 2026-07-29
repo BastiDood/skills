@@ -5,7 +5,7 @@ description: Opinionated `better-all` conventions for dependency-declared async 
 
 # `better-all` Best Practices
 
-Read as many linked references as are relevant to the current task before writing or reviewing `better-all` code.
+Model concurrent work as a dependency graph whose task names define the data flow, so independent operations run together while dependent operations remain explicit, inferred, cancellable, and predictable when failures occur.
 
 ## Library Sources
 
@@ -17,8 +17,10 @@ Use Context7 for current documentation and DeepWiki for implementation details.
 
 ## References
 
-- For sibling task results, use [task method syntax](./references/task-method-syntax.md).
-- For child-operation cancellation, use [sibling cancellation](./references/sibling-cancellation.md).
-- For graph failure semantics, use [library exports](./references/library-exports.md).
-- For async task dependencies, use [dependency scheduling](./references/dependency-scheduling.md).
-- For task-result inference, use [inferred task results](./references/inferred-task-results.md).
+Read as many linked references as are relevant to the current task before writing or reviewing `better-all` code.
+
+- When work shares only direct data dependencies, [declare them in the task graph](./references/dependency-scheduling.md) so independent tasks run concurrently instead of being serialized by manual stages.
+- When a task reads a sibling result, [define it with method syntax](./references/task-method-syntax.md) so `this.$` is the bound task context rather than lexical `this`.
+- When a child operation accepts an `AbortSignal`, [pass the task signal through](./references/sibling-cancellation.md) so a sibling failure can stop that work without a second cancellation system.
+- When the caller needs either fail-fast behavior or every outcome, [choose the matching graph operation](./references/library-exports.md) instead of manually staging the dependency graph.
+- When task return types already describe the result object, [retain inferred task results](./references/inferred-task-results.md) so duplicated result interfaces cannot drift.

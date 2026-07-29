@@ -5,7 +5,7 @@ description: Opinionated TanStack Table v9 beta conventions for React table sche
 
 # TanStack React Table Best Practices
 
-Read as many linked references as are relevant to the current task before writing or reviewing TanStack Table code.
+Treat a table as stable schema plus instance-specific behavior: keep columns static, place callbacks in local metadata, and render through the table primitives for reusable, type-safe tables.
 
 ## Library Sources
 
@@ -17,6 +17,8 @@ Use Context7 for current documentation and DeepWiki for implementation details.
 
 ## References
 
-- For table schema and behavior, use [hoisted columns and meta](./references/hoisted-columns-and-meta.md).
-- For local metadata contracts, use [typed table meta](./references/table-meta-types.md).
-- For table primitives, use [cell rendering](./references/cell-rendering.md).
+Read as many linked references as are relevant to the current task before writing or reviewing TanStack Table code.
+
+- Hoist static table schema and send per-instance capabilities through [hoisted columns and meta](./references/hoisted-columns-and-meta.md), avoiding structural recomputation from callback capture.
+- Declare each schema's local capability contract with [typed table meta](./references/table-meta-types.md), not v8-style global metadata.
+- Render headers, cells, and footers through the table-owned [table primitives](./references/cell-rendering.md), because definitions are schema rather than JSX content.

@@ -5,7 +5,7 @@ description: TanStack Table v9 beta conventions for the Svelte adapter, covering
 
 # TanStack Svelte Table Best Practices
 
-Read as many linked references as are relevant to the current task before writing or reviewing TanStack Svelte Table code.
+Treat a table as a static schema paired with reactive instance data and feature-local behavior; this keeps rendering, callbacks, and data updates predictable under the v9 Svelte API.
 
 ## Library Sources
 
@@ -21,8 +21,10 @@ These references target TanStack Table v9 beta with Svelte 5. Use `createTable`,
 
 ## References
 
-- For static table schema, use [hoisted columns](./references/hoisted-columns.md).
-- For per-instance callbacks, use [table meta](./references/table-meta.md).
-- For feature-local meta contracts, use [table meta types](./references/table-meta-types.md).
-- For v9 header and cell rendering, use [cell rendering](./references/cell-rendering.md).
-- For changing table data, use [reactive data](./references/reactive-data.md).
+Read as many linked references as are relevant to the current task before writing or reviewing TanStack Svelte Table code.
+
+- Hoist [hoisted columns](./references/hoisted-columns.md) as static schema, rebuilding them only when the schema itself changes.
+- Pass per-instance callbacks through [table meta](./references/table-meta.md) so hoisted columns do not capture changing component values.
+- Supply changing rows as a getter with [reactive data](./references/reactive-data.md), because a plain option snapshots the initial value.
+- Define [table meta types](./references/table-meta-types.md) beside their schema so unrelated tables do not inherit irrelevant capabilities.
+- Render v9 definitions through [cell rendering](./references/cell-rendering.md), since a raw column definition lacks its table-owned context.

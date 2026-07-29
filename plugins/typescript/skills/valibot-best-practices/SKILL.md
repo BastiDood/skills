@@ -5,7 +5,7 @@ description: Opinionated Valibot conventions for wire-schema ownership, nullabil
 
 # Valibot Best Practices
 
-Read as many linked references as are relevant to the current task before defining or reviewing Valibot schemas and parsing code.
+Treat a Valibot schema as the owned contract at an untrusted data boundary: it defines accepted wire values, produces trusted domain values, and makes invalid input an explicit, intentional outcome.
 
 ## Library Sources
 
@@ -17,12 +17,14 @@ Use Context7 for current documentation and DeepWiki for implementation details.
 
 ## References
 
-- For Valibot import clarity, use [namespace imports](./references/namespace-imports.md).
-- For schema/type duplication, use [schema ownership](./references/schema-ownership.md).
-- For missing or `null` wire values, use [wire nullability](./references/wire-nullability.md).
-- For tagged object alternatives, use [discriminated variants](./references/discriminated-variants.md).
-- For typed data ingress, use [serialized trust boundaries](./references/serialized-trust-boundaries.md).
-- For malformed-input handling, use [parse failure contracts](./references/parse-failure-contracts.md).
-- For failed-validation branches, use [validation failure preservation](./references/validation-failure-preservation.md).
-- For omitted wire defaults, use [schema defaults](./references/schema-defaults.md).
-- For wire-value normalization, use [schema transformations](./references/schema-transformations.md).
+Read as many linked references as are relevant to the current task before defining or reviewing Valibot schemas and parsing code.
+
+- When a schema already proves a domain shape, [make it the single source of truth](./references/schema-ownership.md) and infer the exported type instead of maintaining a duplicate declaration.
+- When serialized data enters the application, [validate it at that trust boundary](./references/serialized-trust-boundaries.md), including authenticated external payloads, before it becomes a domain value.
+- When defining Valibot schemas, [keep constructors under the `v` namespace](./references/namespace-imports.md) so their library ownership stays clear and import forms remain consistent.
+- When a wire field can be missing, `null`, or both, [encode those exact semantics](./references/wire-nullability.md) with the matching wrapper rather than whichever wrapper compiles.
+- When object alternatives share a literal tag, [dispatch with `v.variant`](./references/discriminated-variants.md) so Valibot selects and reports the failing tagged branch.
+- When invalid input reaches a boundary, [choose the parse API from the failure contract](./references/parse-failure-contracts.md): abort a violated invariant or return an expected validation branch.
+- When validation failure is an expected branch, [preserve its issues](./references/validation-failure-preservation.md) instead of substituting an invented `null` or empty value.
+- When absence has an exact domain meaning, [define that default in the schema](./references/schema-defaults.md); do not use a default to reinterpret malformed input.
+- When wire input needs normalization, [transform it inside the schema](./references/schema-transformations.md) so consumers receive trusted domain values rather than raw serialized forms.

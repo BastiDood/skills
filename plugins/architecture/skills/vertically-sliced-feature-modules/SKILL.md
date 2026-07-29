@@ -19,11 +19,11 @@ Features are isolated siblings and do not import one another. Callers and orches
 
 Read as many linked references as are relevant to the current task before planning, moving, or reviewing modules.
 
-- For feature-first topology, use [directory structure](./references/directory-structure.md).
-- For routes and runtime registries, keep [entry points compositional](./references/entry-points-and-composition.md).
-- For private capabilities, prefer [nested subsystems](./references/nested-subsystems.md).
-- For cross-boundary access, define [public contracts and import direction](./references/public-contracts-and-import-direction.md).
-- Before extracting common code, apply [shared-code promotion](./references/shared-code-promotion.md).
-- Before creating a distribution, apply [package admission](./references/package-admission.md).
-- For feature-owned coverage, use [test placement](./references/test-placement.md).
-- During structural changes, apply [refactor and review discipline](./references/refactor-and-review.md).
+- Keep each capability's technical roles together with a feature-first [directory structure](./references/directory-structure.md) instead of scattering them by layer.
+- Keep routes and registries as composition surfaces; [entry points](./references/entry-points-and-composition.md) must not absorb reusable business behavior.
+- Give a single owner's private capability a deeper [nested subsystem](./references/nested-subsystems.md) instead of a broad prefixed namespace.
+- Prevent feature-to-feature coupling by routing cross-boundary access through [public contracts with downward import direction](./references/public-contracts-and-import-direction.md).
+- Before promoting code, require multiple owners to share one stable responsibility under the [shared-code owner](./references/shared-code-promotion.md).
+- Admit an [independently buildable package](./references/package-admission.md) only for a real dependency, runtime, build, or deployment closure.
+- Collocate unit tests with their narrowest leaf and [hoist cross-cutting scenarios to an integration owner](./references/test-placement.md).
+- During structural changes, [preserve ownership, contracts, and behavior](./references/refactor-and-review.md) instead of redesigning logic under the cover of a move.

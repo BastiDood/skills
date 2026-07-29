@@ -5,7 +5,7 @@ description: Svelte 5 conventions for runes, state ownership, rendering lifecycl
 
 # Svelte Best Practices
 
-Read as many linked references as are relevant to the current task before writing or reviewing Svelte code.
+Treat Svelte reactivity as explicit data flow: own mutable state at the narrowest boundary, derive values from it, and reserve effects for external synchronization so component behavior stays clear and stable.
 
 ## Library Sources
 
@@ -17,28 +17,30 @@ Use the `svelte` MCP server first for Svelte documentation and autofixing. Use C
 
 ## References
 
-- For local reactive state, use [runes](./references/runes.md).
-- For independent calculations, use [atomic derivations](./references/atomic-derivations.md).
-- For multi-step pure derivations, use [complex derivations](./references/complex-derivations.md).
-- For mutually exclusive UI states, use [state machines](./references/state-machines.md).
-- For mutable-state placement, use [state ownership](./references/state-ownership.md).
-- For non-truthy display rules, use [explicit rendering](./references/explicit-rendering.md).
-- For native-element wrappers, use [native element props](./references/native-element-props.md).
-- For child composition contracts, use [snippets](./references/snippets.md).
-- For shared-state scope, use [context](./references/context.md).
-- For runes outside components, use [rune modules](./references/rune-modules.md).
-- For external-system synchronization, constrain [effects](./references/effects.md).
-- For browser setup and teardown, use [one-time setup](./references/one-time-setup.md).
-- For synchronized local state, prefer [derived state](./references/derived-state.md).
-- For user-action consequences, use [event-owned work](./references/event-owned-work.md).
-- For ordered asynchronous work, avoid [effect chains](./references/effect-chains.md).
-- For identity-driven local resets, use [state reset](./references/state-reset.md).
-- For visibility and state retention, use [conditional mounting](./references/conditional-mounting.md).
-- For forms with resolved data, use [resolved form props](./references/resolved-form-props.md).
-- For SvelteKit or SPA submission, use [form action defaults](./references/form-action-defaults.md).
-- For expected invalid input, use [form action validation](./references/form-action-validation.md).
-- For customized `use:enhance`, use [enhanced form lifecycle](./references/enhanced-form-lifecycle.md).
-- For server-action value decoding, use [server form decoding](./references/server-form-decoding.md).
-- For SPA mutation value decoding, use [client form decoding](./references/client-form-decoding.md).
-- For form-wide pending progress, use [submission state](./references/submission-state.md).
-- For submitterless submission, use [submitter identity](./references/submitter-identity.md).
+Read as many linked references as are relevant to the current task before writing or reviewing Svelte code.
+
+- Keep component-owned local state in [runes](./references/runes.md) rather than introducing a store with no clear owner or lifetime.
+- Place mutable state in the smallest shared subtree with [state ownership](./references/state-ownership.md), lifting only for sibling consumers.
+- Limit [effects](./references/effects.md) to reactive synchronization with an external system, never derivation or event consequences.
+- Keep independent computed values separate with [atomic derivations](./references/atomic-derivations.md) so each reacts only to its true inputs.
+- Put multi-step pure computation in [complex derivations](./references/complex-derivations.md) instead of obscuring it in reactive side effects.
+- Model finite UI flows with [state machines](./references/state-machines.md) so impossible flag combinations cannot occur.
+- State rendering conditions explicitly with [explicit rendering](./references/explicit-rendering.md), because truthiness can hide valid zero or empty values.
+- Forward the native platform contract through [native element props](./references/native-element-props.md) instead of allowlisting wrapper attributes.
+- Compose passive child content with [snippets](./references/snippets.md), adding typed parameters only when the component supplies behavior.
+- Create [context](./references/context.md) for one coherent subsystem shared across depths, not as ambient prop forwarding.
+- Put reusable reactive abstractions in [rune modules](./references/rune-modules.md) so Svelte compiles their runes and their owner stays explicit.
+- Give one-time browser setup an element attachment or mount owner with [one-time setup](./references/one-time-setup.md), rather than making non-reactive work an effect.
+- Derive synchronized values through [derived state](./references/derived-state.md), not a second writable copy maintained by `$effect`.
+- Perform direct user-action consequences with [event-owned work](./references/event-owned-work.md), rather than translating events into reactive signals.
+- Avoid [effect chains](./references/effect-chains.md) by keeping dependent asynchronous stages in one owned operation so reactive intermediates cannot obscure ordering or partial failure.
+- When changed domain identity begins a fresh local lifetime, [reset state by remounting](./references/state-reset.md) with `{#key}` rather than synchronizing individual fields through `$effect`.
+- When hiding UI must discard its local state, [remove it through conditional mounting](./references/conditional-mounting.md); preserve mounting only by explicit product choice.
+- Make a form with already resolved inputs pure through [resolved form props](./references/resolved-form-props.md), keeping its upstream data request outside.
+- Prefer SvelteKit's progressive lifecycle in [form action defaults](./references/form-action-defaults.md) when an action exists, rather than competing client submission ownership.
+- Return expected invalid input as structured state through [form action validation](./references/form-action-validation.md), not an exception path.
+- Call `update()` deliberately after custom enhancement through [enhanced form lifecycle](./references/enhanced-form-lifecycle.md), because a callback replaces SvelteKit defaults.
+- Keep representation conversion server-only with [server form decoding](./references/server-form-decoding.md), then validate decoded data at the action boundary.
+- Decode SPA form transport values at the client boundary with [client form decoding](./references/client-form-decoding.md) before mutation work receives them.
+- Treat pending work as form-wide in [submission state](./references/submission-state.md), with explicit progress and reusable controls after failure.
+- Treat absent submitters as valid in [submitter identity](./references/submitter-identity.md) unless distinct actions require button identity.

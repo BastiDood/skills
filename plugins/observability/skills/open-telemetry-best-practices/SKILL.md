@@ -6,7 +6,7 @@ compatibility: Requires OpenTelemetry-compatible systems using the official SDKs
 
 # OpenTelemetry Best Practices
 
-Language-agnostic house conventions for structured logging and error handling, layered on top of OpenTelemetry. The level split and attribute prefixes below are our conventions, not OpenTelemetry semantic-convention standards.
+Use structured, queryable telemetry to make operations and failures diagnosable without reconstructing context from prose. These language-agnostic logging and error-handling conventions layer a house level split and attribute vocabulary on top of OpenTelemetry; they are not OpenTelemetry semantic-convention standards.
 
 ## Log Levels
 
