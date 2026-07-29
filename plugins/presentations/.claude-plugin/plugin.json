@@ -1,5 +1,5 @@
 {
 	"name": "presentations",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"interface": { "displayName": "Presentations" }
 }

@@ -62,11 +62,11 @@ Some skills conditionally reference MCP servers (used only if available):
 
 ## Architecture
 
-| Skill                                                                                                   | Description                                                                                                               |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| [`code-style`](./plugins/architecture/skills/code-style/)                                               | Explicit, invariant-driven, language-agnostic code rules                                                                  |
-| [`testing-guidelines`](./plugins/architecture/skills/testing-guidelines/)                               | Test project-owned behavior without retesting dependencies                                                                |
-| [`vertically-sliced-feature-modules`](./plugins/architecture/skills/vertically-sliced-feature-modules/) | Feature modules in a [vertically sliced architecture](https://dev.to/somedood/youre-slicing-your-architecture-wrong-4ob9) |
+| Skill                                                                                                   | Description                                                                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`code-style`](./plugins/architecture/skills/code-style/)                                               | Explicit, invariant-driven, language-agnostic code rules                                                                                                                                          |
+| [`testing-guidelines`](./plugins/architecture/skills/testing-guidelines/)                               | Test project-owned behavior without retesting dependencies                                                                                                                                        |
+| [`vertically-sliced-feature-modules`](./plugins/architecture/skills/vertically-sliced-feature-modules/) | Feature-owned UI, workflows, nested capabilities, shared boundaries, and package admission in a [vertical-slice architecture](https://dev.to/somedood/youre-slicing-your-architecture-wrong-4ob9) |
 
 ## TypeScript
 

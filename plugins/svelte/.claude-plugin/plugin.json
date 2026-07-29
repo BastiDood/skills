@@ -1,5 +1,5 @@
 {
 	"name": "svelte",
-	"version": "0.1.9",
+	"version": "0.1.10",
 	"interface": { "displayName": "Svelte", "logo": "./assets/svelte.svg" }
 }
