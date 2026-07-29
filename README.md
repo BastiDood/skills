@@ -10,6 +10,7 @@ codex plugin marketplace add BastiDood/skills
 
 codex plugin add workflows@bastidood
 codex plugin add architecture@bastidood
+codex plugin add meta@bastidood
 codex plugin add typescript@bastidood
 codex plugin add python@bastidood
 codex plugin add react@bastidood
@@ -27,6 +28,7 @@ claude plugin marketplace add BastiDood/skills
 
 claude plugin install workflows@bastidood
 claude plugin install architecture@bastidood
+claude plugin install meta@bastidood
 claude plugin install typescript@bastidood
 claude plugin install python@bastidood
 claude plugin install react@bastidood
@@ -67,6 +69,13 @@ Some skills conditionally reference MCP servers (used only if available):
 | [`code-style`](./plugins/architecture/skills/code-style/)                                               | Explicit, invariant-driven, language-agnostic code rules                                                                                                                                          |
 | [`testing-guidelines`](./plugins/architecture/skills/testing-guidelines/)                               | Test project-owned behavior without retesting dependencies                                                                                                                                        |
 | [`vertically-sliced-feature-modules`](./plugins/architecture/skills/vertically-sliced-feature-modules/) | Feature-owned UI, workflows, nested capabilities, shared boundaries, and package admission in a [vertical-slice architecture](https://dev.to/somedood/youre-slicing-your-architecture-wrong-4ob9) |
+
+## Meta
+
+| Skill                                                                               | Description                                                                    |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [`agent-skills-best-practices`](./plugins/meta/skills/agent-skills-best-practices/) | Opinionated skill naming, context design, routing, examples, and assets        |
+| [`plugin-best-practices`](./plugins/meta/skills/plugin-best-practices/)             | Focused plugin boundaries, encapsulated public surfaces, and minimal manifests |
 
 ## TypeScript
 

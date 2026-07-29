@@ -2,7 +2,8 @@
 	"name": "bastidood",
 	"owner": {
 		"name": "Basti Ortiz",
-		"email": "ortiz@bastidood.dev"
+		"email": "ortiz@bastidood.dev",
+		"url": "https://bastidood.dev/"
 	},
 	"description": "Opinionated software engineering skills by BastiDood.",
 	"interface": {
@@ -17,6 +18,11 @@
 		{
 			"name": "architecture",
 			"source": "./plugins/architecture",
+			"strict": true
+		},
+		{
+			"name": "meta",
+			"source": "./plugins/meta",
 			"strict": true
 		},
 		{

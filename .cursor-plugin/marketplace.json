@@ -2,7 +2,8 @@
 	"name": "bastidood",
 	"owner": {
 		"name": "Basti Ortiz",
-		"email": "ortiz@bastidood.dev"
+		"email": "ortiz@bastidood.dev",
+		"url": "https://bastidood.dev/"
 	},
 	"metadata": {
 		"pluginRoot": "plugins"
@@ -15,6 +16,10 @@
 		{
 			"name": "architecture",
 			"source": "architecture"
+		},
+		{
+			"name": "meta",
+			"source": "meta"
 		},
 		{
 			"name": "typescript",
