@@ -1,0 +1,9 @@
+{
+	"name": "drizzle",
+	"version": "0.1.0",
+	"interface": {
+		"displayName": "Drizzle",
+		"logo": "./assets/drizzle-orm-light.svg",
+		"logoDark": "./assets/drizzle-orm-dark.svg"
+	}
+}

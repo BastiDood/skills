@@ -12,6 +12,7 @@ codex plugin add workflows@bastidood
 codex plugin add architecture@bastidood
 codex plugin add meta@bastidood
 codex plugin add typescript@bastidood
+codex plugin add drizzle@bastidood
 codex plugin add python@bastidood
 codex plugin add react@bastidood
 codex plugin add svelte@bastidood
@@ -30,6 +31,7 @@ claude plugin install workflows@bastidood
 claude plugin install architecture@bastidood
 claude plugin install meta@bastidood
 claude plugin install typescript@bastidood
+claude plugin install drizzle@bastidood
 claude plugin install python@bastidood
 claude plugin install react@bastidood
 claude plugin install svelte@bastidood
@@ -85,6 +87,12 @@ Some skills conditionally reference MCP servers (used only if available):
 | [`typescript-best-practices`](./plugins/typescript/skills/typescript-best-practices/) | Inference, exhaustiveness, and strict index access  |
 | [`valibot-best-practices`](./plugins/typescript/skills/valibot-best-practices/)       | Nullability, discriminated unions, and parse policy |
 | [`zod-best-practices`](./plugins/typescript/skills/zod-best-practices/)               | Top-level formats, nullability, and parse policy    |
+
+## Drizzle
+
+| Skill                                                                                | Description                                                                  |
+| ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
+| [`drizzle-orm-best-practices`](./plugins/drizzle/skills/drizzle-orm-best-practices/) | Helper-first queries, mutation cardinality, runtime decoding, and timestamps |
 
 ## Python
 

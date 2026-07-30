@@ -2,6 +2,8 @@
 
 The following files are not Covered Software under the Mozilla Public License 2.0. The [repository MPL-2.0 license](../LICENSE.txt) does not apply to these files, and these files are not offered under MPL-2.0:
 
+- `drizzle-orm-dark.svg`
+- `drizzle-orm-light.svg`
 - `git.svg`
 - `github-dark.svg`
 - `github-light.svg`
@@ -15,6 +17,22 @@ The following files are not Covered Software under the Mozilla Public License 2.
 Each file is distributed only under the separate copyright and brand terms identified below. No trademark rights are granted. All product names, logos, and marks are the property of their respective owners. Their inclusion identifies the technologies addressed by this project and does not imply sponsorship, endorsement, or affiliation.
 
 This notice must accompany any distribution of these files.
+
+## Drizzle ORM
+
+Files: `drizzle-orm-dark.svg`, `drizzle-orm-light.svg`
+
+These files are square variants of the Drizzle ORM mark. The artwork derives from the official logo assets distributed in the Drizzle ORM repository under the Apache License 2.0.
+
+- Copyright attribution: Drizzle ORM project and contributors
+- Exact light source: [Svgl.app `drizzle-orm_light.svg`](https://github.com/pheralb/svgl/blob/main/static/library/drizzle-orm_light.svg)
+- Exact dark source: [Svgl.app `drizzle-orm_dark.svg`](https://github.com/pheralb/svgl/blob/main/static/library/drizzle-orm_dark.svg)
+- Official source artwork: [Drizzle ORM repository logo assets](https://github.com/drizzle-team/drizzle-orm/tree/main/misc/readme)
+- Copyright license: [Apache License 2.0](./licenses/APACHE-2-0.txt)
+- Trademark terms: The Apache License 2.0 does not grant permission to use trade names, trademarks, service marks, or product names except for reasonable description and attribution.
+- Changes: Svgl.app isolated and scaled the four-rectangle mark into a square viewport, added rounded corners, and provided contrasting fills. These files are exact copies of the Svgl.app variants; only their filenames replace underscores with hyphens.
+
+The files are included only to identify Drizzle-related material. No trademark rights are granted.
 
 ## Git
 
@@ -113,7 +131,7 @@ The CC BY 4.0 license grants copyright permissions only. It does not grant permi
 
 ## Svgl.app
 
-All nine SVG files listed in this notice were obtained through [Svgl.app](https://svgl.app/) and its [SVG library](https://github.com/pheralb/svgl/tree/main/static/library). Svgl.app is distributed under the MIT License, but its license does not replace or override the original owners' copyright licenses, trademark rights, or brand policies.
+All eleven SVG files listed in this notice were obtained through [Svgl.app](https://svgl.app/) and its [SVG library](https://github.com/pheralb/svgl/tree/main/static/library). Svgl.app is distributed under the MIT License, but its license does not replace or override the original owners' copyright licenses, trademark rights, or brand policies.
 
 - Copyright holder: Pablo Hdez
 - Source repository: [pheralb/svgl](https://github.com/pheralb/svgl)

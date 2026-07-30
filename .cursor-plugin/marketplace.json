@@ -26,6 +26,10 @@
 			"source": "typescript"
 		},
 		{
+			"name": "drizzle",
+			"source": "drizzle"
+		},
+		{
 			"name": "python",
 			"source": "python"
 		},
