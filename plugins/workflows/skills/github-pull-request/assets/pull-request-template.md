@@ -3,6 +3,8 @@
   - Action keywords such as "fixes", "resolves", and "closes" must be woven into description seamlessly.
   - Avoid lazy and abrupt insertions just for the sake of mentioning the action keywords as an afterthought.
 
+## Implementation Notes
+
 <details>
 
 <summary>
