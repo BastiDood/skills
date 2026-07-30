@@ -6,7 +6,7 @@ compatibility: Requires Git (`git`) and the GitHub CLI (`gh`).
 
 # GitHub Pull Request
 
-Prepare an accurate, reviewer-focused pull request from the finalized branch changes, use the project template to make scope and intent clear, and submit it only after the user approves the description.
+Prepare a concise, reviewer-focused pull request from the finalized branch changes. Use the project template and submit the pull request only after the user approves the description.
 
 <workflow-steps>
 
@@ -14,8 +14,8 @@ Prepare an accurate, reviewer-focused pull request from the finalized branch cha
    ```shell
    BASE=$(gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name')
    ```
-2. Compare the current branch against the base branch to see what changes need to be described in the pull request. Focus on the finalized implementation details. Since pull requests tend to have work-in-progress commits at the beginning, be extra mindful on whether these are still relevant in the finalized snapshot.
-3. Use the [pull request template](./assets/pull-request-template.md) to generate a `.scratchpad/PR.md`. Fill in the placeholder sections and text.
+2. Compare the current branch with the base branch. Describe the final result, not superseded work from earlier commits.
+3. Use the [pull request template](./assets/pull-request-template.md) to generate `.scratchpad/PR.md`. Keep the summary concise and design decision explicit. In the implementation notes, summarize the larger fix in the `<summary>` and group related decisions by goal or motif.
 4. Pause here and prompt the user to check the `.scratchpad/PR.md` before proceeding.
 5. Once edited and approved by the user, fill in the missing details in the following script and then run it:
    ```bash
