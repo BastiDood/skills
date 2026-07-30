@@ -1,6 +1,6 @@
 # Narrow Error Boundaries
 
-Catch only an expected failure from the smallest operation that can produce it. Preserve unexpected failures and their original causes. Ensure that every operational error or exception reaches a configured observability sink exactly once. Exclude cancellation, interruption, and other platform-defined control-flow signals from this failure policy.
+Catch only an expected failure from the smallest operation that can produce it. Preserve unexpected failures and their original causes. Exclude cancellation, interruption, and other platform-defined control-flow signals from ordinary error handling.
 
 ```typescript
 // BAD: a broad catch hides request-building and persistence defects.
@@ -14,66 +14,43 @@ async function loadBroadly() {
 	}
 }
 
-// GOOD: only the expected network failure is translated.
+// GOOD: translate the expected failure and preserve its cause.
 async function load() {
 	const request = buildRequest(input);
-	let response: Response;
 	try {
-		response = await send(request);
+		return await send(request);
 	} catch (error) {
-		if (error instanceof NetworkUnavailable) {
-			logger.exception(error).warn('Request can be retried', { requestId });
-			return retryableFailure(error);
-		}
-		throw error;
-	}
-	await save(response);
-}
-
-// GOOD: the designated outer boundary records an unexpected failure once.
-async function runLoadJob() {
-	try {
-		await load();
-	} catch (error) {
-		logger.exception(error).error('Load job failed', { requestId });
-		throw error;
+		if (!(error instanceof NetworkUnavailable)) throw error;
+		throw new RetryableRequestError('Request could not be sent', { cause: error });
 	}
 }
 ```
 
-Log at the boundary that has enough context to classify the failure and decide whether to recover, translate, or terminate. That boundary owns the telemetry record:
+Make one of these explicit decisions:
 
-- For a recoverable failure: record the original error and relevant operational context, then perform the explicit fallback, retry, skip, or other recovery action. Logging alone is not sufficient recovery.
-- For a non-recoverable failure: record the original error and relevant operational context, then rethrow it unchanged or wrap it with the original error as its cause to preserve the exception chain + stack trace.
-- For an error that propagates without a local decision: do not catch or log it in mere forwarding layers. If no inner boundary owns its telemetry record, the designated outer error boundary must record it before termination.
-
-The first boundary that decides recovery, translation, or termination owns the telemetry record. After a boundary records a failure and rethrows it, every outer forwarding boundary must preserve the failure without recording it again.
-
-Use a structured logger, trace or span event, error tracker, or another configured sink that makes the failure available to operators. Plain console output qualifies only when the application routes it into its observability pipeline.
+- **Recover:** record the recovery, perform the explicit fallback, retry, skip, or other recovery action, then swallow the exception. Logging alone is not recovery.
+- **Propagate:** preserve the exception unchanged or wrap it with the language's native cause mechanism when caller-relevant context is added, then throw it. Do not catch a mere pass-through unless required to complete operation-owned cleanup or telemetry.
+- **Terminate an owned operation:** convert the exception into the boundary's terminal failure contract or rethrow it after completing boundary-owned cleanup and telemetry.
 
 ```typescript
-// BAD: the fallback swallows the failure without an observable record.
-try {
-	result = await loadProfile(userId);
-} catch {
-	result = anonymousProfile;
-}
-
-// GOOD: the boundary records and handles the recoverable failure.
+// GOOD: recover from the expected failure.
 try {
 	result = await loadProfile(userId);
 } catch (error) {
-	logger.exception(error).error('Profile load failed; using anonymous profile', { userId });
+	if (!(error instanceof ProfileUnavailableError)) throw error;
+	recordRecovery(error, { userId, recoveryType: 'anonymous_profile' });
 	result = anonymousProfile;
 }
 
-// GOOD: the decision-owning boundary records a non-recoverable failure and preserves its chain.
+// GOOD: propagation can add caller-relevant context.
 try {
 	await saveProfile(profile);
 } catch (error) {
-	logger.exception(error).error('Profile persistence failed', { userId: profile.userId });
+	if (!(error instanceof StorageWriteError)) throw error;
 	throw new ProfilePersistenceError('Could not persist profile', { cause: error });
 }
 ```
 
-Do not add `try` blocks preemptively. Do not catch an error only to repeat telemetry already emitted by its owning boundary. Let pass-through layers propagate failures without log noise.
+Prefer native exception chaining such as Python `raise ... from error`, JavaScript `new Error(message, { cause: error })`, or the language's equivalent. Pass the outermost exception instance to the designated exception-recording boundary.
+
+Do not add `try` blocks preemptively. Let pass-through layers propagate failures without noise.

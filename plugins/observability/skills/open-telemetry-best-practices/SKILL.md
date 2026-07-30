@@ -1,7 +1,6 @@
 ---
 name: open-telemetry-best-practices
-description: Opinionated OpenTelemetry conventions for log severity, structured attributes, and recording operational errors across logs and spans. Use when adding or reviewing OpenTelemetry-compatible telemetry, choosing log severity, naming attributes, recording exceptions, setting error.type, or setting span status.
-compatibility: Requires OpenTelemetry-compatible systems using the official SDKs.
+description: Opinionated, language-agnostic OpenTelemetry conventions for log severity, structured attributes, and recording operational errors across logs and spans. Use when adding or reviewing OpenTelemetry-compatible telemetry, choosing log severity, naming attributes, recording exceptions or cause chains, setting error.type, or setting span status.
 ---
 
 # OpenTelemetry Best Practices
@@ -10,13 +9,16 @@ Treat logs, spans, and metrics as correlated signals with separate semantics. Re
 
 Use an established OpenTelemetry semantic convention before defining an application attribute. Keep custom policy visibly separate from OpenTelemetry requirements, and keep telemetry useful across languages, SDKs, collectors, and backends.
 
+Treat this guidance as language-agnostic. Adapt illustrative JavaScript SDK examples to the target language's official OpenTelemetry APIs, native exception chaining, and resource-management conventions.
+
 ## Core Conventions
 
 - Preserve trace and span correlation on every log record emitted during an active span.
 - Keep log bodies stable and concise. Put identifiers, counts, states, durations, and error classifications in attributes.
 - Select severity from the significance of the event. Do not select it from whether code catches, retries, falls back, or rethrows.
 - Set span status from the outcome of the operation represented by that span.
-- Record an exception once. Do not copy the same stack trace into several signals or layers.
+- Emit useful operational failure logs as early as possible without repeating exception payloads.
+- Record one complete exception chain at the boundary that owns the failed operation. Do not copy the same stack trace into several signals or layers.
 - Exclude secrets, credentials, personal data, and unbounded payloads from telemetry.
 
 ## Library Sources
