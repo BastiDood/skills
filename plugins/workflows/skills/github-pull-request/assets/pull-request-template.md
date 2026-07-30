@@ -5,21 +5,13 @@
 
 ## Implementation Notes
 
-<details>
-
-<summary>
+<!-- Ignore this section if mostly routine changes. -->
 
 ### Summarize the larger fix in one short blurb.
-
-</summary>
 
 - Group related implementation decisions under concise headings that describe their shared goal or motif.
 - Explain the important implications, trade-offs, and limitations.
 - Omit routine details and file-by-file change lists. Use abbreviated paths or low-fidelity pseudocode only when they clarify the design.
-
-</details>
-
-<!-- Ignore this section if mostly routine changes. -->
 
 ## Breaking Changes
 
