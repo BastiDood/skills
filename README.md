@@ -121,4 +121,4 @@ Some skills conditionally reference MCP servers (used only if available):
 
 | Skill                                                                                            | Description                                        |
 | ------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
-| [`open-telemetry-best-practices`](./plugins/observability/skills/open-telemetry-best-practices/) | Log levels, attribute naming, error classification |
+| [`open-telemetry-best-practices`](./plugins/observability/skills/open-telemetry-best-practices/) | Log severity, semantic attributes, error recording |
