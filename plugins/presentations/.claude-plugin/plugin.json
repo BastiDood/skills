@@ -1,5 +1,8 @@
 {
 	"name": "presentations",
-	"version": "0.1.3",
-	"interface": { "displayName": "Presentations" }
+	"version": "0.1.4",
+	"interface": {
+		"displayName": "Presentations",
+		"logo": "./assets/bastidood.svg"
+	}
 }

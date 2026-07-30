@@ -1,0 +1,18 @@
+<!--
+  SPDX-FileCopyrightText: 2026 BastiDood
+  SPDX-License-Identifier: CC-BY-NC-ND-4.0
+
+  https://creativecommons.org/licenses/by-nc-nd/4.0/
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="sky" x1="5" y1="49" x2="51" y2="511" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3da3ff"/>
+      <stop offset="100%" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#sky)"/>
+  <path d="M85 512V267a22 22 0 0 1 22-22h163a22 22 0 0 1 22 22v245Z" fill="#236ea5"/>
+  <circle cx="189" cy="158" r="120" fill="#f4ca71"/>
+  <rect x="127.5" y="187.5" width="343" height="79" rx="26" fill="#e0b869" transform="rotate(-40 299 227)"/>
+</svg>
