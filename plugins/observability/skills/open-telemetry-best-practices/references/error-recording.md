@@ -37,10 +37,10 @@ When an exception escapes an operation:
 2. If the exception is unexpected by that boundary, rethrow the original instance unchanged.
 3. If the boundary translates an expected failure into caller-relevant meaning, wrap it with the language's native cause mechanism.
 4. Emit an exception record only when this operation owns the record under the application's exception-ownership convention.
-5. Optionally emit a stack-free contextual log when the boundary adds diagnostically useful metadata that is not preserved by the exception chain.
+5. Emit a stack-free contextual event only when the boundary performs an independently meaningful translation or transition that needs its own timestamp or occurrence-specific metadata.
 6. Throw the propagated exception.
 
-Do not catch a mere pass-through only to log or wrap it. Do not use `WARN` merely because a boundary wraps or rethrows an exception. Select severity from expected impact or an operation-specific semantic convention.
+Do not catch a mere pass-through only to log or wrap it. Do not emit a translation event for every wrapper. Do not use `WARN` merely because a boundary wraps or rethrows an exception. Select severity from expected impact or an operation-specific semantic convention.
 
 ## Record Every Recovery
 
@@ -106,7 +106,7 @@ Exception attributes are valid at every severity. A `WARN` exception record mean
 
 Prefer the language's native exception chaining. Record the outermost exception available at the owning boundary, including every caller-relevant cause already added there.
 
-A complete chain contains every cause reachable when the owning boundary records it. It cannot contain wrappers that a later caller has not created yet. Preserve later translation context through the ancestor span's outcome and, when useful, a stack-free contextual log rather than repeating the earlier exception payload.
+A complete chain contains every cause reachable when the owning boundary records it. It cannot contain wrappers that a later caller has not created yet. Preserve later translation context through the ancestor span's outcome. Emit a stack-free contextual event only when the translation is an independently meaningful occurrence that needs its own timestamp or occurrence-specific metadata.
 
 OpenTelemetry standardizes `exception.type`, `exception.message`, and `exception.stacktrace`; it does not define a portable record for each cause. Verify that the language SDK, logging bridge, exporter, and backend preserve the complete native chain in one exception record.
 
@@ -199,9 +199,9 @@ try {
 
 Do not wrap the fallback branch merely to convert an unexpected exception into an application-specific type.
 
-### Add Stack-Free Translation Context
+### Record a Meaningful Translation Event
 
-A translating boundary can attach bounded metadata without repeating the exception payload:
+A translating boundary can emit bounded, stack-free metadata when the translation is itself a meaningful occurrence. A routine wrapper only updates its operation span and propagates the cause without a log:
 
 This minimal fragment assumes `span` is the active operation span and `error` is a recognized `Error` caught by the translating boundary.
 

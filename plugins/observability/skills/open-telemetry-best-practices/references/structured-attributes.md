@@ -1,8 +1,65 @@
 # Structured Attributes
 
-Use the OpenTelemetry attribute registry and the active semantic convention for the instrumented operation before defining a custom attribute. Reuse the exact standard name, type, meaning, and value constraints.
+Treat a span as the record of one operation and a named log record as the record of one meaningful occurrence. Place an attribute according to what it describes, not where its value exists in code.
 
-Use official operation namespaces only for their defined semantics. For example:
+## Describe the Whole Operation on the Span
+
+Put safe, bounded, operationally useful properties that describe the operation as a whole on its span:
+
+- Add material inputs known at the operation's start when the span is created. Creation-time attributes are available to head samplers; attributes added later are not.
+- Add final output classifications and outcome properties before ending the span.
+- Set span status from the represented operation's outcome.
+- Keep only values that materially help operators filter, group, aggregate, correlate, or explain the operation.
+
+Do not capture every function parameter, local value, or closure capture. Variable provenance does not create telemetry meaning. Exclude implementation-only state, complete objects, large collections, and values that have no operational query.
+
+Do not put a changing history under one span-attribute key. Setting the same key again overwrites the earlier value. Use distinct initial and final attributes when both characterize the operation, or emit named events when each transition matters.
+
+```jsonc
+// GOOD: the span records material inputs and the final operation result.
+{
+	"name": "order.submit",
+	"attributes": {
+		"com.acme.order.channel": "web",
+		"com.acme.order.item_count": 3,
+		"com.acme.order.final_state": "submitted",
+	},
+}
+```
+
+Do not emit a successful-completion log merely because these final attributes were set. The span's end timestamp, final attributes, and status already represent completion.
+
+## Describe Occurrences on Named Log Events
+
+Emit a named log event when a meaningful occurrence needs its own timestamp, severity, repetition, or occurrence-specific attributes. Typical events include state transitions, retry attempts, feature decisions, lifecycle changes, and exceptions.
+
+```jsonc
+// GOOD: the event records one transition within the operation.
+{
+	"eventName": "order.state_changed",
+	"body": "Order state changed",
+	"attributes": {
+		"com.acme.order.from_state": "pending",
+		"com.acme.order.to_state": "submitted",
+	},
+}
+```
+
+Do not emit an event for every intermediate value. Emit one only when the occurrence is independently meaningful. Use a regular log record for unstructured diagnostic text that is not intended to be queried as a stable event.
+
+When an activity is a duration-bearing operation with a meaningful boundary, represent it with a child span instead of a completion event. Put that child operation's inputs and final outputs on the child span. A point-in-time outcome within a longer operation remains eligible for a named event.
+
+## Keep Correlated Records Focused
+
+Keep the span as the canonical home for operation-wide context. Do not copy every span attribute onto each correlated event. Put only occurrence-specific context on the event unless a repeated value is required to understand, route, alert on, or retain the event without its span.
+
+Intentional cross-signal repetition is valid when the same value serves different semantics. For example, a transition event can contain `to_state=completed` while the span contains `final_state=completed`. The event describes what changed at that time; the span describes the operation's final result.
+
+## Use Semantic Conventions First
+
+Use the OpenTelemetry attribute registry and the active semantic convention before defining a custom attribute. Reuse the exact standard name, type, meaning, placement, and value constraints.
+
+Use official operation namespaces only for their defined semantics:
 
 - Use `http.request.method` for the normalized HTTP method.
 - Use `http.response.status_code` for the HTTP response status code.
@@ -38,3 +95,46 @@ When no standard attribute applies:
 ```
 
 Do not encode secrets, credentials, personal data, complete request or response bodies, or other unbounded data as attributes.
+
+## Illustrative OpenTelemetry JavaScript Mapping
+
+Use span-creation attributes for known inputs, named log records for meaningful occurrences, and late span attributes for final outputs:
+
+The JavaScript Logs API and `eventName` input are experimental. Verify their signatures against the installed package version.
+
+```typescript
+import { trace } from '@opentelemetry/api';
+import { logs, SeverityNumber } from '@opentelemetry/api-logs';
+
+const tracer = trace.getTracer('com.acme.orders');
+const logger = logs.getLogger('com.acme.orders');
+
+await tracer.startActiveSpan(
+	'order.submit',
+	{
+		attributes: {
+			'com.acme.order.channel': 'web',
+			'com.acme.order.item_count': 3,
+		},
+	},
+	async span => {
+		try {
+			logger.emit({
+				eventName: 'order.state_changed',
+				severityNumber: SeverityNumber.INFO,
+				body: 'Order state changed',
+				attributes: {
+					'com.acme.order.from_state': 'pending',
+					'com.acme.order.to_state': 'submitted',
+				},
+			});
+
+			span.setAttribute('com.acme.order.final_state', 'submitted');
+		} finally {
+			span.end();
+		}
+	},
+);
+```
+
+Do not add an `order.submit.completed` log to this example. The span already records the completed operation and its final state.
