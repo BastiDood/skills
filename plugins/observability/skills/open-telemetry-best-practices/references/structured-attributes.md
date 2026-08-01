@@ -2,13 +2,14 @@
 
 Treat a span as the record of one operation and a named log record as the record of one meaningful occurrence. Place an attribute according to what it describes, not where its value exists in code.
 
+This policy is language-agnostic. JavaScript examples illustrate how another language can map the same decisions to its official OpenTelemetry APIs; they are neither normative nor canonical.
+
 ## Describe the Whole Operation on the Span
 
 Put safe, bounded, operationally useful properties that describe the operation as a whole on its span:
 
 - Add material inputs known at the operation's start when the span is created. Creation-time attributes are available to head samplers; attributes added later are not.
 - Add final output classifications and outcome properties before ending the span.
-- Set span status from the represented operation's outcome.
 - Keep only values that materially help operators filter, group, aggregate, correlate, or explain the operation.
 
 Do not capture every function parameter, local value, or closure capture. Variable provenance does not create telemetry meaning. Exclude implementation-only state, complete objects, large collections, and values that have no operational query.
@@ -27,9 +28,9 @@ Do not put a changing history under one span-attribute key. Setting the same key
 }
 ```
 
-Do not emit a successful-completion log merely because these final attributes were set. The span's end timestamp, final attributes, and status already represent completion.
+Do not emit a successful-completion log merely because final attributes were set. The span's end timestamp, final attributes, and status already represent completion.
 
-## Describe Occurrences on Named Log Events
+## Describe Occurrences on Named Log Records
 
 Emit a named log event when a meaningful occurrence needs its own timestamp, severity, repetition, or occurrence-specific attributes. Typical events include state transitions, retry attempts, feature decisions, lifecycle changes, and exceptions.
 
@@ -54,6 +55,30 @@ When an activity is a duration-bearing operation with a meaningful boundary, rep
 Keep the span as the canonical home for operation-wide context. Do not copy every span attribute onto each correlated event. Put only occurrence-specific context on the event unless a repeated value is required to understand, route, alert on, or retain the event without its span.
 
 Intentional cross-signal repetition is valid when the same value serves different semantics. For example, a transition event can contain `to_state=completed` while the span contains `final_state=completed`. The event describes what changed at that time; the span describes the operation's final result.
+
+Keep a log body stable and concise across occurrences. Bind occurrence-specific values as attributes so operators can filter and aggregate them.
+
+```jsonc
+// BAD: a meaningful occurrence lacks a stable event identity and hides its values in the body.
+{
+	"body": "Inventory for books fell from 12 to 4 items",
+}
+```
+
+```jsonc
+// GOOD: a meaningful occurrence has a stable identity and structured context.
+{
+	"eventName": "inventory.capacity_degraded",
+	"body": "Inventory capacity degraded",
+	"attributes": {
+		"com.acme.inventory.category": "books",
+		"com.acme.inventory.previous_count": 12,
+		"com.acme.inventory.current_count": 4,
+	},
+}
+```
+
+Do not put full objects, large strings, stack traces, or sensitive values in a log body.
 
 ## Use Semantic Conventions First
 
@@ -98,9 +123,7 @@ Do not encode secrets, credentials, personal data, complete request or response 
 
 ## Illustrative OpenTelemetry JavaScript Mapping
 
-Use span-creation attributes for known inputs, named log records for meaningful occurrences, and late span attributes for final outputs:
-
-The JavaScript Logs API and `eventName` input are experimental. Verify their signatures against the installed package version.
+Use span-creation attributes for known inputs, named log records for meaningful occurrences, and late span attributes for final outputs. The JavaScript Logs API and `eventName` input are experimental; verify their signatures against the installed package version.
 
 ```typescript
 import { trace } from '@opentelemetry/api';

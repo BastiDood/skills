@@ -14,20 +14,11 @@ Treat this guidance as language-agnostic. Adapt illustrative JavaScript SDK exam
 ## Core Conventions
 
 - Preserve trace and span correlation on every log record emitted during an active span.
-- Put operation-wide attributes on the span. Include material inputs known at span creation and final output classifications known before the span ends.
-- Select attributes by their meaning to the represented operation, not by whether their values came from parameters, local variables, or closures. Exclude implementation-only state.
-- Emit a named log event for a meaningful checkpoint, state transition, attempt, exception, or other occurrence that needs its own timestamp, severity, or occurrence-specific attributes.
-- Do not emit a successful-completion log merely because a span ended. The ended span, final attributes, and status already record completion.
+- Put safe, bounded operation inputs and final outputs on the span; put meaningful point-in-time occurrences on named log records.
 - Represent a duration-bearing sub-operation with a child span instead of a completion event.
-- Keep log bodies stable and concise. Put occurrence-specific queryable context in log attributes, and do not copy every correlated span attribute onto the log.
-- Select severity from the significance of the event. Do not select it from whether code catches, retries, falls back, or rethrows.
-- Set span status from the outcome of the operation represented by that span.
-- Record an exception at the lowest useful operation boundary that owns the failure, where the record retains the most specific span context and bounded local metadata.
-- Keep a terminal fallback for an exception that escapes without an application-owned record. Do not assume external libraries recorded a propagated exception.
-- Record each causal failure without gaps or repeated exception payloads. Let ancestor operations record their own outcome without copying the same exception stack.
-- Preserve unexpected exceptions unchanged. Wrap only when the boundary adds caller-relevant meaning, and preserve the original exception through native cause chaining.
-- Prefer exception log records for new instrumentation. Do not also emit the same exception as a span event except during an explicit compatibility migration.
-- Preserve every distinct failed retry attempt when it is operationally relevant. Treat recovered attempts and an exhausted operation as separate outcomes without recording one attempt twice.
+- Do not emit a successful-completion log merely because a span ended; its end time, final attributes, and status already record completion.
+- Decide a failed operation's span outcome independently from whether and where its exception is recorded.
+- Apply semantic conventions before custom policy, and keep custom policy explicit when OpenTelemetry does not define it.
 - Exclude secrets, credentials, personal data, and unbounded payloads from telemetry.
 
 ## Library Sources
@@ -39,6 +30,7 @@ Treat this guidance as language-agnostic. Adapt illustrative JavaScript SDK exam
 
 Read as many linked references as are relevant to the current task.
 
-- When an event needs a severity and a stable log body, apply the [log severity model](./references/log-severity.md) without coupling severity to control flow.
-- When placing or naming queryable context, apply [semantic attribute conventions](./references/structured-attributes.md) to distinguish operation attributes from occurrence attributes before creating application-specific names.
-- When an operation fails or an exception is observed, follow [OpenTelemetry error recording](./references/error-recording.md) to keep exception data, `error.type`, and span status consistent without duplicate records.
+- When placing or naming queryable context, apply [structured attribute conventions](./references/structured-attributes.md) to distinguish operation attributes from occurrence attributes without copying correlated context by default.
+- When a log occurrence needs an impact level, apply the [log severity model](./references/log-severity.md) without deriving severity from control flow or span status.
+- When an operation fails, apply [failed-operation outcomes](./references/operation-failure-outcomes.md) so span status and `error.type` describe that operation independently from exception emission.
+- When an exception is observed, propagated, recovered, retried, or terminally handled, apply [exception recording](./references/exception-recording.md) to preserve its causal chain without gaps or repeated payloads.
