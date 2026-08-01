@@ -17,8 +17,12 @@ Treat this guidance as language-agnostic. Adapt illustrative JavaScript SDK exam
 - Keep log bodies stable and concise. Put identifiers, counts, states, durations, and error classifications in attributes.
 - Select severity from the significance of the event. Do not select it from whether code catches, retries, falls back, or rethrows.
 - Set span status from the outcome of the operation represented by that span.
-- Emit useful operational failure logs as early as possible without repeating exception payloads.
-- Record one complete exception chain at the boundary that owns the failed operation. Do not copy the same stack trace into several signals or layers.
+- Record an exception at the lowest useful operation boundary that owns the failure, where the record retains the most specific span context and bounded local metadata.
+- Keep a terminal fallback for an exception that escapes without an application-owned record. Do not assume external libraries recorded a propagated exception.
+- Record each causal failure without gaps or repeated exception payloads. Let ancestor operations record their own outcome without copying the same exception stack.
+- Preserve unexpected exceptions unchanged. Wrap only when the boundary adds caller-relevant meaning, and preserve the original exception through native cause chaining.
+- Prefer exception log records for new instrumentation. Do not also emit the same exception as a span event except during an explicit compatibility migration.
+- Preserve every distinct failed retry attempt when it is operationally relevant. Treat recovered attempts and an exhausted operation as separate outcomes without recording one attempt twice.
 - Exclude secrets, credentials, personal data, and unbounded payloads from telemetry.
 
 ## Library Sources
