@@ -1,1 +1,4 @@
-{ "name": "typescript" }
+{
+	"name": "typescript",
+	"mcpServers": "./.mcp.json"
+}

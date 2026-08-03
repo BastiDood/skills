@@ -1,6 +1,6 @@
 {
 	"name": "drizzle",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"interface": {
 		"displayName": "Drizzle",
 		"logo": "./assets/drizzle-orm-light.svg",
