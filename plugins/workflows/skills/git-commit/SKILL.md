@@ -1,12 +1,12 @@
 ---
 name: git-commit
-description: Organize pending changes into cohesive work slices, stage each slice, and propose conventional commit titles for the user to review and commit. Use when preparing incremental Git commits.
+description: Organize pending changes into cohesive work slices, stage each slice, and propose conventional Git commit titles for the user to review and commit. Use when preparing incremental checkpoints as reviewable staged Git commits.
 compatibility: Requires Git (`git`).
 ---
 
 # Smart Commit
 
-Turn the current working-tree changes into a clear, reviewable sequence of conventional commits. Stage one genuine work slice at a time, then let the user review the proposed title and create the commit.
+Turn the current working-tree changes into a clear, reviewable sequence of checkpoints as conventional Git commits. Stage one genuine work slice at a time, then let the user review the proposed title and create the commit.
 
 1. Inspect all staged and unstaged changes. Identify the cohesive slices of work that belong in separate commits.
    - Use genuine, independently understandable work slices. Do not split changes into overly granular commits merely because they can be separated.
