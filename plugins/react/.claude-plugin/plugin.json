@@ -1,6 +1,6 @@
 {
 	"name": "react",
-	"version": "0.1.10",
+	"version": "0.1.11",
 	"interface": {
 		"displayName": "React",
 		"logo": "./assets/react-light.svg",
