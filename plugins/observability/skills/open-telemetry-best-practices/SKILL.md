@@ -15,9 +15,11 @@ Treat this guidance as language-agnostic. Adapt illustrative JavaScript SDK exam
 
 - Preserve trace and span correlation on every log record emitted during an active span.
 - Put safe, bounded operation inputs and final outputs on the span; put meaningful point-in-time occurrences on named log records.
+- Strongly prefer a stable `eventName` for structured log records so consumers can select the correct attribute schema without inferring the record type from its body or attribute set.
 - Represent a duration-bearing sub-operation with a child span instead of a completion event.
 - Represent every loop execution with its own span so its total duration, final bounded results, decisions, and per-iteration records remain correlated.
 - Do not emit a successful-completion log merely because a span ended; its end time, final attributes, and status already record completion.
+- Explicitly set a successfully completed span to `OK` after all fallible work has finished, and leave that status set.
 - Decide a failed operation's span outcome independently from whether and where its exception is recorded.
 - Apply semantic conventions before custom policy, and keep custom policy explicit when OpenTelemetry does not define it.
 - For a standard name or value, use the target language's official OpenTelemetry semantic-convention library when it provides a stable equivalent. Follow that SDK's stability guidance instead of assuming every language exposes the same constants or APIs.
@@ -34,5 +36,5 @@ Read as many linked references as are relevant to the current task.
 
 - When placing or naming queryable context, applying official semantic-convention libraries, or instrumenting loops, apply [structured attribute conventions](./references/structured-attributes.md) to distinguish operation attributes from occurrence attributes without copying correlated context by default.
 - When a log occurrence needs an impact level, apply the [log severity model](./references/log-severity.md) without deriving severity from control flow or span status.
-- When an operation fails, apply [failed-operation outcomes](./references/operation-failure-outcomes.md) so span status and `error.type` describe that operation independently from exception emission.
+- When an operation fails, apply [failed-operation outcomes](./references/operation-failure-outcomes.md) so span status and any available `error.type` describe that operation independently from exception emission.
 - When an exception is observed, propagated, recovered, retried, or terminally handled, apply [exception recording](./references/exception-recording.md) to preserve its causal chain without gaps or repeated payloads.

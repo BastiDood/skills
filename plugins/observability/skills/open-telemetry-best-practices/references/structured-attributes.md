@@ -34,6 +34,8 @@ Do not emit a successful-completion log merely because final attributes were set
 
 Emit a named log event when a meaningful occurrence needs its own timestamp, severity, repetition, or occurrence-specific attributes. Typical events include state transitions, retry attempts, feature decisions, lifecycle changes, and exceptions.
 
+Strongly prefer a stable `eventName` for every structured log record that represents an event. Treat it as the discriminator that selects the schema for the record's attributes. Do not infer that schema from body text or from the presence of individual attributes. Leave an ordinary diagnostic log record unnamed when it does not represent a stable event type.
+
 ```jsonc
 // GOOD: the event records one transition within the operation.
 {
@@ -100,7 +102,7 @@ Use official operation namespaces only for their defined semantics:
 
 - Use `http.request.method` for the normalized HTTP method.
 - Use `http.response.status_code` for the HTTP response status code.
-- Use `error.type` for the predictable, low-cardinality class of a failed operation.
+- Use `error.type` when a failed operation provides a predictable, low-cardinality classification.
 - Use resource attributes such as `service.name` for the entity that produced telemetry.
 
 Do not treat `request.*`, `response.*`, `entity.*`, or `result.*` as generic application namespaces. A name that resembles a semantic convention is not a semantic convention.
@@ -138,8 +140,9 @@ Do not encode secrets, credentials, personal data, complete request or response 
 Use span-creation attributes for known inputs, named log records for meaningful occurrences, and late span attributes for final outputs. The JavaScript Logs API and `eventName` input are experimental; verify their signatures against the installed package version.
 
 ```typescript
-import { trace } from '@opentelemetry/api';
+import { SpanStatusCode, trace } from '@opentelemetry/api';
 import { logs, SeverityNumber } from '@opentelemetry/api-logs';
+import { ATTR_ERROR_TYPE } from '@opentelemetry/semantic-conventions';
 
 const tracer = trace.getTracer('com.acme.orders');
 const logger = logs.getLogger('com.acme.orders');
@@ -165,6 +168,15 @@ await tracer.startActiveSpan(
 			});
 
 			span.setAttribute('com.acme.order.final_state', 'submitted');
+			span.setStatus({ code: SpanStatusCode.OK });
+		} catch (error) {
+			if (Error.isError(error)) {
+				span.setStatus({ code: SpanStatusCode.ERROR, message: error.message });
+				span.setAttribute(ATTR_ERROR_TYPE, error.name);
+			} else {
+				span.setStatus({ code: SpanStatusCode.ERROR });
+			}
+			throw error;
 		} finally {
 			span.end();
 		}

@@ -50,7 +50,7 @@ Logging alone is not recovery. A failed attempt span remains failed, while an en
 
 Treat each retry attempt as a distinct operation when attempt-level diagnostics matter:
 
-- A failed attempt span ends with `Error` status and its own `error.type`.
+- A failed attempt span ends with `Error` status and its own `error.type` when a failure classification is available.
 - When no lower operation already owns the exception record, record an earlier failed attempt before another attempt replaces its exception. Use the severity defined by the operation-specific convention. `WARN` is appropriate when the exception is expected to be handled by application code.
 - Let the final exception propagate to the next owning boundary instead of recording that same attempt again at both the retry layer and the caller.
 - Keep the enclosing logical operation successful when a later attempt fulfills it. Mark it failed only when the retry strategy is exhausted and the operation fails.
