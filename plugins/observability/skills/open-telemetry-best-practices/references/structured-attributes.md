@@ -50,6 +50,16 @@ Do not emit an event for every intermediate value. Emit one only when the occurr
 
 When an activity is a duration-bearing operation with a meaningful boundary, represent it with a child span instead of a completion event. Put that child operation's inputs and final outputs on the child span. A point-in-time outcome within a longer operation remains eligible for a named event.
 
+## Instrument Loop Executions
+
+Wrap every loop execution in its own span so its duration, decisions, and iteration records remain correlated.
+
+- Emit a `TRACE` log record for every loop iteration with safe, bounded iteration context.
+- Emit `DEBUG` records at meaningful decisions or selected branches.
+- Set final bounded counts and outcomes on the loop span, and end it even when an iteration fails.
+- Keep changing iteration history in log records instead of overwriting span attributes.
+- Do not create one span per iteration by default. Create an iteration child span only when that iteration itself is a meaningful duration-bearing operation.
+
 ## Keep Correlated Records Focused
 
 Keep the span as the canonical home for operation-wide context. Do not copy every span attribute onto each correlated event. Put only occurrence-specific context on the event unless a repeated value is required to understand, route, alert on, or retain the event without its span.
@@ -84,6 +94,8 @@ Do not put full objects, large strings, stack traces, or sensitive values in a l
 
 Use the OpenTelemetry attribute registry and the active semantic convention before defining a custom attribute. Reuse the exact standard name, type, meaning, placement, and value constraints.
 
+In implementation code, use the equivalent official semantic-convention library supplied by the target language's OpenTelemetry ecosystem whenever it exposes a stable constant for a standard attribute, event, metric, or enumerated value. Do not hand-write standard semantic-convention strings when such a constant exists. Follow the target SDK's stability and versioning guidance; do not treat an incubating API as stable. When no official stable constant is available, use the exact standard name and document the compatibility choice.
+
 Use official operation namespaces only for their defined semantics:
 
 - Use `http.request.method` for the normalized HTTP method.
@@ -112,7 +124,7 @@ When no standard attribute applies:
 ```
 
 ```jsonc
-// GOOD: the HTTP value uses a standard name and the domain value uses an application namespace.
+// GOOD: serialized telemetry uses the standard HTTP name and the domain value uses an application namespace.
 {
 	"http.response.status_code": 200,
 	"com.acme.catalog.item_count": 12,

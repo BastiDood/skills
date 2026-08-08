@@ -69,18 +69,60 @@ When an adapter does not serialize native causes, format the complete chain into
 
 Do not emit multiple exception logs merely to walk the cause tree. Multiple exception records are justified only when distinct instrumented operations own distinct failures, not because one exception wraps another.
 
+## Make Custom Errors Independently Analyzable
+
+Include every dynamic, public, immutable, telemetry-safe scalar property of a custom error in its human-readable message and as a named structured attribute when the owning boundary records it.
+
+Telemetry-safe scalar properties are bounded, non-sensitive strings, numbers, booleans, integer-like values, and enumeration-like values. Exclude secrets, personal data, unbounded text, objects, and collections. Write the message as natural prose that gives each value clear meaning; reserve key/value syntax for structured attributes.
+
+The message-and-attribute outcome is required; a constructor shape, static factory, base class, reflection mechanism, or logging API is not. A construct-record-throw helper is valid only at an exception-recording boundary.
+
 ## Illustrative OpenTelemetry JavaScript Mapping
 
-The JavaScript Logs API's `exception` input is experimental. The current SDK derives the outer error's code or name, message, and stack; it does not recursively traverse `Error.cause`. It resolves the active context automatically for immediate emission. Pass an explicitly captured context when emission is deferred or occurs outside the original execution context. Verify all signatures against the installed package version.
+The JavaScript Logs API's `exception` input is experimental. The current SDK derives the outer error's code or name, message, and stack; it does not recursively traverse `Error.cause` or discover arbitrary public properties. It resolves the active context automatically for immediate emission. Pass an explicitly captured context when emission is deferred or occurs outside the original execution context. Verify all signatures against the installed package version.
 
 The JavaScript trace API's `recordException` method creates an exception span event. Do not call it when emitting the same failure as an exception log.
 
 ```typescript
 import { logs, SeverityNumber } from '@opentelemetry/api-logs';
-import { ATTR_EXCEPTION_STACKTRACE } from '@opentelemetry/semantic-conventions';
+import {
+	ATTR_EXCEPTION_STACKTRACE,
+	ATTR_HTTP_RESPONSE_STATUS_CODE,
+} from '@opentelemetry/semantic-conventions';
 
 const logger = logs.getLogger('com.acme.orders');
 ```
+
+### Illustrative Construct-Record-Throw Helper
+
+This optional JavaScript pattern is valid only when every call site owns immediate exception recording.
+
+```typescript
+class ApiResponseError extends Error {
+	name = 'ApiResponseError';
+
+	constructor(public readonly code: number) {
+		super(`API response returned status ${code}`);
+		this.name = 'ApiResponseError';
+	}
+
+	static throwNew(code: number): never {
+		const error = new ApiResponseError(code);
+		logger.emit({
+			eventName: 'api.request.exception',
+			severityNumber: SeverityNumber.WARN,
+			body: 'API request failed',
+			exception: error,
+			attributes: {
+				[ATTR_HTTP_RESPONSE_STATUS_CODE]: error.code,
+			},
+		});
+		throw error;
+	}
+}
+```
+
+This example uses `WARN` for an external client failure that application code is expected to handle. When a later boundary owns recording, construct and throw the error without emitting here.
 
 ### Record an Exception at Its Owning Boundary
 
