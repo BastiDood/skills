@@ -1,6 +1,6 @@
 {
 	"name": "python",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"description": "Opinionated Python 3.13+ application and library design guidance.",
 	"author": {
 		"name": "Basti Ortiz",

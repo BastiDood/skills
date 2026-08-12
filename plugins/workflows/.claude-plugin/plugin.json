@@ -1,6 +1,6 @@
 {
 	"name": "workflows",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "Common workflows for code review, Git commits, and GitHub pull requests.",
 	"author": {
 		"name": "Basti Ortiz",

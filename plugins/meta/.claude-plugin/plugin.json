@@ -1,6 +1,6 @@
 {
 	"name": "meta",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Opinionated guidance for governing marketplaces, organizing plugins, and writing agent skills.",
 	"author": {
 		"name": "Basti Ortiz",

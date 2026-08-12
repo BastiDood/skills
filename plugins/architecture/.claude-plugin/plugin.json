@@ -1,6 +1,6 @@
 {
 	"name": "architecture",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "Opinionated guidance for maintainable software architecture, code design, and testing.",
 	"author": {
 		"name": "Basti Ortiz",

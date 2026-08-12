@@ -1,6 +1,6 @@
 {
 	"name": "drizzle",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Opinionated, dialect-aware guidance for designing and reviewing Drizzle ORM code.",
 	"author": {
 		"name": "Basti Ortiz",
