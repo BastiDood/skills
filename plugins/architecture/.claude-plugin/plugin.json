@@ -1,5 +1,13 @@
 {
 	"name": "architecture",
 	"version": "0.2.0",
-	"interface": { "displayName": "Architecture" }
+	"description": "Opinionated guidance for maintainable software architecture, code design, and testing.",
+	"author": {
+		"name": "Basti Ortiz",
+		"email": "ortiz@bastidood.dev",
+		"url": "https://bastidood.dev/"
+	},
+	"interface": {
+		"displayName": "Architecture"
+	}
 }

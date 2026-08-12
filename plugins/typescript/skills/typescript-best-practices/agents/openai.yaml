@@ -1,2 +1,3 @@
 interface:
   display_name: 'TypeScript Best Practices'
+  short_description: 'Design exhaustively precise and bulletproof TypeScript contracts.'

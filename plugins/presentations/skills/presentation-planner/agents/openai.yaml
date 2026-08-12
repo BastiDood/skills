@@ -1,2 +1,3 @@
 interface:
   display_name: 'Presentation Planner'
+  short_description: 'Turn raw scripts and source material into Basti-style presentation plans.'

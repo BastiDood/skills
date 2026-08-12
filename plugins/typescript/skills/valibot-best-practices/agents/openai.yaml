@@ -1,2 +1,3 @@
 interface:
   display_name: 'Valibot Best Practices'
+  short_description: 'Design explicit and reliable Valibot schemas.'

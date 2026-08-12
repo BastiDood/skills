@@ -1,5 +1,13 @@
 {
 	"name": "observability",
 	"version": "0.1.3",
-	"interface": { "displayName": "Observability" }
+	"description": "Opinionated guidance for clear and operationally useful OpenTelemetry instrumentation.",
+	"author": {
+		"name": "Basti Ortiz",
+		"email": "ortiz@bastidood.dev",
+		"url": "https://bastidood.dev/"
+	},
+	"interface": {
+		"displayName": "Observability"
+	}
 }

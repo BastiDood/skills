@@ -1,6 +1,12 @@
 {
 	"name": "presentations",
 	"version": "0.1.4",
+	"description": "Plan, create, and verify polished presentations using Basti's style.",
+	"author": {
+		"name": "Basti Ortiz",
+		"email": "ortiz@bastidood.dev",
+		"url": "https://bastidood.dev/"
+	},
 	"interface": {
 		"displayName": "Presentations",
 		"logo": "./assets/bastidood.svg"

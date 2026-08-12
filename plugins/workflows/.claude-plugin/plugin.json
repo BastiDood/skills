@@ -1,5 +1,13 @@
 {
 	"name": "workflows",
 	"version": "0.2.1",
-	"interface": { "displayName": "Workflows" }
+	"description": "Common workflows for code review, Git commits, and GitHub pull requests.",
+	"author": {
+		"name": "Basti Ortiz",
+		"email": "ortiz@bastidood.dev",
+		"url": "https://bastidood.dev/"
+	},
+	"interface": {
+		"displayName": "Workflows"
+	}
 }

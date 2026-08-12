@@ -1,4 +1,5 @@
 interface:
   display_name: 'Git Commit'
+  short_description: 'Prepare cohesive and reviewable Git commits in stages.'
   icon_small: './assets/git.svg'
   icon_large: './assets/git.svg'

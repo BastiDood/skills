@@ -1,6 +1,12 @@
 {
 	"name": "typescript",
 	"version": "0.1.7",
+	"description": "Opinionated TypeScript guidance for precise contracts, validation, and asynchronous task graphs.",
+	"author": {
+		"name": "Basti Ortiz",
+		"email": "ortiz@bastidood.dev",
+		"url": "https://bastidood.dev/"
+	},
 	"interface": {
 		"displayName": "TypeScript",
 		"logo": "./assets/typescript.svg"

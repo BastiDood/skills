@@ -1,2 +1,3 @@
 interface:
   display_name: 'shadcn-svelte Best Practices'
+  short_description: 'Build composable `shadcn-svelte` components.'

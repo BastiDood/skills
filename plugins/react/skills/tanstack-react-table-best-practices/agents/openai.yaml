@@ -1,4 +1,5 @@
 interface:
   display_name: 'TanStack React Table Best Practices'
+  short_description: 'Write robust TanStack Table hooks for React.'
   icon_small: './assets/tanstack.svg'
   icon_large: './assets/tanstack.svg'

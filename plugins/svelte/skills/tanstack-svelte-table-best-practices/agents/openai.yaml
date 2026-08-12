@@ -1,4 +1,5 @@
 interface:
   display_name: 'TanStack Svelte Table Best Practices'
+  short_description: 'Write robust TanStack Table hooks for Svelte.'
   icon_small: './assets/tanstack.svg'
   icon_large: './assets/tanstack.svg'

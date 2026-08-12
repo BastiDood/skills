@@ -1,5 +1,13 @@
 {
 	"name": "meta",
 	"version": "0.1.0",
-	"interface": { "displayName": "Meta" }
+	"description": "Opinionated guidance for governing marketplaces, organizing plugins, and writing agent skills.",
+	"author": {
+		"name": "Basti Ortiz",
+		"email": "ortiz@bastidood.dev",
+		"url": "https://bastidood.dev/"
+	},
+	"interface": {
+		"displayName": "Meta"
+	}
 }

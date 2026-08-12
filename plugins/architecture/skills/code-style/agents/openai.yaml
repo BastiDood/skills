@@ -1,2 +1,3 @@
 interface:
   display_name: 'Code Style'
+  short_description: 'Design clear control flow, interfaces, and invariants.'

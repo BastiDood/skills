@@ -1,2 +1,3 @@
 interface:
   display_name: 'Svelte Best Practices'
+  short_description: 'Write modern, typed, package-safe Svelte 5 for components and forms.'

@@ -1,6 +1,12 @@
 {
 	"name": "svelte",
 	"version": "0.1.11",
+	"description": "Opinionated guidance for Svelte 5, Shadcn Svelte, server state, and data tables.",
+	"author": {
+		"name": "Basti Ortiz",
+		"email": "ortiz@bastidood.dev",
+		"url": "https://bastidood.dev/"
+	},
 	"interface": {
 		"displayName": "Svelte",
 		"logo": "./assets/svelte.svg"
