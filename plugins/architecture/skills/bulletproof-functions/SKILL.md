@@ -149,7 +149,7 @@ Follow the guidelines below religiously. Apply each reference example in the con
    - [Isolate honest work from dishonest orchestration.](./references/top-level-injection.md)
    - [Hoist dishonesty to the topmost level.](./references/hoisting-external-handles.md)
 2. Function signatures should communicate clearly to a human reader (first and foremost)
-   - [Substitute long-winded parameter lists with **named parameters** or **transient parameter objects**.](./references/transient-params-struct.md)
+   - [Consider **named parameters** or **transient parameter objects** only for signatures with more than three arguments or same-typed arguments that callers can easily swap; otherwise, order positional arguments from context to operation.](./references/transient-params-struct.md)
 3. Show empathy for callers.
    - [Prefer flexible parameter types/interfaces/generics instead of over-constrained concrete types.](./references/flexible-generic-parameters.md)
 4. Strongly consider hoisting invariants/preconditions/post-conditions to the type system to make invalid states irrepresentable.
