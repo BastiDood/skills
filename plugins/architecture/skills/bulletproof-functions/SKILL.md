@@ -14,21 +14,21 @@ This reference features a language-agnostic set of highly opinionated guidelines
 
 ## Why do we even write functions to begin with?
 
-This is worth asking because fundamentally, the machine code does not care about them and only operate on assembly instructions. Functions are not hardware-level mechanisms for correctness, performance, or reliability; it has no bearing on the theoretical capabilities of the model of computation.
+This is worth asking because fundamentally, machine codes do not care about functions and only operate on assembly instructions. Functions are not hardware-level mechanisms for correctness, performance, or reliability; it has no bearing on the theoretical capabilities of the model of computation.
 
-A shallow view is that functions are meant to deduplicate logic for code reuse, hence style guides dogmatically enforcing the DRY principle (i.e., extraction upon `n > 1` occurrences). This is an unfortunately limited perspective because functions serve to abstract implementation details first and foremost. Functions are "bricks" that are laid out so that callers needn't zoom into the details anymore.
+A shallow view is that functions are meant to deduplicate logic for code reuse, hence style guides dogmatically enforcing the DRY principle (i.e., extraction upon `n > 1` occurrences). This is an unfortunately limited perspective because functions serve to abstract implementation details first and foremost. Functions are "bricks" that are laid out so that callers needn't zoom into the details anymore. Code reuse is a second-order effect of this abstraction, but should not be the primary motivation.
 
 We thus fundamentally agree on the following principles:
 
 - DRY-ness and code reuse are neither sufficient nor necessary conditions for extraction.
 - Local reasoning, testability, and abstraction are the primary motivations for extraction, even for an audience of `n = 1` consumers.
-- Functions are human-first communication devices for expressing the intent of the code.
+- Functions are human-first communication devices for expressing the intent of the code. They must serve the human reader in abstracting complexity.
 
 ## On Function Honesty
 
 To align on a shared glossary for the rest of this reference, we define the following terms:
 
-- **Honest functions** fully communicate their dependents and side effects via their signature (i.e., in-parameters, out-parameters, and return values). These functions especially exhibit testable local reasoning. It is the caller's responsibility to inject all that what would have been external state otherwise.
+- **Honest functions** fully communicate their dependents and side effects via their signature alone (i.e., in-parameters, out-parameters, and return values). These functions especially exhibit testable local reasoning. It is the caller's responsibility to inject all that what would have been external state otherwise.
 - **Dishonest functions** touch externalities (e.g., databases, file systems, networks, global RNGs, etc.) that are not entirely communicated via their signature alone. These functions are harder to reason about because it's hard to tell whether their implicit dependents
 
 Dishonest functions remain dishonest despite invoking some honest functions. The converse is false; honest functions that now invoke dishonest functions are themselves dishonest. Therefore, a function call graph must always have honest functions at its leaves.
@@ -41,7 +41,7 @@ Structurally, dishonest functions merely orchestrate external systems and inject
 
 ```python
 def true_pure_function(x: int) -> int:
-    """ Obviously can only compute its output from the input. """
+    """ Obviously can compute its output from only the input. """
     return x + 1
 ```
 
@@ -149,7 +149,7 @@ Follow the guidelines below religiously. Apply each reference example in the con
    - [Isolate honest work from dishonest orchestration.](./references/top-level-injection.md)
    - [Hoist dishonesty to the topmost level.](./references/hoisting-external-handles.md)
 2. Function signatures should communicate clearly to a human reader (first and foremost)
-   - [Consider **named parameters** or **transient parameter objects** only for signatures with more than three arguments or same-typed arguments that callers can easily swap; otherwise, order positional arguments from context to operation.](./references/transient-params-struct.md)
+   - [Consider **named parameters** or **transient parameter objects** only for signatures with more than three arguments or same-typed arguments that callers can easily swap; otherwise, order positional arguments hierarchically from context-level to operation-level.](./references/transient-params-struct.md)
 3. Show empathy for callers.
    - [Prefer flexible parameter types/interfaces/generics instead of over-constrained concrete types.](./references/flexible-generic-parameters.md)
 4. Strongly consider hoisting invariants/preconditions/post-conditions to the type system to make invalid states irrepresentable.
