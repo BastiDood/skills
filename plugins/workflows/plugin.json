@@ -1,7 +1,7 @@
 {
 	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 	"name": "workflows",
-	"version": "0.2.3",
+	"version": "0.2.4",
 	"description": "Common workflows for code review, Git commits, and GitHub pull requests.",
 	"author": {
 		"name": "Basti Ortiz",

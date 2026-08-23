@@ -1,7 +1,7 @@
 {
 	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 	"name": "drizzle",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"description": "Opinionated, dialect-aware guidance for designing and reviewing Drizzle ORM code.",
 	"author": {
 		"name": "Basti Ortiz",
