@@ -1,4 +1,5 @@
 {
+	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 	"name": "presentations",
 	"version": "0.1.6",
 	"description": "Plan, create, and verify polished presentations using Basti's style.",
@@ -6,5 +7,13 @@
 		"name": "Basti Ortiz",
 		"email": "ortiz@bastidood.dev",
 		"url": "https://bastidood.dev/"
+	},
+	"extensions": {
+		"com.openai": {
+			"interface": {
+				"displayName": "Presentations",
+				"logo": "./assets/bastidood.svg"
+			}
+		}
 	}
 }

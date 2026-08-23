@@ -1,4 +1,5 @@
 {
+	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 	"name": "python",
 	"version": "0.1.5",
 	"description": "Opinionated Python 3.13+ application and library design guidance.",
@@ -6,5 +7,13 @@
 		"name": "Basti Ortiz",
 		"email": "ortiz@bastidood.dev",
 		"url": "https://bastidood.dev/"
+	},
+	"extensions": {
+		"com.openai": {
+			"interface": {
+				"displayName": "Python",
+				"logo": "./assets/python.svg"
+			}
+		}
 	}
 }

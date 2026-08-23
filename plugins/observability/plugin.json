@@ -1,4 +1,5 @@
 {
+	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 	"name": "observability",
 	"version": "0.1.5",
 	"description": "Opinionated guidance for clear and operationally useful OpenTelemetry instrumentation.",
@@ -6,5 +7,12 @@
 		"name": "Basti Ortiz",
 		"email": "ortiz@bastidood.dev",
 		"url": "https://bastidood.dev/"
+	},
+	"extensions": {
+		"com.openai": {
+			"interface": {
+				"displayName": "Observability"
+			}
+		}
 	}
 }

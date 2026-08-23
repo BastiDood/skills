@@ -6,7 +6,7 @@ Use Bun for package installation, dependency management, and package scripts.
 
 ## Plugin Manifests
 
-- Use `.claude-plugin/plugin.json` as the canonical plugin manifest.
-  - Do not create a separate `.codex-plugin/` directory or manifest. Codex already falls back to the `.claude-plugin/*` directory anyway.
-- Keep the canonical manifest minimal: declare only the plugin name, version, display name, and available logo fields.
-- Keep `.cursor-plugin/plugin.json` only as the lightweight Cursor compatibility manifest.
+- The [Agent Plugins specification](https://agent-plugins.org/specification.md) is authoritative for plugin manifests.
+  - The `.claude-plugin/plugin.json` is a compatibility manifest for Claude, which notably doesn't support the standard.
+  - Do not create `.codex-plugin/plugin.json` or `.cursor-plugin/plugin.json`; the namespaced Agent Plugins extension is authoritative.
+  - Do not create `.cursor-plugin/plugin.json` unless the plugin requires Cursor-specific components that Agent Plugins does not support.

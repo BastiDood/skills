@@ -1,4 +1,5 @@
 {
+	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 	"name": "workflows",
 	"version": "0.2.3",
 	"description": "Common workflows for code review, Git commits, and GitHub pull requests.",
@@ -6,5 +7,12 @@
 		"name": "Basti Ortiz",
 		"email": "ortiz@bastidood.dev",
 		"url": "https://bastidood.dev/"
+	},
+	"extensions": {
+		"com.openai": {
+			"interface": {
+				"displayName": "Workflows"
+			}
+		}
 	}
 }

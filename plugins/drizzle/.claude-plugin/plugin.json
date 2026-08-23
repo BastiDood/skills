@@ -1,15 +1,11 @@
 {
 	"name": "drizzle",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "Opinionated, dialect-aware guidance for designing and reviewing Drizzle ORM code.",
 	"author": {
 		"name": "Basti Ortiz",
 		"email": "ortiz@bastidood.dev",
 		"url": "https://bastidood.dev/"
 	},
-	"interface": {
-		"displayName": "Drizzle",
-		"logo": "./assets/drizzle-orm-light.svg",
-		"logoDark": "./assets/drizzle-orm-dark.svg"
-	}
+	"mcpServers": "./mcp.json"
 }

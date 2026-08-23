@@ -1,0 +1,20 @@
+{
+	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+	"name": "react",
+	"version": "0.1.13",
+	"description": "Opinionated guidance for React components, server state, and data tables.",
+	"author": {
+		"name": "Basti Ortiz",
+		"email": "ortiz@bastidood.dev",
+		"url": "https://bastidood.dev/"
+	},
+	"extensions": {
+		"com.openai": {
+			"interface": {
+				"displayName": "React",
+				"logo": "./assets/react-light.svg",
+				"logoDark": "./assets/react-dark.svg"
+			}
+		}
+	}
+}

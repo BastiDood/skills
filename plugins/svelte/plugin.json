@@ -1,4 +1,5 @@
 {
+	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 	"name": "svelte",
 	"version": "0.1.13",
 	"description": "Opinionated guidance for Svelte 5, Shadcn Svelte, server state, and data tables.",
@@ -7,5 +8,12 @@
 		"email": "ortiz@bastidood.dev",
 		"url": "https://bastidood.dev/"
 	},
-	"mcpServers": "./mcp.json"
+	"extensions": {
+		"com.openai": {
+			"interface": {
+				"displayName": "Svelte",
+				"logo": "./assets/svelte.svg"
+			}
+		}
+	}
 }
