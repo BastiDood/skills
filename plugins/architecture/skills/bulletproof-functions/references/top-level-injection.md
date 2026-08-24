@@ -40,7 +40,7 @@ int main() { // framework hook
 }
 ```
 
-Now we can invoke/test `all_permutations` in isolation. For instance, we can trivially switch the entry point so that it tests for a file stream instead of a console stream. That's the beauty of insulating dishonesty at the topmost level away from the rest of the honest business logic.
+Now we can invoke/test `all_permutations` in isolation. For instance, we can trivially switch the entry point so that it tests for a file stream instead of a console stream. That's the beauty of insulating application-owned resources and stateful external handles at the topmost level while stable standard-library algorithms remain inside the honest work.
 
 ## Performance Optimization: Out-Parameter Injection
 

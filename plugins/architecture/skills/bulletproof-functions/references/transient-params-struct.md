@@ -44,12 +44,14 @@ interface Database {
 	insertRedirect(redirectUri: string, randomBytes: Uint8Array): Promise<void>;
 }
 
-async function create(database: Database, redirectUri: string, randomBytes: Uint8Array) {
+async function create(database: Database, redirectUri: string) {
+	// dishonest orchestration boundary
+	const randomBytes = crypto.getRandomValues(new Uint8Array(32));
 	await database.insertRedirect(redirectUri, randomBytes);
 }
 ```
 
-The injected `database` resource and `redirectUri` are contextual arguments. `randomBytes` is operation-specific. Their order follows that hierarchy, and the signature has only three arguments. None of the arguments are same-typed values that callers can easily swap, so a parameter object is unnecessary.
+The injected `database` resource is contextual, and `redirectUri` is operation-specific. Their order follows that hierarchy. Web Crypto remains direct standard-platform usage rather than another parameter or a member of a dependency bag.
 
 ```cpp
 struct SetTimerParams {

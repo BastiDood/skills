@@ -30,7 +30,7 @@ int main() {
 }
 ```
 
-Although the PRNG is a deterministic state machine, its often seeded with a non-deterministic seed like the current timestamp or a cryptographically secure random number. In this sense, `gen_rng` thus becomes a dishonest global (i.e., external system).
+Although the PRNG is a deterministic state machine, it is often seeded with a non-deterministic seed like the current timestamp or a cryptographically secure random number. The mutable `get_rng` state is therefore a dishonest global.
 
 ## Solution: Hoist the PRNG State to the Topmost Level
 
@@ -41,7 +41,7 @@ auto ParticleWorld::populate(Random& rng, const size_t count) {
     std::generate_n( // honest
         std::back_inserter(this->particles),
         count,
-        []() { // honest lambda
+        [&rng]() { // honest lambda
             return Particle{
                 .position = rng.random_vec3(), // honest
                 .velocity = rng.random_vec3(), // honest

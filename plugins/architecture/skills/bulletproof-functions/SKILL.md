@@ -28,12 +28,14 @@ We thus fundamentally agree on the following principles:
 
 To align on a shared glossary for the rest of this reference, we define the following terms:
 
-- **Honest functions** fully communicate their dependents and side effects via their signature alone (i.e., in-parameters, out-parameters, and return values). These functions especially exhibit testable local reasoning. It is the caller's responsibility to inject all that what would have been external state otherwise.
-- **Dishonest functions** touch externalities (e.g., databases, file systems, networks, global RNGs, etc.) that are not entirely communicated via their signature alone. These functions are harder to reason about because it's hard to tell whether their implicit dependents
+- **Honest functions** fully communicate application-owned dependencies, nondeterministic external inputs, and side effects via their signature alone (i.e., in-parameters, out-parameters, and return values). These functions especially exhibit testable local reasoning. The caller injects stateful or configurable external resources that would otherwise be hidden.
+- **Dishonest functions** touch application-owned or stateful external resources (e.g., databases, file systems, networks, and global RNGs) or obtain nondeterministic external input that is not entirely communicated via their signature alone. Their implicit dependencies and effects prevent local reasoning.
+
+Language/runtime-owned primitives are not application dependencies merely because they are available through globals. Use stable APIs such as `crypto`, Web Crypto, `TextEncoder`, `TextDecoder`, `atob`, `btoa`, and equivalent standard-library primitives directly. Do not create factories, synthetic environment objects, dependency bags, or wrapper ports merely to inject them. This direct access does not make hidden nondeterminism or side effects honest: mutable, configurable, and policy-controlled global state remains external. Reserve dependency injection and explicit external handles for application-owned or stateful resources such as databases, network clients, file systems, configurable services, test-owned collaborators, and clocks when policy requires control.
 
 Dishonest functions remain dishonest despite invoking some honest functions. The converse is false; honest functions that now invoke dishonest functions are themselves dishonest. Therefore, a function call graph must always have honest functions at its leaves.
 
-Structurally, dishonest functions merely orchestrate external systems and inject state handles into honest functions. For maximum testability, it is therefore in our best interests to maximize the number of honest functions while keeping dishonest functions as thin as possible.
+Structurally, dishonest functions merely orchestrate external systems and inject their state handles into honest functions. For maximum testability, it is therefore in our best interests to maximize the number of honest functions while keeping dishonest functions as thin as possible.
 
 ### Taxonomy of Honest Functions
 
@@ -145,7 +147,7 @@ void loop() {
 
 Follow the guidelines below religiously. Apply each reference example in the context of the current task.
 
-1. Build your system out of **honest functions**. Inject **dishonesty** at the topmost possible level.
+1. Build your system out of **honest functions**. Inject application-owned or stateful external resources at the topmost possible level.
    - [Isolate honest work from dishonest orchestration.](./references/top-level-injection.md)
    - [Hoist dishonesty to the topmost level.](./references/hoisting-external-handles.md)
 2. Function signatures should communicate clearly to a human reader (first and foremost)
