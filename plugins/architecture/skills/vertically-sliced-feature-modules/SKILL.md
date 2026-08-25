@@ -15,15 +15,19 @@ A feature owns one user-visible or business capability end to end. Keep its tech
 
 Features are isolated siblings and do not import one another. Callers and orchestrators compose feature entries. When multiple features need the same stable logic, promote it to a focused shared owner instead of making either feature the dependency of the other.
 
-## References
+## Effective Strategies for Cohesive Feature Modules
 
-Read as many linked references as are relevant to the current task before planning, moving, or reviewing modules.
+Follow the guidelines below. Read each linked reference that applies before planning, moving, or reviewing modules.
 
-- Keep each capability's technical roles together with a feature-first [directory structure](./references/directory-structure.md) instead of scattering them by layer.
-- Keep routes and registries as composition surfaces; [entry points](./references/entry-points-and-composition.md) must not absorb reusable business behavior.
-- Give a single owner's private capability a deeper [nested subsystem](./references/nested-subsystems.md) instead of a broad prefixed namespace.
-- Prevent feature-to-feature coupling by routing cross-boundary access through [public contracts with downward import direction](./references/public-contracts-and-import-direction.md).
-- Before promoting code, require multiple owners to share one stable responsibility under the [shared-code owner](./references/shared-code-promotion.md).
-- Admit an [independently buildable package](./references/package-admission.md) only for a real dependency, runtime, build, or deployment closure.
-- Collocate unit tests with their narrowest leaf and [hoist cross-cutting scenarios to an integration owner](./references/test-placement.md).
-- During structural changes, [preserve ownership, contracts, and behavior](./references/refactor-and-review.md) instead of redesigning logic under the cover of a move.
+1. Keep each capability's technical roles together under its owning feature.
+   - [Use a feature-first directory structure instead of scattering a capability by layer.](./references/directory-structure.md)
+   - [Give a single owner's private capability a deeper nested subsystem instead of a broad prefixed namespace.](./references/nested-subsystems.md)
+   - [Collocate unit tests with their narrowest leaf and hoist cross-cutting scenarios to an integration owner.](./references/test-placement.md)
+2. Compose features through deliberate entries and one-way public boundaries.
+   - [Keep routes and registries as composition surfaces; entry points must not absorb reusable business behavior.](./references/entry-points-and-composition.md)
+   - [Prevent feature-to-feature coupling through public contracts with downward import direction.](./references/public-contracts-and-import-direction.md)
+3. Promote shared ownership and package boundaries only when the system requires them.
+   - [Require multiple owners to share one stable responsibility before promoting code to a shared-code owner.](./references/shared-code-promotion.md)
+   - [Admit an independently buildable package only for a real dependency, runtime, build, or deployment closure.](./references/package-admission.md)
+4. Preserve the existing ownership graph, contracts, and behavior during structural changes.
+   - [Refactor and review module moves without redesigning logic under the cover of a move.](./references/refactor-and-review.md)

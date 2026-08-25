@@ -23,6 +23,8 @@ features/
 
 Calculations, transformations, state transitions, and other sans-I/O behavior stay with the leaf that implements them. Move their tests and leaf-specific fixtures with that implementation during a structural refactor.
 
+Test a file's private helpers through the file's public interface. Do not extract a helper only to test its private details. When subsystem ownership already justifies an internal sibling module, collocate its focused test with that sibling.
+
 A test that crosses leaf, feature, persistence, route, process, or external-adapter boundaries is an integration test. Hoist it to the nearest caller, orchestrator, package, or dedicated integration boundary that owns the combined behavior. Do not place it inside one participating feature and imply that the feature owns the other participants.
 
 ```text
