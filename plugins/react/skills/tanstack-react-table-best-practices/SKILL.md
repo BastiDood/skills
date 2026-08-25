@@ -15,10 +15,12 @@ Treat a table as stable schema plus instance-specific behavior: keep columns sta
 
 Use Context7 for current documentation and DeepWiki for implementation details.
 
-## References
+## Effective Strategies for TanStack React Table
 
-Read as many linked references as are relevant to the current task before writing or reviewing TanStack Table code.
+Read the references that apply to the current task before writing or reviewing TanStack Table code.
 
-- Hoist static table schema and send per-instance capabilities through [hoisted columns and meta](./references/hoisted-columns-and-meta.md), avoiding structural recomputation from callback capture.
-- Declare each schema's local capability contract with [typed table meta](./references/table-meta-types.md), not v8-style global metadata.
-- Render headers, cells, and footers through the table-owned [table primitives](./references/cell-rendering.md), because definitions are schema rather than JSX content.
+1. Treat columns as static schema and table behavior as instance-local capability.
+   - [Hoist columns and pass per-instance capabilities through meta](./references/hoisted-columns-and-meta.md), avoiding structural recomputation from callback capture.
+   - [Declare each schema's local capability contract with typed table meta](./references/table-meta-types.md), not v8-style global metadata.
+2. Render definitions through table-owned primitives because they are schema rather than JSX content.
+   - [Render headers, cells, and footers through table primitives](./references/cell-rendering.md).

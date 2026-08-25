@@ -133,6 +133,19 @@ Identify the essential claims, examples, demonstrations, evidence, and emotional
 
 Group successive semantic note groups that share an audience task and visual state. Then create a new beat when the audience task, governing frame, evidence, emotional register, demonstration, interaction, or need for a pause changes. Treat paragraphs and headings as source navigation, not default slide markers. Use the pacing diagnostics only after clustering.
 
+Before segmenting the source, read every example below in full; do not skip examples based on apparent relevance. Treat the XML tags as prompt delimiters, not plan output. Preserve presenter-note wording while applying the demonstrated editorial compression to visible copy.
+
+- [Separate complete semantic notes from compact, sibling visual cues](./references/main-idea-with-supporting-sentences-example.md).
+- When prose introduces a list or the source already contains nested items, [preserve the demonstrated list depth](./references/colon-ended-setup-example.md).
+- When a candidate slide contains several source paragraphs or independent ideas, [cluster them by audience task before considering a split](./references/multiple-source-paragraphs-example.md).
+- When an on-slide phrase begins with a lowercase technical identifier, [preserve its casing as demonstrated](./references/lowercase-technical-identifier-example.md).
+- When pacing divides a semantic group across slides, [retain the continuation's original indentation](./references/cross-slide-continuation-example.md).
+- When a long sentence contains a deliverable dependent clause, [split it without losing its punctuation or lowercase continuation](./references/dependent-clause-split-example.md).
+- When one slide hands off to the next, [copy the next spoken thought into the outgoing notes as a parenthesized preview](./references/next-slide-preview-example.md).
+- To see how a verbose script becomes a compact slide without losing coverage, [compare the clustered visual cues against the full presenter notes](./references/speaker-led-compression-example.md).
+- For direct quotations, [keep the canvas blank except for the quotation and move its setup into presenter notes](./references/quotation-slide-example.md).
+- For ordinary text-led slides, [omit inapplicable production fields instead of narrating their absence](./references/sparse-plan-entry-example.md).
+
 Assign the simplest fitting form:
 
 - Text-led: title, section marker, question, assertion, concise bullets, quotation, recap, call to action, or credits.
@@ -143,6 +156,8 @@ Assign the simplest fitting form:
 ### 3. Write Each Slide Entry
 
 Follow the plan template. Format presenter notes first, then derive a selective visual abstraction through the Copy-Level Scope. Do not mirror the note hierarchy or force every note group onto the slide. Use direct alignment unless the script deliberately previews the next visible idea; record bridge alignment in `Slide Treatment`.
+
+Before writing the plan, [read the complete presentation-plan template](./references/presentation-plan-template.md). Follow its required headings and field guidance. Use ordinary Markdown headings, paragraphs, lists, blockquotes, and fenced code, and keep the plan readable by a human.
 
 Include only applicable production elements. Omit fields and subsections that would otherwise say `None`, `N/A`, or restate why an element is unnecessary.
 
@@ -171,23 +186,6 @@ Reject mechanical symptoms before delivery: one slide per paragraph, sentence-he
 ### 5. Deliver
 
 Use the linked template. Mark the plan `Draft for Review` until the user approves it, then `Approved for Creation`. Do not generate slides during planning.
-
-## Required References
-
-Before writing the final plan, [read the complete presentation-plan template](./references/presentation-plan-template.md). Follow its required headings and field guidance. Use ordinary Markdown headings, paragraphs, lists, blockquotes, and fenced code, and keep the plan readable by a human.
-
-Before segmenting the source, read every example below in full; do not skip examples based on apparent relevance. Treat the XML tags as prompt delimiters, not plan output. Preserve presenter-note wording while applying the demonstrated editorial compression to visible copy.
-
-- [Separate complete semantic notes from compact, sibling visual cues](./references/main-idea-with-supporting-sentences-example.md).
-- When prose introduces a list or the source already contains nested items, [preserve the demonstrated list depth](./references/colon-ended-setup-example.md).
-- When a candidate slide contains several source paragraphs or independent ideas, [cluster them by audience task before considering a split](./references/multiple-source-paragraphs-example.md).
-- When an on-slide phrase begins with a lowercase technical identifier, [preserve its casing as demonstrated](./references/lowercase-technical-identifier-example.md).
-- When pacing divides a semantic group across slides, [retain the continuation's original indentation](./references/cross-slide-continuation-example.md).
-- When a long sentence contains a deliverable dependent clause, [split it without losing its punctuation or lowercase continuation](./references/dependent-clause-split-example.md).
-- When one slide hands off to the next, [copy the next spoken thought into the outgoing notes as a parenthesized preview](./references/next-slide-preview-example.md).
-- To see how a verbose script becomes a compact slide without losing coverage, [compare the clustered visual cues against the full presenter notes](./references/speaker-led-compression-example.md).
-- For direct quotations, [keep the canvas blank except for the quotation and move its setup into presenter notes](./references/quotation-slide-example.md).
-- For ordinary text-led slides, [omit inapplicable production fields instead of narrating their absence](./references/sparse-plan-entry-example.md).
 
 ## Acceptance Checklist
 

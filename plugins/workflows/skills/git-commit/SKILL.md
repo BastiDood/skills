@@ -8,6 +8,8 @@ compatibility: Requires Git (`git`).
 
 Turn the current working-tree changes into a clear, reviewable sequence of checkpoints as conventional Git commits. Stage one genuine work slice at a time, then let the user review the proposed title and create the commit.
 
+## Workflow
+
 1. Inspect all staged and unstaged changes. Identify the cohesive slices of work that belong in separate commits.
    - Use genuine, independently understandable work slices. Do not split changes into overly granular commits merely because they can be separated.
    - Keep the repository in a consistent state after each proposed commit.
@@ -17,6 +19,7 @@ Turn the current working-tree changes into a clear, reviewable sequence of check
    - Use partial-file staging when a file contains changes for more than one slice.
    - Review the staged diff and confirm that it contains the intended slice and no unrelated changes.
 3. Propose a conventional commit title based only on the staged diff. Ask the user to review the title and create the commit.
+   - [Use the complete commit-message example when the staged slice needs a body or footer.](./references/example.txt)
    - Never run `git commit`. The user must create every commit unless explicitly delegated to you.
    - Stop and wait for the user after proposing the title.
 4. After the user creates the commit, inspect the remaining changes and return to Step 2. Continue until no pending changes remain.
@@ -61,7 +64,3 @@ Turn the current working-tree changes into a clear, reviewable sequence of check
 | test     | Adding or refactoring tests           |
 | style    | Code formatting (no logic change)     |
 | perf     | Performance improvements              |
-
-## Examples
-
-- [Full commit message with all the optional details provided](./references/example.txt)

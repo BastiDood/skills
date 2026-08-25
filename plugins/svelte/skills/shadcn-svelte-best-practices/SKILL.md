@@ -16,12 +16,14 @@ Treat shadcn-svelte components as composable accessible primitives: preserve pri
 
 Use Context7 for current documentation and DeepWiki for implementation details.
 
-## References
+## Effective Strategies for `shadcn-svelte` and Bits UI
 
-Read as many linked references as are relevant to the current task before writing or reviewing `shadcn-svelte` or Bits UI code.
+Read the references that apply to the current task before writing or reviewing `shadcn-svelte` or Bits UI code.
 
-- Make Bits UI wrappers drop-in compatible through [primitive wrappers](./references/primitive-wrappers.md) that bind `ref`, merge classes, and forward remaining props.
-- Keep mutable form state inside the mounted form with [dialog form ownership](./references/dialog-form-ownership.md), leaving the dialog shell responsible only for visibility.
-- Define reusable `tv()` schemas in module scope with [variants](./references/variants.md) so their contracts do not reinstantiate per component.
-- Express conditional utility classes with [class composition](./references/class-composition.md), using object syntax for independent classes and ternaries for alternatives.
-- Expose semantic wrapper roles through [data slots](./references/data-slots.md) so consumer styling does not depend on volatile implementation classes.
+1. Make primitive wrappers preserve the platform and primitive contracts.
+   - [Make Bits UI wrappers drop-in compatible](./references/primitive-wrappers.md) by binding `ref`, merging classes, and forwarding remaining props.
+   - [Expose semantic wrapper roles through data slots](./references/data-slots.md) so consumer styling does not depend on volatile implementation classes.
+2. Keep state and reusable styling contracts with their appropriate owner.
+   - [Keep mutable form state inside the mounted form](./references/dialog-form-ownership.md), leaving the dialog shell responsible only for visibility.
+   - [Define reusable `tv()` schemas in module scope](./references/variants.md) so their contracts do not reinstantiate per component.
+   - [Express conditional utility classes with class composition](./references/class-composition.md), using object syntax for independent classes and ternaries for alternatives.

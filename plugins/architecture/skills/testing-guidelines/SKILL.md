@@ -46,11 +46,13 @@ Delete a test when it only:
 
 Do not preserve a useless test for coverage. Coverage is evidence of execution, not evidence of meaningful verification.
 
-## References
+## Effective Strategies for Test Admission and Review
 
-Read as many linked references as are relevant to the current task before writing, approving, or retaining tests.
+Follow the guidelines below. Read each linked reference that applies before writing, approving, or retaining tests.
 
-- Do not claim ownership of documented library behavior; treat [third-party dependencies](./references/third-party-dependencies.md) as already verified.
-- Exclude tests that only prove delegation through [transparent wrappers](./references/transparent-wrappers.md).
-- Reject circular fixtures and substituted-boundary claims with the [test-double admission diagnostics](./references/test-double-admission.md).
-- Match each defect to an observable [test level](./references/test-level-selection.md), including no test when the available level cannot provide meaningful evidence.
+1. Test only behavior that the project owns.
+   - [Treat documented third-party dependencies as already verified.](./references/third-party-dependencies.md)
+   - [Exclude tests that only prove delegation through transparent wrappers.](./references/transparent-wrappers.md)
+2. Require independent evidence that a test protects a project-owned invariant.
+   - [Reject circular fixtures and substituted-boundary claims with the test-double admission diagnostics.](./references/test-double-admission.md)
+   - [Match each defect to an observable test level, including no test when the available level cannot provide meaningful evidence.](./references/test-level-selection.md)
