@@ -1,7 +1,7 @@
 {
 	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 	"name": "svelte",
-	"version": "0.1.14",
+	"version": "0.1.15",
 	"description": "Opinionated guidance for Svelte 5, Shadcn Svelte, server state, and data tables.",
 	"author": {
 		"name": "Basti Ortiz",
