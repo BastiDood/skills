@@ -1,6 +1,6 @@
 ---
 name: python-best-practices
-description: Opinionated Python 3.13+ conventions for application and library code. Use when writing or reviewing Python typing, protocols, generics, finite states, optional values, exceptions, serialized-data validation, package exports, import layout, typed distributions, async resource ownership, async pagination, or per-distribution packaging metadata.
+description: Python 3.13+ conventions for typed application and library boundaries. Use when writing or reviewing Python contracts, packages, validation, or async resource ownership.
 ---
 
 # Python Best Practices

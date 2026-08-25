@@ -1,6 +1,6 @@
 ---
 name: presentation-planner
-description: Turn a talk script, transcript, outline, or source document into an implementation-ready Markdown presentation plan. Use when Codex must segment spoken material into paced slides, structure presenter notes semantically, derive faithful on-slide cues, choose content-led slide forms, specify required visuals and transitions, and plan a deck without creating it.
+description: Turn source material into an implementation-ready Markdown presentation plan. Use when planning slide narrative, notes, visuals, and transitions without creating the deck.
 ---
 
 # Basti Presentation Planner

@@ -1,6 +1,6 @@
 ---
 name: svelte-best-practices
-description: Svelte 5 conventions for runes, state ownership, rendering lifecycles, effects, component composition, and SvelteKit forms. Use when creating or reviewing Svelte components, deciding where state or I/O belongs, handling reactive or event-driven work, composing snippets or context, or implementing form actions.
+description: Svelte 5 and SvelteKit conventions for explicit reactive ownership and component lifecycles. Use when creating or reviewing Svelte components, runes, context, or form actions.
 ---
 
 # Svelte Best Practices

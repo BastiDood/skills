@@ -1,6 +1,6 @@
 ---
 name: tanstack-react-table-best-practices
-description: Opinionated TanStack Table v9 beta conventions for React table schema, per-table behavior, typed metadata, and header/cell/footer rendering. Use when creating or reviewing `useTable` tables, column definitions, row actions, table feature metadata, or `FlexRender` rendering in React.
+description: TanStack Table v9 conventions for stable React table schemas and instance behavior. Use when creating or reviewing React tables, columns, metadata, or rendering.
 ---
 
 # TanStack React Table Best Practices

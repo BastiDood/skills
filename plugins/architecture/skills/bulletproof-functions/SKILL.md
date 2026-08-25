@@ -1,6 +1,6 @@
 ---
 name: bulletproof-functions
-description: Exact language-agnostic criteria for setting testable + locally reasonable + maintainable + robust implementation boundaries between functions. Always adhere to these criteria when planning, writing, reviewing, and critiquing abstractions.
+description: Language-agnostic rules for honest, testable function boundaries. Always use when planning, writing, reviewing, or critiquing functions and abstractions.
 metadata:
   youtube:
     channel_name: Logan Smith

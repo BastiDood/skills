@@ -1,6 +1,6 @@
 ---
 name: valibot-best-practices
-description: Opinionated Valibot conventions for wire-schema ownership, nullability, tagged variants, transformations, and explicit validation-failure behavior. Use when defining or reviewing Valibot schemas, validating forms or HTTP payloads, parsing JSON or persisted data, or deciding whether invalid input aborts or becomes an expected branch.
+description: Valibot conventions for owned wire contracts and explicit validation outcomes. Use when defining or reviewing Valibot schemas or parsing untrusted data with Valibot.
 ---
 
 # Valibot Best Practices

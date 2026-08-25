@@ -1,6 +1,6 @@
 ---
 name: typescript-best-practices
-description: Opinionated TypeScript conventions for inference-first typing, precise contracts, finite-state modelling, exhaustive decisions, and strict handling of optional or untrusted values. Use when writing or reviewing TypeScript types, state transitions, API signatures, schema-adjacent parsing, array or regular-expression access, or strict compiler errors.
+description: TypeScript conventions for precise contracts and valid program states. Use when writing or reviewing TypeScript types, state models, optional values, or untrusted boundaries.
 ---
 
 # TypeScript Best Practices

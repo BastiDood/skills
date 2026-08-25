@@ -1,6 +1,6 @@
 ---
 name: tanstack-react-query-best-practices
-description: 'Opinionated TanStack Query conventions for React server state: resolved-view boundaries, query ownership, cache identity, disabled inputs, actor-scoped data, mutations, form submissions, and invalidation. Use when creating or reviewing `useQuery` or `useMutation` hooks, query keys, fetch functions, mutation callbacks, loading/error views, or cache updates in React.'
+description: TanStack Query conventions for cache-backed React server state. Use when creating or reviewing React queries, mutations, query keys, or cache updates.
 ---
 
 # TanStack React Query Best Practices

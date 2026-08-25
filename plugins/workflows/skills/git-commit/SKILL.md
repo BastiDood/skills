@@ -1,6 +1,6 @@
 ---
 name: git-commit
-description: Organize pending changes into cohesive work slices, stage each slice, and propose conventional Git commit titles for the user to review and commit. Use when preparing incremental checkpoints as reviewable staged Git commits.
+description: Prepare cohesive staged Git commit slices and conventional messages without committing. Use when organizing pending changes into reviewable checkpoints.
 compatibility: Requires Git (`git`).
 ---
 

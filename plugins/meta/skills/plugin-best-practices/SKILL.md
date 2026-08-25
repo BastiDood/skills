@@ -1,6 +1,6 @@
 ---
 name: plugin-best-practices
-description: Opinionated conventions for designing focused agent-skill plugins as encapsulated, installable capabilities. Use when defining a plugin boundary, deciding which skills are public entry points, hiding shared implementation skills, splitting broad plugins, designing plugin structure, minimizing client manifests, or removing auxiliary package documentation.
+description: Agent-plugin design conventions for public outcomes, private implementation, and minimal packaging. Use when creating, restructuring, or reviewing agent-skill plugins.
 ---
 
 # Plugin Best Practices

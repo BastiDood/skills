@@ -1,6 +1,6 @@
 ---
 name: shadcn-svelte-best-practices
-description: Opinionated Shadcn Svelte + Bits UI conventions for primitive wrappers, dialog and form ownership, variants, class composition, and styling hooks. Use when adding, wrapping, restyling, or reviewing Shadcn Svelte or Bits UI components in Svelte.
+description: shadcn-svelte and Bits UI conventions for accessible primitive composition and customization. Use when creating, wrapping, restyling, or reviewing those components.
 ---
 
 # shadcn-svelte Best Practices

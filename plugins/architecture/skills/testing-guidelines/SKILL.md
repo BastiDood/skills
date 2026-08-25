@@ -1,6 +1,6 @@
 ---
 name: testing-guidelines
-description: Opinionated language-agnostic test-admission and sans-I/O unit-testing rules. Use when proposing, writing, reviewing, or deleting tests; deciding whether behavior is project-owned; rejecting circular test-double fixtures; evaluating wrappers, schemas, ORMs, frameworks, test doubles (e.g., mocks and spies), or third-party-library tests; or separating pure business policy from wiring and I/O.
+description: Language-agnostic test-admission rules for project-owned behavior and meaningful sans-I/O evidence. Use when adding, retaining, removing, or reviewing tests.
 ---
 
 # Testing Guidelines

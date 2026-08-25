@@ -1,6 +1,6 @@
 ---
 name: tanstack-svelte-query-best-practices
-description: TanStack Query conventions for the Svelte adapter, covering loader boundaries, reactive query options, cache identity, and mutation ownership. Use when fetching server data, defining queries or query keys, handling absent request inputs, or implementing mutations in Svelte.
+description: TanStack Query conventions for reactive, cache-backed Svelte server state. Use when creating or reviewing Svelte queries, mutations, query keys, or cache updates.
 ---
 
 # TanStack Svelte Query Best Practices

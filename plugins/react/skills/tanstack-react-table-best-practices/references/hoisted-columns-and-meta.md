@@ -1,6 +1,6 @@
 # Hoisted Columns and Meta
 
-Treat column definitions as table schema. In TanStack Table v9 beta, hoist static schema to module scope and pass per-instance behavior through `meta`.
+Treat column definitions as table schema. In TanStack Table v9, hoist static schema to module scope and pass per-instance behavior through `meta`.
 
 ```tsx
 import { createColumnHelper, metaHelper, tableFeatures, useTable } from '@tanstack/react-table';

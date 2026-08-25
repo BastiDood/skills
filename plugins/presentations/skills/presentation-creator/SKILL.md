@@ -1,6 +1,6 @@
 ---
 name: presentation-creator
-description: Create and verify a finished PowerPoint presentation from an approved, implementation-ready Markdown plan. Use when Codex must execute an authoritative slide-by-slide plan, apply the encoded Basti visual style, add presenter notes and meaningful transitions, build or place planned visuals, and deliver a presentation without redesigning the narrative or requiring the original long-form script.
+description: Create and visually verify a Basti-styled PowerPoint deck from an approved Markdown plan. Use when executing an approved slide-by-slide plan, not when planning or rewriting the narrative.
 ---
 
 # Basti Presentation Creator

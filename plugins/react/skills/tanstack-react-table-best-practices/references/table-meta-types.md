@@ -1,6 +1,6 @@
 # Typed Table Meta
 
-TanStack Table v9 beta supports a per-table metadata slot. Prefer declaring metadata on the table's `features` with `metaHelper` instead of using v8-style global `TableMeta` module augmentation, so each table has only the capabilities its column schema needs.
+TanStack Table v9 supports a per-table metadata slot. Prefer declaring metadata on the table's `features` with `metaHelper` instead of using v8-style global `TableMeta` module augmentation, so each table has only the capabilities its column schema needs.
 
 ```typescript
 import { metaHelper, tableFeatures } from '@tanstack/react-table';

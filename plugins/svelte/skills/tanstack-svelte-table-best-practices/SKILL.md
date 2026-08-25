@@ -1,6 +1,6 @@
 ---
 name: tanstack-svelte-table-best-practices
-description: TanStack Table v9 beta conventions for the Svelte adapter, covering static column schema, feature-local metadata, v9 rendering, and reactive data. Use when building or reviewing Svelte data tables, defining columns, rendering cells, or wiring row-level callbacks.
+description: TanStack Table v9 conventions for static Svelte table schemas and reactive instance data. Use when creating or reviewing Svelte tables, columns, metadata, or rendering.
 ---
 
 # TanStack Svelte Table Best Practices
@@ -17,7 +17,7 @@ Use Context7 for current documentation and DeepWiki for implementation details.
 
 ## Version Target
 
-These references target TanStack Table v9 beta with Svelte 5. Use `createTable`, `FlexRender`, feature-local meta, and getter-backed reactive data. Do not mix v8 APIs such as `createSvelteTable`, global `TableMeta` augmentation, or v8 `createColumnHelper<TData>()` signatures into these examples.
+These references target TanStack Table v9 with Svelte 5. Use `createTable`, `FlexRender`, feature-local meta, and getter-backed reactive data. Do not mix v8 APIs such as `createSvelteTable`, global `TableMeta` augmentation, or v8 `createColumnHelper<TData>()` signatures into these examples.
 
 ## Effective Strategies for TanStack Svelte Table
 

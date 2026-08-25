@@ -1,6 +1,6 @@
 ---
 name: better-all-best-practices
-description: Opinionated `better-all` conventions for dependency-declared async task graphs, inferred task results, cancellation propagation, and failure semantics. Use when replacing serial `await` chains or manual `Promise.all` stages, parallelizing work with result dependencies, or writing and reviewing `all` and `allSettled` task definitions.
+description: '`better-all` conventions for dependency-aware async task graphs. Use when defining `all` or `allSettled` graphs or converting staged async work with task dependencies.'
 ---
 
 # `better-all` Best Practices

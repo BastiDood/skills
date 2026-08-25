@@ -1,6 +1,6 @@
 ---
 name: react-best-practices
-description: Opinionated React conventions for component boundaries, state ownership, derived values, explicit rendering, event work, external-system effects, memoization, context, and native forms. Use when creating or reviewing React components, hooks, conditional UI, form submission flows, state-sharing boundaries, or `useEffect` and `useMemo` usage.
+description: React component conventions for explicit state ownership and data flow. Use when creating or reviewing React components, hooks, effects, or forms.
 ---
 
 # React Best Practices

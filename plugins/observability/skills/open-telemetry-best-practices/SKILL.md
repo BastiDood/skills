@@ -1,6 +1,6 @@
 ---
 name: open-telemetry-best-practices
-description: Opinionated, language-agnostic OpenTelemetry conventions for span inputs and outputs, named log events, log severity, structured attributes, and operational errors. Use when adding or reviewing OpenTelemetry-compatible telemetry; deciding between span, event, and log attributes; choosing log severity; naming attributes; recording exceptions or cause chains; setting error.type; or setting span status.
+description: Language-agnostic OpenTelemetry conventions for queryable signals and explicit operational outcomes. Use when adding or reviewing spans, structured logs, attributes, or exception recording.
 ---
 
 # OpenTelemetry Best Practices

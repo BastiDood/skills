@@ -1,6 +1,6 @@
 ---
 name: drizzle-orm-best-practices
-description: Opinionated, dialect-aware Drizzle ORM conventions for helper-first query construction, scoped projections, mutation cardinality, transaction boundaries, database timestamps, runtime decoding, and raw-query validation. Use when writing or reviewing Drizzle schemas, selects, filters, aggregates, inserts, updates, deletes, transactions, `sql` expressions, driver mutation results, or database-generated timestamps.
+description: Dialect-aware Drizzle ORM conventions for safe query, mutation, and transaction boundaries. Use when writing or reviewing Drizzle schemas, queries, transactions, or raw SQL.
 ---
 
 # Drizzle ORM Best Practices

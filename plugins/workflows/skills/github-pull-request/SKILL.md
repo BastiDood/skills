@@ -1,6 +1,6 @@
 ---
 name: github-pull-request
-description: Writes a GitHub pull request description using a standardized template. Auto-detects the base branch when diffing the changes. Use when submitting a new PR.
+description: Draft and submit a reviewer-focused GitHub pull request with an approval gate. Use when turning finalized branch changes into a new PR.
 compatibility: Requires Git (`git`) and the GitHub CLI (`gh`).
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: code-style
-description: Opinionated language-agnostic design rules for implementation, refactoring, and code review. Use when shaping conditional control flow, finite states, invariants, error boundaries, resource lifetimes, abstractions, public APIs, validation boundaries, pagination, missing values, or the separation of sans-I/O decisions from imperative drivers.
+description: Language-agnostic code-design rules for explicit state, failure, ownership, and I/O boundaries. Use when implementing, refactoring, or reviewing code.
 ---
 
 # Code Style

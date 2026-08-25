@@ -1,6 +1,6 @@
 ---
 name: agent-skills-best-practices
-description: Opinionated conventions for authoring, restructuring, and reviewing agent skills. Use when deciding whether guidance belongs in `SKILL.md`, a conditional reference, or a smaller skill; writing trigger descriptions and reference routers; naming procedural or documentary skills; creating examples; keeping skill context focused; or bundling static assets and their licenses.
+description: Agent-skill design conventions for focused scope, precise discovery, and progressive disclosure. Use when creating, restructuring, or reviewing `SKILL.md`-based skills.
 ---
 
 # Agent Skills Best Practices

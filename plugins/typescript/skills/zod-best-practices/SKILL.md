@@ -1,6 +1,6 @@
 ---
 name: zod-best-practices
-description: Opinionated Zod v4 conventions for schema ownership, format validation, nullability, tagged unions, object-key contracts, transformations, and explicit validation-failure behavior. Use when defining or reviewing Zod schemas, validating forms or HTTP payloads, parsing JSON or persisted data, rendering validation errors, or deciding whether invalid input aborts or becomes an expected branch.
+description: Zod v4 conventions for owned wire contracts and explicit validation outcomes. Use when defining or reviewing Zod schemas or parsing untrusted data with Zod.
 ---
 
 # Zod Best Practices

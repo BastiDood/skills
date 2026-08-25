@@ -1,6 +1,6 @@
 ---
 name: vertically-sliced-feature-modules
-description: Opinionated feature-first architecture conventions for cohesive modules, owned subtrees, entry points, shared-code promotion, and package boundaries. Use when designing or reviewing directory structure, placing UI or workflow code, splitting nested capabilities, extracting shared modules, enforcing feature import boundaries, deciding whether a feature deserves a package, or refactoring horizontal technical layers.
+description: Feature-first module architecture for cohesive ownership, composition, and promotion boundaries. Use when designing, moving, or reviewing feature and package structure.
 ---
 
 # Vertically Sliced Feature Modules
