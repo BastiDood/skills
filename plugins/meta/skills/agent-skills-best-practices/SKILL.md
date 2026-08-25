@@ -9,17 +9,24 @@ Treat agent skills as opinionated context engineering, not as mirrors of documen
 
 Keep the governing model and the minimum explainer needed to understand a skill in `SKILL.md`. Inline content that every invocation needs. Reserve progressive disclosure for conditional or detail-oriented guidance, and route to that guidance with concise prose that explains why it matters.
 
-## References
+## Effective Strategies for Authoring Skills
 
-Read as many linked references as are relevant to the authoring or review task.
+Follow the guidelines below when authoring or reviewing a skill. Read each linked reference that applies to the current task.
 
-- When a capability must read clearly in discovery and invocation surfaces, choose a [procedural or documentary name](./references/skill-naming.md) that communicates what the skill provides.
-- When one skill begins collecting unrelated triggers or decisions, restore a [cohesive skill scope](./references/skill-scope.md) instead of growing an umbrella package.
-- When discovery is too broad, too narrow, or vague, make the [trigger description](./references/trigger-descriptions.md) name the capability and concrete situations that need it.
-- When deciding what enters the always-loaded entry point, use [context and disclosure](./references/context-and-disclosure.md) to separate the governing model from conditional detail.
-- When an index must make conditional material discoverable, write [reference routing](./references/reference-routing.md) that primes the agent with the relevant situation and decision.
-- When examples can expose or obscure the actual opinion, follow the [example conventions](./references/examples.md) instead of turning the skill into a tutorial.
-- When prose or Markdown formatting can distract from the rule, keep [skill writing](./references/prose-and-formatting.md) direct, compact, and mechanically consistent.
-- When resources begin forming subtrees, restore a [flat directory structure](./references/directory-structure.md) so every conditional resource stays one hop from its entry point.
-- When a skill governs one external library, keep [library source identifiers](./references/library-sources.md) visible without copying documentation into the skill.
-- When a skill would bundle images, fonts, documents, templates, or other blobs, apply the [asset distribution](./references/asset-distribution.md) policy before including them.
+1. Make the capability legible at discovery and invocation time.
+   - [Choose a procedural or documentary name that communicates what the skill provides.](./references/skill-naming.md)
+   - [Write a trigger description that names the capability and the concrete situations that need it.](./references/trigger-descriptions.md)
+2. Keep each skill cohesive and its loaded context focused on decisions that materially change agent behavior.
+   - [Split unrelated triggers or decisions instead of growing an umbrella skill.](./references/skill-scope.md)
+   - [Separate the always-loaded governing model from conditional detail.](./references/context-and-disclosure.md)
+   - [Route to conditional references with the triggering situation and governing opinion.](./references/reference-routing.md)
+   - [Use examples to expose the opinion without turning the skill into a tutorial.](./references/examples.md)
+   - [Keep prose direct, compact, and mechanically consistent.](./references/prose-and-formatting.md)
+3. Default deterministic work to scripts and reserve model reasoning for judgment that cannot be encoded as exact inputs and outputs. Prefer existing and standard-library primitives; when Python genuinely needs a third-party dependency, declare it with [PEP 723](https://peps.python.org/pep-0723/) and lock it with `uv`.
+   - [Use the reproducible, read-only-compatible executable-script workflow.](./references/executable-scripts.md)
+4. Write guidance so its decisions survive outside the context that produced them. Preserve concrete judgment without depending on a particular user, project, machine, prior engagement, or unavailable artifact.
+   - [Remove incidental context while retaining concrete admission and validation rules.](./references/agnostic-references.md)
+5. Keep conditional resources portable, navigable, and owned by the narrowest relevant skill.
+   - [Keep resource paths flat and one hop from the entry point.](./references/directory-structure.md)
+   - [Identify governed external libraries without copying their documentation.](./references/library-sources.md)
+   - [Apply the distribution and licensing policy before bundling static assets.](./references/asset-distribution.md)
