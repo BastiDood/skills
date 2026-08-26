@@ -5,7 +5,7 @@ description: TanStack Table v9 conventions for static Svelte table schemas and r
 
 # TanStack Svelte Table Best Practices
 
-Treat a table as a static schema paired with reactive instance data and feature-local behavior; this keeps rendering, callbacks, and data updates predictable under the v9 Svelte API.
+Treat a table as a static schema paired with reactive instance data and feature-local behavior; this keeps rendering, callbacks, and data updates predictable.
 
 ## Library Sources
 
@@ -15,18 +15,18 @@ Treat a table as a static schema paired with reactive instance data and feature-
 
 Use Context7 for current documentation and DeepWiki for implementation details.
 
-## Version Target
-
-These references target TanStack Table v9 with Svelte 5. Use `createTable`, `FlexRender`, feature-local meta, and getter-backed reactive data. Do not mix v8 APIs such as `createSvelteTable`, global `TableMeta` augmentation, or v8 `createColumnHelper<TData>()` signatures into these examples.
-
 ## Effective Strategies for TanStack Svelte Table
 
 Read the references that apply to the current task before writing or reviewing TanStack Svelte Table code.
 
 1. Treat columns as static schema and table behavior as instance-local capability.
-   - [Hoist columns as static schema](./references/hoisted-columns.md), rebuilding them only when the schema itself changes.
-   - [Pass per-instance callbacks through table meta](./references/table-meta.md) so hoisted columns do not capture changing component values.
-   - [Define table meta types beside their schema](./references/table-meta-types.md) so unrelated tables do not inherit irrelevant capabilities.
+   - [Keep the table contract static and its capabilities feature-local](./references/table-contract.md). Pass per-instance callbacks through table meta, and reserve declaration merging for an intentional application-wide contract.
 2. Provide changing rows reactively and render definitions through their table-owned context.
-   - [Supply changing rows as getter-backed reactive data](./references/reactive-data.md), because a plain option snapshots the initial value.
-   - [Render v9 definitions through cell rendering](./references/cell-rendering.md), since a raw column definition lacks its table-owned context.
+   - [Preserve reactive ownership](./references/reactive-ownership.md) with getter-backed options, narrow atom reads, and matching change callbacks.
+   - [Render definitions, components, and snippets through adapter primitives](./references/cell-rendering.md), since raw definitions lack their table-owned context.
+3. Register only the features and implementation functions that the table uses.
+   - [Compose explicit, tree-shakeable capabilities](./references/explicit-capabilities.md), including individual filter, sort, and aggregation functions instead of whole registries.
+4. Keep reactive ownership and table-object calls explicit.
+   - [Preserve instance ownership by calling methods through their receiver](./references/instance-ownership.md); rows, cells, columns, and headers use prototype-bound methods.
+5. Use the adapter helpers that preserve Svelte rendering and reusable composition.
+   - [Preserve selection and logical pinning semantics](./references/interaction-semantics.md) when those capabilities are enabled.

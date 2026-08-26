@@ -1,31 +1,62 @@
 # Cell Rendering
 
-Render column definitions through the v9 renderer. A definition is schema, not displayable content.
+Render column definitions through the adapter renderer. A definition is schema, not displayable content.
 
 ```svelte
-<!-- BAD: the raw definition bypasses its rendering context. -->
-{#each table.getRowModel().rows as row (row.id)}
-	<tr>
-		{#each row.getVisibleCells() as cell (cell.id)}
-			<td>{cell.column.columnDef.cell}</td>
-		{/each}
-	</tr>
-{/each}
+<script lang="ts">
+	import { tableFeatures, type Cell } from '@tanstack/svelte-table';
+
+	interface Person {
+		name: string;
+	}
+
+	const features = tableFeatures({});
+	let { cell }: { cell: Cell<typeof features, Person, unknown> } = $props();
+</script>
+
+<!-- BAD: coercing the definition renders schema data or function source, not the cell result. -->
+<td>{String(cell.column.columnDef.cell)}</td>
 ```
 
 ```svelte
 <script lang="ts">
-	import { FlexRender } from '@tanstack/svelte-table';
+	import { FlexRender, tableFeatures, type Cell } from '@tanstack/svelte-table';
+
+	interface Person {
+		name: string;
+	}
+
+	const features = tableFeatures({});
+	let { cell }: { cell: Cell<typeof features, Person, unknown> } = $props();
 </script>
 
-<!-- GOOD: the renderer receives the table-owned cell context. -->
-{#each table.getRowModel().rows as row (row.id)}
-	<tr>
-		{#each row.getVisibleCells() as cell (cell.id)}
-			<td><FlexRender {cell} /></td>
-		{/each}
-	</tr>
-{/each}
+<!-- GOOD: the adapter renderer supplies the cell context and preserves feature-local types. -->
+<td><FlexRender {cell} /></td>
 ```
 
-Use the same renderer for headers and footers. Do not render raw column definitions or reconstruct their contexts manually.
+Apply the same pattern to headers and footers. Do not reconstruct rendering contexts manually.
+
+Define component and snippet cells with the adapter helpers; `FlexRender` resolves both through the cell context.
+
+```typescript
+import { renderComponent } from '@tanstack/svelte-table';
+import StatusCell from './status-cell.svelte';
+
+// GOOD: return a render description; let FlexRender own component creation and updates.
+const statusCell = renderComponent(StatusCell, { status: 'active' });
+```
+
+```svelte
+<script lang="ts">
+	import { renderSnippet } from '@tanstack/svelte-table';
+
+	// GOOD: pass one explicit parameter object; FlexRender owns snippet invocation.
+	const statusCell = renderSnippet(statusLabel, { status: 'active' });
+</script>
+
+{#snippet statusLabel({ status }: { status: string })}
+	<span>{status}</span>
+{/snippet}
+```
+
+Return either helper from a column `cell`, `header`, or `footer` definition rather than attempting to invoke rendering yourself.
