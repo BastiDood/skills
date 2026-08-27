@@ -1,5 +1,5 @@
 interface:
   display_name: 'GitHub Pull Request'
   short_description: 'Write structured GitHub pull request descriptions.'
-  icon_small: './assets/github-light.svg'
-  icon_large: './assets/github-light.svg'
+  icon_small: './assets/icon-light.svg'
+  icon_large: './assets/icon-light.svg'

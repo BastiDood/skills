@@ -1,26 +1,37 @@
 # Third-Party Assets
 
-The following files are not Covered Software under the Mozilla Public License 2.0. The [repository MPL-2.0 license](../LICENSE.txt) does not apply to these files, and these files are not offered under MPL-2.0:
-
-- `drizzle-orm-dark.svg`
-- `drizzle-orm-light.svg`
-- `git.svg`
-- `github-dark.svg`
-- `github-light.svg`
-- `python.svg`
-- `react-dark.svg`
-- `react-light.svg`
-- `svelte.svg`
-- `tanstack.svg`
-- `typescript.svg`
+The logo files listed below are not Covered Software under the Mozilla Public License 2.0. The [repository MPL-2.0 license](../LICENSE.txt) does not apply to these files, and these files are not offered under MPL-2.0. The shared base asset is `tanstack.svg`; the plugin and skill artwork is listed in the table below.
 
 Each file is distributed only under the separate copyright and brand terms identified below. No trademark rights are granted. All product names, logos, and marks are the property of their respective owners. Their inclusion identifies the technologies addressed by this project and does not imply sponsorship, endorsement, or affiliation.
 
 This notice must accompany any distribution of these files.
 
+## Plugin and Skill Artwork
+
+The terms below apply to the plugin and skill artwork at these repository-root paths:
+
+| File                                                                                | Source Artwork      |
+| ----------------------------------------------------------------------------------- | ------------------- |
+| `/plugins/drizzle/icon-light.svg`                                                   | Drizzle ORM (Light) |
+| `/plugins/drizzle/icon-dark.svg`                                                    | Drizzle ORM (Dark)  |
+| `/plugins/python/icon-light.svg`                                                    | Python              |
+| `/plugins/react/icon-light.svg`                                                     | React (Light)       |
+| `/plugins/react/icon-dark.svg`                                                      | React (Dark)        |
+| `/plugins/react/skills/react-best-practices/assets/icon-light.svg`                  | React (Light)       |
+| `/plugins/react/skills/tanstack-react-query-best-practices/assets/icon-light.svg`   | TanStack and React  |
+| `/plugins/react/skills/tanstack-react-table-best-practices/assets/icon-light.svg`   | TanStack and React  |
+| `/plugins/svelte/icon-light.svg`                                                    | Svelte              |
+| `/plugins/svelte/skills/svelte-best-practices/assets/icon-light.svg`                | Svelte              |
+| `/plugins/svelte/skills/tanstack-svelte-query-best-practices/assets/icon-light.svg` | TanStack and Svelte |
+| `/plugins/svelte/skills/tanstack-svelte-table-best-practices/assets/icon-light.svg` | TanStack and Svelte |
+| `/plugins/typescript/icon-light.svg`                                                | TypeScript          |
+| `/plugins/workflows/skills/git-commit/assets/icon-light.svg`                        | Git                 |
+| `/plugins/workflows/skills/github-pull-request/assets/icon-light.svg`               | GitHub (Light)      |
+| `/plugins/workflows/skills/github-pull-request-comments/assets/icon-light.svg`      | GitHub (Light)      |
+
 ## Drizzle ORM
 
-Files: `drizzle-orm-dark.svg`, `drizzle-orm-light.svg`
+Files: the Drizzle ORM icons listed above
 
 These files are square variants of the Drizzle ORM mark. The artwork derives from the official logo assets distributed in the Drizzle ORM repository under the Apache License 2.0.
 
@@ -30,13 +41,13 @@ These files are square variants of the Drizzle ORM mark. The artwork derives fro
 - Official source artwork: [Drizzle ORM repository logo assets](https://github.com/drizzle-team/drizzle-orm/tree/main/misc/readme)
 - Copyright license: [Apache License 2.0](./licenses/APACHE-2-0.txt)
 - Trademark terms: The Apache License 2.0 does not grant permission to use trade names, trademarks, service marks, or product names except for reasonable description and attribution.
-- Changes: Svgl.app isolated and scaled the four-rectangle mark into a square viewport, added rounded corners, and provided contrasting fills. These files are exact copies of the Svgl.app variants; only their filenames replace underscores with hyphens.
+- Changes: Svgl.app isolated and scaled the four-rectangle mark into a square viewport, added rounded corners, and provided contrasting fills. These files are exact copies of the Svgl.app variants; only their filenames differ.
 
 The files are included only to identify Drizzle-related material. No trademark rights are granted.
 
 ## Git
 
-File: `git.svg`
+File: the Git commit skill icon listed above
 
 The Git logo was created by Jason Long and is licensed under the [Creative Commons Attribution 3.0 Unported License](https://creativecommons.org/licenses/by/3.0/).
 
@@ -47,7 +58,7 @@ The Git logo was created by Jason Long and is licensed under the [Creative Commo
 
 ## GitHub
 
-Files: `github-dark.svg`, `github-light.svg`
+Files: the GitHub skill icons listed above
 
 These files are derived from the historical Primer Octicons `mark-github.svg`, distributed under the MIT License.
 
@@ -55,13 +66,13 @@ These files are derived from the historical Primer Octicons `mark-github.svg`, d
 - Original source: [Primer Octicons `mark-github.svg`](https://github.com/primer/octicons/blob/2bfa4e902b10fd66d20527c5b8b9b8bb2e50410f/lib/svg/mark-github.svg)
 - Copyright license: [Primer Octicons MIT License](https://github.com/primer/octicons/blob/2bfa4e902b10fd66d20527c5b8b9b8bb2e50410f/LICENSE)
 - Trademark and usage terms: [GitHub Logo Guidelines](https://brand.github.com/foundations/logo)
-- Changes: The SVGs were obtained through Svgl.app and prepared as contrasting theme variants. Their markup, dimensions, and colors can differ from the historical source.
+- Changes: The SVG was obtained through Svgl.app. Its markup, dimensions, and colors can differ from the historical source.
 
 The complete applicable MIT notice appears under [MIT License Notices](#mit-license-notices).
 
 ## Python
 
-File: `python.svg`
+File: the Python plugin icon listed above
 
 The Python logo is a copyright and trademark asset of the Python Software Foundation. It is not offered under an open copyright license or under MPL-2.0 by this project.
 
@@ -75,7 +86,7 @@ The file is included only for truthful identification of Python-related material
 
 ## React
 
-Files: `react-dark.svg`, `react-light.svg`
+Files: the React icons and subscripts listed above
 
 The React logo artwork is published as part of the React documentation repository under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
@@ -90,7 +101,7 @@ The CC BY 4.0 license grants copyright permissions only. It does not grant permi
 
 ## Svelte
 
-File: `svelte.svg`
+Files: the Svelte icons and subscripts listed above
 
 The Svelte logo is official Svelte artwork. The Svelte branding repository provides conditions of use but does not publish a separate open copyright license for the branding assets.
 
@@ -102,7 +113,7 @@ The file is included only to identify material concerning the Svelte ecosystem a
 
 ## TanStack
 
-File: `tanstack.svg`
+Files: `tanstack.svg` and the four TanStack skill compositions listed above
 
 This TanStack artwork is distributed in the official TanStack CLI repository under the MIT License.
 
@@ -114,9 +125,11 @@ This TanStack artwork is distributed in the official TanStack CLI repository und
 
 The complete applicable MIT notice appears under [MIT License Notices](#mit-license-notices).
 
+The four framework-specific skill icons are custom compositions, not official TanStack product logos. They preserve the TanStack illustration and framework logo proportions, and add a radial background, a white framework badge, and inset borders. The gradients use TanStack's [design-system color tokens](https://github.com/TanStack/tanstack.com/blob/main/src/styles/app.css): Query uses `#E06E49` to `#D3481B`; Table uses `#61ADBF` to `#3AA3C4`. React and Svelte artwork retains its original colors. The standalone skill icons are unchanged copies of the corresponding framework artwork.
+
 ## TypeScript
 
-File: `typescript.svg`
+File: the TypeScript plugin icon listed above
 
 The TypeScript logo artwork is published as content in the TypeScript website repository under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
@@ -131,7 +144,7 @@ The CC BY 4.0 license grants copyright permissions only. It does not grant permi
 
 ## Svgl.app
 
-All eleven SVG files listed in this notice were obtained through [Svgl.app](https://svgl.app/) and its [SVG library](https://github.com/pheralb/svgl/tree/main/static/library). Svgl.app is distributed under the MIT License, but its license does not replace or override the original owners' copyright licenses, trademark rights, or brand policies.
+The base logo artwork used by the files listed in this notice was obtained through [Svgl.app](https://svgl.app/) and its [SVG library](https://github.com/pheralb/svgl/tree/main/static/library). Svgl.app is distributed under the MIT License, but its license does not replace or override the original owners' copyright licenses, trademark rights, or brand policies.
 
 - Copyright holder: Pablo Hdez
 - Source repository: [pheralb/svgl](https://github.com/pheralb/svgl)

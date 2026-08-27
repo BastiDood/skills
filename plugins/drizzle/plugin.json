@@ -12,8 +12,8 @@
 		"com.openai": {
 			"interface": {
 				"displayName": "Drizzle",
-				"logo": "./assets/drizzle-orm-light.svg",
-				"logoDark": "./assets/drizzle-orm-dark.svg"
+				"logo": "./icon-light.svg",
+				"logoDark": "./icon-dark.svg"
 			}
 		}
 	}

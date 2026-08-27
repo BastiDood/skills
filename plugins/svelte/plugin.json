@@ -12,7 +12,7 @@
 		"com.openai": {
 			"interface": {
 				"displayName": "Svelte",
-				"logo": "./assets/svelte.svg"
+				"logo": "./icon-light.svg"
 			}
 		}
 	}

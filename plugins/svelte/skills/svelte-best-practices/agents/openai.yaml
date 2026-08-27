@@ -1,3 +1,5 @@
 interface:
   display_name: 'Svelte Best Practices'
   short_description: 'Write modern, typed, package-safe Svelte 5 for components and forms.'
+  icon_small: './assets/icon-light.svg'
+  icon_large: './assets/icon-light.svg'

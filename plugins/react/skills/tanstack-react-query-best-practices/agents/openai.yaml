@@ -1,5 +1,5 @@
 interface:
   display_name: 'TanStack React Query Best Practices'
   short_description: 'Write robust TanStack Query hooks for React.'
-  icon_small: './assets/tanstack.svg'
-  icon_large: './assets/tanstack.svg'
+  icon_small: './assets/icon-light.svg'
+  icon_large: './assets/icon-light.svg'

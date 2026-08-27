@@ -12,8 +12,8 @@
 		"com.openai": {
 			"interface": {
 				"displayName": "React",
-				"logo": "./assets/react-light.svg",
-				"logoDark": "./assets/react-dark.svg"
+				"logo": "./icon-light.svg",
+				"logoDark": "./icon-dark.svg"
 			}
 		}
 	}

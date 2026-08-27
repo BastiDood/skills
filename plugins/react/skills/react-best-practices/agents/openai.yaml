@@ -1,3 +1,5 @@
 interface:
   display_name: 'React Best Practices'
   short_description: 'Design clear React component boundaries, state management, and side effects.'
+  icon_small: './assets/icon-light.svg'
+  icon_large: './assets/icon-light.svg'
