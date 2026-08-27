@@ -15,7 +15,7 @@ Treat React as a declarative projection of owned state: derive what can be calcu
 
 Use Context7 for current documentation and DeepWiki for implementation details.
 
-## Effective Strategies for React
+## References
 
 Read the references that apply to the current task before writing or reviewing React component, state, rendering, effect, data-loading, or form code.
 
@@ -33,7 +33,7 @@ Read the references that apply to the current task before writing or reviewing R
    - [Express passive layout content through children composition](./references/children-composition.md); reserve render callbacks for owner-provided behavior.
 3. Restrict effects and memoization to their actual ownership boundaries.
    - [Reserve effects for reactive external-system synchronization](./references/external-system-effects.md).
-   - [Apply manual memoization only for measured work or required stable identity](./references/manual-memoization.md), not as a default optimization.
+   - [Memoize every pure render-time computation worse than O(1)](./references/manual-memoization.md), including scalar and O(log n) work; keep O(1) derivations inline.
    - [Split independent caches with atomic memoization](./references/atomic-memoization.md) so unrelated inputs do not invalidate each other.
    - [Compute synchronized values during render instead of using derived-state effects](./references/avoid-derived-state-effects.md), preventing stale intermediate UI and a second writable source of truth.
    - [Keep event work in the handler that receives the action](./references/event-work.md) instead of routing it through state and an effect.
