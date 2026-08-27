@@ -15,7 +15,7 @@ Treat a table as stable schema plus instance-specific behavior: explicitly regis
 
 Use Context7 for current documentation and DeepWiki for implementation details.
 
-## Effective Strategies for TanStack React Table
+## References
 
 Read the references that apply to the current task before writing or reviewing TanStack Table code.
 
@@ -26,5 +26,5 @@ Read the references that apply to the current task before writing or reviewing T
 3. Render and subscribe at the narrowest correct boundary.
    - [Render headers, cells, and footers through table primitives](./references/cell-rendering.md).
    - [Preserve instance ownership through receiver-bound methods and narrow subscriptions](./references/instance-ownership.md), especially for nested components that receive stable table objects.
-4. Preserve interaction semantics when the table supports selection or pinning.
-   - [Preserve selection and logical pinning semantics](./references/interaction-semantics.md).
+4. Keep table controls consistent as pages load.
+   - [Handle selection, sort clearing, filters, and pinning](./references/interaction-semantics.md) without treating loaded rows as the full dataset.
