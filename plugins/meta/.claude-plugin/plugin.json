@@ -1,7 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
 	"name": "meta",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Opinionated guidance for governing marketplaces, organizing plugins, and writing agent skills.",
 	"author": {
 		"name": "Basti Ortiz",

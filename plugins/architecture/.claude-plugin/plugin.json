@@ -1,7 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
 	"name": "architecture",
-	"version": "0.5.0",
+	"version": "0.6.0",
 	"description": "Opinionated guidance for maintainable software architecture, code design, and testing.",
 	"author": {
 		"name": "Basti Ortiz",
