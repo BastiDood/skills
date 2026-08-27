@@ -1,6 +1,6 @@
 # Complex Derivations
 
-Use `$derived.by()` when a derivation needs multi-step, `O(n)` or worse work. Keep the calculation pure: it reads reactive state and returns a value without writing state or doing I/O.
+Use `$derived(expression)` for an expression and `$derived.by(() => { ... })` for multiple statements. Both cache their result; choose by syntax, not complexity. Keep the calculation pure: read reactive inputs and return a value without changing them or doing I/O.
 
 ```svelte
 <!-- BAD: Synchronize a Derived Value Through an Effect -->

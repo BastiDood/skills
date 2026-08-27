@@ -1,6 +1,6 @@
 # Reactive Query Options
 
-Pass an accessor to `createQuery`. The Svelte adapter tracks reactive values read by that accessor and updates the query when its options change.
+Pass an accessor to `createQuery`. The Svelte adapter tracks reactive values read by that accessor and updates the query when its options change. A reusable query abstraction receives reactive inputs as getters, then reads them inside that accessor.
 
 ```svelte
 <script lang="ts">
@@ -21,3 +21,5 @@ Pass an accessor to `createQuery`. The Svelte adapter tracks reactive values rea
 	}));
 </script>
 ```
+
+Keep runes in a `.svelte.ts` module when reusable query logic uses them. Cache non-constant derivation with `$derived` inside the feature abstraction, then read it in the accessor. Do not use React `useMemo`.

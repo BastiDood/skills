@@ -15,17 +15,17 @@ Treat Svelte reactivity as explicit data flow: own mutable state at the narrowes
 
 Use the `svelte` MCP server first for Svelte documentation and autofixing. Use Context7 for additional current documentation and DeepWiki for implementation details.
 
-## Effective Strategies for Svelte
+## References
 
 Read the references that apply to the current task before writing or reviewing Svelte code.
 
 1. Own reactive state narrowly and derive all values that its inputs prove.
    - [Keep component-owned local state in runes](./references/runes.md) rather than introducing a store with no clear owner or lifetime.
    - [Place mutable state in the smallest shared subtree](./references/state-ownership.md), lifting only for sibling consumers.
-   - [Keep independent computed values as atomic derivations](./references/atomic-derivations.md) so each reacts only to its true inputs.
+   - [Cache pure reactive computations worse than O(1) in independent derivations](./references/atomic-derivations.md), including scalar and O(log n) work.
    - [Put multi-step pure computation in complex derivations](./references/complex-derivations.md) instead of obscuring it in reactive side effects.
    - [Model finite UI flows with state machines](./references/state-machines.md) so impossible flag combinations cannot occur.
-   - [Put reusable reactive abstractions in rune modules](./references/rune-modules.md) so Svelte compiles their runes and their owner stays explicit.
+   - [Put cohesive reactive abstractions in rune modules](./references/rune-modules.md) so Svelte compiles their runes, even with one consumer.
    - [Derive synchronized values through derived state](./references/derived-state.md), not a second writable copy maintained by `$effect`.
    - [Reset changed domain identity with `{#key}`](./references/state-reset.md) rather than synchronizing individual fields through `$effect`.
    - [Remove hidden UI through conditional mounting](./references/conditional-mounting.md) when it must discard local state; preserve mounting only by explicit product choice.

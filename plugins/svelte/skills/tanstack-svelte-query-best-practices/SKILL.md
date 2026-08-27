@@ -15,15 +15,15 @@ Treat server data as reactive cache state with explicit request ownership and ca
 
 Use Context7 for current documentation and DeepWiki for implementation details.
 
-## Effective Strategies for TanStack Svelte Query
+## References
 
 Read the references that apply to the current task before writing or reviewing TanStack Svelte Query code.
 
 1. Let TanStack Query own server-data lifecycle and reactive cache identity.
    - [Let TanStack Query own one server-data lifecycle](./references/request-ownership.md) instead of duplicating requests in effects or handlers.
    - [Include every response-changing input in cache identity](./references/query-keys.md) so filters, tenant, locale, and pagination cannot share stale results.
-   - [Keep request construction visibly coupled to cache identity](./references/query-function-inputs.md), including every captured response-changing value.
-   - [Preserve missing required IDs](./references/absent-identifiers.md) instead of issuing a fabricated empty-record request.
+   - [Read request inputs exclusively from the query-function context](./references/query-function-inputs.md), never from captured request variables.
+   - [Preserve missing required IDs](./references/absent-identifiers.md) and disable the request instead of issuing a fabricated empty-record request.
    - [Partition visibility-sensitive cache entries by non-secret actor identity](./references/actor-identity-and-secrets.md).
    - [Give `createQuery` an accessor for reactive query options](./references/reactive-query-options.md) so changing inputs update the query instead of freezing options.
 2. Resolve query status before stateful presentation consumes data.

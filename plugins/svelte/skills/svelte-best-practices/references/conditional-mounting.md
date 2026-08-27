@@ -16,4 +16,6 @@ Mount stateful UI only while it renders. Mounting initializes its `$state`; unmo
 
 Use the same rule for tabs, accordions, drawers, sheets, wizards, and other conditionally visible UI.
 
+Keep a child's private derivations inside that child so its parent does not compute values for unmounted UI.
+
 Use conditional mounting only when hidden UI does not need to preserve its local state. If state must survive hiding or closing, preserve it in the actual owner and pass it back into the mounted component.

@@ -15,7 +15,7 @@ Treat a table as a static schema paired with reactive instance data and feature-
 
 Use Context7 for current documentation and DeepWiki for implementation details.
 
-## Effective Strategies for TanStack Svelte Table
+## References
 
 Read the references that apply to the current task before writing or reviewing TanStack Svelte Table code.
 
@@ -28,5 +28,5 @@ Read the references that apply to the current task before writing or reviewing T
    - [Compose explicit, tree-shakeable capabilities](./references/explicit-capabilities.md), including individual filter, sort, and aggregation functions instead of whole registries.
 4. Keep reactive ownership and table-object calls explicit.
    - [Preserve instance ownership by calling methods through their receiver](./references/instance-ownership.md); rows, cells, columns, and headers use prototype-bound methods.
-5. Use the adapter helpers that preserve Svelte rendering and reusable composition.
-   - [Preserve selection and logical pinning semantics](./references/interaction-semantics.md) when those capabilities are enabled.
+5. Keep table controls consistent as pages load.
+   - [Handle selection, sort removal, filters, and pinning](./references/interaction-semantics.md) without treating loaded rows as the full dataset.

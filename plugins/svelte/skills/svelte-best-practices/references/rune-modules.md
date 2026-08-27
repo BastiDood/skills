@@ -1,6 +1,6 @@
 # Rune Modules
 
-Create a rune module only when it owns reusable reactive behavior. Name it `*.svelte.ts` or `*.svelte.js` so Svelte compiles its runes; do not hide rune state in an ordinary module.
+A rune module owns cohesive reactive behavior, even for one consumer. Name it `*.svelte.ts` or `*.svelte.js` so Svelte compiles its runes. Keep plain pure utilities in ordinary modules; extract a utility file when its behavior needs separate colocated tests.
 
 ```typescript
 // BAD: an ordinary module conceals reactive mutable state.
