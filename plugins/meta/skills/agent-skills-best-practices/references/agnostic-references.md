@@ -1,5 +1,7 @@
 # Agnostic References
 
-Write references so that their rules remain valid outside the context that produced them. Do not depend on named users, clients, repositories, machines, prior engagements, private paths, or unavailable historical artifacts. A fresh installation must contain the context required to apply the guidance or link to an authoritative source that provides it.
+Write guidance that works without the source project's names, paths, private artifacts, or history. Include the context a fresh installation needs, or link to an authoritative source.
 
-Keep the rule concrete: state the admission criteria, failure modes, and validation requirements without preserving incidental project vocabulary. Language- or framework-specific examples and procedures are appropriate when they directly support the reference's task; keep them in that narrow owner instead of scattering them across unrelated guidance.
+Preserve the rule's conditions, failure modes, and checks. Keep language- and framework-specific examples in the relevant skill.
+
+Separate shared principles from framework-specific implementations. For example, cache a derivation with `useMemo` in React and `$derived` in Svelte. Keep each example consistent with its framework's syntax and lifecycle.
