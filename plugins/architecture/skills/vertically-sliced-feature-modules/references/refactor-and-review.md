@@ -13,6 +13,8 @@ Use this placement test:
 
 Move existing files instead of recreating them. Preserve behavior, tests, public contracts, resource ownership, and framework entry points while changing structure. Delete obsolete paths only after import and test discovery proves that no consumer remains.
 
+Keep meaningful existing tests when moving or merging implementation. Do not treat a test caller as a shared-code owner.
+
 Reject these review smells:
 
 - One feature requires edits across distant technical-layer directories.
@@ -21,6 +23,7 @@ Reject these review smells:
 - A feature imports another feature.
 - Sibling implementation folders have no owning entry point.
 - An entry is a barrel-only re-export, a ceremonial directory has no boundary, or internal code imports its own entry point/module root.
-- A single-consumer helper was extracted only for direct testing, or an internal helper was promoted without an independently meaningful contract.
+- A private capability's implementation escapes its nearest owning subtree without a real consumer boundary.
+- A trivial helper was extracted only to assert its private details, or an internal helper was promoted without an independently meaningful contract. A focused sans-I/O utility with colocated tests remains valid with one production consumer.
 - A package exists only to mirror a feature folder.
 - Tests live far from the behavior they protect.

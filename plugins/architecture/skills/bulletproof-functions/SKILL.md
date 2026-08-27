@@ -24,6 +24,8 @@ We thus fundamentally agree on the following principles:
 - Local reasoning, testability, and abstraction are the primary motivations for extraction, even for an audience of `n = 1` consumers.
 - Functions are human-first communication devices for expressing the intent of the code. They must serve the human reader in abstracting complexity.
 
+A function boundary does not require a file. Typically, extract a utility file because meaningful sans-I/O behavior needs a separate colocated test, even with one production consumer. Keep both files under their owner; do not invent tests for trivial glue or count tests as shared ownership.
+
 ## On Function Honesty
 
 To align on a shared glossary for the rest of this reference, we define the following terms:
@@ -33,9 +35,9 @@ To align on a shared glossary for the rest of this reference, we define the foll
 
 Language/runtime-owned primitives are not application dependencies merely because they are available through globals. Use stable APIs such as `crypto`, Web Crypto, `TextEncoder`, `TextDecoder`, `atob`, `btoa`, and equivalent standard-library primitives directly. Do not create factories, synthetic environment objects, dependency bags, or wrapper ports merely to inject them. This direct access does not make hidden nondeterminism or side effects honest: mutable, configurable, and policy-controlled global state remains external. Reserve dependency injection and explicit external handles for application-owned or stateful resources such as databases, network clients, file systems, configurable services, test-owned collaborators, and clocks when policy requires control.
 
-Dishonest functions remain dishonest despite invoking some honest functions. The converse is false; honest functions that now invoke dishonest functions are themselves dishonest. Therefore, a function call graph must always have honest functions at its leaves.
+Dishonest functions remain dishonest despite invoking some honest functions. The converse is false; honest functions that now invoke dishonest functions are themselves dishonest. Keep application-owned dependencies explicit throughout the call graph.
 
-Structurally, dishonest functions merely orchestrate external systems and inject their state handles into honest functions. For maximum testability, it is therefore in our best interests to maximize the number of honest functions while keeping dishonest functions as thin as possible.
+Minimize hidden dependencies, not function size. Keep orchestration cohesive; do not add forwarding wrappers to increase the count of honest functions. Honesty does not imply purity: an explicit resource handle still permits I/O, while sans-I/O decisions operate only on values.
 
 ### Taxonomy of Honest Functions
 
@@ -143,9 +145,9 @@ void loop() {
 }
 ```
 
-## Effective Strategies for Wrangling Functions + Abstractions
+## References
 
-Follow the guidelines below religiously. Apply each reference example in the context of the current task.
+Read the references relevant to the function boundary being designed or reviewed.
 
 1. Build your system out of **honest functions**. Inject application-owned or stateful external resources at the topmost possible level.
    - [Isolate honest work from dishonest orchestration.](./references/top-level-injection.md)
@@ -158,4 +160,4 @@ Follow the guidelines below religiously. Apply each reference example in the con
    - [Pass tokens as proof of completion/validity instead of relying on runtime checks.](./references/proof-of-completion-tokens.md)
    - [Use wrapper types to encode validated runtime values in the type system.](./references/validated-wrapper-types.md)
 5. Stay at one level of abstraction.
-   - [Leverage the "Same Indentation Rule" to ensure that abstraction layers don't _skip_ levels.](./references/same-indentation-rule.md)
+   - [Keep one level of intent with the "Same Indentation Rule"; do not extract ordinary control flow mechanically.](./references/same-indentation-rule.md)

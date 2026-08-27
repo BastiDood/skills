@@ -37,7 +37,7 @@ There are a couple dead giveaways that the function is mixing levels of abstract
 
 ### The Same Indentation Rule
 
-Ultimately, the remedy is to visualize the function as a tree of abstraction levels. Only the functions at the "same level of indentation" should be collocated in the same function; otherwise, the function is already mixing levels of abstraction.
+Visualize the function as a tree of abstraction levels. Keep the caller at one readable level of intent: it must not inspect another abstraction's implementation to understand the operation. Ordinary control flow is not a separate abstraction level, and comments or loops do not by themselves require extraction.
 
 In the example, a possible decomposition of the sub-problems would be as follows:
 

@@ -11,13 +11,17 @@ Reconstruct the current ownership graph and build/runtime boundaries before prop
 
 ## Feature Ownership
 
-A feature owns one user-visible or business capability end to end. Keep its technical roles inside that owner instead of scattering them across global layers.
+A feature owns one user-visible or business capability end to end. Keep its complete private implementation closure under that owner, recursively, instead of scattering technical roles across global layers.
+
+An entry implements or composes the operation its consumer needs. Keep setup options private when a caller only uses them to finish that operation. Do not introduce a forwarding wrapper or re-export barrel to manufacture an entry point.
+
+Keep a readable private helper in its consumer. Extract a utility file when meaningful sans-I/O behavior needs a focused colocated test, even with one production consumer; this does not make the utility shared. Do not invent tests for trivial glue.
 
 Features are isolated siblings and do not import one another. Callers and orchestrators compose feature entries. When multiple features need the same stable logic, promote it to a focused shared owner instead of making either feature the dependency of the other.
 
-## Effective Strategies for Cohesive Feature Modules
+## References
 
-Follow the guidelines below. Read each linked reference that applies before planning, moving, or reviewing modules.
+Read the reference that matches the ownership or boundary being changed.
 
 1. Keep each capability's technical roles together under its owning feature.
    - [Use a feature-first directory structure instead of scattering a capability by layer.](./references/directory-structure.md)
