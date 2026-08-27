@@ -1,7 +1,7 @@
 {
 	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 	"name": "typescript",
-	"version": "0.1.11",
+	"version": "0.1.12",
 	"description": "Opinionated TypeScript guidance for precise contracts, validation, and asynchronous task graphs.",
 	"author": {
 		"name": "Basti Ortiz",
