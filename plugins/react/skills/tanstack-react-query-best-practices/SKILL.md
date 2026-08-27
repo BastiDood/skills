@@ -15,14 +15,14 @@ Treat server data as cache-backed asynchronous state with an explicit owner, ide
 
 Use Context7 for current documentation and DeepWiki for implementation details.
 
-## Effective Strategies for TanStack React Query
+## References
 
 Read the references that apply to the current task before writing or reviewing TanStack Query code.
 
 1. Let TanStack Query own server-request lifecycle and cache identity.
    - [Let TanStack Query own request lifecycle](./references/request-ownership.md) rather than duplicating it with effects and local state.
    - [Put every response-changing request input in cache identity](./references/cache-identity.md) so distinct results never reuse one entry.
-   - [Keep request construction and cache keys aligned](./references/query-function-inputs.md), including every captured response-changing value.
+   - [Read request inputs exclusively from the query function's context argument](./references/query-function-inputs.md), never from captured request variables.
    - [Preserve absent identifiers and disable the request](./references/absent-identifiers.md) instead of fabricating a record key.
    - [Partition visibility-sensitive cached data by actor identity](./references/actor-identity-and-secrets.md) without exposing credentials in keys.
 2. Resolve query status before presentation consumes data.
