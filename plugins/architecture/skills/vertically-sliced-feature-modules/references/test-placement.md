@@ -5,18 +5,18 @@ Collocate each unit test with the narrowest leaf that owns the behavior.
 ```text
 # BAD: a feature-level test directory obscures the behavior's actual owner.
 features/
-  timeline/
+  task-board/
     tests/
       calculate-summary.test
-    summary/
+    summarize/
       calculate-summary
 ```
 
 ```text
 # GOOD: the behavior and its unit test share the narrowest owner.
 features/
-  timeline/
-    summary/
+  task-board/
+    summarize/
       calculate-summary
       calculate-summary.test
 ```
