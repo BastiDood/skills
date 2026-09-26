@@ -1,12 +1,12 @@
 ---
 name: git-commit
-description: Prepare cohesive staged Git commit slices and conventional messages without committing. Use when organizing pending changes into reviewable checkpoints.
+description: Use when incrementally organizing the entire Git staging area into topologically-ordered and vertically-sliced review checkpoints until all relevant cohesive changes have become atomic commits.
 compatibility: Requires Git (`git`).
 ---
 
 # Smart Commit
 
-Turn the current working-tree changes into a clear, reviewable sequence of checkpoints as conventional Git commits. Stage one genuine work slice at a time, then let the user review the handoff and create the commit.
+Turn the current working-tree changes into a clear, reviewable sequence of checkpoints as conventional Git commits in topological order. Incrementally stage one genuine work slice at a time, then let the user review the handoff and create the commit.
 
 ## Workflow
 

@@ -1,6 +1,6 @@
 ---
 name: github-pull-request
-description: Draft and submit a reviewer-focused GitHub pull request with an approval gate. Use when turning finalized branch changes into a new PR.
+description: Use when composing a pull request description draft and later submitting its finalized user-reviewed copy to GitHub.
 compatibility: Requires Git (`git`) and the GitHub CLI (`gh`).
 ---
 
