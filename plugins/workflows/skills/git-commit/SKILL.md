@@ -17,7 +17,7 @@ Turn the current working-tree changes into a clear, reviewable sequence of check
 2. Select the next slice and stage all files and relevant subsets or hunks that belong to it.
    - Select only from slices whose prerequisites are already committed. Among those ready slices, prefer the lowest review effort; use narrative clarity to break comparable-effort ties.
    - Reassess the ready slices after each commit. Clear available low-effort reviews before complex integration or core logic, even when those complex slices are also ready. A prerequisite must still precede an easier dependent slice.
-  	- Example: review an independent documentation correction before a ready core-logic change. If an easy integration slice depends on that core-logic change, review the prerequisite first.
+     - Example: review an independent documentation correction before a ready core-logic change. If an easy integration slice depends on that core-logic change, review the prerequisite first.
    - Include the complete slice, including its tests and documentation when applicable.
    - Use partial-file staging when a file contains changes for more than one slice.
    - Review the staged diff and confirm that it contains the intended slice and no unrelated changes.
