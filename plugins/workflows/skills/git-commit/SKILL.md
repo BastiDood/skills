@@ -1,20 +1,23 @@
 ---
 name: git-commit
-description: Use when incrementally organizing the entire Git staging area into topologically-ordered and vertically-sliced review checkpoints until all relevant cohesive changes have become atomic commits.
+description: Use when incrementally organizing the Git staging area into vertically-sliced review checkpoints while preserving dependency order and prioritizing lower review effort until all relevant cohesive changes have become atomic commits.
 compatibility: Requires Git (`git`).
 ---
 
 # Smart Commit
 
-Turn the current working-tree changes into a clear, reviewable sequence of checkpoints as conventional Git commits in topological order. Incrementally stage one genuine work slice at a time, then let the user review the handoff and create the commit.
+Turn the current working-tree changes into a clear, reviewable sequence of checkpoints as conventional Git commits in topological order. Within that order, clear easy reviews first so later reviews can concentrate on complex integration and core logic. Incrementally stage one genuine work slice at a time, then let the user review the handoff and create the commit.
 
 ## Workflow
 
 1. Inspect all staged and unstaged changes. Identify the cohesive slices of work that belong in separate commits.
    - Use genuine, independently understandable work slices. Do not split changes into overly granular commits merely because they can be separated.
    - Keep the repository in a consistent state after each proposed commit.
-   - Make the sequence tell the story of the completed work.
+   - Identify dependencies between slices and estimate each slice's review effort from its behavioral complexity, required context, affected boundaries, and validation burden. Diff size alone does not determine review effort.
 2. Select the next slice and stage all files and relevant subsets or hunks that belong to it.
+   - Select only from slices whose prerequisites are already committed. Among those ready slices, prefer the lowest review effort; use narrative clarity to break comparable-effort ties.
+   - Reassess the ready slices after each commit. Clear available low-effort reviews before complex integration or core logic, even when those complex slices are also ready. A prerequisite must still precede an easier dependent slice.
+  	- Example: review an independent documentation correction before a ready core-logic change. If an easy integration slice depends on that core-logic change, review the prerequisite first.
    - Include the complete slice, including its tests and documentation when applicable.
    - Use partial-file staging when a file contains changes for more than one slice.
    - Review the staged diff and confirm that it contains the intended slice and no unrelated changes.
@@ -27,7 +30,7 @@ Turn the current working-tree changes into a clear, reviewable sequence of check
    - [Use the complete commit-message example when the staged slice needs a body or footer.](./references/example.txt)
    - Never run `git commit`. The user must create every commit unless explicitly delegated to you.
    - Stop and wait for the user after presenting the complete handoff.
-5. After the user creates the commit, inspect the remaining changes and return to Step 2. Continue until no pending changes remain.
+5. After the user creates the commit, inspect the remaining changes, update dependencies and review-effort estimates, and return to Step 2. Continue until no pending changes remain.
 
 ## General Guidelines
 
