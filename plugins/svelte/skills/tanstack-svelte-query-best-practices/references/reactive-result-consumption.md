@@ -1,6 +1,6 @@
 # Reactive Result Consumption
 
-Read query-result properties directly from the object returned by `createQuery`. Do not destructure reactive fields into ordinary variables, which snapshots their current values and stops template updates.
+Never destructure query or mutation result objects, including results returned by feature abstractions. Read fields directly to preserve reactivity. Call methods directly, too: `query.refetch`, `mutation.mutate`, and `mutation.mutateAsync`.
 
 ```svelte
 <script lang="ts">
@@ -16,6 +16,16 @@ Read query-result properties directly from the object returned by `createQuery`.
 {:else if typeof query.data !== 'undefined'}
 	<ItemsList items={query.data} />
 {/if}
+```
+
+```typescript
+// BAD: extracts state and a method from the mutation result.
+const { isPending, mutate } = createUpdateItemMutation();
+mutate(variables);
+
+// GOOD: retains the mutation object and calls its method directly.
+const mutation = createUpdateItemMutation();
+mutation.mutate(variables);
 ```
 
 Do not pass the complete result object through component props for convenience. Keep query-state handling in the loader and pass resolved data to presentation.
