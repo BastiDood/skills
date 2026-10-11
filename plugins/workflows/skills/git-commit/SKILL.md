@@ -6,18 +6,16 @@ compatibility: Requires Git (`git`).
 
 # Smart Commit
 
-Turn the current working-tree changes into a clear, reviewable sequence of checkpoints as conventional Git commits in topological order. Within that order, clear easy reviews first so later reviews can concentrate on complex integration and core logic. Incrementally stage one genuine work slice at a time, then let the user review the handoff and create the commit.
+Turn the current working-tree changes into a clear, reviewable sequence of checkpoints as conventional Git commits in topological order. Incrementally stage one genuine work slice at a time, then let the user review the handoff and create the commit.
 
 ## Workflow
 
 1. Inspect all staged and unstaged changes. Identify the cohesive slices of work that belong in separate commits.
    - Use genuine, independently understandable work slices. Do not split changes into overly granular commits merely because they can be separated.
    - Keep the repository in a consistent state after each proposed commit.
-   - Identify dependencies between slices and estimate each slice's review effort from its behavioral complexity, required context, affected boundaries, and validation burden. Diff size alone does not determine review effort.
+   - Identify dependencies between slices.
 2. Select the next slice and stage all files and relevant subsets or hunks that belong to it.
    - Select only from slices whose prerequisites are already committed. Among those ready slices, prefer the lowest review effort; use narrative clarity to break comparable-effort ties.
-   - Reassess the ready slices after each commit. Clear available low-effort reviews before complex integration or core logic, even when those complex slices are also ready. A prerequisite must still precede an easier dependent slice.
-     - Example: review an independent documentation correction before a ready core-logic change. If an easy integration slice depends on that core-logic change, review the prerequisite first.
    - Include the complete slice, including its tests and documentation when applicable.
    - Use partial-file staging when a file contains changes for more than one slice.
    - Review the staged diff and confirm that it contains the intended slice and no unrelated changes.
@@ -27,17 +25,26 @@ Turn the current working-tree changes into a clear, reviewable sequence of check
    - `Deferred`: relevant out-of-scope work and the later slice that resolves it. Omit when none.
    - The summary is reviewer context, not the optional commit body. Base it on the staged diff; use remaining changes only to place deferred work in the review line.
 4. Ask the user to review the handoff and create the commit.
-   - [Use the complete commit-message example when the staged slice needs a body or footer.](./references/example.txt)
    - Never run `git commit`. The user must create every commit unless explicitly delegated to you.
    - Stop and wait for the user after presenting the complete handoff.
 5. After the user creates the commit, inspect the remaining changes, update dependencies and review-effort estimates, and return to Step 2. Continue until no pending changes remain.
 
+## Review Effort
+
+Use review effort as a tie-breaking heuristic among topologically equal review orders. Estimate each slice's review effort from its behavioral complexity, required context, affected boundaries, and validation burden. Diff size alone does not determine review effort.
+
+Use these few-shot examples, from low to high effort:
+
+1. Moved hunks / renamed files
+2. Restructured modules
+3. Net-new functionality without integrations yet
+4. Integration into existing functionality
+
+Classify documentation, internal fixes, and dev tooling fixes by the review effort they require, rather than assigning them fixed levels. A documentation typo or formatter setting usually requires little context while an architectural documentation or a build-pipeline fix may require substantial context. An internal fix confined to one function may be easier to review than a fix that changes interactions across existing functionality.
+
 ## General Guidelines
 
 - Use one commit when all pending changes form one cohesive work slice.
-- Generate the proposed message only from the staged changes.
-- Stage files and hunks only for the current work slice.
-- Do not create commits on the user's behalf.
 - Do not add advertisements or promotional footers.
 - Avoid vague titles such as "update" or "fix stuff".
 - Avoid overly long or unfocused titles.
@@ -72,3 +79,7 @@ Turn the current working-tree changes into a clear, reviewable sequence of check
 | test     | Adding or refactoring tests           |
 | style    | Code formatting (no logic change)     |
 | perf     | Performance improvements              |
+
+## References
+
+[Use the complete commit-message example when the staged slice needs a body or footer.](./references/example.txt)
