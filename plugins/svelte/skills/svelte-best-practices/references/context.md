@@ -15,8 +15,25 @@ interface WorkspaceSession {
 export const [getWorkspaceSession, setWorkspaceSession] = createContext<WorkspaceSession>();
 ```
 
+For a session used by just one direct child, compare the parent composition:
+
 ```svelte
-<!-- BAD: one direct child does not need ambient state. -->
+<!-- BAD: introduces ambient state for a direct prop relationship. -->
+<script lang="ts">
+	import { setWorkspaceSession } from './workspace-context';
+	const { session } = $props();
+	setWorkspaceSession({ refresh: () => session.refresh() });
+</script>
+
+<Toolbar />
+```
+
+```svelte
+<!-- GOOD: the direct relationship stays explicit. -->
+<script lang="ts">
+	const { session } = $props();
+</script>
+
 <Toolbar {session} />
 ```
 
