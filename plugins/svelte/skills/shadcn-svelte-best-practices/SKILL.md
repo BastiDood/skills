@@ -26,4 +26,4 @@ Read the references that apply to the current task before writing or reviewing `
 2. Keep state and reusable styling contracts with their appropriate owner.
    - [Keep mutable form state inside the mounted form](./references/dialog-form-ownership.md), leaving the dialog shell responsible only for visibility.
    - [Define reusable `tv()` schemas in module scope](./references/variants.md) so their contracts do not reinstantiate per component.
-   - [Express conditional utility classes with class composition](./references/class-composition.md), using object syntax for independent classes and ternaries for alternatives.
+   - [Keep static classes literal and compose conditional classes with `cn`](./references/class-composition.md), preserving required merging and design tokens.

@@ -31,6 +31,7 @@ Read the references that apply to the current task before writing or reviewing R
    - [Establish context ownership](./references/context-ownership.md) only when one subsystem owns state or behavior consumed across multiple depths.
    - [Preserve the complete platform contract in native element props](./references/native-element-props.md) instead of maintaining an incomplete handwritten prop surface.
    - [Express passive layout content through children composition](./references/children-composition.md); reserve render callbacks for owner-provided behavior.
+   - [Compose conditional classes at their styling owner](./references/class-composition.md) while preserving existing component and layout contracts.
 3. Restrict effects and memoization to their actual ownership boundaries.
    - [Reserve effects for reactive external-system synchronization](./references/external-system-effects.md).
    - [Memoize every pure render-time computation worse than O(1)](./references/manual-memoization.md), including scalar and O(log n) work; keep O(1) derivations inline.
