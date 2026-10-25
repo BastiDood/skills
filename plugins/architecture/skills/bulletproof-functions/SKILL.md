@@ -157,7 +157,7 @@ Read the references relevant to the function boundary being designed or reviewed
 3. Show empathy for callers.
    - [Prefer flexible parameter types/interfaces/generics instead of over-constrained concrete types.](./references/flexible-generic-parameters.md)
 4. Strongly consider hoisting invariants/preconditions/post-conditions to the type system to make invalid states irrepresentable.
-   - [Pass tokens as proof of completion/validity instead of relying on runtime checks.](./references/proof-of-completion-tokens.md)
+   - [Use owner-issued tokens tied to the operation, resource, and lifetime they certify.](./references/proof-of-completion-tokens.md)
    - [Use wrapper types to encode validated runtime values in the type system.](./references/validated-wrapper-types.md)
 5. Stay at one level of abstraction.
    - [Keep one level of intent with the "Same Indentation Rule"; do not extract ordinary control flow mechanically.](./references/same-indentation-rule.md)
