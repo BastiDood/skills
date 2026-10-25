@@ -23,7 +23,7 @@ Follow the guidelines below. Read each linked reference that applies before writ
    - [Fail impossible states when an internal guarantee is broken instead of continuing with invented state.](./references/fail-impossible-states.md)
    - [Prevent new finite-state members from silently inheriting a fallback through exhaustive decisions.](./references/exhaustive-decisions.md)
 3. Keep failure, ownership, and information at their decision-owning boundaries.
-   - [Handle and record each failure once at a narrow error boundary, preserving unrelated errors and their original causes.](./references/narrow-error-boundaries.md)
+   - [Handle each failure once, preserve its cause, and distinguish narrow recovery or translation from terminal presentation.](./references/narrow-error-boundaries.md)
    - [Bind resource ownership to lifetime so a resource never escapes uninitialized or unreleased.](./references/resources-own-lifetimes.md)
    - [Preserve caller-relevant information when normalizing external data so continuation, retry, filtering, fallback, and other policy choices remain with the caller.](./references/preserve-information.md)
    - [Let consumers control continuation and stopping through lazy pagination.](./references/lazy-pagination.md)
