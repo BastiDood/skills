@@ -56,18 +56,12 @@ function RequestStateView({ request }: { request: RequestState<JobData> }) {
 			return <ErrorBanner error={request.error} />;
 		case RequestStatus.Success:
 			return <JobDetailInner data={request.data} />;
-		default: {
-			const unreachable: never = request;
-			throw new Error(`Unhandled request state: ${String(unreachable)}`);
-		}
 	}
 }
 ```
 
-Define an enum-backed discriminant and variants that contain only the fields valid for that state. Render each discriminant exhaustively.
+Define an enum-backed discriminant and variants that contain only the fields valid for that state. Render each discriminant explicitly and enforce exhaustiveness with type-aware checks instead of a synthetic fallback branch.
 
 Use a state machine when one state changes the valid fields, actions, or rendering of another. Do not introduce one for independent local values such as an input string and an open flag.
 
 Transition through named events or functions that construct only valid variants. Do not mutate one field of a union-shaped state while leaving fields from the previous variant behind.
-
-Treat an unhandled discriminant as an internal invariant failure rather than rendering a fabricated fallback.

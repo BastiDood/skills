@@ -15,7 +15,7 @@ function statusColorWithFallback(status: Status) {
 	return 'gray';
 }
 
-// GOOD: the compiler proves every state is handled.
+// GOOD: each state has an explicit case.
 function statusColor(status: Status) {
 	switch (status) {
 		case Status.Active:
@@ -24,10 +24,8 @@ function statusColor(status: Status) {
 			return 'yellow';
 		case Status.Stopped:
 			return 'gray';
-		default:
-			throw new Error('unhandled status');
 	}
 }
 ```
 
-Use the target language's compiler-supported exhaustiveness mechanism when one exists. This directive owns the language-agnostic requirement.
+Enforce completeness with the target language's exhaustive type checker or linter. Keep closed decisions limited to real cases instead of adding synthetic unreachable branches or assertion helpers. Validate external values at their input boundary.
