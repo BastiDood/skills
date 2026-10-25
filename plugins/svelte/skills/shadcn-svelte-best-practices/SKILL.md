@@ -24,6 +24,6 @@ Read the references that apply to the current task before writing or reviewing `
    - [Make Bits UI wrappers drop-in compatible](./references/primitive-wrappers.md) by binding `ref`, merging classes, and forwarding remaining props.
    - [Expose semantic wrapper roles through data slots](./references/data-slots.md) so consumer styling does not depend on volatile implementation classes.
 2. Keep state and reusable styling contracts with their appropriate owner.
-   - [Keep mutable form state inside the mounted form](./references/dialog-form-ownership.md), leaving the dialog shell responsible only for visibility.
+   - [Give form drafts an intentional lifetime](./references/dialog-form-ownership.md), checking primitive mounting behavior while the shell owns visibility.
    - [Define reusable `tv()` schemas in module scope](./references/variants.md) so their contracts do not reinstantiate per component.
    - [Keep static classes literal and compose conditional classes with `cn`](./references/class-composition.md), preserving required merging and design tokens.

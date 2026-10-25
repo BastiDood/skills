@@ -1,6 +1,6 @@
 # Conditional Mounting
 
-Mount stateful UI only while it renders. Mounting initializes its `$state`; unmounting destroys it. This provides fresh state on the next mount without manual cleanup.
+When hidden UI must discard its draft, make mounting define that state lifetime. Mounting initializes local `$state`; unmounting destroys it, providing fresh state on the next mount without manual cleanup.
 
 ```svelte
 <!-- BAD: a hidden child keeps state alive and needs a separate reset policy. -->
@@ -14,7 +14,7 @@ Mount stateful UI only while it renders. Mounting initializes its `$state`; unmo
 {/if}
 ```
 
-Use the same rule for tabs, accordions, drawers, sheets, wizards, and other conditionally visible UI.
+Check the actual primitive and wrapper behavior for tabs, accordions, drawers, sheets, and wizards. `forceMount`, custom child snippets, and exit transitions affect when content is destroyed; visibility alone does not establish unmounting.
 
 Keep a child's private derivations inside that child so its parent does not compute values for unmounted UI.
 
