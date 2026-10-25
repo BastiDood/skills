@@ -27,7 +27,7 @@ Read the references that apply to the current task before defining or reviewing 
    - [Encode missing and `null` wire semantics](./references/wire-nullability.md) with the matching wrapper rather than whichever wrapper compiles.
    - [Dispatch literal-tagged alternatives with `v.variant`](./references/discriminated-variants.md) so Valibot selects and reports the failing tagged branch.
    - [Define defaults with exact domain meaning in the schema](./references/schema-defaults.md); do not use a default to reinterpret malformed input.
-   - [Transform normalized wire input inside the schema](./references/schema-transformations.md) so consumers receive trusted domain values rather than raw serialized forms.
+   - [Transform normalized wire input inside the schema](./references/schema-transformations.md) with matching built-ins so consumers receive the intended domain values.
 3. Make validation failure match the boundary contract.
    - [Choose the parse API from the failure contract](./references/parse-failure-contracts.md): abort a violated invariant or return an expected validation branch.
    - [Preserve expected validation issues](./references/validation-failure-preservation.md) instead of substituting an invented `null` or empty value.
