@@ -10,7 +10,7 @@ Treat React as a declarative projection of owned state: derive what can be calcu
 ## Library Sources
 
 - GitHub repository ID: `react/react`
-- Context7 library ID: `/facebook/react`
+- Context7 library ID: `/websites/react_dev`
 - DeepWiki repository ID: `react/react`
 
 Use Context7 for current documentation and DeepWiki for implementation details.
