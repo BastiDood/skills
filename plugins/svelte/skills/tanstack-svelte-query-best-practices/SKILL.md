@@ -29,7 +29,7 @@ Read the references that apply to the current task before writing or reviewing T
 2. Resolve query status before stateful presentation consumes data.
    - [Resolve pending, error, empty, and success states in an outer loader](./references/outer-loader.md) before mounting stateful presentation.
    - [Publish identity at the loader boundary through loader prop contracts](./references/loader-prop-contracts.md) and give resolved components only the data they need.
-   - [Read query and mutation fields directly](./references/reactive-result-consumption.md) instead of destructuring result objects.
+   - [Retain query and mutation Proxies and read their properties directly](./references/reactive-result-consumption.md); destructuring loses reactive access.
 3. Keep mutation lifecycle and invalidation scoped to the submitting operation.
    - [Choose one submission lifecycle](./references/mutation-form-integration.md); a form cannot simultaneously own SvelteKit enhancement and a client mutation.
    - [Pass changed operation input via mutation variables](./references/mutation-variables.md), keeping definition configuration stable.

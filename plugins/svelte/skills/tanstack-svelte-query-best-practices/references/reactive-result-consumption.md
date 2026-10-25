@@ -1,6 +1,6 @@
 # Reactive Result Consumption
 
-Never destructure query or mutation result objects, including results returned by feature abstractions. Read fields directly to preserve reactivity. Call methods directly, too: `query.refetch`, `mutation.mutate`, and `mutation.mutateAsync`.
+Svelte query and mutation results are `Proxy` objects whose properties resolve dynamically. Consumers must not destructure them, including results returned by feature abstractions. Retain the result object and read its properties directly in reactive contexts. Call methods through the object, too: `query.refetch`, `mutation.mutate`, and `mutation.mutateAsync`.
 
 ```svelte
 <script lang="ts">
