@@ -28,7 +28,7 @@ Follow the guidelines below. Read each linked reference that applies before writ
    - [Preserve caller-relevant information when normalizing external data so continuation, retry, filtering, fallback, and other policy choices remain with the caller.](./references/preserve-information.md)
    - [Let consumers control continuation and stopping through lazy pagination.](./references/lazy-pagination.md)
 4. Keep abstractions and public contracts intentional.
-   - [Keep one-off or cosmetic indirection out of the design with simple abstractions.](./references/simple-abstractions.md)
+   - [Remove cosmetic pack/unpack layers while keeping abstractions that own meaningful behavior.](./references/simple-abstractions.md)
    - [Convert untrusted external payloads into trusted values at the first controlled boundary.](./references/validate-at-boundaries.md)
    - [Keep required absence explicit and reject fabricated defaults unless the domain defines the exact value.](./references/no-fabricated-defaults.md)
    - [Keep consumer APIs intentional and side-effect-free with narrow public surfaces.](./references/narrow-public-surfaces.md)
