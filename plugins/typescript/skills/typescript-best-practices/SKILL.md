@@ -26,8 +26,7 @@ Read the references that apply to the current task before writing or reviewing T
    - [Replace unchecked assertions with runtime proof](./references/unchecked-assertions.md) at a serialization boundary when a value is untrusted or insufficiently typed.
    - [Establish an absent-value invariant explicitly](./references/non-null-assertions.md) when an operation requires it rather than asserting it with `!`.
    - [Express optional-argument omission by leaving it out](./references/optional-arguments.md); pass `void 0` only when the API requires a positional value.
-   - [Narrow a required optional value before the call](./references/optional-value-narrowing.md), or preserve absence in its return or state contract when it is expected.
+   - [Narrow optional values with `typeof` guards before required calls](./references/optional-value-narrowing.md), or preserve absence in the return or state contract when it is expected.
    - [Do not fabricate a default for missing required input](./references/no-fabricated-defaults.md) unless the domain contract assigns that exact omitted-value meaning.
-   - [Guard an indexed array value](./references/array-index-guards.md) before treating it as present when bracket access or destructuring can produce no element.
-   - [Preserve absence from a `.split()` component](./references/split-results.md) until domain or display policy resolves it instead of supplying an arbitrary empty string.
+   - [Narrow indexed access and destructured bindings](./references/indexed-access-and-destructuring.md) before required use when `noUncheckedIndexedAccess` preserves possible absence.
    - [Validate a required regular-expression capture first](./references/regex-capture-groups.md) because named and positional groups can be absent.
