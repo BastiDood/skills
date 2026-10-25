@@ -15,7 +15,7 @@ Treat a Valibot schema as the owned contract at an untrusted data boundary: it d
 
 Use Context7 for current documentation and DeepWiki for implementation details.
 
-## Effective Strategies for Valibot
+## References
 
 Read the references that apply to the current task before defining or reviewing Valibot schemas and parsing code.
 

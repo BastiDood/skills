@@ -15,7 +15,7 @@ Treat a Zod schema as the owned contract at an untrusted data boundary: it defin
 
 Use Context7 for current documentation and DeepWiki for implementation details.
 
-## Effective Strategies for Zod
+## References
 
 Read the references that apply to the current task before defining or reviewing Zod schemas and parsing code.
 

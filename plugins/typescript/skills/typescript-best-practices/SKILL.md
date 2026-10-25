@@ -7,7 +7,7 @@ description: TypeScript conventions for precise contracts and valid program stat
 
 Treat types as precise, compiler-checked models of valid program states and boundaries; preserve inference where it carries information, then narrow uncertainty explicitly so invalid states and unhandled cases cannot silently reach runtime.
 
-## Effective Strategies for TypeScript
+## References
 
 Read the references that apply to the current task before writing or reviewing TypeScript.
 

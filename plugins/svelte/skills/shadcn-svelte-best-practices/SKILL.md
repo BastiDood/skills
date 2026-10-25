@@ -16,7 +16,7 @@ Treat shadcn-svelte components as composable accessible primitives: preserve pri
 
 Use Context7 for current documentation and DeepWiki for implementation details.
 
-## Effective Strategies for `shadcn-svelte` and Bits UI
+## References
 
 Read the references that apply to the current task before writing or reviewing `shadcn-svelte` or Bits UI code.
 
