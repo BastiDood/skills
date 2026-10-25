@@ -33,6 +33,6 @@ Read the references that apply to the current task before writing or reviewing T
 3. Keep mutation lifecycle and invalidation scoped to the submitting operation.
    - [Choose one submission lifecycle](./references/mutation-form-integration.md); a form cannot simultaneously own SvelteKit enhancement and a client mutation.
    - [Pass changed operation input via mutation variables](./references/mutation-variables.md), keeping definition configuration stable.
-   - [Put shared cache policy in the definition and component-specific UI work at the call site](./references/mutation-callback-ownership.md).
-   - [Keep each invocation's success, failure, and settlement behavior at the mutation call site](./references/mutation-callsite-lifecycle.md), not an effect that loses invocation identity.
+   - [Use callback results for confirmed outcomes and variables for submitted identity](./references/mutation-callback-ownership.md), with shared cache policy in the definition and component UI work at the call site.
+   - [Attach mounted UI consequences to their mutation invocation](./references/mutation-callsite-lifecycle.md) rather than reacting to aggregate status changes.
    - [Invalidate the narrow stale record or list family](./references/mutation-invalidation.md).

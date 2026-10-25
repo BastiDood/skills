@@ -1,20 +1,28 @@
 # Submission State
 
-Model pending work as form-wide state. Disable every submit control while submission is active, and clear pending state when the operation settles.
+Read pending, result, and failure state from the existing submission owner. Pass that state down when the owner lives above the controls; do not mirror it in another local flag or couple it to bound input state. Every submit control reflects the same operation lifetime.
 
 ```svelte
-<!-- BAD: one button does not model the lifetime of the form operation. -->
-<button type="submit" disabled={isSubmitting && activeAction === 'create'}>Create</button>
+<script lang="ts">
+	interface Props {
+		pending: boolean;
+		error: Error | null;
+	}
 
-<!-- GOOD: all submit actions reflect form-wide pending work. -->
-<button type="submit" disabled={isSubmitting}>Create</button>
-<button type="submit" disabled={isSubmitting}>Save Draft</button>
+	const { pending, error }: Props = $props();
+</script>
 
-{#if isSubmitting}
+<!-- The parent form supplies its submission owner's state to these controls. -->
+<button type="submit" disabled={pending}>Create</button>
+<button type="submit" disabled={pending}>Save Draft</button>
+
+{#if pending}
 	<p role="status">Saving changes...</p>
+{/if}
+
+{#if error !== null}
+	<p role="alert">{error.message}</p>
 {/if}
 ```
 
-Keep validation and network errors distinct from pending state so a failed submission leaves controls usable. Render cancellation, validation, and network failures explicitly.
-
-Do not use a disabled button as the only indication of progress. Announce noticeable work with accessible status text that does not depend on which submit control initiated it.
+Keep validation, cancellation, and request failures distinct from progress so controls remain usable after the operation settles. Announce noticeable work with accessible status text that does not depend on which submit control initiated it. Choose draft reset behavior deliberately after the intended outcome; input edits and submission status have separate lifetimes.

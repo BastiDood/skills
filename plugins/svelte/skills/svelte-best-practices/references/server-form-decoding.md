@@ -1,14 +1,12 @@
 # Server Form Decoding
 
-Keep the project `FormData` decoding helper in a server-only module and call it from SvelteKit actions. Do not import the helper into a browser component.
+Place decoding with the boundary that owns the incoming representation. A helper that imports server credentials, persistence, or server-only modules stays server-only. A pure `FormData` converter may live in a shared feature module when both browser and server boundaries need the same conversion.
 
 ```typescript
-// BAD: a browser component imports a server-only representation boundary.
-import { decodeFormData } from '$lib/form-data.server';
+// A shared converter depends only on the representation library.
+import { decode } from 'decode-formdata';
 
-// GOOD: only server actions import and run the helper.
-// form-data.server.ts
-export function decodeFormData(formData: FormData) {
+export function decodeCreateItemForm(formData: FormData) {
 	return decode(formData, {
 		numbers: ['amount', 'quantity'],
 		dates: ['datedAt', 'expiresAt'],
@@ -17,4 +15,4 @@ export function decodeFormData(formData: FormData) {
 }
 ```
 
-The decoder only performs representation conversion. The action still validates its result at the external-input boundary.
+Decoding converts representations; it does not validate or authorize them. The server action validates external request input even when the browser caller is typed or already validated it. Pass the resulting trusted value to internal domain work without reparsing it.
