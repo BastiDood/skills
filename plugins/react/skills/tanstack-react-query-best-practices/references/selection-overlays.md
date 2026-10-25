@@ -13,7 +13,7 @@ interface SelectionDocument {
 interface DocumentPickerProps {
 	documents: readonly SelectionDocument[];
 	selectedIds: readonly string[];
-	onSelect(id: string, isSelected: boolean): void;
+	onSelect: (id: string, isSelected: boolean) => void;
 }
 
 declare function DocumentPicker(props: DocumentPickerProps): ReactNode;
@@ -25,7 +25,7 @@ interface DocumentSelectionProps {
 function DocumentSelection({ documents }: DocumentSelectionProps) {
 	const [overrides, setOverrides] = useState(() => new Map<string, boolean>());
 	const selectedIds = useMemo(() => {
-		const selectedIds = [];
+		const selectedIds: string[] = [];
 		for (const document of documents) {
 			if (overrides.get(document.id) ?? document.isSelected) {
 				selectedIds.push(document.id);

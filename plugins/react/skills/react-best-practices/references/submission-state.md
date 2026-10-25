@@ -35,7 +35,7 @@ function Form({ onSave, isPending, error }: FormProps) {
 
 	let alert;
 	if (error !== null) alert = <p role="alert">{error.message}</p>;
-	
+
 	return (
 		<form onSubmit={submit}>
 			<label>

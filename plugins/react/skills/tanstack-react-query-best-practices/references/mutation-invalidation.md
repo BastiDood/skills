@@ -1,6 +1,6 @@
 # Mutation Invalidation
 
-Invalidate the cache entry identified by successful mutation variables using the callback context's QueryClient. Return the invalidation promise when the refresh is part of mutation completion.
+Invalidate the cache entry identified by successful mutation variables using the callback context's QueryClient.
 
 ```typescript
 import { queryOptions, useMutation } from '@tanstack/react-query';
@@ -23,7 +23,7 @@ const jobQueryKeys = {
 function jobOptions(id: string) {
 	return queryOptions({
 		queryKey: jobQueryKeys.job(id),
-		queryFn: ({ queryKey: [, jobId] }) => getJob(jobId),
+		queryFn: async ({ queryKey: [, jobId] }) => await getJob(jobId),
 	});
 }
 
@@ -31,8 +31,8 @@ function jobOptions(id: string) {
 function useBroadUpdateJob() {
 	return useMutation({
 		mutationFn: updateJob,
-		onSuccess(_data, _variables, _onMutateResult, context) {
-			return context.client.invalidateQueries({ queryKey: jobQueryKeys.all });
+		async onSuccess(_data, _variables, _onMutateResult, context) {
+			await context.client.invalidateQueries({ queryKey: jobQueryKeys.all });
 		},
 	});
 }
@@ -41,8 +41,8 @@ function useBroadUpdateJob() {
 export function useUpdateJob() {
 	return useMutation({
 		mutationFn: updateJob,
-		onSuccess(_data, variables, _onMutateResult, context) {
-			return context.client.invalidateQueries({ queryKey: jobQueryKeys.job(variables.id) });
+		async onSuccess(_data, variables, _onMutateResult, context) {
+			await context.client.invalidateQueries({ queryKey: jobQueryKeys.job(variables.id) });
 		},
 	});
 }

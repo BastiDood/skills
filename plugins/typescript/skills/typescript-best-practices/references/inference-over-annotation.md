@@ -1,6 +1,6 @@
 # Inference Over Annotation
 
-Infer locals and returns whenever TypeScript proves the intended contract. Add type information only where inference cannot establish a required contract.
+Infer locals and returns whenever TypeScript proves the intended contract. Add type information where inference cannot establish a required contract, or to establish an empty collection's contract at construction.
 
 ```typescript
 // BAD: the valued async return is already inferred.
@@ -76,11 +76,13 @@ function createLoadedState(value: string) {
 }
 ```
 
+Give empty collections explicit element, key, and value contracts. Use an element annotation with an array literal and constructor generics for `Map` and `Set`. Do not rely on later insertions to evolve their types. Infer populated collections when their initial values establish the intended contract.
+
 ```typescript
-// GOOD: supply the element contract when assignments cannot establish it.
+// GOOD: the empty array's element contract constrains every later insertion.
 const users: User[] = [];
 
-// GOOD: constructor generics supply missing information without a second annotation.
+// GOOD: constructor generics establish both key and value contracts.
 const usersById = new Map<string, User>();
 ```
 

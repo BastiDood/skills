@@ -2,8 +2,6 @@
 
 Do not capture application request variables in `queryFn`, even when the key contains the same values. Put every request input in the typed `queryKey`, then destructure it from the query-function context. Receive cancellation from `context.signal` and an infinite-query cursor from `context.pageParam`.
 
-Declare every `queryFn` as `async` and `await` its request.
-
 In this component excerpt, `itemId` is a reactive `string`; `fetchItem(id, signal)` requests that item. Imports and prop declarations are omitted.
 
 ```svelte

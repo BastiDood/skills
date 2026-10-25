@@ -15,7 +15,7 @@ declare function updateJob(input: UpdateJobRequest): Promise<void>;
 declare function closePanel(): void;
 
 interface JobEditorProps {
-	onSubmit(input: UpdateJobRequest): void;
+	onSubmit: (input: UpdateJobRequest) => void;
 	disabled: boolean;
 	error: Error | null;
 }
