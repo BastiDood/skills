@@ -20,7 +20,7 @@ Use Context7 for current documentation and DeepWiki for implementation details.
 Read the references that apply to the current task before defining or reviewing Valibot schemas and parsing code.
 
 1. Make schemas the owned, trusted contract for wire data.
-   - [Make a schema that proves a domain shape the single source of truth](./references/schema-ownership.md) and infer the exported type instead of maintaining a duplicate declaration.
+   - [Make a schema that proves a domain shape the single source of truth](./references/schema-ownership.md) and infer a type when needed, exposing the schema/type pair only as an intentional public contract.
    - [Validate serialized data at its trust boundary](./references/serialized-trust-boundaries.md), including authenticated external payloads, before it becomes a domain value.
    - [Keep constructors under the `v` namespace](./references/namespace-imports.md) so library ownership stays clear and import forms remain consistent.
 2. Encode exact wire semantics inside the schema.
@@ -29,5 +29,5 @@ Read the references that apply to the current task before defining or reviewing 
    - [Define defaults with exact domain meaning in the schema](./references/schema-defaults.md); do not use a default to reinterpret malformed input.
    - [Transform normalized wire input inside the schema](./references/schema-transformations.md) with matching built-ins so consumers receive the intended domain values.
 3. Make validation failure match the boundary contract.
-   - [Choose the parse API from the failure contract](./references/parse-failure-contracts.md): abort a violated invariant or return an expected validation branch.
+   - [Choose the parse API from the failure contract](./references/parse-failure-contracts.md): abort a violated invariant or return an expected branch, reusing immutable schemas and parser functions.
    - [Preserve expected validation issues](./references/validation-failure-preservation.md) instead of substituting an invented `null` or empty value.
