@@ -23,3 +23,16 @@ interface ExtendedUserRecord extends Identified, Named {
 Use `type` where `interface` cannot express the contract naturally: structured unions, mapped types, conditional types, primitives, and schema-inferred outputs. Use `const enum` for named closed primitive values.
 
 Do not replace a natural interface with an intersection solely to avoid `extends`.
+
+For an exact subset of an existing contract, use `Pick` instead of copying properties or creating an empty interface that only extends the subset. Add an interface when it introduces a meaningful new object contract with its own fields.
+
+```typescript
+// BAD: a copied subset can drift from AvatarProps.
+interface Props {
+	title: string;
+	size: number;
+}
+
+// GOOD: preserve the source property's optional and readonly modifiers too.
+type Props = Pick<AvatarProps, 'title' | 'size'>;
+```

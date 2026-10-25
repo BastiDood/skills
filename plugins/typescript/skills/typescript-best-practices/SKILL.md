@@ -18,7 +18,7 @@ Read the references that apply to the current task before writing or reviewing T
    - [Preserve readonly tuple or literal-union inference with `as const`](./references/literal-const-assertions.md) when consumers require it rather than treating the assertion as a default.
    - [Use structural conformance](./references/structural-conformance.md) when a value must satisfy a shape without losing its precise inferred literals instead of widening it with an annotation.
 2. Model domain contracts and closed states precisely.
-   - [Choose `interface` by default and compose it with `extends`](./references/interfaces-and-types.md) for object contracts; reserve `type` for contracts that interfaces cannot express naturally.
+   - [Choose `interface` by default and compose it with `extends`](./references/interfaces-and-types.md) for handwritten object contracts; use a `Pick` alias for an exact subset of an existing contract.
    - [Model parallel flags as discriminated variants](./references/discriminated-union-state.md) so impossible state combinations cannot occur and each status has one valid shape.
    - [Make decisions over closed enums or unions exhaustive](./references/exhaustive-decisions.md) so new members cannot silently reach a fallback.
 3. Narrow uncertainty and absence explicitly at the boundary that owns it.
