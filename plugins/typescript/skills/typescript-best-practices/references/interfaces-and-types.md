@@ -24,7 +24,7 @@ Use `type` where `interface` cannot express the contract naturally: structured u
 
 Do not replace a natural interface with an intersection solely to avoid `extends`.
 
-For an exact subset of an existing contract, use `Pick` instead of copying properties or creating an empty interface that only extends the subset. Add an interface when it introduces a meaningful new object contract with its own fields.
+For an exact subset of an existing contract, use `Pick` instead of copying properties or creating an empty interface that only extends the subset. When attaching optional fields to an existing object contract, extend its interface and declare the attachments optional. Annotate the constructed result with that extended contract so later conditional assignments remain checked.
 
 ```typescript
 // BAD: a copied subset can drift from AvatarProps.

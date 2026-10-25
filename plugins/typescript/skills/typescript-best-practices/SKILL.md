@@ -25,7 +25,7 @@ Read the references that apply to the current task before writing or reviewing T
    - [Contain type escape hatches](./references/escape-hatches.md) by narrowing or validating `any` and `unknown` inside the boundary that receives them so neither can escape to callers or domain state.
    - [Replace unchecked assertions with runtime proof](./references/unchecked-assertions.md) at a serialization boundary when a value is untrusted or insufficiently typed.
    - [Establish an absent-value invariant explicitly](./references/non-null-assertions.md) when an operation requires it rather than asserting it with `!`.
-   - [Express optional-argument omission by leaving it out](./references/optional-arguments.md); pass `void 0` only when the API requires a positional value.
+   - [Preserve omission in optional arguments and object fields](./references/optional-arguments.md); conditionally insert present fields and retain required positional `void 0`.
    - [Narrow optional values with `typeof` guards before required calls](./references/optional-value-narrowing.md), or preserve absence in the return or state contract when it is expected.
    - [Do not fabricate a default for missing required input](./references/no-fabricated-defaults.md) unless the domain contract assigns that exact omitted-value meaning.
    - [Narrow indexed access and destructured bindings](./references/indexed-access-and-destructuring.md) before required use when `noUncheckedIndexedAccess` preserves possible absence.

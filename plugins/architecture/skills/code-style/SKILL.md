@@ -17,7 +17,7 @@ Follow the guidelines below. Read each linked reference that applies before writ
    - [Use affirmative conditions when a condition needs mental negation to understand.](./references/affirmative-conditions.md)
    - [Reject invalid or exceptional cases early with guard clauses.](./references/guard-clauses.md)
    - [Make decisions visible at their point of effect instead of concealing valid values or control flow through implicit behavior.](./references/explicit-over-implicit.md)
-   - [Reserve conditional expressions for selecting one of two simple values, not for hidden effects.](./references/conditional-expressions.md)
+   - [Select simple values with conditional expressions and insert optional fields or elements into owned results with statements.](./references/conditional-expressions.md)
 2. Make valid state explicit and enforce it throughout the system.
    - [Make contradictory field combinations unrepresentable by enforcing invariants.](./references/enforce-invariants.md)
    - [Fail impossible states when an internal guarantee is broken instead of continuing with invented state.](./references/fail-impossible-states.md)
