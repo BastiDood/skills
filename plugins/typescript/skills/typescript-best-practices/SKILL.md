@@ -1,6 +1,6 @@
 ---
 name: typescript-best-practices
-description: TypeScript conventions for precise contracts and valid program states. Use when writing or reviewing TypeScript types, state models, optional values, or untrusted boundaries.
+description: TypeScript conventions for precise contracts and valid program states. Use when writing or reviewing TypeScript expressions, declarations, types, state models, optional values, or untrusted boundaries.
 ---
 
 # TypeScript Best Practices
@@ -12,7 +12,7 @@ Treat types as precise, compiler-checked models of valid program states and boun
 Read the references that apply to the current task before writing or reviewing TypeScript.
 
 1. Preserve TypeScript's specific inference whenever it proves the intended contract.
-   - [Infer derivable types and impose annotations only where they prove a required contract](./references/inference-over-annotation.md), because redundant annotations drift while deliberate boundary contracts constrain implementations.
+   - [Infer derivable types and impose annotations only where they prove a required contract](./references/inference-over-annotation.md), keeping inferred locals and filter narrowing while the defining module owns named result contracts.
    - [Declare the intended state set at a literal inference boundary](./references/literal-union-inference.md) when an API infers a closed state from one initial literal so later valid members remain assignable.
    - [Model named durable closed sets of serialized primitive values as `const enum`s](./references/const-enums.md) rather than string-literal unions.
    - [Preserve readonly tuple or literal-union inference with `as const`](./references/literal-const-assertions.md) when consumers require it rather than treating the assertion as a default.
