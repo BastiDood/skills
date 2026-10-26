@@ -3,7 +3,7 @@
 Omit an optional argument when omission expresses the intent. Pass `void 0` when an API requires an explicit undefined argument, including a positional slot before a later argument.
 
 ```typescript
-// BAD: explicit undefined when omission is supported.
+// BAD: explicit `undefined` when omission is supported.
 reset(undefined);
 
 // GOOD: omit the optional argument.

@@ -3,7 +3,7 @@
 Use the most direct code that preserves the domain model and required behavior. An abstraction must remove real duplication, establish a stable boundary, own a dependency closure or resource lifetime, or give a precise name to a domain concept.
 
 ```typescript
-// BAD: an invented Source contract only packs a query for immediate unpacking.
+// BAD: an invented source contract only packs a query for immediate unpacking.
 function buildFileSource(database: Database) {
 	return { query: buildFilesQuery(database) };
 }

@@ -10,7 +10,7 @@ Remount a stateful component with `{#key}` when an identity change requires fres
 	});
 </script>
 
-<!-- GOOD: a category change recreates ItemList and its local state -->
+<!-- GOOD: a category change recreates `ItemList` and its local state -->
 {#key categoryId}
 	<ItemList {items} />
 {/key}

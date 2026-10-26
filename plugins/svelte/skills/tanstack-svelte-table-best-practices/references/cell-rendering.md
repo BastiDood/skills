@@ -42,7 +42,7 @@ Define component and snippet cells with the adapter helpers; `FlexRender` resolv
 import { renderComponent } from '@tanstack/svelte-table';
 import StatusCell from './status-cell.svelte';
 
-// GOOD: return a render description; let FlexRender own component creation and updates.
+// GOOD: return a render description; let `FlexRender` own component creation and updates.
 const statusCell = renderComponent(StatusCell, { status: 'active' });
 ```
 
@@ -50,7 +50,7 @@ const statusCell = renderComponent(StatusCell, { status: 'active' });
 <script lang="ts">
 	import { renderSnippet } from '@tanstack/svelte-table';
 
-	// GOOD: pass one explicit parameter object; FlexRender owns snippet invocation.
+	// GOOD: pass one explicit parameter object; `FlexRender` owns snippet invocation.
 	const statusCell = renderSnippet(statusLabel, { status: 'active' });
 </script>
 

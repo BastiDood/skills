@@ -6,7 +6,7 @@ Use `use:enhance` without a callback when its default reset, invalidation, and a
 <!-- BAD: a custom callback replaces SvelteKit defaults and never restores them. -->
 <form method="POST" use:enhance={() => () => { isSubmitting = false; }}></form>
 
-<!-- GOOD: call update() deliberately after custom lifecycle work. -->
+<!-- GOOD: call `update()` deliberately after custom lifecycle work. -->
 <form
 	method="POST"
 	use:enhance={() => {

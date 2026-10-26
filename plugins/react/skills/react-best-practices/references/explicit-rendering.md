@@ -3,7 +3,7 @@
 Use a ternary when a JSX branch can render a value.
 
 ```tsx
-// BAD: && can render 0 or an empty string.
+// BAD: `&&` can render `0` or an empty string.
 function BadBadgeSlot({ count }: { count: number }) {
 	return count && <Badge count={count} />;
 }

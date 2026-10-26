@@ -37,7 +37,7 @@ function createColumns(onEdit: (id: string) => void) {
 	];
 }
 
-// GOOD: hoisted schema reads its per-instance capability from table meta.
+// GOOD: hoisted schema reads its per-instance capability from table `meta`.
 export const columns = columnHelper.columns([
 	columnHelper.accessor('name', {
 		header: 'Name',

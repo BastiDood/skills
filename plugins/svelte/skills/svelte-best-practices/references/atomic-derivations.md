@@ -6,7 +6,7 @@ In this component excerpt, `items` and `descending` are reactive inputs.
 
 ```svelte
 <script lang="ts">
-	// BAD: changing descending also recomputes total.
+	// BAD: changing `descending` also recomputes `total`.
 	const computed = $derived({
 		sorted: items.toSorted((a, b) =>
 			descending ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name),
@@ -14,7 +14,7 @@ In this component excerpt, `items` and `descending` are reactive inputs.
 		total: items.reduce((sum, item) => sum + item.amount, 0),
 	});
 
-	// GOOD: changing descending leaves total cached.
+	// GOOD: changing `descending` leaves `total` cached.
 	const sortedItems = $derived(
 		items.toSorted((a, b) =>
 			descending ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name),
