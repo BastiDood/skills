@@ -1,6 +1,6 @@
 # State Machines
 
-Model a finite UI flow as one discriminated state machine. Do not combine parallel flags and optional values that can describe contradictory states.
+Model a finite UI flow as one discriminated state machine.
 
 Keep the `const enum` and its state contracts in a TypeScript module. A Svelte component imports the finished finite-state contract instead of asking the component compiler to transform the enum.
 
@@ -44,9 +44,6 @@ export function getLobbyLabel(state: LobbyState) {
 			return `Connected to ${state.lobbyId}`;
 		case LobbyStatus.Failed:
 			return state.message;
-		default: {
-			throw new Error('unexpected lobby state');
-		}
 	}
 }
 ```
@@ -59,15 +56,5 @@ export function getLobbyLabel(state: LobbyState) {
 	import { LobbyStatus, type LobbyState } from './lobby-state';
 
 	let lobby = $state<LobbyState>({ status: LobbyStatus.Idle });
-</script>
-```
-
-```svelte
-<!-- BAD: Parallel State Can Contradict Itself -->
-
-<script lang="ts">
-	let isJoining = $state(false);
-	let lobbyId = $state<string | undefined>();
-	let failureMessage = $state<string | undefined>();
 </script>
 ```

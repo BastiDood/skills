@@ -1,16 +1,16 @@
 # Optional Arguments and Properties
 
-Omit an optional argument when omission expresses the intent. Pass `void 0` when an API requires an explicit undefined argument, including a positional slot before a later argument.
+Omit an optional argument when the API expresses optionality. Write `void 0` only where an `undefined` value must be present, such as a positional slot before a later argument.
 
 ```typescript
-// BAD: explicit `undefined` when omission is supported.
-reset(undefined);
+// BAD: spells out an absent optional argument.
+resetAt(index, void 0);
 
 // GOOD: omit the optional argument.
-reset();
+resetAt(index);
 
-// GOOD: the API requires an argument at this position.
-resetAt(index, void 0);
+// GOOD: a later argument requires a value at this position.
+resetAt(index, void 0, { animate: true });
 ```
 
 An absent object property and a present property whose value is `undefined` are different states. Preserve the API's omission semantics so the code remains compatible with enabling `exactOptionalPropertyTypes` later. Do not change the compiler option as part of a local cleanup.

@@ -6,29 +6,26 @@ Represent related mutually exclusive state as one discriminated union rather tha
 const enum RequestStatus {
 	Idle = 'idle',
 	Loading = 'loading',
-	Error = 'error',
 	Success = 'success',
+	Failure = 'failure',
 }
 
-interface IdleRequest {
+interface IdleState {
 	status: RequestStatus.Idle;
 }
-
-interface LoadingRequest {
+interface LoadingState {
 	status: RequestStatus.Loading;
 }
-
-interface FailedRequest {
-	status: RequestStatus.Error;
+interface SuccessState<Data> {
+	status: RequestStatus.Success;
+	data: Data;
+}
+interface FailureState {
+	status: RequestStatus.Failure;
 	error: Error;
 }
 
-interface SuccessfulRequest<T> {
-	status: RequestStatus.Success;
-	data: T;
-}
-
-type RequestState<T> = IdleRequest | LoadingRequest | FailedRequest | SuccessfulRequest<T>;
+type RequestState<Data> = IdleState | LoadingState | SuccessState<Data> | FailureState;
 
 function BadRequestView() {
 	// BAD: invalid combinations are representable.
@@ -52,15 +49,13 @@ function RequestStateView({ request }: { request: RequestState<JobData> }) {
 			return <IdleNotice />;
 		case RequestStatus.Loading:
 			return <Spinner />;
-		case RequestStatus.Error:
-			return <ErrorBanner error={request.error} />;
 		case RequestStatus.Success:
 			return <JobDetailInner data={request.data} />;
+		case RequestStatus.Failure:
+			return <ErrorBanner error={request.error} />;
 	}
 }
 ```
-
-Define an enum-backed discriminant and variants that contain only the fields valid for that state. Render each discriminant explicitly and enforce exhaustiveness with type-aware checks instead of a synthetic fallback branch.
 
 Use a state machine when one state changes the valid fields, actions, or rendering of another. Do not introduce one for independent local values such as an input string and an open flag.
 

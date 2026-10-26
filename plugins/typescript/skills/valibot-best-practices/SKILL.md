@@ -5,7 +5,8 @@ description: Valibot conventions for owned wire contracts and explicit validatio
 
 # Valibot Best Practices
 
-Treat a Valibot schema as the owned contract at an untrusted data boundary: it defines accepted wire values, produces trusted domain values, and makes invalid input an explicit, intentional outcome.
+> [!IMPORTANT]
+> Apply the `architecture:code-style` principles to Valibot: treat a schema as the owned contract at an untrusted data boundary that defines accepted wire values, produces trusted domain values, and makes invalid input an explicit, intentional outcome.
 
 ## Library Sources
 
@@ -21,7 +22,6 @@ Read the references that apply to the current task before defining or reviewing 
 
 1. Make schemas the owned, trusted contract for wire data.
    - [Make a schema that proves a domain shape the single source of truth](./references/schema-ownership.md) and infer a type when needed, exposing the schema/type pair only as an intentional public contract.
-   - [Validate serialized data at its trust boundary](./references/serialized-trust-boundaries.md), including authenticated external payloads, before it becomes a domain value.
    - [Keep constructors under the `v` namespace](./references/namespace-imports.md) so library ownership stays clear and import forms remain consistent.
 2. Encode exact wire semantics inside the schema.
    - [Encode missing and `null` wire semantics](./references/wire-nullability.md) with the matching wrapper rather than whichever wrapper compiles.

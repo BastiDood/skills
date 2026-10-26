@@ -5,7 +5,8 @@ description: React component conventions for explicit state ownership and data f
 
 # React Best Practices
 
-Treat React as a declarative projection of owned state: derive what can be calculated, render every state explicitly, and isolate effects to synchronization with external systems so components remain predictable and easy to change.
+> [!IMPORTANT]
+> Apply the `architecture:code-style` principles to React: treat components as a declarative projection of owned state, derive what can be calculated, render every state explicitly, and isolate effects to synchronization with external systems so components remain predictable and easy to change.
 
 ## Library Sources
 

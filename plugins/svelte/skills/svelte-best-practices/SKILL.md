@@ -5,7 +5,8 @@ description: Svelte 5 and SvelteKit conventions for explicit reactive ownership 
 
 # Svelte Best Practices
 
-Treat Svelte reactivity as explicit data flow: own mutable state at the narrowest boundary, derive values from it, and reserve effects for external synchronization so component behavior stays clear and stable.
+> [!IMPORTANT]
+> Apply the `architecture:code-style` principles to Svelte: treat reactivity as explicit data flow, own mutable state at the narrowest boundary, derive values from it, and reserve effects for external synchronization so component behavior stays clear and stable.
 
 ## Library Sources
 
@@ -30,7 +31,6 @@ Read the references that apply to the current task before writing or reviewing S
    - [Reset changed domain identity with `{#key}`](./references/state-reset.md) rather than synchronizing individual fields through `$effect`.
    - [Remove hidden UI through conditional mounting](./references/conditional-mounting.md) when it must discard local state; preserve mounting only by explicit product choice.
 2. Render and compose UI through explicit, owned contracts.
-   - [State rendering conditions explicitly](./references/explicit-rendering.md), because truthiness can hide valid zero or empty values.
    - [Forward the native platform contract through native element props](./references/native-element-props.md) instead of allowlisting wrapper attributes.
    - [Compose passive child content with snippets](./references/snippets.md), adding typed parameters only when the component supplies behavior.
    - [Create context for one coherent subsystem shared across depths](./references/context.md), not as ambient prop forwarding.
