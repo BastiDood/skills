@@ -27,6 +27,7 @@ Turn the current working-tree changes into a clear, reviewable sequence of check
 4. Ask the user to review the handoff and create the commit.
    - Never run `git commit`. The user must create every commit unless explicitly delegated to you.
    - Stop and wait for the user after presenting the complete handoff.
+   - Expect follow-up edits and feedback before the commit. Whenever those edits affect staged files, always restage the affected changes unless instructed otherwise. Preserve partial-file staging boundaries, review the updated staged diff, and refresh the handoff.
 5. After the user creates the commit, inspect the remaining changes, update dependencies and review-effort estimates, and return to Step 2. Continue until no pending changes remain.
 
 ## Review Effort
