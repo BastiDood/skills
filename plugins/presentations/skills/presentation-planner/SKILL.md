@@ -157,7 +157,7 @@ Assign the simplest fitting form:
 
 Follow the plan template. Format presenter notes first, then derive a selective visual abstraction through the Copy-Level Scope. Do not mirror the note hierarchy or force every note group onto the slide. Use direct alignment unless the script deliberately previews the next visible idea; record bridge alignment in `Slide Treatment`.
 
-Before writing the plan, [read the complete presentation-plan template](./references/presentation-plan-template.md). Follow its required headings and field guidance. Use ordinary Markdown headings, paragraphs, lists, blockquotes, and fenced code, and keep the plan readable by a human.
+Before writing the plan, read the [complete presentation-plan template](./references/presentation-plan-template.md). Follow its required headings and field guidance. Use ordinary Markdown headings, paragraphs, lists, blockquotes, and fenced code, and keep the plan readable by a human.
 
 Include only applicable production elements. Omit fields and subsections that would otherwise say `None`, `N/A`, or restate why an element is unnecessary.
 
