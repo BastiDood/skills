@@ -20,10 +20,11 @@ Use Context7 for current documentation and DeepWiki for implementation details.
 Read the references that apply to the current task before writing or reviewing TanStack Svelte Query code.
 
 1. Let TanStack Query own server-data lifecycle and reactive cache identity.
-   - [Let TanStack Query own one server-data lifecycle](./references/request-ownership.md) instead of duplicating requests in effects or handlers.
+   - [Define each entity's queries as `queryOptions()` factories](./references/query-factories.md) that own keys, query functions, and key prefixes, and consume them through `createQuery` accessors.
+   - [Let TanStack Query own one server-data lifecycle](./references/request-ownership.md) instead of duplicating requests in effects, handlers, or a component-level `QueryClient`.
    - [Include every response-changing input in cache identity](./references/query-keys.md) so filters, tenant, locale, and pagination cannot share stale results.
-   - [Read request inputs exclusively from the query-function context](./references/query-function-inputs.md), never from captured request variables.
-   - [Preserve missing required IDs](./references/absent-identifiers.md) and disable the request instead of issuing a fabricated empty-record request.
+   - [Read keyed request inputs from the query-function context](./references/query-function-inputs.md), and keep every response-changing capture in the key.
+   - [Preserve missing required IDs](./references/absent-identifiers.md) and disable the request instead of defaulting any value that flows into a key.
    - [Partition visibility-sensitive cache entries by non-secret actor identity](./references/actor-identity-and-secrets.md).
    - [Give `createQuery` an accessor for reactive query options](./references/reactive-query-options.md) so changing inputs update the query instead of freezing options.
 2. Resolve query status before stateful presentation consumes data.
@@ -34,5 +35,5 @@ Read the references that apply to the current task before writing or reviewing T
    - [Choose one submission lifecycle](./references/mutation-form-integration.md); a form cannot simultaneously own SvelteKit enhancement and a client mutation.
    - [Pass changed operation input via mutation variables](./references/mutation-variables.md), keeping definition configuration stable.
    - [Use callback results for confirmed outcomes and variables for submitted identity](./references/mutation-callback-ownership.md), with shared cache policy in the definition and component UI work at the call site.
-   - [Attach mounted UI consequences to their mutation invocation](./references/mutation-callsite-lifecycle.md) rather than reacting to aggregate status changes.
-   - [Invalidate the narrow stale record or list family](./references/mutation-invalidation.md).
+   - [Attach mounted UI consequences to their mutation invocation](./references/mutation-callsite-lifecycle.md) rather than reacting to aggregate status changes, and reserve `mutateAsync` for concurrent invocations awaited by a `Promise.*` combinator.
+   - [Invalidate the narrow stale record or list family](./references/mutation-invalidation.md), and await the invalidation so the mutation stays pending until the refetch completes.

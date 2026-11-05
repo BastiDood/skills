@@ -43,4 +43,4 @@ function JobForm() {
 }
 ```
 
-Keep configuration stable and changing input in mutation variables. Use per-call callbacks for mounted UI consequences. Use `mutateAsync` when the caller must compose the returned promise into a larger asynchronous operation; do not recreate pending state or add ceremonial `finally` blocks. Reset drafts only after the intended successful outcome.
+Keep configuration stable and changing input in mutation variables. Use per-call callbacks for mounted UI consequences, and read pending and error state from the mutation instead of recreating it locally. A single form submission is one invocation, so it uses `mutate`, not `mutateAsync`. Reset drafts only after the intended successful outcome.

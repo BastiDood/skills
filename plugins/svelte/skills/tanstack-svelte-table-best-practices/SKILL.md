@@ -1,6 +1,6 @@
 ---
 name: tanstack-svelte-table-best-practices
-description: TanStack Table v9 conventions for static Svelte table schemas and reactive instance data. Use when creating or reviewing Svelte tables, columns, metadata, or rendering.
+description: TanStack Table conventions for static Svelte table schemas and reactive instance data. Use when creating or reviewing Svelte tables, columns, metadata, or rendering.
 ---
 
 # TanStack Svelte Table Best Practices
@@ -22,10 +22,10 @@ Read the references that apply to the current task before writing or reviewing T
 1. Treat columns as static schema and table behavior as instance-local capability.
    - [Keep the table contract static and its capabilities feature-local](./references/table-contract.md). Pass per-instance callbacks through table meta, and reserve declaration merging for an intentional application-wide contract.
 2. Provide changing rows reactively and render definitions through their table-owned context.
-   - [Preserve reactive ownership](./references/reactive-ownership.md) with getter-backed options, narrow atom reads, and matching change callbacks.
-   - [Render definitions, components, and snippets through adapter primitives](./references/cell-rendering.md), since raw definitions lack their table-owned context.
+   - [Preserve reactive ownership](./references/reactive-ownership.md) with getter-backed options, narrow atom reads, and controlled slices that pair each change callback with its state value.
+   - [Render definitions, components, and snippets through `FlexRender`](./references/cell-rendering.md) instead of invoking column definitions yourself, which skips aggregated and placeholder cells.
 3. Register only the features and implementation functions that the table uses.
-   - [Compose explicit, tree-shakeable capabilities](./references/explicit-capabilities.md), including individual filter, sort, and aggregation functions instead of whole registries.
+   - [Compose explicit, tree-shakeable capabilities](./references/explicit-capabilities.md), including individual filter, sort, and aggregation functions instead of whole registries, and never `stockFeatures`.
 4. Keep reactive ownership and table-object calls explicit.
    - [Preserve instance ownership by calling methods through their receiver](./references/instance-ownership.md); rows, cells, columns, and headers use prototype-bound methods.
 5. Keep table controls consistent as pages load.

@@ -1,6 +1,6 @@
 # Mutation Callback Lifecycle
 
-Put every-invocation policy in the mutation definition and mounted UI consequences at the call site. Choose callbacks for an event invocation or `mutateAsync` when the caller composes the promise into an action or larger operation.
+Put every-invocation policy in the mutation definition and mounted UI consequences at the call site. Trigger one invocation with `mutate` and attach the consequences of that invocation as per-call callbacks.
 
 ```tsx
 import { useEffect, type ReactNode } from 'react';
@@ -47,6 +47,51 @@ function JobForm() {
 }
 ```
 
-Use `onSuccess` for success consequences and `onError` for expected failure presentation. Per-call callbacks stop when their observer unmounts and consecutive calls retain only the latest observer's callbacks. Put required persistence, cache policy, and operation-owned cleanup in the mutation definition, where each invocation receives them.
+Use `onSuccess` for success consequences and `onError` for expected failure presentation. Per-call callbacks do not run if the component unmounts before the mutation finishes, and consecutive `mutate` calls fire them only once, for the last call. Put required persistence, cache policy, and operation-owned cleanup in the mutation definition, whose callbacks run for every invocation.
 
-Read pending and errors from their existing owner instead of clearing duplicate local flags in `onSettled`. Use `onSettled` only for real operation-owned cleanup required after either result; a promise-owning caller awaits its work without recreating the mutation lifecycle.
+Read pending and errors from their existing owner instead of clearing duplicate local flags in `onSettled`. Use `onSettled` only for real operation-owned cleanup required after either result.
+
+## Concurrent Invocations
+
+Use `mutateAsync` only inside a `Promise.*` combinator, when one mutation runs concurrently for several inputs and the caller awaits them together. Per-call callbacks cannot express that consequence, because only the last call's callbacks fire.
+
+```tsx
+import { startTransition } from 'react';
+import { useMutation } from '@tanstack/react-query';
+
+declare function archiveJob(id: string): Promise<void>;
+declare function reportArchiveFailures(count: number): void;
+declare function closePanel(): void;
+
+function ArchiveSelectedButton({ jobIds }: { jobIds: readonly string[] }) {
+	const { mutate, mutateAsync } = useMutation({ mutationFn: archiveJob });
+
+	// BAD: only the last invocation's callback runs, whichever request settles first.
+	function archiveEach() {
+		for (const id of jobIds) mutate(id, { onSuccess: closePanel });
+	}
+
+	// GOOD: the combinator awaits every invocation before the shared consequence.
+	function archiveAll() {
+		startTransition(async () => {
+			const results = await Promise.allSettled(jobIds.map(async id => await mutateAsync(id)));
+			const { length: failureCount } = results.filter(result => result.status === 'rejected');
+			if (failureCount > 0) reportArchiveFailures(failureCount);
+			else closePanel();
+		});
+	}
+
+	return (
+		<>
+			<button type="button" onClick={archiveEach}>
+				Archive Each
+			</button>
+			<button type="button" onClick={archiveAll}>
+				Archive Selected
+			</button>
+		</>
+	);
+}
+```
+
+Run a dependent sequence, where one request needs another's result, inside a single `mutationFn` instead of chaining `mutateAsync` calls. The mutation then has one pending state, one error, and one set of callbacks. Use `mutate` for a single invocation.

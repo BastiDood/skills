@@ -10,7 +10,7 @@ function BadJobDetail({ data, isPending }: { data: JobData | undefined; isPendin
 
 // GOOD: the Loader resolves every query state before rendering presentation.
 function JobDetailLoader({ jobId }: { jobId: string }) {
-	const { data, isPending, isError, error } = useGetJob(jobId);
+	const { data, isPending, isError, error } = useQuery(jobQueries.detail(jobId));
 	if (isPending === true) return <Skeleton />;
 	if (isError === true) return <ErrorBanner error={error} />;
 	if (typeof data === 'undefined') return <NotFound />;
@@ -30,7 +30,7 @@ Keep presentation and owned business decisions sans-I/O when they deserve direct
 
 The Loader alone handles pending, error, missing, and success states. Do not pass optional data or query-state booleans into the Inner.
 
-Gate missing data with `typeof data === 'undefined'`, not truthiness. `null` can be a valid resolved value.
+Gate missing data with `typeof data === 'undefined'`, not truthiness. `null` is a valid resolved value.
 
 Load server state through the query layer, not a mount effect. The query layer owns cache identity, pending state, retries, cancellation, and deduplication.
 

@@ -8,7 +8,7 @@ Use a loader component as the query-state boundary between a shell and resolved 
 
 <!-- GOOD: the loader resolves every state before mounting presentation. -->
 <script lang="ts">
-	const query = createItemsQuery();
+	const query = createQuery(() => itemQueries.list(categoryId));
 </script>
 
 {#if query.isPending}

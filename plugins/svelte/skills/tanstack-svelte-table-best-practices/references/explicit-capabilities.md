@@ -22,6 +22,10 @@ export const features = tableFeatures({
 });
 ```
 
-Register a row model only when its feature needs it. Import and register each `filterFn_*`, `sortFn_*`, or `aggregationFn_*` used by column definitions. Do not register the full function registries or use `stockFeatures` in new production code.
+Register a row model only when its feature needs it. Import and register each `filterFn_*`, `sortFn_*`, or `aggregationFn_*` used by column definitions.
+
+Never register the whole `filterFns`, `sortFns`, or `aggregationFns` registry. A registry bundles every function, including the ones the table never uses; import the individual functions instead.
+
+Never use `stockFeatures`, including in prototypes. It hides which capabilities a table depends on and defeats tree shaking.
 
 Use `tableOptions()` to compose reusable option fragments without hiding each table's data, columns, and state ownership. Use `createTableHook()` only when an application owns a stable shared feature set or component registry. Keep schema-specific columns, feature-local metadata, and controlled state at the call site; do not create a generic wrapper that silently adds behavior or accepts an untyped option bag.

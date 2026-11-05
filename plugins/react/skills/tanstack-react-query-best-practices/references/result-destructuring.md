@@ -7,14 +7,14 @@ Avoid object-rest destructuring: it reads the remaining tracked properties and d
 ```tsx
 // BAD: the complete result is an imprecise dependency and prop contract.
 function BadJobDetail({ jobId }: { jobId: string }) {
-	const result = useGetJob(jobId);
+	const result = useQuery(jobQueries.detail(jobId));
 	useEffect(() => report(result), [result]);
 	return null;
 }
 
 // GOOD: name only the fields that drive this component.
 function JobDetail({ jobId }: { jobId: string }) {
-	const { data, isPending, isError, error } = useGetJob(jobId);
+	const { data, isPending, isError, error } = useQuery(jobQueries.detail(jobId));
 
 	if (isPending === true) return <Skeleton />;
 	if (isError === true) return <ErrorBanner error={error} />;

@@ -1,6 +1,6 @@
 # Cell Rendering
 
-Render column definitions through the adapter renderer. A definition is schema, not displayable content.
+Render column definitions through `FlexRender`. Never hand-roll `flexRender`: do not read `columnDef.cell`, `header`, `footer`, or `aggregatedCell` and then invoke, stringify, or interpolate it yourself.
 
 ```svelte
 <script lang="ts">
@@ -12,10 +12,11 @@ Render column definitions through the adapter renderer. A definition is schema, 
 
 	const features = tableFeatures({});
 	let { cell }: { cell: Cell<typeof features, Person, unknown> } = $props();
+	const definition = $derived(cell.column.columnDef.cell);
 </script>
 
-<!-- BAD: coercing the definition renders schema data or function source, not the cell result. -->
-<td>{String(cell.column.columnDef.cell)}</td>
+<!-- BAD: invoking the definition yourself renders `cell` for aggregated rows and content for placeholders. -->
+<td>{typeof definition === 'function' ? String(definition(cell.getContext())) : definition}</td>
 ```
 
 ```svelte
@@ -34,7 +35,7 @@ Render column definitions through the adapter renderer. A definition is schema, 
 <td><FlexRender {cell} /></td>
 ```
 
-Apply the same pattern to headers and footers. Do not reconstruct rendering contexts manually.
+`FlexRender` selects `aggregatedCell` for an aggregated cell and renders nothing for a placeholder cell. Apply the same pattern to headers and footers through the `header` and `footer` props. `FlexRender` does not suppress placeholder headers; check `header.isPlaceholder` before rendering one.
 
 Define component and snippet cells with the adapter helpers; `FlexRender` resolves both through the cell context.
 

@@ -39,10 +39,13 @@ const columns = columnHelper.columns([
 
 function PeopleTable({ data }: { data: Person[] }) {
 	const table = useTable({ features, columns, data });
-	return <div>{table.getRowModel().rows.length}</div>;
+	const { rows } = table.getRowModel();
+	return <div>{rows.length}</div>;
 }
 ```
 
-Do not register `filterFns`, `sortFns`, or `aggregationFns` wholesale unless the table intentionally exposes every built-in function. Do not use `stockFeatures` in new code; it hides dependencies and retains features the table does not use.
+Never register the whole `filterFns`, `sortFns`, or `aggregationFns` registry. A registry bundles every function, including the ones the table never uses; import the individual `filterFn_*`, `sortFn_*`, and `aggregationFn_*` functions instead.
+
+Never use `stockFeatures`, including in prototypes. It hides which capabilities a table depends on and defeats tree shaking.
 
 Use `tableOptions()` to compose reusable option fragments without erasing the schema-specific options at the call site. Use `createTableHook()` for a shared table system with fixed features, defaults, or rendering primitives. Keep state ownership and table-specific `meta` explicit in the consuming schema; do not turn either helper into a global application-table abstraction.

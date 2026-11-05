@@ -24,6 +24,8 @@ function isIndeterminate(table: Table<typeof features, Person>) {
 }
 ```
 
+`getIsSomeRowsSelected()` and `getIsSomePageRowsSelected()` return `true` when every row is selected, so derive the indeterminate state with the check above.
+
 Use `start`/`end` pinning and CSS logical insets so pinning also works with right-to-left text.
 
 ## Sort Defaults
@@ -33,17 +35,14 @@ When sorting is removed, leave `sorting` empty. If the API needs a default order
 Here, `sorting: SortRule[]` is table state and `setSorting` updates it.
 
 ```typescript
-const enum SortColumn {
-	Name = 'name',
-	CreatedAt = 'createdAt',
-}
+type SortColumn = 'name' | 'createdAt';
 
 interface SortRule {
 	id: SortColumn;
 	desc: boolean;
 }
 
-const defaultSort = { id: SortColumn.CreatedAt, desc: true } satisfies SortRule;
+const defaultSort = { id: 'createdAt', desc: true } satisfies SortRule;
 
 // BAD: writing the default back prevents clearing the sort.
 const nextSorting = sorting.length === 0 ? [defaultSort] : sorting;

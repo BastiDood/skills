@@ -6,6 +6,8 @@ Put every-invocation cache policy in the mutation definition and mounted compone
 <script lang="ts">
 	import { createMutation } from '@tanstack/svelte-query';
 
+	import { itemQueries } from './item-queries';
+
 	interface Item {
 		id: string;
 		name: string;
@@ -19,11 +21,6 @@ Put every-invocation cache policy in the mutation definition and mounted compone
 	}
 
 	const { draftName, updateItem, closeDialog, showSavedName }: Props = $props();
-	const itemQueryKeys = {
-		detail(id: string) {
-			return ['items', 'detail', id] as const;
-		},
-	};
 
 	// BAD: shared cache work depends on an observer, and a later draft is not the result.
 	const badMutation = createMutation(() => ({
@@ -34,7 +31,8 @@ Put every-invocation cache policy in the mutation definition and mounted compone
 	function submitBad(variables: Item) {
 		badMutation.mutate(variables, {
 			async onSuccess(_data, submittedVariables, _onMutateResult, context) {
-				await context.client.invalidateQueries({ queryKey: itemQueryKeys.detail(submittedVariables.id) });
+				const { queryKey } = itemQueries.detail(submittedVariables.id);
+				await context.client.invalidateQueries({ queryKey });
 				showSavedName(draftName);
 			},
 		});
@@ -44,7 +42,8 @@ Put every-invocation cache policy in the mutation definition and mounted compone
 	const mutation = createMutation(() => ({
 		mutationFn: updateItem,
 		async onSuccess(_data, variables, _onMutateResult, context) {
-			await context.client.invalidateQueries({ queryKey: itemQueryKeys.detail(variables.id) });
+			const { queryKey } = itemQueries.detail(variables.id);
+			await context.client.invalidateQueries({ queryKey });
 		},
 	}));
 
@@ -59,4 +58,4 @@ Put every-invocation cache policy in the mutation definition and mounted compone
 </script>
 ```
 
-Per-call callbacks may be skipped after unmount or superseded observers, so they cannot own consequences required for every invocation. Capturing a stable UI capability such as `closeDialog` remains appropriate. Read pending and failure state from the mutation rather than maintaining another submission flag.
+Per-call callbacks do not run after unmount or for a superseded invocation, so they cannot own consequences required for every invocation. Capturing a stable UI capability such as `closeDialog` remains appropriate. Read pending and failure state from the mutation rather than maintaining another submission flag.

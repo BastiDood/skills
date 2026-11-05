@@ -1,6 +1,6 @@
 # Reactive Ownership
 
-Pass changing options through getters and read the smallest state slice a component needs. Pair every controlled slice with its matching change callback.
+Pass changing options through getters and read the smallest state slice a component needs. Give every controlled slice both halves of its contract: if you provide an `on[State]Change` callback, also provide the corresponding value in `state`.
 
 ```svelte
 <script lang="ts">
@@ -61,4 +61,6 @@ Pass changing options through getters and read the smallest state slice a compon
 <span>Page {currentPagination.pageIndex + 1}</span>
 ```
 
-Use `table.store.get()` only when the component intentionally depends on all table state. `createTableState` accepts updater functions and replacement values. Use external atoms through `options.atoms` when ownership belongs outside the component; otherwise keep the slice in the component.
+Read `table.atoms.<slice>.get()` for narrow reads; Svelte tracks it as a dependency. Use `table.store.get()` only for debug output or a computation that needs every slice; in an effect or derivation that needs one slice, it reruns on unrelated changes.
+
+`createTableState` accepts updater functions and replacement values. Use external atoms through `options.atoms` when ownership belongs outside the component; otherwise keep the slice in the component. A slice owned through `atoms` is the exception to the controlled-state rule: the atom owns both the value and its updates, so it needs no `on[State]Change` callback. External atoms take precedence over external `state`; give each slice exactly one owner.

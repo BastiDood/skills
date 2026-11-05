@@ -33,4 +33,42 @@ Attach mounted UI consequences to the invocation that caused them. Read pending 
 
 Use per-call `onError` for invocation-specific expected-failure presentation and `onSettled` for real cleanup needed after either result. Do not use settlement callbacks merely to clear a duplicate pending flag.
 
-Use `mutateAsync` when the client submit driver or another caller awaits mutation completion as part of a larger operation. Do not add ceremonial `try`/`finally` to recreate mutation lifecycle state. Per-call callbacks stop after observer unmount and consecutive calls retain only the latest observer's callbacks; required every-invocation policy belongs in the definition.
+Per-call callbacks do not run if the component unmounts before the mutation finishes, and consecutive `mutate` calls fire them only once, for the last call. Required every-invocation policy belongs in the definition, whose callbacks run for every invocation.
+
+## Concurrent Invocations
+
+Use `mutateAsync` only inside a `Promise.*` combinator, when one mutation runs concurrently for several inputs and the caller awaits them together. Per-call callbacks cannot express that consequence, because only the last call's callbacks fire.
+
+```svelte
+<script lang="ts">
+	import { createMutation } from '@tanstack/svelte-query';
+
+	interface Props {
+		jobIds: readonly string[];
+		archiveJob: (id: string) => Promise<void>;
+		reportArchiveFailures: (count: number) => void;
+		closePanel: () => void;
+	}
+
+	const { jobIds, archiveJob, reportArchiveFailures, closePanel }: Props = $props();
+	const mutation = createMutation(() => ({ mutationFn: archiveJob }));
+
+	// BAD: only the last invocation's callback runs, whichever request settles first.
+	function archiveEach() {
+		for (const id of jobIds) mutation.mutate(id, { onSuccess: () => closePanel() });
+	}
+
+	// GOOD: the combinator awaits every invocation before the shared consequence.
+	async function archiveAll() {
+		const results = await Promise.allSettled(jobIds.map(async id => await mutation.mutateAsync(id)));
+		const { length: failureCount } = results.filter(result => result.status === 'rejected');
+		if (failureCount > 0) reportArchiveFailures(failureCount);
+		else closePanel();
+	}
+</script>
+
+<button type="button" onclick={archiveEach}>Archive each</button>
+<button type="button" onclick={archiveAll}>Archive selected</button>
+```
+
+Run a dependent sequence, where one request needs another's result, inside a single `mutationFn` instead of chaining `mutateAsync` calls. The mutation then has one pending state, one error, and one set of callbacks. Use `mutate` for a single invocation, including a single form submission.

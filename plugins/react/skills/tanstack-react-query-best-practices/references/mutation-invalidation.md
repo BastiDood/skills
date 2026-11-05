@@ -1,6 +1,6 @@
 # Mutation Invalidation
 
-Invalidate the cache entry identified by successful mutation variables using the callback context's QueryClient.
+Invalidate the cache entry identified by successful mutation variables, from the mutation definition's `onSuccess`, through the callback context's `QueryClient`. Await or return the `invalidateQueries` promise: TanStack Query awaits a promise returned from `onSuccess`, so the mutation stays pending until the refetch completes.
 
 ```typescript
 import { queryOptions, useMutation } from '@tanstack/react-query';
@@ -10,45 +10,43 @@ interface Job {
 	title: string;
 }
 
-declare function getJob(id: string): Promise<Job>;
+declare function fetchJob(id: string, signal: AbortSignal): Promise<Job>;
 declare function updateJob(job: Job): Promise<Job>;
 
-const jobQueryKeys = {
-	all: ['jobs'] as const,
-	job(id: string) {
-		return ['jobs', id] as const;
-	},
+const jobQueries = {
+	all: () => ['jobs'] as const,
+	detail: (id: string) =>
+		queryOptions({
+			queryKey: ['jobs', 'detail', id] as const,
+			queryFn: async ({ queryKey: [, , keyId], signal }) => await fetchJob(keyId, signal),
+		}),
 };
 
-function jobOptions(id: string) {
-	return queryOptions({
-		queryKey: jobQueryKeys.job(id),
-		queryFn: async ({ queryKey: [, jobId] }) => await getJob(jobId),
-	});
-}
-
-// BAD: every successful edit invalidates unrelated records.
+// BAD: the floating promise lets the mutation settle before the refetch, and every edit invalidates unrelated records.
 function useBroadUpdateJob() {
 	return useMutation({
 		mutationFn: updateJob,
-		async onSuccess(_data, _variables, _onMutateResult, context) {
-			await context.client.invalidateQueries({ queryKey: jobQueryKeys.all });
+		onSuccess(_data, _variables, _onMutateResult, context) {
+			context.client.invalidateQueries({ queryKey: jobQueries.all() });
 		},
 	});
 }
 
-// GOOD: mutation variables identify the stale cache entry.
+// GOOD: mutation variables identify the stale entry, and the mutation stays pending until it refetches.
 export function useUpdateJob() {
 	return useMutation({
 		mutationFn: updateJob,
 		async onSuccess(_data, variables, _onMutateResult, context) {
-			await context.client.invalidateQueries({ queryKey: jobQueryKeys.job(variables.id) });
+			const { queryKey } = jobQueries.detail(variables.id);
+			await context.client.invalidateQueries({ queryKey });
 		},
 	});
 }
 ```
 
-Use `context.client` from TanStack Query mutation callbacks. Do not call `useQueryClient()` inside a callback.
+Use `context.client`, the fourth callback parameter, from mutation callbacks. Do not call `useQueryClient()` to reach the client inside a callback.
+
+Keep cache policy in the mutation definition so it runs for every invocation. Keep UI consequences such as closing a dialog in per-call callbacks at the `mutate` call site.
 
 Invalidate the narrowest query family that has become stale. Invalidate a list as well only when the mutation changes list membership, ordering, or displayed summary data.
 

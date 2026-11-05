@@ -26,6 +26,8 @@ function isIndeterminate(table: Table<typeof features, Person>) {
 }
 ```
 
+`getIsSomeRowsSelected()` and `getIsSomePageRowsSelected()` return `true` when every row is selected, so derive the indeterminate state with the check above.
+
 Pin columns with logical sides, `column.pin('start')` and `column.pin('end')`, and use CSS logical properties so the layout works in both text directions.
 
 ## Sort Defaults
@@ -35,10 +37,7 @@ When sorting is removed, leave `sorting` empty. If the API needs a default order
 Keep the domain types in an ordinary TypeScript module.
 
 ```typescript
-export const enum SortColumn {
-	Name = 'name',
-	CreatedAt = 'createdAt',
-}
+export type SortColumn = 'name' | 'createdAt';
 
 export interface SortRule {
 	id: SortColumn;
@@ -49,11 +48,11 @@ export interface SortRule {
 In this component-script excerpt, `sorting` is reactive `SortRule[]` table state. Its table bindings are omitted.
 
 ```typescript
-import { SortColumn, type SortRule } from './sort';
+import type { SortRule } from './sort';
 
 let sorting = $state<SortRule[]>([]);
 
-const defaultSort = { id: SortColumn.CreatedAt, desc: true } satisfies SortRule;
+const defaultSort = { id: 'createdAt', desc: true } satisfies SortRule;
 
 // BAD: writing the default back prevents removing the sort.
 $effect(() => {
