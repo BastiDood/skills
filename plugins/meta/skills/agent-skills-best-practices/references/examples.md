@@ -2,7 +2,7 @@
 
 Show, don't tell. Contrast approaches to the same problem, then briefly explain why one is better. Change only the decision being taught. Use a single example when no useful contrast exists.
 
-Label examples with `BAD:` and `GOOD:` comments inside code fences, not Markdown headings. Do not comment out the implementation.
+Label examples with `BAD:` and `GOOD:` comments inside code fences, not Markdown headings or dash variants of the labels. Do not comment out the implementation.
 
 Teach the decision, not basic API syntax or a tutorial.
 

@@ -2,6 +2,8 @@
 
 A skill dedicated to one external library keeps its lookup identifiers in `SKILL.md`, where they remain visible whenever the skill is active:
 
+<library_sources_example>
+
 ```markdown
 ## Library Sources
 
@@ -9,6 +11,8 @@ A skill dedicated to one external library keeps its lookup identifiers in `SKILL
 - Context7: `/owner/repository`
 - DeepWiki: `owner/repository`
 ```
+
+</library_sources_example>
 
 Do not move these identifiers into some `documentation.md` reference. Lookup procedure is part of operating the skill, not conditional domain guidance.
 

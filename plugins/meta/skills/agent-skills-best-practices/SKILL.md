@@ -9,9 +9,9 @@ Use skills for decisions, procedures, and knowledge that change how the agent wo
 
 Keep essential guidance in `SKILL.md`. Put conditional detail in references and explain when to read each.
 
-Show, don't tell: pair contrasting examples with a short explanation.
-
 ## References
+
+Read each linked reference that applies to the current skill-design task.
 
 1. Make the skill easy to find and invoke.
    - [Name the procedure or subject the skill covers.](./references/skill-naming.md)
@@ -20,13 +20,17 @@ Show, don't tell: pair contrasting examples with a short explanation.
    - [Split unrelated triggers or decisions into separate skills.](./references/skill-scope.md)
    - [Separate essential guidance from conditional detail.](./references/context-and-disclosure.md)
    - [Explain when each reference applies.](./references/reference-routing.md)
+   - [State each requirement once, in the section or file that owns it.](./references/requirement-ownership.md)
    - [Contrast approaches and explain why the difference matters.](./references/examples.md)
-   - [Keep prose direct and formatting consistent.](./references/prose-and-formatting.md)
-3. Use scripts for deterministic work and models for judgment. Prefer existing tools and standard libraries. Declare required third-party Python dependencies with [PEP 723](https://peps.python.org/pep-0723/) and lock them with `uv`.
-   - [Make scripts reproducible and usable from read-only installations.](./references/executable-scripts.md)
-4. Make guidance usable outside its source project.
-   - [Write portable guidance with framework-appropriate examples.](./references/agnostic-references.md)
-5. Keep resources portable and in the skill that owns them.
-   - [Keep resource paths flat and one hop from the entry point.](./references/directory-structure.md)
+   - [Keep prose direct, formatting consistent, and examples fenced apart from instructions.](./references/prose-and-formatting.md)
+3. Use scripts for deterministic work and models for judgment. Prefer existing tools and standard libraries.
+   - [Lock script dependencies before release and keep scripts usable from read-only installations.](./references/executable-scripts.md)
+   - [Calibrate classification schemes with few-shot examples that span their categories.](./references/judgment-calibration.md)
+4. Delegate to sub-agents only to isolate context or run independent work in parallel.
+   - [Write delegated prompts as placeholder templates that hydrate into self-contained messages.](./references/delegated-prompts.md)
+5. Make guidance usable outside its source project.
+   - [Write portable guidance with framework-appropriate examples and runtime-resolved identifiers.](./references/agnostic-references.md)
+6. Keep resources portable and in the skill that owns them.
+   - [Keep templates and other resources in `assets/`, one hop from the entry point.](./references/directory-structure.md)
    - [Identify external libraries without copying their documentation.](./references/library-sources.md)
-   - [Check distribution and licensing rules before bundling assets.](./references/asset-distribution.md)
+   - [Check distribution and licensing rules before bundling third-party assets.](./references/asset-distribution.md)

@@ -8,6 +8,8 @@ Put the governing hook before progressive disclosure so the agent learns the tri
 
 Use the smallest structure that expresses the guidance clearly. A router can be an inline citation, one list item, or an indented link beneath a parent strategy shared by several references. Hierarchical lists are appropriate when the parent states the shared opinion and each child names a distinct decision; do not repeat the parent synopsis in every child.
 
+<reference_routing_examples>
+
 ```markdown
 <!-- BAD: a filename with no narrative relevance. -->
 
@@ -23,15 +25,13 @@ Use the smallest structure that expresses the guidance clearly. A router can be 
 ```markdown
 <!-- BAD: a miniature reference defeats selective loading. -->
 
-- When validation is needed, read [validation](./references/validation.md), which
-  covers link checking, formatting, schemas, examples, forward tests, and more.
+- When validation is needed, read [validation](./references/validation.md), which covers link checking, formatting, schemas, examples, forward tests, and more.
 ```
 
 ```markdown
 <!-- GOOD: an inline router makes the situation and protection relevant. -->
 
-- When examples can drift from their claimed API, apply the
-  [semantic validation gate](./references/validation.md) before release.
+- When examples can drift from their claimed API, apply the [semantic validation gate](./references/validation.md) before release.
 ```
 
 ```markdown
@@ -42,4 +42,6 @@ Use the smallest structure that expresses the guidance clearly. A router can be 
    - [Preserve validation failures as explicit outcomes.](./references/validation-failures.md)
 ```
 
-Do not make a router a topic label or miniature reference. Keep the hook compact while allowing enough prose and hierarchy to communicate the governing opinion. The linked reference owns the procedural details.
+</reference_routing_examples>
+
+Do not make a router a topic label or miniature reference. Keep each router to one sentence; a parent hook may add enough prose and hierarchy to communicate the governing opinion. The linked reference owns the procedural details.
