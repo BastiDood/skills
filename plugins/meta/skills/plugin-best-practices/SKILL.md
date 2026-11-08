@@ -1,6 +1,6 @@
 ---
 name: plugin-best-practices
-description: Agent-plugin design conventions for public outcomes, private implementation, and minimal packaging. Use when creating, restructuring, or reviewing agent-skill plugins.
+description: Plugin design conventions for public outcomes, private implementation, and minimal packaging. Use when creating, editing, restructuring, or reviewing Agent Plugins or Claude Plugins.
 ---
 
 # Plugin Best Practices

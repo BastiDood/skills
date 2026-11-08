@@ -1,6 +1,6 @@
 ---
 name: adversarial-code-review
-description: Independently review completed implementation against its agreed plan or specification. Use when closing out feature work, a bug fix, or another implementation run.
+description: Use when independently and adversarially reviewing completed implementation against its agreed plan or specification, including when closing out feature work, a bug fix, or another implementation run.
 ---
 
 # Adversarial Code Review

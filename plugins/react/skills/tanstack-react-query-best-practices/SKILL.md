@@ -1,6 +1,6 @@
 ---
 name: tanstack-react-query-best-practices
-description: TanStack Query conventions for cache-backed React server state. Use when creating or reviewing React queries, mutations, query keys, or cache updates.
+description: TanStack Query conventions for cache-backed React server state. Use when creating, debugging, or reviewing queries, mutations, query keys, or cache updates.
 ---
 
 # TanStack React Query Best Practices

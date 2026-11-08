@@ -1,6 +1,6 @@
 ---
 name: python-best-practices
-description: Python 3.13+ conventions for typed application and library boundaries. Use when writing or reviewing Python contracts, packages, validation, or async resource ownership.
+description: Python 3.13+ conventions for typed application and library boundaries. Use when writing, refactoring, or reviewing contracts, packages, validation, or async resource ownership.
 ---
 
 # Python Best Practices

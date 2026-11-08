@@ -1,6 +1,6 @@
 ---
 name: zod-best-practices
-description: Zod v4 conventions for owned wire contracts and explicit validation outcomes. Use when defining or reviewing Zod schemas or parsing untrusted data with Zod.
+description: Zod v4 conventions for owned wire contracts and explicit validation outcomes. Use when defining, debugging, or reviewing schemas or parsing untrusted data.
 ---
 
 # Zod Best Practices

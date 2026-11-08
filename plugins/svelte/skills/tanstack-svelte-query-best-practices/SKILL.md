@@ -1,6 +1,6 @@
 ---
 name: tanstack-svelte-query-best-practices
-description: TanStack Query conventions for reactive, cache-backed Svelte server state. Use when creating or reviewing Svelte queries, mutations, query keys, or cache updates.
+description: TanStack Query conventions for reactive, cache-backed Svelte server state. Use when creating, debugging, or reviewing queries, mutations, query keys, or cache updates.
 ---
 
 # TanStack Svelte Query Best Practices

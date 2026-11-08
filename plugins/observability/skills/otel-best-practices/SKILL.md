@@ -1,6 +1,6 @@
 ---
 name: otel-best-practices
-description: Language-agnostic OpenTelemetry (OTel) conventions for queryable signals and explicit operational outcomes. Use when adding or reviewing spans, structured logs, attributes, or exception recording.
+description: Language-agnostic OpenTelemetry (OTel) conventions for queryable signals and explicit operational outcomes. Use when adding, debugging, or reviewing spans, structured logs, attributes, or exception recording.
 ---
 
 # OpenTelemetry Best Practices

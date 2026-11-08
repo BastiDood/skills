@@ -1,6 +1,6 @@
 ---
 name: git-commit
-description: Use when incrementally organizing the Git staging area into vertically-sliced review checkpoints while preserving dependency order and prioritizing lower review effort until all relevant cohesive changes have become atomic commits.
+description: Use when committing changes or incrementally organizing the Git staging area into vertically-sliced review checkpoints in topological dependency order, prioritizing lower review effort until all relevant cohesive changes have become atomic conventional commits.
 compatibility: Requires Git (`git`).
 ---
 

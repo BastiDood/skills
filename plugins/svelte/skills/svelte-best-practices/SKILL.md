@@ -1,6 +1,6 @@
 ---
 name: svelte-best-practices
-description: Svelte 5 and SvelteKit conventions for explicit reactive ownership and component lifecycles. Use when creating or reviewing Svelte components, runes, context, or form actions.
+description: Svelte 5 and SvelteKit conventions for explicit reactive ownership and component lifecycles. Use when creating, refactoring, debugging, or reviewing components, runes, context, or form actions.
 ---
 
 # Svelte Best Practices

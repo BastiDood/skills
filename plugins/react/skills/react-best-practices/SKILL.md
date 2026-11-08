@@ -1,6 +1,6 @@
 ---
 name: react-best-practices
-description: React component conventions for explicit state ownership and data flow. Use when creating or reviewing React components, hooks, effects, or forms.
+description: React component conventions for explicit state ownership and data flow. Use when creating, refactoring, debugging, or reviewing components, hooks, effects, or forms.
 ---
 
 # React Best Practices

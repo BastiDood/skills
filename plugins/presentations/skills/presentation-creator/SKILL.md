@@ -1,6 +1,6 @@
 ---
 name: presentation-creator
-description: Create and visually verify a Basti-styled PowerPoint deck from an approved Markdown plan. Use when executing an approved slide-by-slide plan, not when planning or rewriting the narrative.
+description: Use when creating and visually verifying a Basti-styled PowerPoint deck from an approved slide-by-slide Markdown plan, not when planning or rewriting the narrative.
 ---
 
 # Basti Presentation Creator

@@ -1,6 +1,6 @@
 ---
 name: drizzle-orm-best-practices
-description: Dialect-aware Drizzle ORM conventions for safe query, mutation, and transaction boundaries. Use when writing or reviewing Drizzle schemas, queries, transactions, or raw SQL.
+description: Dialect-aware Drizzle ORM conventions for safe query, mutation, and transaction boundaries. Use when writing, debugging, or reviewing schemas, queries, transactions, or raw SQL.
 ---
 
 # Drizzle ORM Best Practices

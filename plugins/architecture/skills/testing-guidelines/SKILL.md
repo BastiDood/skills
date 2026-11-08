@@ -1,6 +1,6 @@
 ---
 name: testing-guidelines
-description: Language-agnostic test-admission rules for project-owned behavior and meaningful sans-I/O evidence. Use when adding, retaining, removing, or reviewing tests.
+description: Language-agnostic test-admission rules for project-owned behavior and meaningful sans-I/O evidence. Use when planning, adding, retaining, removing, or reviewing tests.
 ---
 
 # Testing Guidelines

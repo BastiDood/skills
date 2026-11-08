@@ -1,6 +1,6 @@
 ---
 name: github-pull-request-comments
-description: Use when verifying and triaging unresolved GitHub pull request feedback into amendment plans or evidence-backed rebuttals.
+description: Use when reading, verifying, or triaging unresolved GitHub pull request feedback or review comments into amendment plans or evidence-backed rebuttals.
 compatibility: Requires the GitHub CLI (`gh`).
 ---
 

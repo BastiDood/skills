@@ -1,6 +1,6 @@
 ---
 name: better-all-best-practices
-description: '`better-all` conventions for dependency-aware async task graphs. Use when defining `all` or `allSettled` graphs or converting staged async work with task dependencies.'
+description: '`better-all` conventions for dependency-aware async task graphs that replace sequential `Promise.all` and `Promise.allSettled` batches. Use when defining, reviewing, or converting async work with task dependencies.'
 ---
 
 # `better-all` Best Practices

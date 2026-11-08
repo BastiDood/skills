@@ -1,6 +1,6 @@
 ---
 name: presentation-planner
-description: Turn source material into an implementation-ready Markdown presentation plan. Use when planning slide narrative, notes, visuals, and transitions without creating the deck.
+description: Use when planning or revising an implementation-ready Markdown presentation plan from source material, covering slide narrative, presenter notes, visuals, and transitions without creating the deck.
 ---
 
 # Basti Presentation Planner

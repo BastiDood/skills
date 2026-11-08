@@ -1,6 +1,6 @@
 ---
 name: typescript-best-practices
-description: TypeScript conventions for precise contracts and valid program states. Use when writing or reviewing TypeScript expressions, declarations, types, state models, optional values, or untrusted boundaries.
+description: TypeScript conventions for precise contracts and valid program states. Use when writing, refactoring, or reviewing expressions, declarations, types, state models, optional values, or untrusted boundaries.
 ---
 
 # TypeScript Best Practices

@@ -1,6 +1,6 @@
 ---
 name: tanstack-svelte-table-best-practices
-description: TanStack Table conventions for static Svelte table schemas and reactive instance data. Use when creating or reviewing Svelte tables, columns, metadata, or rendering.
+description: TanStack Table conventions for static Svelte table schemas and reactive instance data. Use when creating, debugging, or reviewing tables, columns, metadata, or rendering.
 ---
 
 # TanStack Svelte Table Best Practices

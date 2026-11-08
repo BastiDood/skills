@@ -1,6 +1,6 @@
 ---
 name: valibot-best-practices
-description: Valibot conventions for owned wire contracts and explicit validation outcomes. Use when defining or reviewing Valibot schemas or parsing untrusted data with Valibot.
+description: Valibot conventions for owned wire contracts and explicit validation outcomes. Use when defining, debugging, or reviewing schemas or parsing untrusted data.
 ---
 
 # Valibot Best Practices

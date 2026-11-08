@@ -1,6 +1,6 @@
 ---
 name: agent-skills-best-practices
-description: Agent-skill design conventions for focused scope, precise discovery, and progressive disclosure. Use when creating, restructuring, or reviewing `SKILL.md`-based skills.
+description: Agent Skills design conventions for focused scope, precise discovery, and progressive disclosure. Use when creating, editing, restructuring, or reviewing `SKILL.md`-based skills.
 ---
 
 # Agent Skills Best Practices

@@ -1,6 +1,6 @@
 ---
 name: shadcn-svelte-best-practices
-description: shadcn-svelte and Bits UI conventions for accessible primitive composition and customization. Use when creating, wrapping, restyling, or reviewing those components.
+description: '`shadcn-svelte` and Bits UI conventions for accessible primitive composition and customization. Use when creating, wrapping, restyling, or reviewing components.'
 ---
 
 # shadcn-svelte Best Practices

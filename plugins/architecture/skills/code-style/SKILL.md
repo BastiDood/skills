@@ -1,6 +1,6 @@
 ---
 name: code-style
-description: Language-agnostic code-design rules for explicit state, failure, ownership, and I/O boundaries. Use when implementing, refactoring, or reviewing code.
+description: Language-agnostic code-design rules for explicit state, failure, ownership, and I/O boundaries. Use when planning, implementing, refactoring, debugging, or reviewing code.
 ---
 
 # Code Style

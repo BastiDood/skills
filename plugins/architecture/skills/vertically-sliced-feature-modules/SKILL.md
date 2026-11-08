@@ -1,6 +1,6 @@
 ---
 name: vertically-sliced-feature-modules
-description: Feature-first module architecture for cohesive ownership, recursive import closures, operational entries, and promotion boundaries. Use when designing, moving, or reviewing feature and package structure.
+description: Feature-first module architecture for cohesive ownership, recursive import closures, operational entries, and promotion boundaries. Use when designing, moving, refactoring, or reviewing feature and package structure.
 ---
 
 # Vertically Sliced Feature Modules

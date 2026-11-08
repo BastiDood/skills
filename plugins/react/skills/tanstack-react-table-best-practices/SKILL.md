@@ -1,6 +1,6 @@
 ---
 name: tanstack-react-table-best-practices
-description: TanStack Table conventions for stable React table schemas and instance behavior. Use when creating or reviewing React tables, columns, metadata, or rendering.
+description: TanStack Table conventions for stable React table schemas and instance behavior. Use when creating, debugging, or reviewing tables, columns, metadata, or rendering.
 ---
 
 # TanStack React Table Best Practices
