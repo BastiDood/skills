@@ -119,6 +119,6 @@ Some skills conditionally reference MCP servers (used only if available):
 
 ## Observability
 
-| Skill                                                                                            | Description                                        |
-| ------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
-| [`open-telemetry-best-practices`](./plugins/observability/skills/open-telemetry-best-practices/) | Log severity, semantic attributes, error recording |
+| Skill                                                                        | Description                                        |
+| ---------------------------------------------------------------------------- | -------------------------------------------------- |
+| [`otel-best-practices`](./plugins/observability/skills/otel-best-practices/) | Log severity, semantic attributes, error recording |
