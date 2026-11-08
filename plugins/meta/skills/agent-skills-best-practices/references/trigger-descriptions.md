@@ -31,6 +31,18 @@ description: Use when reviewing a GitHub pull request with verified inline findi
 
 Keep two sentences for a documentary skill. Its first sentence is a noun phrase that names the governing subject rather than a trigger, so the `Use when` sentence adds selection intents without restating it.
 
+Name each keyword once per description. Once the first sentence names the library, language, or subject, the trigger lists only the intents and artifacts.
+
+```yaml
+# BAD: the library name repeats in the trigger without adding a discriminating intent.
+description: Zod v4 conventions for owned wire contracts and explicit validation outcomes. Use when defining or reviewing Zod schemas or parsing untrusted data with Zod.
+```
+
+```yaml
+# GOOD: the first sentence names the library; the trigger names only intents and artifacts.
+description: Zod v4 conventions for owned wire contracts and explicit validation outcomes. Use when defining, debugging, or reviewing schemas or parsing untrusted data.
+```
+
 Leave detailed topic and API indexes to `SKILL.md` and routed references. General and specialized skills can apply together. Add exclusions only for genuinely competing workflows.
 
 Do not repeat trigger lists in a `When to Apply` section. The body loads only after discovery has already happened. Use the opening body prose to explain the governing model instead.
