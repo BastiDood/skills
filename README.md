@@ -9,6 +9,7 @@ Opinionated software engineering skills distributed as installable plugins for C
 codex plugin marketplace add BastiDood/skills
 
 codex plugin add workflows@bastidood
+codex plugin add dependabump@bastidood
 codex plugin add architecture@bastidood
 codex plugin add meta@bastidood
 codex plugin add typescript@bastidood
@@ -28,6 +29,7 @@ codex plugin add observability@bastidood
 claude plugin marketplace add BastiDood/skills
 
 claude plugin install workflows@bastidood
+claude plugin install dependabump@bastidood
 claude plugin install architecture@bastidood
 claude plugin install meta@bastidood
 claude plugin install typescript@bastidood
@@ -63,6 +65,13 @@ Some skills conditionally reference MCP servers (used only if available):
 | [`git-commit`](./plugins/workflows/skills/git-commit/)                                     | Conventional commit message generation                      |
 | [`github-pull-request`](./plugins/workflows/skills/github-pull-request/)                   | GitHub PR creation with auto-detected base branch           |
 | [`github-pull-request-comments`](./plugins/workflows/skills/github-pull-request-comments/) | Verifies, triages, and rebuts GitHub pull request comments  |
+
+## Dependabump
+
+| Skill                                                                    | Description                                                                    |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| [`bump-dependencies`](./plugins/dependabump/skills/bump-dependencies/)   | Researched, duplication-aware dependency bumps with "Safe" and "Hold" verdicts |
+| [`clean-dependencies`](./plugins/dependabump/skills/clean-dependencies/) | Unused, deprecated, superseded, and duplicated dependency cleanup              |
 
 ## Architecture
 

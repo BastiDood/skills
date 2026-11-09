@@ -48,6 +48,10 @@
 		{
 			"name": "presentations",
 			"source": "presentations"
+		},
+		{
+			"name": "dependabump",
+			"source": "dependabump"
 		}
 	]
 }

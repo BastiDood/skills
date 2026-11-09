@@ -1,0 +1,3 @@
+interface:
+  display_name: 'Dependency Resolution Commands'
+  short_description: 'Look up package-manager commands for dependency versions.'

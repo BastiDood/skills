@@ -1,0 +1,3 @@
+interface:
+  display_name: 'Clean Dependencies'
+  short_description: 'Prune unused, deprecated, and duplicated dependencies.'

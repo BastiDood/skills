@@ -59,6 +59,11 @@
 			"name": "presentations",
 			"source": "./plugins/presentations",
 			"strict": true
+		},
+		{
+			"name": "dependabump",
+			"source": "./plugins/dependabump",
+			"strict": true
 		}
 	]
 }

@@ -1,0 +1,18 @@
+{
+	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+	"name": "dependabump",
+	"version": "0.1.0",
+	"description": "Bump and clean project dependencies with researched, duplication-aware verdicts.",
+	"author": {
+		"name": "Basti Ortiz",
+		"email": "ortiz@bastidood.dev",
+		"url": "https://bastidood.dev/"
+	},
+	"extensions": {
+		"com.openai": {
+			"interface": {
+				"displayName": "Dependabump"
+			}
+		}
+	}
+}

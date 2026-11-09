@@ -1,0 +1,5 @@
+interface:
+  display_name: 'Bump Dependencies'
+  short_description: 'Research and bump dependencies with "Safe" or "Hold" verdicts.'
+policy:
+  allow_implicit_invocation: false
