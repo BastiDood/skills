@@ -1,8 +1,6 @@
 # Reference Routing
 
-Make every reference discoverable from `SKILL.md` through an inline citation or a compact resource index, for example `References`. Name index sections for the decisions they organize.
-
-Link every reference exactly once from `SKILL.md`. Use an explicit `./` relative path. Keep references one hop from the entry point, and do not link from one reference to another.
+Link every reference exactly once from `SKILL.md` with an explicit `./` relative path, through an inline citation or a compact resource index such as "References". Name index sections for the decisions they organize. Keep references one hop from the entry point. Do not link from one reference to another.
 
 Put the governing hook before progressive disclosure so the agent learns the triggering situation, opinion, or failure mode without opening the reference. Hyperlink the phrase that names the relevant decision.
 
@@ -44,4 +42,4 @@ Use the smallest structure that expresses the guidance clearly. A router can be 
 
 </reference_routing_examples>
 
-Do not make a router a topic label or miniature reference. Keep each router to one sentence; a parent hook may add enough prose and hierarchy to communicate the governing opinion. The linked reference owns the procedural details.
+Keep each router to one sentence; a parent hook may add enough prose and hierarchy to communicate the governing opinion. The linked reference owns the procedural details.

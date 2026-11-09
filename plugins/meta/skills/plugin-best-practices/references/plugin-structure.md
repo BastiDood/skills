@@ -1,6 +1,6 @@
 # Plugin Structure
 
-Expose one public skill or several independently useful public skills. Shared collection, normalization, validation, rendering, and other implementation capabilities remain private skills with `user-invocable: false`.
+Expose one public skill or several independently useful public skills. Keep shared collection, normalization, validation, rendering, and other implementation capabilities as private skills with `user-invocable: false`.
 
 Public skills own consumer-facing outcomes. Private skills own reusable implementation details. A public skill coordinates private capabilities without requiring consumers to understand or invoke the internal stages.
 

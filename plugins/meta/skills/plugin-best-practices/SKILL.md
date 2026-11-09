@@ -9,13 +9,11 @@ Prefer fine-grained plugins that package one coherent installable capability or 
 
 Treat a plugin as an encapsulation boundary. Like a class in object-oriented programming, it exposes a deliberate public interface while hiding implementation details that consumers do not need to understand or invoke.
 
-A plugin can expose one public skill or several independently useful public skills. Those entry points own consumer-facing outcomes while private skills support them without exposing the internal call graph.
-
 ## Effective Strategies for Focused Agent-Skill Plugins
 
 Follow the guidelines below. Read each linked reference that applies to the plugin design task.
 
 1. Expose public outcomes while keeping implementation skills private.
-   - [Structure the plugin around public outcomes and private implementation skills.](./references/plugin-structure.md)
+   - [Hide implementation skills as flat siblings that are not user-invocable.](./references/plugin-structure.md)
 2. Package only the metadata and files that consumers need.
-   - [Keep manifests and packaged files minimal.](./references/plugin-manifests.md)
+   - [Declare only the manifest fields that consumers read.](./references/plugin-manifests.md)

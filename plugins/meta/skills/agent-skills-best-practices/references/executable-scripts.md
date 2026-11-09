@@ -1,6 +1,6 @@
 # Executable Scripts
 
-Default the deterministic work to scripts. Delegate parsing, validation, normalization, selection, transformation, file generation, and repeatable checks whenever exact inputs and outputs can be specified. Use model reasoning only when the work requires judgment that cannot be encoded as a deterministic procedure.
+Delegate parsing, validation, normalization, selection, transformation, file generation, and repeatable checks to scripts whenever exact inputs and outputs can be specified.
 
 Before writing a script, inspect the target repository and runtime for existing helpers and built-in standard-library modules or functions. Prefer those primitives over third-party dependencies and manual reimplementations.
 
@@ -15,10 +15,10 @@ uv lock --script script.py           # writes script.py.lock
 
 </authoring_example>
 
-Commit the adjacent `script.py.lock` with the script. At runtime, `SKILL.md` shows only `uv run --locked script.py`. That command already installs the locked dependencies before running the script, which obsoletes dedicated `uv add` or `uv sync` setup steps that only introduce instruction noise and bloat prompts.
+Commit the adjacent `script.py.lock` with the script. At runtime, `SKILL.md` shows only `uv run --locked script.py`. That command already installs the locked dependencies before running the script. This obsoletes dedicated `uv add` or `uv sync` setup steps that only introduce instruction noise and bloat prompts.
 
-Follow the [`uv` script guide](https://docs.astral.sh/uv/guides/scripts/) for the workflow and [`uv` storage documentation](https://docs.astral.sh/uv/reference/storage/) for its writable cache. `uv` creates the dedicated script environment in that cache rather than beside the skill, so the packaged script and lockfile can work even in a read-only mount (i.e., avoiding/sidestepping the need for a mutable `.venv` in the skill distribution).
+Follow the [`uv` script guide](https://docs.astral.sh/uv/guides/scripts/) for the workflow and [`uv` storage documentation](https://docs.astral.sh/uv/reference/storage/) for its writable cache. `uv` creates the dedicated script environment in that cache rather than beside the skill. The packaged script and lockfile therefore work from a read-only mount without a mutable `.venv` in the skill distribution.
 
-State in `SKILL.md` that script paths are relative to the directory that contains `SKILL.md` for the sake of example. The actual script location should be introspected from the runtime environment and ultimately adapted to the resolved skill directory.
+State in `SKILL.md` that its example script paths are relative to the directory that contains `SKILL.md`. The agent then resolves each path against the installed skill directory at runtime.
 
-Show each script's command, arguments, and output path in `SKILL.md`. Do not describe how the script implementation details work. The agent should treat the script as a black box, reading only the exit status and output contract.
+Show each script's command, arguments, and output path in `SKILL.md`. The exit status and output are the agent's whole contract with the script.

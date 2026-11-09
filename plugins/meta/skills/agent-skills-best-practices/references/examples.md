@@ -1,6 +1,6 @@
 # Examples
 
-Show, don't tell. Contrast approaches to the same problem, then briefly explain why one is better. Change only the decision being taught. Use a single example when no useful contrast exists.
+Show, don't tell. Contrast approaches to the same problem. Then briefly explain why one is better. Change only the decision being taught. Use a single example when no useful contrast exists.
 
 Label examples with `BAD:` and `GOOD:` comments inside code fences, not Markdown headings or dash variants of the labels. Do not comment out the implementation.
 

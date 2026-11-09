@@ -1,15 +1,13 @@
 # Prose and Formatting
 
-Write direct, opinionated prose in the imperative style. State the decision and its consequence. Give a rule its reason when the reason is not obvious: the model generalizes from the reason, while a bare command covers only the literal case.
+Write direct, opinionated prose in the imperative style. State the decision and its consequence. Give a rule its reason when the reason is not obvious. The model generalizes from the reason. A bare command covers only the literal case.
 
-- Write action steps as commands such as "Change X", not suggestions such as "Consider X", which produce advice instead of the action.
-- Do not pad a convention with a summary of documentation.
+- Write action steps as commands such as "Change X". A suggestion such as "Consider X" produces advice instead of the action.
+- State one clause per sentence. Write "X. Y." instead of "X, and Y" or "X, because Y". A joined clause buries the second statement inside the first.
 - Do not hedge before doing the research needed to settle the claim.
 - Do not include version strings, changelogs, history notes, or end-of-prompt markers. They spend context on every invocation and change no behavior.
 
-Avoid prefixing rules with `CRITICAL:` or `IMPORTANT:` or bolded directives. Modern LLMs follow instructions closely, and aggressive emphasis makes them over-apply the rule.
-
-Keep orientation prose short enough to prime the agent without becoming a second reference.
+Avoid prefixing rules with `CRITICAL:` or `IMPORTANT:` or bolded directives. Modern LLMs follow instructions closely. Aggressive emphasis makes them over-apply the rule.
 
 Invoke another skill as `Skill(plugin:skill)` when it ships in a plugin and as `Skill(skill)` when it is standalone. The plugin prefix identifies one skill even when another plugin uses the same skill name.
 
@@ -17,11 +15,11 @@ Use title case for headings. Let the renderer wrap prose instead of inserting ma
 
 Tag every code fence with its language. Use `text` for directory trees and plain output and `markdown` for prose templates. An untagged fence leaves the reader to guess whether the block is a command, a template, or output.
 
-Write CLI flags in their long form (e.g., prefer `--flag` over `-F`) whenever the tool offers one. A long flag states its meaning, so neither the reader nor the model has to recall what a single letter does, and look-alike short flags stop being confusable.
+Write CLI flags in their long form (e.g., prefer `--flag` over `-F`) whenever the tool offers one. A long flag states its meaning. Neither the reader nor the model has to recall what a single letter does. Look-alike short flags also stop being confusable.
 
-Wrap examples and source text that the model could mistake for instructions in an XML tag whose name contains an underscore, such as `<severity_examples>`. CommonMark does not accept an underscore in an HTML tag name, so the renderer leaves the tag as literal text and the model reads it as a prompt delimiter, which is the convention prompts commonly use. A single-word tag such as `<examples>` reads as ordinary markup. Put each tag on its own line with a blank line on each side; otherwise it merges into the adjacent paragraph.
+Wrap examples and source text that the model could mistake for instructions in an XML tag whose name contains an underscore, such as `<severity_examples>`. CommonMark does not accept an underscore in an HTML tag name. The renderer therefore leaves the tag as literal text. The model reads it as a prompt delimiter. Prompts commonly use this convention. A single-word tag such as `<examples>` reads as ordinary markup. Put each tag on its own line with a blank line on each side. Otherwise it merges into the adjacent paragraph.
 
-Quote the name of a column, section, label, or category value that a template, reference, or tool output defines whenever prose mentions it. A table, a heading, a bold definition term such as **Safe:**, or a list item that opens with the name and a colon defines the name and stays unquoted, because its formatting already marks the name. A bare capitalized name blends into the sentence, so the model can read it as an ordinary word or an instruction rather than as a reference to the defined field. Keep backticks for code and for literal values that the agent types or matches, such as a flag, a key, or an output line; backticks around a label make it look like something to type.
+Quote the name of a column, section, label, or category value that a template, reference, or tool output defines whenever prose mentions it. A table, a heading, a bold definition term such as **Safe:**, or a list item that opens with the name and a colon defines the name. Such a definition stays unquoted. Its formatting already marks the name. A bare capitalized name blends into the sentence. The model can then read it as an ordinary word or an instruction rather than as a reference to the defined field. Keep backticks for code and for literal values that the agent types or matches, such as a flag, a key, or an output line. Backticks around a label make it look like something to type.
 
 <column_reference_examples>
 

@@ -9,14 +9,14 @@ description: Helps with agent skills.
 
 ```yaml
 # GOOD: a documentary skill states its governing subject and discriminating decisions.
-description: PostgreSQL query and schema-design conventions. Use when designing tables, reviewing indexes, or diagnosing query plans.
+description: PostgreSQL query and schema-design conventions. Use when creating tables, reviewing indexes, or diagnosing execution plans.
 ```
 
-Describe a procedural skill in one "use when" sentence whose gerund phrase states the outcome it produces. The gerund already names both the purpose and the trigger, so a second sentence that restates the outcome is redundant. Leave behavioral guarantees and implementation details (e.g., permissions or side effects) to the body unless they change whether the agent should select the skill.
+Describe a procedural skill in one "use when" sentence whose gerund phrase states the outcome it produces. The gerund already names both the purpose and the trigger. A second sentence that restates the outcome is therefore redundant. Leave behavioral guarantees and implementation details (e.g., permissions or side effects) to the body unless they change whether the agent should select the skill.
 
 ```yaml
 # BAD: implementation details and a guarantee spend the discovery budget without changing selection.
-description: Reviews a pull request with your own `gh` identity, posting verified inline comments in one review plus one rolling summary comment edited in place on each re-review. Use when asked to review or re-review a PR. Read-only on the repository.
+description: Use when reviewing a GitHub pull request with verified inline findings and a rolling summary, or re-reviewing it after new commits. Posts as your own `gh` identity, edits one summary comment in place, and never writes to the repository.
 ```
 
 ```yaml
@@ -29,7 +29,7 @@ description: Conducts a GitHub pull request review with verified inline findings
 description: Use when reviewing a GitHub pull request with verified inline findings and a rolling summary, or re-reviewing it after new commits.
 ```
 
-Keep two sentences for a documentary skill. Its first sentence is a noun phrase that names the governing subject rather than a trigger, so the `Use when` sentence adds selection intents without restating it.
+Keep two sentences for a documentary skill. Its first sentence is a noun phrase that names the governing subject rather than a trigger. The "use when" sentence therefore adds selection intents without restating it.
 
 Name each keyword once per description. Once the first sentence names the library, language, or subject, the trigger lists only the intents and artifacts.
 
@@ -45,4 +45,4 @@ description: Zod v4 conventions for owned wire contracts and explicit validation
 
 Leave detailed topic and API indexes to `SKILL.md` and routed references. General and specialized skills can apply together. Add exclusions only for genuinely competing workflows.
 
-Do not repeat trigger lists in a `When to Apply` section. The body loads only after discovery has already happened. Use the opening body prose to explain the governing model instead.
+Do not repeat trigger lists in a "When to Apply" section. The body loads only after discovery has already happened. Use the opening body prose to explain the governing model instead.

@@ -1,6 +1,6 @@
 # Agnostic References
 
-Write guidance that works without the source project's names, paths, private artifacts, or history. Include the context a fresh installation needs, or link to an authoritative source.
+Write guidance that works without the source project's names, paths, private artifacts, or history. Include the context a fresh installation needs. Alternatively, link to an authoritative source.
 
 Preserve the rule's conditions, failure modes, and checks. Keep language- and framework-specific examples in the relevant skill.
 
