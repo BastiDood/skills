@@ -69,9 +69,10 @@ Some skills conditionally reference MCP servers (used only if available):
 
 ## Reviews
 
-| Skill                                                                        | Description                    |
-| ---------------------------------------------------------------------------- | ------------------------------ |
-| [`spec-compliance-review`](./plugins/reviews/skills/spec-compliance-review/) | Audit of code against the spec |
+| Skill                                                                        | Description                                                                                        |
+| ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| [`code-quality-review`](./plugins/reviews/skills/code-quality-review/)       | Strict maintainability review, vendored from [Cursor](https://github.com/cursor/plugins) under MIT |
+| [`spec-compliance-review`](./plugins/reviews/skills/spec-compliance-review/) | Audit of code against the spec                                                                     |
 
 ## Dependabump
 
