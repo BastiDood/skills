@@ -1,0 +1,3 @@
+interface:
+  display_name: 'Adversarial Diff Review'
+  short_description: 'Review a diff for spec compliance, quality, and performance.'

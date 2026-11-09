@@ -69,11 +69,12 @@ Some skills conditionally reference MCP servers (used only if available):
 
 ## Reviews
 
-| Skill                                                                        | Description                                                                                        |
-| ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| [`code-quality-review`](./plugins/reviews/skills/code-quality-review/)       | Strict maintainability review, vendored from [Cursor](https://github.com/cursor/plugins) under MIT |
-| [`performance-review`](./plugins/reviews/skills/performance-review/)         | Cost-argued bottlenecks, anti-patterns, and redundant defensive checks                             |
-| [`spec-compliance-review`](./plugins/reviews/skills/spec-compliance-review/) | Audit of code against the spec                                                                     |
+| Skill                                                                          | Description                                                                                        |
+| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| [`adversarial-diff-review`](./plugins/reviews/skills/adversarial-diff-review/) | Spec compliance, code quality, and performance reviews of a diff                                   |
+| [`code-quality-review`](./plugins/reviews/skills/code-quality-review/)         | Strict maintainability review, vendored from [Cursor](https://github.com/cursor/plugins) under MIT |
+| [`performance-review`](./plugins/reviews/skills/performance-review/)           | Cost-argued bottlenecks, anti-patterns, and redundant defensive checks                             |
+| [`spec-compliance-review`](./plugins/reviews/skills/spec-compliance-review/)   | Audit of code against the spec                                                                     |
 
 ## Dependabump
 
