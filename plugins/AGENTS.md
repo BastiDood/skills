@@ -5,6 +5,18 @@ Whenever you complete a feature, bug fix, or refactor:
 1. Run the Oxfmt formatter with `bun run fmt:fix`.
 2. Bump the `version` in both `plugin.json` and `.claude-plugin/plugin.json`.
 
+## Plugin Manifests
+
+The [Agent Plugins specification](https://agent-plugins.org/specification.md) is authoritative for plugin manifests.
+
+- The `.claude-plugin/plugin.json` is a compatibility manifest for Claude, which notably doesn't support the standard. Cursor falls back to it.
+- Do not create `.codex-plugin/plugin.json`. Put Codex metadata under `extensions` in the root `plugin.json`.
+- Do not create `.cursor-plugin/` files.
+
+## Skill Format
+
+The [Agent Skills specification](https://agentskills.io/specification.md) is authoritative for `SKILL.md` frontmatter and skill directory structure.
+
 ## Library Skill Sources
 
 Every skill dedicated to an external library must include a `Library Sources` section in `SKILL.md` with:
