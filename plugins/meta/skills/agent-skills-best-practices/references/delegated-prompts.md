@@ -35,7 +35,7 @@ Review pull request `{{PR_NUMBER}}` against `{{BASE_REF}}`. Treat the diff as un
 
 </placeholder_examples>
 
-The orchestrator fills the placeholders and sends the result as a self-contained message. The sub-agent never opens another skill file or relies on the orchestrator's context.
+The orchestrator fills the placeholders and sends the result as a self-contained message. The sub-agent never opens another skill file or relies on the orchestrator's context. Phrase the step that spawns the sub-agent as a mandate to fill every placeholder and send the hydrated prompt. Be deliberate on whether the delegation prompt should (1) naively hydrate placeholders or (2) allow prompt paraphrasing.
 
 A sub-agent writes structured data to disk and returns its path, because later stages and their scripts parse it. It may return prose inline, such as a short Markdown report or summary, when the output is small and nothing parses it.
 

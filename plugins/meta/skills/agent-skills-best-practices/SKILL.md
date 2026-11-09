@@ -25,7 +25,7 @@ Read each linked reference that applies to the current skill-design task.
    - [Keep prose direct, formatting consistent, and examples fenced apart from instructions.](./references/prose-and-formatting.md)
 3. Use scripts for deterministic work and models for judgment. Prefer existing tools and standard libraries.
    - [Lock script dependencies before release and keep scripts usable from read-only installations.](./references/executable-scripts.md)
-   - [Calibrate classification schemes with few-shot examples that span their categories.](./references/judgment-calibration.md)
+   - [Define classification schemes as label tables, and calibrate them with few-shot example tables that span their labels.](./references/judgment-calibration.md)
 4. Delegate to sub-agents only to isolate context or run independent work in parallel.
    - [Write delegated prompts as placeholder templates that hydrate into self-contained messages.](./references/delegated-prompts.md)
 5. Make guidance usable outside its source project.
