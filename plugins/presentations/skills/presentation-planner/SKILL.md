@@ -52,9 +52,9 @@ Infer harmless details from the source and record the assumptions. Ask only when
 - Do not fake compression by clipping a source sentence and appending `...`. Rewrite it as a complete phrase or short clause. Reserve ellipses for exact quotations, source-authored punctuation, and presenter-note previews.
 - Let the source logic determine the hierarchy. Use sibling top-level cues for parallel ideas and children only for genuine support, dependency, or list depth. Do not default to one main bullet with every other idea nested beneath it.
 - Use one dominant line, several sibling cues, a compact hierarchy, or no bullets at all according to the beat. Omit explanatory detail that the presenter notes already carry unless the audience needs it to follow the visual.
-- Use `### Slide N — <Title>` as the slide title. Do not repeat it under `On-Slide Content` or add a `Title:` label. Treat the heading as visible by default; quotation-only and deliberately titleless treatments use it only as the plan identifier.
+- Use `### Slide N — <Title>` as the slide title. Do not repeat it under "On-Slide Content" or add a `Title:` label. Treat the heading as visible by default; quotation-only and deliberately titleless treatments use it only as the plan identifier.
 - Treat a standalone source quotation or Markdown blockquote as a quotation beat unless the user explicitly asks to integrate it into another visual.
-- For a quotation beat, make `On-Slide Content` the exact quotation alone as plain or italic text. Do not add `Title:`, a heading, bullet marker, preface, interpretation, or decorative copy. Put the setup, interpretation, and spoken attribution in presenter notes; add visible attribution only when the user or source requires it.
+- For a quotation beat, make "On-Slide Content" the exact quotation alone as plain or italic text. Do not add `Title:`, a heading, bullet marker, preface, interpretation, or decorative copy. Put the setup, interpretation, and spoken attribution in presenter notes; add visible attribution only when the user or source requires it.
 - Avoid slogans, marketing taglines, and summaries the speaker cannot locate in the notes.
 - Use natural sentence case for body copy and title case for titles. Preserve source casing for acronyms, names, filenames, commands, paths, identifiers, and quotations; never normalize a literal such as `tokio::spawn`.
 - Use plain ASCII punctuation in Markdown prose and transcribed source text: `'` for apostrophes, `"` for double quotes, and `...` for ellipses. Do not use typographic quotation marks or the single-character ellipsis.
@@ -102,7 +102,7 @@ Use counts as pacing diagnostics, not automatic slide boundaries. Apply the stri
 - **Normal:** at most 90 words and 525 characters.
 - **Dense:** 91–155 words or 526–900 characters; review the delivery, but retain the cluster when it has one audience task and visual state.
 - **Very dense:** above 155 words or 900 characters; look for a meaningful narrative or visual break, but do not split solely to satisfy the count.
-- **Explicit exception:** above 200 words or 1,200 characters requires a rationale in `Production Notes`.
+- **Explicit exception:** above 200 words or 1,200 characters requires a rationale in "Production Notes".
 
 Count only spoken source text. Exclude list syntax, previews, delivery cues, and other structure. When a split retains one visual context, preserve that visual across the successive slides.
 
@@ -150,12 +150,12 @@ Assign the simplest fitting form:
 
 - Text-led: title, section marker, question, assertion, concise bullets, quotation, recap, call to action, or credits.
 - Evidence-led: code, screenshot, chart, table, photograph, document excerpt, or demonstration.
-- Relationship-led: a diagram justified by the Diagram-Level Scope.
+- Relationship-led: a diagram justified by the "Diagram-Level Scope".
 - Deliberate pause: one phrase, one cue, or no additional content.
 
 ### 3. Write Each Slide Entry
 
-Follow the plan template. Format presenter notes first, then derive a selective visual abstraction through the Copy-Level Scope. Do not mirror the note hierarchy or force every note group onto the slide. Use direct alignment unless the script deliberately previews the next visible idea; record bridge alignment in `Slide Treatment`.
+Follow the plan template. Format presenter notes first, then derive a selective visual abstraction through the "Copy-Level Scope". Do not mirror the note hierarchy or force every note group onto the slide. Use direct alignment unless the script deliberately previews the next visible idea; record bridge alignment in "Slide Treatment".
 
 Before writing the plan, read the [complete presentation-plan template](./references/presentation-plan-template.md). Follow its required headings and field guidance. Use ordinary Markdown headings, paragraphs, lists, blockquotes, and fenced code, and keep the plan readable by a human.
 
@@ -166,7 +166,7 @@ Include only applicable production elements. Omit fields and subsections that wo
 - For imagery, state the subject, composition, aspect ratio, placement, and narrative purpose.
 - For unresolved required elements, add an actionable `Placeholder:` blockquote. Add no placeholder when no visual is required.
 
-Before accepting each `On-Slide Content` block:
+Before accepting each "On-Slide Content" block:
 
 1. Confirm every cue expresses a complete audience-facing concept. Reject prefix fragments created by taking the first _n_ words of a note sentence.
 2. Confirm the block does not repeat the slide heading or contain a `Title:` label.
@@ -185,7 +185,7 @@ Reject mechanical symptoms before delivery: one slide per paragraph, sentence-he
 
 ### 5. Deliver
 
-Use the linked template. Mark the plan `Draft for Review` until the user approves it, then `Approved for Creation`. Do not generate slides during planning.
+Use the linked template. Mark the plan "Draft for Review" until the user approves it, then "Approved for Creation". Do not generate slides during planning.
 
 ## Acceptance Checklist
 
@@ -194,10 +194,10 @@ Before delivery, verify:
 - One coherent audience outcome, cumulative arc, and necessary narrative job per slide.
 - Complete scripted coverage in presenter notes, except exact source spans assigned to `[Read slide.]`; visible compression never replaces spoken notes, and no paragraph requires its own visible copy.
 - Faithful semantic presenter-note structure, including list depth, clause splits, cross-slide indentation, delivery cues, and next-thought previews.
-- Pacing status and counts for every substantive note body, with only true exceptions justified.
+- "Pacing status" and counts for every substantive note body, with only true exceptions justified.
 - Compact, source-grounded on-slide copy that expresses complete concepts without repeating the slide heading, adding a `Title:` label, mirroring notes, slicing sentence prefixes, overusing full sentences, clipping with added ellipses, or forcing a one-parent hierarchy; every non-exempt cue above 12 words has been rewritten or deliberately justified.
 - The simplest fitting slide form, no filler visuals or repeated diagram motif, and actionable directions for every required asset.
-- Quote-only treatment for quotation beats unless the user or source requires additional visible context; the `On-Slide Content` block contains no title line, bullet marker, or setup copy.
+- Quote-only treatment for quotation beats unless the user or source requires additional visible context; the "On-Slide Content" block contains no title line, bullet marker, or setup copy.
 - Every `[Read slide.]` cue has relevant content to read on that same slide; any source wording omitted from notes because of the cue appears there exactly.
 - No empty optional fields, `None`, `N/A`, or absence justifications.
 - Meaningful transitions and manual timing unless the source requires otherwise.

@@ -46,7 +46,7 @@ All you need to know is that context adds up.
 
 <why_the_anti_example_fails>
 
-It copies setup and conclusion sentences that the presenter can say, while flattening `Tool definitions` out of its source-authored parent. The good slide keeps only the list the audience must scan and preserves its meaningful depth.
+It copies setup and conclusion sentences that the presenter can say, while flattening "Tool definitions" out of its source-authored parent. The good slide keeps only the list the audience must scan and preserves its meaningful depth.
 
 </why_the_anti_example_fails>
 

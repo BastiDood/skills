@@ -73,7 +73,7 @@ Insert the semantic Markdown hierarchy, delivery cues, and next-thought preview.
 - Continuity: State what remains, changes, appears, or disappears.
 - Reason: Explain what the transition communicates.
 
-For the final slide, omit `Next-thought preview`, write `End` for the slide action, and describe the closing beat.
+For the final slide, omit "Next-thought preview", write "End" for the slide action, and describe the closing beat.
 
 #### Production Notes
 
@@ -93,7 +93,7 @@ Repeat the slide headings for every slide.
 ## Cross-Deck Production Notes
 
 - Asset checklist (omit when empty): Required photographs, screenshots, logos, code, diagrams, quotations, and generated visuals.
-- Animation and transition map (omit when empty): Non-trivial builds, Morph sequences, transitions, and timed events in slide order.
+- Animation and transition map (omit when empty): Non-trivial builds, "Morph" sequences, transitions, and timed events in slide order.
 - Demonstration and interaction cues (omit when empty): Live demos, audience exercises, handoffs, and fallbacks.
 - Script coverage ledger: Exact source ranges assigned to presenter notes; identify exact source spans replaced by `[Read slide.]`, plus deferred and omitted material with reasons.
 - Open decisions (omit when empty): Unresolved choices requiring presenter approval before creation.

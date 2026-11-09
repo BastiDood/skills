@@ -14,4 +14,4 @@ Use an independent reviewer to challenge completed changes against the agreed pl
 3. Present the findings with a consistent verdict, deviation, and recommendation structure.
    - [Follow the review summary template.](./assets/review-summary-template.md)
 
-The recommendations section is particularly critical because it determines the possible next phase of the work.
+The "Concrete Recommendations" section is particularly critical because it determines the possible next phase of the work.

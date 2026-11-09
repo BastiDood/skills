@@ -23,4 +23,4 @@ Pass an accessor to `createQuery`. The Svelte adapter tracks reactive values rea
 </script>
 ```
 
-The Svelte compiler warns about the BAD form with `state_referenced_locally`. `createQuery` takes its options as an accessor for this reason. Keep query factories free of runes so they stay plain functions; cache an expensive non-constant derivation with `$derived` in the component, then read it in the accessor.
+The Svelte compiler warns about the "BAD" form with `state_referenced_locally`. `createQuery` takes its options as an accessor for this reason. Keep query factories free of runes so they stay plain functions; cache an expensive non-constant derivation with `$derived` in the component, then read it in the accessor.

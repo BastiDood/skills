@@ -23,7 +23,7 @@ Require:
 
 Do not require or inspect reference decks. Treat the house style in this skill as explicit custom formatting and create the deck from scratch. Do not use Codex Grid or imitate a prior deck unless the user explicitly changes the scope of this skill.
 
-Require the plan status to be `Approved for Creation`. If the plan remains marked `Draft for Review`, contains unresolved narrative decisions, or omits a required slide's audience-facing content or presenter script, stop and request an approved revision. Resolve ordinary production details without escalating them.
+Require the plan status to be "Approved for Creation". If the plan remains marked "Draft for Review", contains unresolved narrative decisions, or omits a required slide's audience-facing content or presenter script, stop and request an approved revision. Resolve ordinary production details without escalating them.
 
 ## Authority and Boundaries
 
@@ -46,7 +46,7 @@ Treat simplicity and readability as the visual identity.
 - Use pale gray `#ABB2B1` for primary body text.
 - Use coral `#EF4E4D` for primary title emphasis.
 - Use cyan `#00B0F0`, green `#83C271`, amber `#D19A66`, and purple `#D55FDE` sparingly as semantic accents.
-- Interpret `**...**` in `On-Slide Content` as bold cyan emphasis. Interpret `*...*` as bold italic cyan emphasis. Remove the Markdown delimiters from rendered text.
+- Interpret `**...**` in "On-Slide Content" as bold cyan emphasis. Interpret `*...*` as bold italic cyan emphasis. Remove the Markdown delimiters from rendered text.
 - Keep emphasis selective. Preserve one to three marked spans per sentence-sized bullet and do not add unplanned highlights.
 - Preserve the planned bullet hierarchy. Render the single main bullet as the dominant point and indent supporting sub-bullets clearly without reducing them below the readable body-text range.
 - Preserve the plan's natural sentence casing for audience-facing bullets and sub-bullets. Never force body copy to lowercase or title case.
@@ -67,7 +67,7 @@ Treat simplicity and readability as the visual identity.
 
 Read the plan from beginning to end before creating slides. Extract the presentation brief, slide sequence, presenter scripts, visual requirements, asset checklist, transition map, demonstrations, coverage ledger, and open decisions.
 
-Confirm that slide numbering is consecutive and that every slide contains `Narrative Purpose`, `Source Allocation`, `On-Slide Content`, `Visual Implementation`, `Presenter Notes (Structured Verbatim Script)`, `Transition to the Next Slide`, and `Production Notes`.
+Confirm that slide numbering is consecutive and that every slide contains "Narrative Purpose", "Source Allocation", "On-Slide Content", "Visual Implementation", "Presenter Notes (Structured Verbatim Script)", "Transition to the Next Slide", and "Production Notes".
 
 ### 2. Run a Preflight
 
@@ -93,7 +93,7 @@ Never paste presenter narration onto the canvas to solve a sparse layout. Sparse
 
 ### 5. Implement Structured Verbatim Presenter Notes
 
-Add the complete `Presenter Notes (Structured Verbatim Script)` content to the corresponding slide without changing any speaker-text character. Preserve source-authored delivery cues, audience prompts, live-demo markers, and spoken bridges.
+Add the complete "Presenter Notes (Structured Verbatim Script)" content to the corresponding slide without changing any speaker-text character. Preserve source-authored delivery cues, audience prompts, live-demo markers, and spoken bridges.
 
 Translate the Markdown hierarchy into actual PowerPoint note paragraphs:
 
@@ -121,9 +121,9 @@ Follow the plan's transition map:
 
 - Keep cuts quiet and immediate.
 - Use builds to reveal dependencies in spoken order.
-- Use Morph when the same visual system evolves.
-- Use Push for sustained catalogues or lateral sequences.
-- Use Fade for section changes, reflective beats, emotional resets, or comedic releases.
+- Use "Morph" when the same visual system evolves.
+- Use "Push" for sustained catalogues or lateral sequences.
+- Use "Fade" for section changes, reflective beats, emotional resets, or comedic releases.
 - Use successive near-duplicate slides when they explain code or diagrams more reliably than internal animation.
 - Keep advance manual unless the plan explicitly requires timed playback.
 
@@ -147,15 +147,15 @@ Record deviations in the scratch workspace and summarize material deviations in 
 
 Map plan sections as follows:
 
-- `Presentation Brief` and `Narrative Arc` guide deck-level pacing and quality review; do not render them as slides unless the slide plan says so.
-- `Narrative Purpose` guides implementation judgment; do not expose it to the audience.
-- `Source Allocation` verifies provenance, note length, and pacing status; do not expose it to the audience.
-- `On-Slide Content` becomes visible slide copy.
-- `Visual Implementation` determines composition, hierarchy, assets, and builds.
-- `Presenter Notes (Structured Verbatim Script)` becomes hierarchical PowerPoint presenter-note paragraphs without rewriting.
-- `Transition to the Next Slide` determines spoken continuity and motion.
-- `Production Notes` guide sourcing, implementation, verification, and accessibility; do not expose them to the audience.
-- `Cross-Deck Production Notes` become the final implementation and QA checklist.
+- "Presentation Brief" and "Narrative Arc" guide deck-level pacing and quality review; do not render them as slides unless the slide plan says so.
+- "Narrative Purpose" guides implementation judgment; do not expose it to the audience.
+- "Source Allocation" verifies provenance, note length, and pacing status; do not expose it to the audience.
+- "On-Slide Content" becomes visible slide copy.
+- "Visual Implementation" determines composition, hierarchy, assets, and builds.
+- "Presenter Notes (Structured Verbatim Script)" becomes hierarchical PowerPoint presenter-note paragraphs without rewriting.
+- "Transition to the Next Slide" determines spoken continuity and motion.
+- "Production Notes" guide sourcing, implementation, verification, and accessibility; do not expose them to the audience.
+- "Cross-Deck Production Notes" become the final implementation and QA checklist.
 
 ## Completion Criteria
 

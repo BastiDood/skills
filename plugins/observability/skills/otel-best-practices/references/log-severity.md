@@ -13,7 +13,7 @@ This policy is language-agnostic. Select severity from the occurrence's expected
 | 17–20           | `ERROR` | Record an unhandled failure that does not cause process-wide shutdown.                                                          |
 | 21–24           | `FATAL` | Record a critical failure that causes process-wide shutdown.                                                                    |
 
-Use the default house policy only when the active semantic convention does not define a severity. Severity communicates expected impact; it does not communicate the surrounding code's control flow.
+Use the "Default House Policy" only when the active semantic convention does not define a severity. Severity communicates expected impact; it does not communicate the surrounding code's control flow.
 
 - Use the severity defined by an operation-specific semantic convention.
 - Do not infer severity from a syntactic control-flow construct. Select it from the failure's impact and recoverability.

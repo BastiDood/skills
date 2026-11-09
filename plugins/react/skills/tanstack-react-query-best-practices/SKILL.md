@@ -28,7 +28,7 @@ Read the references that apply to the current task before writing or reviewing T
    - [Preserve absent identifiers and disable the request](./references/absent-identifiers.md) instead of defaulting any value that flows into a key.
    - [Partition visibility-sensitive cached data by actor identity](./references/actor-identity-and-secrets.md) without exposing credentials in keys.
 2. Resolve query status before presentation consumes data.
-   - [Resolve query status at a Loader and Inner boundary](./references/loader-and-inner.md), keeping presentation free of optional data and transport state.
+   - [Resolve query status at a "Loader" and "Inner" boundary](./references/loader-and-inner.md), keeping presentation free of optional data and transport state.
    - [Publish query identity through loader prop contracts](./references/loader-prop-contracts.md) while resolved components receive non-null data.
    - [Destructure every consumed query-result field](./references/result-destructuring.md) because the complete result object changes identity on every render.
 3. Keep mutation data, callbacks, and cache updates scoped to each operation.
