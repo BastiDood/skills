@@ -1,0 +1,3 @@
+interface:
+  display_name: 'Performance Review'
+  short_description: 'Find bottlenecks and anti-patterns in code.'
