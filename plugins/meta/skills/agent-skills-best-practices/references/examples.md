@@ -1,6 +1,6 @@
 # Examples
 
-Show, don't tell. Contrast approaches to the same problem. Then briefly explain why one is better. Change only the decision being taught. Use a single example when no useful contrast exists.
+Show, don't tell. Contrast approaches to the same problem, then briefly explain why one is better. Change only the decision being taught. Use a single example when no useful contrast exists.
 
 Label examples with `BAD:` and `GOOD:` comments inside code fences, not Markdown headings or dash variants of the labels. Do not comment out the implementation.
 
@@ -34,4 +34,4 @@ function SaveButton() {
 
 The second version calls `save` directly from the click handler, removing the extra state and effect. Explain that difference instead of narrating each line.
 
-Keep excerpts focused and identify omitted setup. Syntax and APIs must remain correct. Complete or runnable examples must compile on their own; excerpts need not become standalone programs.
+Keep excerpts focused and identify omitted setup. Syntax and APIs must remain correct. Complete or runnable examples must compile on their own. Excerpts need not become standalone programs.

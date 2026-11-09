@@ -12,7 +12,7 @@ description: Helps with agent skills.
 description: PostgreSQL query and schema-design conventions. Use when creating tables, reviewing indexes, or diagnosing execution plans.
 ```
 
-Describe a procedural skill in one "use when" sentence whose gerund phrase states the outcome it produces. The gerund already names both the purpose and the trigger. A second sentence that restates the outcome is therefore redundant. Leave behavioral guarantees and implementation details (e.g., permissions or side effects) to the body unless they change whether the agent should select the skill.
+Describe a procedural skill in one "use when" sentence whose gerund phrase states the outcome it produces. With the gerund already naming both the purpose and the trigger, a second sentence that restates the outcome is redundant. Leave behavioral guarantees and implementation details (e.g., permissions or side effects) to the body unless they change whether the agent should select the skill.
 
 ```yaml
 # BAD: implementation details and a guarantee spend the discovery budget without changing selection.
@@ -29,7 +29,7 @@ description: Conducts a GitHub pull request review with verified inline findings
 description: Use when reviewing a GitHub pull request with verified inline findings and a rolling summary, or re-reviewing it after new commits.
 ```
 
-Keep two sentences for a documentary skill. Its first sentence is a noun phrase that names the governing subject rather than a trigger. The "use when" sentence therefore adds selection intents without restating it.
+Keep two sentences for a documentary skill. Its first sentence is a noun phrase that names the governing subject rather than a trigger. The "use when" sentence adds selection intents without restating that subject.
 
 Name each keyword once per description. Once the first sentence names the library, language, or subject, the trigger lists only the intents and artifacts.
 
@@ -39,7 +39,7 @@ description: Zod v4 conventions for owned wire contracts and explicit validation
 ```
 
 ```yaml
-# GOOD: the first sentence names the library; the trigger names only intents and artifacts.
+# GOOD: the first sentence names the library. The trigger names only intents and artifacts.
 description: Zod v4 conventions for owned wire contracts and explicit validation outcomes. Use when defining, debugging, or reviewing schemas or parsing untrusted data.
 ```
 

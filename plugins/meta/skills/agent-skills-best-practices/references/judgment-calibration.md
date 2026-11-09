@@ -1,6 +1,6 @@
 # Judgment Calibration
 
-Define every classification scheme (e.g., severity, confidence, or priority scale) as a table of its labels and their criteria. Then calibrate it with a table of few-shot examples. A list of labels alone lets each run choose its own thresholds. Each example row gives a "Scenario", one column per label that it assigns, and a "Rationale" that says why the row lands there rather than in a neighboring label.
+Define every classification scheme (e.g., severity, confidence, or priority scale) as a table of its labels and their criteria, then calibrate it with a table of few-shot examples. A list of labels alone lets each run choose its own thresholds. Each example row gives a "Scenario", one column per label that it assigns, and a "Rationale" that says why the row lands there rather than in a neighboring label.
 
 <calibration_examples>
 
@@ -11,7 +11,7 @@ Assign each finding a severity: `critical`, `high`, `medium`, or `low`.
 ```
 
 ```markdown
-<!-- GOOD: the scheme is a table, and the examples span its labels. -->
+<!-- GOOD: the scheme is a table with examples that span its labels. -->
 
 | Severity | Criteria                                                  |
 | -------- | --------------------------------------------------------- |

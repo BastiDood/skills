@@ -1,9 +1,8 @@
 # Prose and Formatting
 
-Write direct, opinionated prose in the imperative style. State the decision and its consequence. Give a rule its reason when the reason is not obvious. The model generalizes from the reason. A bare command covers only the literal case.
+Write direct, opinionated prose in the imperative style. State the decision and its consequence. Give a rule its reason when the reason is not obvious: the model generalizes from the reason, while a bare command covers only the literal case.
 
-- Write action steps as commands such as "Change X". A suggestion such as "Consider X" produces advice instead of the action.
-- State one clause per sentence. Write "X. Y." instead of "X, and Y" or "X, because Y". A joined clause buries the second statement inside the first.
+- Write action steps as commands such as "Change X". Suggestions such as "Consider X" produce advice instead of the action.
 - Do not hedge before doing the research needed to settle the claim.
 - Do not include version strings, changelogs, history notes, or end-of-prompt markers. They spend context on every invocation and change no behavior.
 
@@ -15,11 +14,11 @@ Use title case for headings. Let the renderer wrap prose instead of inserting ma
 
 Tag every code fence with its language. Use `text` for directory trees and plain output and `markdown` for prose templates. An untagged fence leaves the reader to guess whether the block is a command, a template, or output.
 
-Write CLI flags in their long form (e.g., prefer `--flag` over `-F`) whenever the tool offers one. A long flag states its meaning. Neither the reader nor the model has to recall what a single letter does. Look-alike short flags also stop being confusable.
+Write CLI flags in their long form (e.g., prefer `--flag` over `-F`) whenever the tool offers one. A long flag states its meaning without asking the reader or the model to recall what a single letter does. It also keeps look-alike short flags apart.
 
-Wrap examples and source text that the model could mistake for instructions in an XML tag whose name contains an underscore, such as `<severity_examples>`. CommonMark does not accept an underscore in an HTML tag name. The renderer therefore leaves the tag as literal text. The model reads it as a prompt delimiter. Prompts commonly use this convention. A single-word tag such as `<examples>` reads as ordinary markup. Put each tag on its own line with a blank line on each side. Otherwise it merges into the adjacent paragraph.
+Wrap examples and source text that the model could mistake for instructions in an XML tag whose name contains an underscore, such as `<severity_examples>`. CommonMark does not accept an underscore in an HTML tag name. The renderer leaves such a tag as literal text for the model to read as a prompt delimiter, the convention prompts commonly use. A single-word tag such as `<examples>` reads as ordinary markup. Put each tag on its own line with a blank line on each side to keep it from merging into the adjacent paragraph.
 
-Quote the name of a column, section, label, or category value that a template, reference, or tool output defines whenever prose mentions it. A table, a heading, a bold definition term such as **Safe:**, or a list item that opens with the name and a colon defines the name. Such a definition stays unquoted. Its formatting already marks the name. A bare capitalized name blends into the sentence. The model can then read it as an ordinary word or an instruction rather than as a reference to the defined field. Keep backticks for code and for literal values that the agent types or matches, such as a flag, a key, or an output line. Backticks around a label make it look like something to type.
+Quote the name of a column, section, label, or category value that a template, reference, or tool output defines whenever prose mentions it. A table, a heading, a bold definition term such as **Safe:**, or a list item that opens with the name and a colon defines the name and stays unquoted. Its formatting already marks the name. Blending into the sentence, a bare capitalized name can read to the model as an ordinary word or an instruction rather than as a reference to the defined field. Keep backticks for code and for literal values that the agent types or matches, such as a flag, a key, or an output line. Backticks around a label make it look like something to type.
 
 <column_reference_examples>
 

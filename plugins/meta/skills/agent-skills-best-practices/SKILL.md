@@ -23,11 +23,11 @@ Read each linked reference that applies to the current skill-design task.
    - [Keep prose direct, formatting consistent, and examples fenced apart from instructions.](./references/prose-and-formatting.md)
 3. Use scripts for deterministic work and models for judgment.
    - [Lock script dependencies before release and keep scripts usable from read-only installations.](./references/executable-scripts.md)
-   - [Define classification schemes as label tables.](./references/judgment-calibration.md) Calibrate them with few-shot example tables that span their labels.
+   - [Define classification schemes as label tables calibrated with few-shot example tables that span their labels.](./references/judgment-calibration.md)
 4. Delegate to sub-agents only to isolate context or run independent work in parallel.
    - [Write delegated prompts as placeholder templates that hydrate into self-contained messages.](./references/delegated-prompts.md)
 5. Make guidance usable outside its source project.
-   - [Separate shared principles from framework-specific examples.](./references/agnostic-references.md) Resolve infrastructure identifiers at runtime.
+   - [Separate shared principles from framework-specific examples. Resolve infrastructure identifiers at runtime.](./references/agnostic-references.md)
 6. Keep resources portable and in the skill that owns them.
    - [Keep templates and other resources in `assets/`, one hop from the entry point.](./references/directory-structure.md)
    - [Identify external libraries without copying their documentation.](./references/library-sources.md)
