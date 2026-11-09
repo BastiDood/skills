@@ -1,5 +1,3 @@
 interface:
   display_name: 'Code Quality Review'
-  short_description: 'Push branch changes toward simpler, more maintainable structure.'
-policy:
-  allow_implicit_invocation: false
+  short_description: 'Push code toward simpler, more maintainable structure.'
