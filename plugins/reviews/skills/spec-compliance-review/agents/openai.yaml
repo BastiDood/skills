@@ -1,0 +1,3 @@
+interface:
+  display_name: 'Spec Compliance Review'
+  short_description: 'Audit code against the specification.'

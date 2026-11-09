@@ -1,0 +1,18 @@
+{
+	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+	"name": "reviews",
+	"version": "0.1.0",
+	"description": "Independent, adversarial reviews of completed code changes.",
+	"author": {
+		"name": "Basti Ortiz",
+		"email": "ortiz@bastidood.dev",
+		"url": "https://bastidood.dev/"
+	},
+	"extensions": {
+		"com.openai": {
+			"interface": {
+				"displayName": "Reviews"
+			}
+		}
+	}
+}

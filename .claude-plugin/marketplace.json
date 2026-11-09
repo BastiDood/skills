@@ -64,6 +64,11 @@
 			"name": "dependabump",
 			"source": "./plugins/dependabump",
 			"strict": true
+		},
+		{
+			"name": "reviews",
+			"source": "./plugins/reviews",
+			"strict": true
 		}
 	]
 }

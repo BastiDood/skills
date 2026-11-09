@@ -9,6 +9,7 @@ Opinionated software engineering skills distributed as installable plugins for C
 codex plugin marketplace add BastiDood/skills
 
 codex plugin add workflows@bastidood
+codex plugin add reviews@bastidood
 codex plugin add dependabump@bastidood
 codex plugin add architecture@bastidood
 codex plugin add meta@bastidood
@@ -29,6 +30,7 @@ codex plugin add observability@bastidood
 claude plugin marketplace add BastiDood/skills
 
 claude plugin install workflows@bastidood
+claude plugin install reviews@bastidood
 claude plugin install dependabump@bastidood
 claude plugin install architecture@bastidood
 claude plugin install meta@bastidood
@@ -59,12 +61,17 @@ Some skills conditionally reference MCP servers (used only if available):
 
 ## Workflows
 
-| Skill                                                                                      | Description                                                 |
-| ------------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
-| [`adversarial-code-review`](./plugins/workflows/skills/adversarial-code-review/)           | Adversarial code review against the spec and implementation |
-| [`git-commit`](./plugins/workflows/skills/git-commit/)                                     | Conventional commit message generation                      |
-| [`github-pull-request`](./plugins/workflows/skills/github-pull-request/)                   | GitHub PR creation with auto-detected base branch           |
-| [`github-pull-request-comments`](./plugins/workflows/skills/github-pull-request-comments/) | Verifies, triages, and rebuts GitHub pull request comments  |
+| Skill                                                                                      | Description                                                |
+| ------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| [`git-commit`](./plugins/workflows/skills/git-commit/)                                     | Conventional commit message generation                     |
+| [`github-pull-request`](./plugins/workflows/skills/github-pull-request/)                   | GitHub PR creation with auto-detected base branch          |
+| [`github-pull-request-comments`](./plugins/workflows/skills/github-pull-request-comments/) | Verifies, triages, and rebuts GitHub pull request comments |
+
+## Reviews
+
+| Skill                                                                        | Description                    |
+| ---------------------------------------------------------------------------- | ------------------------------ |
+| [`spec-compliance-review`](./plugins/reviews/skills/spec-compliance-review/) | Audit of code against the spec |
 
 ## Dependabump
 

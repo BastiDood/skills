@@ -12,4 +12,8 @@
 
 ## Concrete Recommendations
 
-<!-- Bulleted list of recommendations (with rationale) for the author to improve the implementation. -->
+<!-- Bulleted list of recommendations (with rationale) for the author to improve the implementation. Propose the easy fixes here. -->
+
+## Open Decisions
+
+<!-- Each product or engineering decision that the user must make, phrased as a question with its options. -->

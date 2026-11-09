@@ -52,6 +52,10 @@
 		{
 			"name": "dependabump",
 			"source": "dependabump"
+		},
+		{
+			"name": "reviews",
+			"source": "reviews"
 		}
 	]
 }
