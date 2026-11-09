@@ -42,4 +42,4 @@ The review log below records earlier findings and the caller's decision on each 
 
 ## Response
 
-Do not edit any file. Return the explanation, each requirement as compliant or deviating with its evidence, and each unrequested behavior.
+Do not edit any file. Return the explanation, each requirement as compliant or deviating with its evidence, and each unrequested behavior that you flag. If every requirement is compliant and you flag nothing, say so in one line. Do not invent or pad findings to fill the response.

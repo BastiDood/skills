@@ -17,6 +17,7 @@ A single concern keeps each review focused. One review's refactor can remove a w
 3. Merge duplicate findings across reviews. Drop findings that another review's fix removes, such as bugs that a proposed refactor eliminates. Resolve conflicting recommendations, such as a cache that one review proposes and another rejects as an extra layer.
 4. Present every review's easy fixes and open decisions together. Wait for the user once per round, not once per review.
    - [Follow the review summary template.](./assets/review-summary-template.md)
+   - If no review flags anything, present the round as all-clear and stop. Do not ask the user for decisions.
 5. Apply the merged easy fixes and accepted decisions once for all reviews before the next round.
 
 The "Concrete Recommendations" section is particularly critical. It determines the possible next phase of the work.

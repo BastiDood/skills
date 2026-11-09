@@ -15,7 +15,7 @@ Reviewers are stateless by design. The review log is the only memory between rou
    - Fill `{{SPECIFICATION}}` with each agreed requirement verbatim.
    - Fill `{{OUT_OF_SCOPE}}` with the concerns that the request excludes. Omit the "Out of Scope" section when the request excludes none.
    - Fill `{{REVIEW_LOG}}` with the review log. Omit the "Review Log" section on the first round.
-3. Sort the findings. A finding with one clear fix is an easy fix. A finding that needs a product or engineering decision is an open decision.
+3. If the reviewer flags nothing, present the round as all-clear and stop. Otherwise, sort the findings. A finding with one clear fix is an easy fix. A finding that needs a product or engineering decision is an open decision.
 4. Present the findings in the [review summary template](./assets/review-summary-template.md). Propose each easy fix. Ask the user about each open decision. Wait for the user's answers.
 5. Record each finding in the review log as accepted or rejected. Give the reason. Keep the log as free-form text.
 6. Apply the easy fixes and the accepted decisions before the next round. Return to step 2 with the updated log. Stop when a round returns no finding that you accept.

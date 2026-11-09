@@ -64,4 +64,4 @@ The review log below records earlier findings and the caller's decision on each 
 
 ## Response
 
-Do not edit any file. Return the findings.
+Do not edit any file. Return the findings. If no finding has a cost argument at realistic input sizes, flag nothing and say so in one line. Do not invent or pad findings to fill the response.

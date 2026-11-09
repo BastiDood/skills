@@ -1,6 +1,6 @@
-# Review Verdict
+# Review Flags
 
-<!-- 1-2 paragraphs on the overall outcome across all reviews. -->
+<!-- 1-2 paragraphs on the overall outcome across all reviews. Omit each section below whose review flags nothing. -->
 
 ## Spec Compliance
 

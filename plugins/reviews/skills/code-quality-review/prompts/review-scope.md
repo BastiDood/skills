@@ -201,3 +201,5 @@ The review log below records earlier findings and the caller's decision on each 
 ## Response
 
 Do not edit any file. Give each finding its location (`path:line`), the problem, the proposed restructuring, and whether one clear fix exists. State the severity of each finding plainly. Do not downgrade a structural problem to a suggestion. Order the findings as "Output Expectations" specifies.
+
+If the code meets the passing bar, flag nothing and say so in one line. Do not invent or pad findings to fill the response.
