@@ -39,4 +39,4 @@ function PendingRows({ items, isSaving, isPublishing }: PendingRowsProps) {
 }
 ```
 
-Do not combine values only to reduce the number of hooks. Keep each memo callback pure: `useMemo` does not run effects, and rendering must stay correct if React discards a cache.
+Do not combine values only to reduce the number of hooks. Keep each memo callback pure. `useMemo` does not run effects. Rendering must stay correct if React discards a cache.

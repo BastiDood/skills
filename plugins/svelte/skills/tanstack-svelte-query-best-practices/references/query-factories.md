@@ -1,6 +1,6 @@
 # Query Factories
 
-Define each entity's queries as `queryOptions()` factories grouped in one object. A factory returns the key, query function, and per-query options together, so `createQuery`, prefetching, cache reads, and invalidation share one definition. The same object owns key prefixes for broad invalidation; do not keep a separate key-factory object beside it.
+Define each entity's queries as `queryOptions()` factories grouped in one object. A factory returns the key, query function, and per-query options together to give `createQuery`, prefetching, cache reads, and invalidation one shared definition. The same object owns key prefixes for broad invalidation; do not keep a separate key-factory object beside it.
 
 ```typescript
 // job-queries.ts
@@ -25,7 +25,7 @@ export const jobQueries = {
 };
 ```
 
-Factories are plain functions of plain values, so they live in an ordinary `.ts` module without runes. Reactivity comes from the accessor passed to `createQuery`: it reads the current reactive inputs and calls the factory, so a changed input produces new options.
+As plain functions of plain values, factories live in an ordinary `.ts` module without runes. Reactivity comes from the accessor passed to `createQuery`: it reads the current reactive inputs and calls the factory to produce new options for a changed input.
 
 ```svelte
 <script lang="ts">
@@ -64,7 +64,7 @@ import type { QueryClient } from '@tanstack/svelte-query';
 import { jobQueries } from './job-queries';
 
 export function readCachedJob(queryClient: QueryClient, jobId: string) {
-	// The factory's key carries the data type, so this read needs no type argument.
+	// With the data type carried by the factory's key, this read needs no type argument.
 	const { queryKey } = jobQueries.detail(jobId);
 	return queryClient.getQueryData(queryKey);
 }

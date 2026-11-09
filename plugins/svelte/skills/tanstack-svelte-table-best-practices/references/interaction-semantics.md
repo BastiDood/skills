@@ -15,7 +15,7 @@ interface Person {
 
 const features = tableFeatures({ rowSelectionFeature });
 
-// BAD: "some" means at least one, so this stays true when every row is selected.
+// BAD: with "some" meaning at least one, this stays true when every row is selected.
 function isIndeterminateAtFullSelection(table: Table<typeof features, Person>) {
 	return table.getIsSomeRowsSelected();
 }
@@ -26,9 +26,9 @@ function isIndeterminate(table: Table<typeof features, Person>) {
 }
 ```
 
-`getIsSomeRowsSelected()` and `getIsSomePageRowsSelected()` return `true` when every row is selected, so derive the indeterminate state with the check above.
+Derive the indeterminate state with the check above. `getIsSomeRowsSelected()` and `getIsSomePageRowsSelected()` return `true` when every row is selected.
 
-Pin columns with logical sides, `column.pin('start')` and `column.pin('end')`, and use CSS logical properties so the layout works in both text directions.
+Pin columns with logical sides, `column.pin('start')` and `column.pin('end')`. Use CSS logical properties so the layout works in both text directions.
 
 ## Sort Defaults
 

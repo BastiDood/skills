@@ -33,7 +33,7 @@ fn main() {
 
 ## Hazard: Normalization is Fallible
 
-Normalization divides by the vector's length. A zero-length vector has no direction, so normalization must fail. Returning another ordinary `Vec3` forces every direction-consuming function to defend itself. In the failure case, a sentinel value like `None` (or worse, `NaN` or some other invalid value) must be propagated back to the caller.
+Normalization divides by the vector's length. Having no direction, a zero-length vector must fail normalization. Returning another ordinary `Vec3` forces every direction-consuming function to defend itself. In the failure case, a sentinel value like `None` (or worse, `NaN` or some other invalid value) must be propagated back to the caller.
 
 ```rust
 impl Vec3 {

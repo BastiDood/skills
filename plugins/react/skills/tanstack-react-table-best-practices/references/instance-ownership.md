@@ -1,6 +1,6 @@
 # Instance Ownership
 
-Call row, cell, column, and header methods through their owner. These methods live on shared prototypes, so destructuring or passing one as a bare callback loses its `this` binding.
+Call row, cell, column, and header methods through their owner. Destructuring one of these shared-prototype methods or passing it as a bare callback loses its `this` binding.
 
 ```typescript
 import { tableFeatures, type Row } from '@tanstack/react-table';

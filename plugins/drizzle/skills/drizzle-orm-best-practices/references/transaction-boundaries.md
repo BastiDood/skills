@@ -21,7 +21,7 @@ await db.transaction(async tx => {
 });
 ```
 
-Validate that `amount` is positive before the transaction. Drizzle has no general arithmetic helper, so the non-result-bearing update expressions are valid `sql` uses. The configured driver still parameterizes `amount`.
+Validate that `amount` is positive before the transaction. Without a general arithmetic helper in Drizzle, the non-result-bearing update expressions are valid `sql` uses. The configured driver still parameterizes `amount`.
 
 Let failures escape the transaction callback so Drizzle rolls the transaction back. Do not swallow a failure, continue after an invariant breaks, or perform undocumented compensating writes outside the failed transaction.
 

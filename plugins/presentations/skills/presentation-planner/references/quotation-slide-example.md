@@ -42,6 +42,6 @@ The visible title and setup compete with the quotation and reduce its impact. Th
 
 <rule_demonstrated>
 
-Treat a standalone blockquote as a quotation beat. Use the working title only for plan navigation, make the quotation the sole visible content, place its setup and attribution in presenter notes, and use `[Read slide.]` only because that exact quotation appears on the same slide.
+Treat a standalone blockquote as a quotation beat. Use the working title only for plan navigation, make the quotation the sole visible content, place its setup and attribution in presenter notes, and use `[Read slide.]` only with that exact quotation on the same slide.
 
 </rule_demonstrated>

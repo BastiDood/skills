@@ -28,7 +28,7 @@ Do not put a changing history under one span-attribute key. Setting the same key
 }
 ```
 
-Do not emit a successful-completion log merely because final attributes were set. The span's end timestamp, final attributes, and status already represent completion.
+Do not emit a successful-completion log only to report that final attributes were set. The span's end timestamp, final attributes, and status already represent completion.
 
 ## Describe Occurrences on Named Log Records
 
@@ -58,7 +58,7 @@ Wrap every loop execution in its own span so its duration, decisions, and iterat
 
 - Emit a `TRACE` log record for every loop iteration with safe, bounded iteration context.
 - Emit `DEBUG` records at meaningful decisions or selected branches.
-- Set final bounded counts and outcomes on the loop span, and end it even when an iteration fails.
+- Set final bounded counts and outcomes on the loop span and end it even when an iteration fails.
 - Keep changing iteration history in log records instead of overwriting span attributes.
 - Do not create one span per iteration by default. Create an iteration child span only when that iteration itself is a meaningful duration-bearing operation.
 
@@ -115,7 +115,7 @@ When no standard attribute applies:
 - Use snake_case inside a multi-word namespace component.
 - Keep names precise and stable.
 - Keep values bounded and suitable for aggregation.
-- Avoid an existing OpenTelemetry namespace because a future convention can collide with the custom name.
+- Avoid an existing OpenTelemetry namespace to keep a future convention from colliding with the custom name.
 
 ```jsonc
 // BAD: the names are ambiguous and can collide with semantic conventions.

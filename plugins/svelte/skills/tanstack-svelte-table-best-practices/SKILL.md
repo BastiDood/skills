@@ -20,7 +20,7 @@ Use Context7 for current documentation and DeepWiki for implementation details.
 Read the references that apply to the current task before writing or reviewing TanStack Svelte Table code.
 
 1. Treat columns as static schema and table behavior as instance-local capability.
-   - [Keep the table contract static and its capabilities feature-local](./references/table-contract.md). Pass per-instance callbacks through table meta, and reserve declaration merging for an intentional application-wide contract.
+   - [Keep the table contract static and its capabilities feature-local](./references/table-contract.md). Pass per-instance callbacks through table meta. Reserve declaration merging for an intentional application-wide contract.
 2. Provide changing rows reactively and render definitions through their table-owned context.
    - [Preserve reactive ownership](./references/reactive-ownership.md) with getter-backed options, narrow atom reads, and controlled slices that pair each change callback with its state value.
    - [Render definitions, components, and snippets through `FlexRender`](./references/cell-rendering.md) instead of invoking column definitions yourself, which skips aggregated and placeholder cells.

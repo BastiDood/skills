@@ -32,6 +32,6 @@ function BodyCell({ cell, table }: CellProps) {
 }
 ```
 
-`FlexRender` selects `aggregatedCell` for an aggregated cell and renders nothing for a placeholder cell. The standalone `flexRender(Comp, props)` function does neither, so it is not a substitute for the component.
+`FlexRender` selects `aggregatedCell` for an aggregated cell and renders nothing for a placeholder cell. The standalone `flexRender(Comp, props)` function does neither and is not a substitute for the component.
 
 Apply the same pattern to headers and footers through the `header` and `footer` props. `FlexRender` does not suppress placeholder headers; check `header.isPlaceholder` before rendering one.

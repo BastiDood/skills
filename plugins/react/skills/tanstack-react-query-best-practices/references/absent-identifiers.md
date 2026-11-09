@@ -1,6 +1,6 @@
 # Absent Identifiers and Defaulted Key Values
 
-Never default a value that flows into a query key. This covers `??` and `||` fallbacks, default parameters, and destructuring defaults whose binding reaches the key. A default fabricates request input: the cache stores a real response under an identity the caller never chose, and absence becomes indistinguishable from an explicit value.
+Never default a value that flows into a query key. This covers `??` and `||` fallbacks, default parameters, and destructuring defaults whose binding reaches the key. A default fabricates request input: the cache stores a real response under an identity the caller never chose, making absence indistinguishable from an explicit value.
 
 ```typescript
 import { queryOptions } from '@tanstack/react-query';
@@ -35,7 +35,7 @@ export const badQueries = {
 };
 ```
 
-Resolve a required input at the boundary that owns it, such as a parsed route schema or a required prop, and give the factory a required parameter. When an identifier is genuinely absent, preserve the absence in the key and select `skipToken`.
+Resolve a required input at the boundary that owns it, such as a parsed route schema or a required prop. Give the factory a required parameter. When an identifier is genuinely absent, preserve the absence in the key and select `skipToken`.
 
 ```typescript
 import { queryOptions, skipToken } from '@tanstack/react-query';
@@ -58,13 +58,13 @@ export const teamQueries = {
 };
 ```
 
-The key preserves the optional identifier's type. Selecting `skipToken` does not narrow the context value, so the query function guards its own ID before constructing the request. This avoids a cast, non-null assertion, or fake default. Call the factory unconditionally:
+The key preserves the optional identifier's type. Selecting `skipToken` does not narrow the context value. The query function guards its own ID before constructing the request. This avoids a cast, non-null assertion, or fake default. Call the factory unconditionally:
 
 ```tsx
 import { useQuery } from '@tanstack/react-query';
 
 function TeamReport({ teamId }: { teamId: string | undefined }) {
-	// GOOD: the hook always runs; `skipToken` keeps the request idle while `teamId` is absent.
+	// GOOD: the hook always runs. `skipToken` keeps the request idle while `teamId` is absent.
 	const { data, isPending, isError, error } = useQuery(teamQueries.report(teamId));
 	if (typeof teamId === 'undefined') return <p>Select a team</p>;
 	if (isPending) return <p>Loading report</p>;

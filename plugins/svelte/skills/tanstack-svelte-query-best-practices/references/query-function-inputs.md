@@ -30,7 +30,7 @@ export const itemQueries = {
 			queryKey: ['items', 'detail', itemId] as const,
 			queryFn: async ({ queryKey: [, , keyItemId], signal }) => await fetchItem(keyItemId, signal),
 		}),
-	// GOOD: the cursor comes from `pageParam`, so every page shares one key.
+	// GOOD: with the cursor from `pageParam`, every page shares one key.
 	feed: (categoryId: string) =>
 		infiniteQueryOptions({
 			queryKey: ['items', 'feed', categoryId] as const,
@@ -57,7 +57,7 @@ A component consumes these through accessors:
 
 	const { itemId, categoryId }: Props = $props();
 
-	// Each accessor reads the current props, so a changed prop produces a new key.
+	// Each accessor reads the current props to produce a new key for a changed prop.
 	const item = createQuery(() => itemQueries.detail(itemId));
 	const feed = createInfiniteQuery(() => itemQueries.feed(categoryId));
 </script>

@@ -1,6 +1,6 @@
 # Cache Identity
 
-Every application input that can change a query response belongs in its query key. Build the key inside the entity's `queryOptions()` factory, so fetching, prefetching, cache reads, and invalidation all address the same hierarchy.
+Every application input that can change a query response belongs in its query key. Build the key inside the entity's `queryOptions()` factory to make fetching, prefetching, cache reads, and invalidation all address the same hierarchy.
 
 ```typescript
 import { queryOptions } from '@tanstack/react-query';
@@ -18,7 +18,7 @@ declare function fetchJobs(filters: JobFilters, signal: AbortSignal): Promise<Jo
 
 export const jobQueries = {
 	all: () => ['jobs'] as const,
-	// BAD: `locale` changes the response but is missing from the key, so every locale shares one entry.
+	// BAD: `locale` changes the response but is missing from the key. Every locale shares one entry.
 	partialList: (filters: JobFilters) =>
 		queryOptions({
 			queryKey: ['jobs', 'list', filters.status] as const,
@@ -41,6 +41,6 @@ Put a second identity in a cursor only when it verifies a named compatibility in
 
 Do not include values that affect only rendering after the response arrives. Do not create separate key shapes for fetching and invalidation: invalidate one record with the `queryKey` destructured from its factory's options, and an entity family through a prefix such as `jobQueries.all()`.
 
-Use `readonly` literal tuples so keys preserve their exact structure. `as const` is appropriate here because these are literal cache-key constants, not a cast over uncertain data.
+Use `readonly` literal tuples so keys preserve their exact structure. `as const` is appropriate here for literal cache-key constants, not as a cast over uncertain data.
 
 Review cache identity whenever a request gains a new argument that can change the returned data.

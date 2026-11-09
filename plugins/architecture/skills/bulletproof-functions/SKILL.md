@@ -16,7 +16,7 @@ This reference features a language-agnostic set of highly opinionated guidelines
 
 This is worth asking because fundamentally, machine codes do not care about functions and only operate on assembly instructions. Functions are not hardware-level mechanisms for correctness, performance, or reliability; it has no bearing on the theoretical capabilities of the model of computation.
 
-A shallow view is that functions are meant to deduplicate logic for code reuse, hence style guides dogmatically enforcing the DRY principle (i.e., extraction upon `n > 1` occurrences). This is an unfortunately limited perspective because functions serve to abstract implementation details first and foremost. Functions are "bricks" that are laid out so that callers needn't zoom into the details anymore. Code reuse is a second-order effect of this abstraction, but should not be the primary motivation.
+A shallow view is that functions are meant to deduplicate logic for code reuse, hence style guides dogmatically enforcing the DRY principle (i.e., extraction upon `n > 1` occurrences). This perspective is unfortunately limited. Functions serve to abstract implementation details first and foremost. Functions are "bricks" that are laid out so that callers needn't zoom into the details anymore. Code reuse is a second-order effect of this abstraction, but should not be the primary motivation.
 
 We thus fundamentally agree on the following principles:
 
@@ -33,7 +33,7 @@ To align on a shared glossary for the rest of this reference, we define the foll
 - **Honest functions** fully communicate application-owned dependencies, nondeterministic external inputs, and side effects via their signature alone (i.e., in-parameters, out-parameters, and return values). These functions especially exhibit testable local reasoning. The caller injects stateful or configurable external resources that would otherwise be hidden.
 - **Dishonest functions** touch application-owned or stateful external resources (e.g., databases, file systems, networks, and global RNGs) or obtain nondeterministic external input that is not entirely communicated via their signature alone. Their implicit dependencies and effects prevent local reasoning.
 
-Language/runtime-owned primitives are not application dependencies merely because they are available through globals. Use stable APIs such as `crypto`, Web Crypto, `TextEncoder`, `TextDecoder`, `atob`, `btoa`, and equivalent standard-library primitives directly. Do not create factories, synthetic environment objects, dependency bags, or wrapper ports merely to inject them. This direct access does not make hidden nondeterminism or side effects honest: mutable, configurable, and policy-controlled global state remains external. Reserve dependency injection and explicit external handles for application-owned or stateful resources such as databases, network clients, file systems, configurable services, test-owned collaborators, and clocks when policy requires control.
+Availability through globals alone does not make language/runtime-owned primitives application dependencies. Use stable APIs such as `crypto`, Web Crypto, `TextEncoder`, `TextDecoder`, `atob`, `btoa`, and equivalent standard-library primitives directly. Do not create factories, synthetic environment objects, dependency bags, or wrapper ports merely to inject them. This direct access does not make hidden nondeterminism or side effects honest: mutable, configurable, and policy-controlled global state remains external. Reserve dependency injection and explicit external handles for application-owned or stateful resources such as databases, network clients, file systems, configurable services, test-owned collaborators, and clocks when policy requires control.
 
 Calling honest work does not erase a function's hidden dependencies. Keep application-owned dependencies explicit throughout the call graph. An injected callback is an explicit capability for handling a result, and may perform effects; this does not make the composition pure or expose dependencies hidden inside the callback implementation. Judge the callback's own honesty by the same dependency rule.
 
@@ -99,7 +99,7 @@ auto get_required_assets() {
 
 ```c
 // These are functions whose sole purpose is to perform a single unit of side effect/s to an external system.
-// Minimize the blast radius of these side effects, and let the more honest orchestrators handle control flow.
+// Minimize the blast radius of these side effects. Let the more honest orchestrators handle control flow.
 void draw_to_screen(const void*);
 ```
 

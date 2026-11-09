@@ -14,6 +14,6 @@ Keep the lookup identifiers of a skill dedicated to one external library in `SKI
 
 </library_sources_example>
 
-Use Context7 for current library documentation and DeepWiki when documentation is insufficient or conflicts with implementation. Verify identifiers before publishing them. Never invent a missing ID.
+Use Context7 for current library documentation and DeepWiki when documentation is insufficient or conflicts with implementation. Verify identifiers before publishing them; never invent a missing ID.
 
 Source identifiers make current documentation fetchable and remove the excuse for embedding a tutorial in the skill.

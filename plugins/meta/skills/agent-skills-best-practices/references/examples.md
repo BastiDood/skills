@@ -34,4 +34,4 @@ function SaveButton() {
 
 The second version calls `save` directly from the click handler, removing the extra state and effect. Explain that difference instead of narrating each line.
 
-Keep excerpts focused and identify omitted setup. Syntax and APIs must remain correct. Complete or runnable examples must compile on their own. Excerpts need not become standalone programs.
+Keep excerpts focused and identify omitted setup. Syntax and APIs must remain correct. Complete or runnable examples must compile on their own; excerpts need not become standalone programs.

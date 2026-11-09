@@ -14,7 +14,7 @@ Pass an accessor to `createQuery`. The Svelte adapter tracks reactive values rea
 
 	const { categoryId }: Props = $props();
 
-	// BAD: the factory runs once, so the options freeze at the initial category.
+	// BAD: the factory runs once and freezes the options at the initial category.
 	const options = itemQueries.list(categoryId);
 	const stale = createQuery(() => options);
 

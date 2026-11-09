@@ -9,7 +9,7 @@ OpenTelemetry defines exception fields and operation-outcome semantics. It does 
 ## Own Each Exception Record
 
 - Prefer the lowest useful instrumented operation boundary that owns the failure. The resulting record remains correlated with the most specific span and its bounded local context.
-- When that boundary recovers, retries, skips, or otherwise consumes the exception, record it there because no caller will receive it.
+- When that boundary recovers, retries, skips, or otherwise consumes the exception, no caller will receive it. Record it there.
 - When the exception propagates, preserve it unchanged or through native cause chaining so a caller retains the available causal history.
 - At the terminal request, job, command, consumer, or process boundary, record an escaping exception when application policy cannot establish that the same causal failure already has an application-owned exception record.
 
@@ -34,7 +34,7 @@ When an exception escapes an operation:
 5. Emit a stack-free contextual event only when the boundary performs an independently meaningful translation or transition that needs its own timestamp or occurrence-specific metadata.
 6. Throw the propagated exception.
 
-Do not catch a mere pass-through only to log or wrap it. Do not emit a translation event for every wrapper. Do not use `WARN` merely because a boundary wraps or rethrows an exception. Select severity from expected impact or an operation-specific semantic convention.
+Do not catch a mere pass-through only to log or wrap it. Do not emit a translation event for every wrapper. Wrapping or rethrowing an exception at a boundary does not justify `WARN`. Select severity from expected impact or an operation-specific semantic convention.
 
 ## Record Every Recovery
 
@@ -55,7 +55,7 @@ Treat each retry attempt as a distinct operation when attempt-level diagnostics 
 - Let the final exception propagate to the next owning boundary instead of recording that same attempt again at both the retry layer and the caller.
 - Keep the enclosing logical operation successful when a later attempt fulfills it. Mark it failed only when the retry strategy is exhausted and the operation fails.
 
-Do not suppress distinct attempt failures merely because retrying is a recovery strategy. Do not derive severity solely from the attempt number.
+Retrying as a recovery strategy does not justify suppressing distinct attempt failures. Do not derive severity solely from the attempt number.
 
 ## Preserve One Complete Exception Chain
 
@@ -67,7 +67,7 @@ OpenTelemetry standardizes `exception.type`, `exception.message`, and `exception
 
 When an adapter does not serialize native causes, format the complete chain into the single `exception.stacktrace` value in a shared telemetry adapter. Preserve cause order, bound depth and output size, detect cycles, and keep the outer exception as the primary `exception.type` unless an active semantic convention requires another value.
 
-Do not emit multiple exception logs merely to walk the cause tree. Multiple exception records are justified only when distinct instrumented operations own distinct failures, not because one exception wraps another.
+Do not emit multiple exception logs merely to walk the cause tree. Multiple exception records are justified only when distinct instrumented operations own distinct failures. One exception wrapping another does not justify them.
 
 ## Make Custom Errors Independently Analyzable
 
@@ -145,7 +145,7 @@ throw error;
 
 ### Record a Recovered Exception
 
-This recovery boundary supplies the exception because no outer boundary will receive it:
+No outer boundary will receive the exception. This recovery boundary supplies it:
 
 ```typescript
 logger.emit({

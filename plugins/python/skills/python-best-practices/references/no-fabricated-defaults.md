@@ -1,6 +1,6 @@
 # Do Not Fabricate Defaults
 
-Do not use `or` to supply a value for missing required data. `or` replaces every falsy operand, so it also overwrites valid values such as `0`, `False`, and `""`.
+Do not use `or` to supply a value for missing required data. `or` replaces every falsy operand, including valid values such as `0`, `False`, and `""`.
 
 ```python
 # BAD: changes missing data into a misleading valid-looking value.

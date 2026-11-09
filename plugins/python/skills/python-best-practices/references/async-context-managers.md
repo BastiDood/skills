@@ -1,6 +1,6 @@
 # Own Async Resource Lifetimes
 
-Expose an async context manager when a resource needs cleanup. Construct a fully valid resource before yielding it, and release it in the same scope that acquired it.
+Expose an async context manager when a resource needs cleanup. Construct a fully valid resource before yielding it and release it in the same scope that acquired it.
 
 ```python
 from collections.abc import AsyncGenerator

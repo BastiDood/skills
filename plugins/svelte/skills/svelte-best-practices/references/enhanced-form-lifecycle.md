@@ -1,6 +1,6 @@
 # Enhanced Form Lifecycle
 
-Use `use:enhance` without a callback when its default reset, invalidation, and action-result behavior is sufficient. A custom submit callback replaces that behavior, so call `update()` deliberately.
+Use `use:enhance` without a callback when its default reset, invalidation, and action-result behavior is sufficient. A custom submit callback replaces that behavior. Call `update()` deliberately.
 
 ```svelte
 <!-- BAD: a custom callback replaces SvelteKit defaults and never restores them. -->

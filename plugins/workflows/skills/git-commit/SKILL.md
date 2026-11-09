@@ -11,7 +11,7 @@ Turn the current working-tree changes into a clear, reviewable sequence of check
 ## Workflow
 
 1. Inspect all staged and unstaged changes. Identify the cohesive slices of work that belong in separate commits.
-   - Use genuine, independently understandable work slices. Do not split changes into overly granular commits merely because they can be separated.
+   - Use genuine, independently understandable work slices. Do not split changes into overly granular commits only because they can be separated.
    - Keep the repository in a consistent state after each proposed commit.
    - Identify dependencies between slices.
 2. Select the next slice and stage all files and relevant subsets or hunks that belong to it.

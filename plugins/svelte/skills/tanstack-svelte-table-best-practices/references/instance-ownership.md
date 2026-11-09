@@ -1,6 +1,6 @@
 # Instance Ownership
 
-Call methods on their row, cell, column, or header. These methods live on shared prototypes, so extracting one loses its receiver.
+Call methods on their row, cell, column, or header. Extracting one of these shared-prototype methods loses its receiver.
 
 ```typescript
 import { tableFeatures, type Row } from '@tanstack/svelte-table';

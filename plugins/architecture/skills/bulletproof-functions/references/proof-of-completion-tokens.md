@@ -40,11 +40,11 @@ fn main() -> std::io::Result<()> {
 }
 ```
 
-The token proves that the first write succeeded. The second write can still fail, so its result remains fallible. Consuming the token prevents reusing the same receipt for another second step.
+The token proves that the first write succeeded. The second write can still fail and returns a fallible result. Consuming the token prevents reusing the same receipt for another second step.
 
 ## Example: Named Lock Guards in Rust and C++
 
-Mutexes serialize resource access, and it's often helpful to encode the critical section as a named lock guard. Rust's mutex guard carries access to the protected value, so the function can require that guard instead of accepting an arbitrary mutable reference.
+Mutexes serialize resource access. Encoding the critical section as a named lock guard is often helpful. With Rust's mutex guard carrying access to the protected value, the function can require that guard instead of accepting an arbitrary mutable reference.
 
 ```rust
 use std::sync::{Mutex, MutexGuard};

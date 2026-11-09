@@ -28,7 +28,7 @@ const [state, setState] = useState<RequestStatus>(RequestStatus.Idle);
 setState(RequestStatus.Loading);
 ```
 
-The explicit generic is necessary because the state must represent more members than its initial value.
+The explicit generic is necessary for a state that must represent more members than its initial value.
 
 Use an explicit type when an API cannot infer its intended value shape.
 

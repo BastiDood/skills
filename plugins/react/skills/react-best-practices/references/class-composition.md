@@ -12,7 +12,7 @@ const className = cn(baseClass, { 'bg-accent': isSelected });
 // GOOD: no composition or merging is needed.
 const staticClassName = 'flex items-center';
 
-// GOOD: alternatives select one value; incoming overrides still need merging.
+// GOOD: alternatives select one value. Incoming overrides still need merging.
 const variantClassName = cn(isCompact ? compactClass : regularClass, incomingClass);
 ```
 

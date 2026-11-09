@@ -42,6 +42,6 @@ function DocumentSelection({ documents }: DocumentSelectionProps) {
 }
 ```
 
-The current authoritative records determine visibility, so removed records disappear from the derived selection without an effect, query-client subscription, or render-time store write. A temporarily absent paginated row is not deletion unless the feature's contract says so. Place override state at the editor's intended lifetime and reset that owner when its domain identity changes.
+With the current authoritative records determining visibility, removed records disappear from the derived selection without an effect, query-client subscription, or render-time store write. A temporarily absent paginated row is not deletion unless the feature's contract says so. Place override state at the editor's intended lifetime and reset that owner when its domain identity changes.
 
 Keep absent query collections referentially stable when downstream memoization or subscriptions observe their identity. Reuse an existing stable empty value or memoize the complete derivation; a one-shot local `?? []` needs no identity mechanism.

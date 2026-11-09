@@ -18,7 +18,7 @@ const AccountChange = z
 	);
 ```
 
-One `.refine()` predicate produces one issue, so the form cannot tell which confirmations failed when both are wrong.
+With one issue from one `.refine()` predicate, the form cannot tell which confirmations failed when both are wrong.
 
 ```typescript
 // GOOD: Report Each Relationship Failure at Its Field

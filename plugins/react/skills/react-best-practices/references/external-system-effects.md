@@ -2,7 +2,7 @@
 
 Default to no effect. Treat `useEffect` as an escape hatch used only to synchronize React with a system that React does not control.
 
-An effect is data-reactive: React reruns it because a synchronization input changed. An event handler is event-based: it runs because a discrete event occurred. Do not call event handling effect handling, and do not route an event through state so an effect can react to it.
+An effect is data-reactive: React reruns it because a synchronization input changed. An event handler is event-based: it runs because a discrete event occurred. Do not call event handling effect handling. Do not route an event through state so an effect can react to it.
 
 ```tsx
 // BAD: a click is an event, not a synchronization input.

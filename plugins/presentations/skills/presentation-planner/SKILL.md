@@ -72,7 +72,7 @@ Format the passage as a semantic Markdown hierarchy:
 - Use one sentence per bullet unless tightly coupled sentences lose meaning when separated.
 - Split long sentences at a colon, semicolon, dash, or strong comma. Make dependent continuations children and independent continuations siblings; preserve the words, order, and boundary punctuation.
 - Preserve source-authored list depth. Indent introduced lists once and their nested items again; use levels 0–2 unless the source requires more.
-- Allow several level-0 groups on one slide when they form one deliverable beat. Treat list markers and indentation as non-spoken structure, and use the pacing diagnostics below without forcing a split.
+- Allow several level-0 groups on one slide when they form one deliverable beat. Treat list markers and indentation as non-spoken structure and use the pacing diagnostics below without forcing a split.
 
 Presenter notes may contain several paragraphs, level-0 groups, and supporting ideas that have no separate visible counterpart. Use `[Read slide.]` in either of two ways:
 
@@ -157,7 +157,7 @@ Assign the simplest fitting form:
 
 Follow the plan template. Format presenter notes first, then derive a selective visual abstraction through the "Copy-Level Scope". Do not mirror the note hierarchy or force every note group onto the slide. Use direct alignment unless the script deliberately previews the next visible idea; record bridge alignment in "Slide Treatment".
 
-Before writing the plan, read the [complete presentation-plan template](./references/presentation-plan-template.md). Follow its required headings and field guidance. Use ordinary Markdown headings, paragraphs, lists, blockquotes, and fenced code, and keep the plan readable by a human.
+Before writing the plan, read the [complete presentation-plan template](./references/presentation-plan-template.md). Follow its required headings and field guidance. Use ordinary Markdown headings, paragraphs, lists, blockquotes, and fenced code. Keep the plan readable by a human.
 
 Include only applicable production elements. Omit fields and subsections that would otherwise say `None`, `N/A`, or restate why an element is unnecessary.
 

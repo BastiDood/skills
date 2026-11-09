@@ -24,7 +24,7 @@ Do not import an entry from inside its own subsystem. An internal module-root or
 Imports must preserve the recursive boundary:
 
 ```text
-# GOOD: callers and parents use entries; implementation leaves stay private.
+# GOOD: callers and parents use entries. Implementation leaves stay private.
 page                 -> task-board/index
 task-board/index     -> filter/index
 task-board/index     -> edit/index

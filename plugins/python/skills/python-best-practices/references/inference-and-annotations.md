@@ -2,7 +2,7 @@
 
 Strongly prefer inferred return types. Omit a return annotation whenever the implementation and type checker already communicate the precise result, including for ordinary public functions.
 
-Annotate parameters because the implementation cannot infer the caller contract from their use. Annotate empty collections and other values whose intended type cannot be inferred accurately.
+Annotate parameters with the caller contract that the implementation cannot infer from their use. Annotate empty collections and other values whose intended type cannot be inferred accurately.
 
 ```python
 from collections.abc import Iterable

@@ -44,7 +44,7 @@ function getStatusColor(status: Status) {
 }
 ```
 
-An exhaustive `switch` needs no `default`. TypeScript already treats the end of the `switch` as unreachable, so a `default` that returns, throws, or logs is dead code.
+An exhaustive `switch` needs no `default`. TypeScript already treats the end of the `switch` as unreachable. A `default` that returns, throws, or logs is dead code.
 
 Add a `default` only when the switched type is open, such as `string` or `number`, and the remaining values share one defined behavior.
 

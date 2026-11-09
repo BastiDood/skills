@@ -29,7 +29,7 @@ async function submit(event: FormEvent<HTMLFormElement>) {
 	await createItem(input);
 }
 
-// No live value is rendered, so named uncontrolled fields suffice.
+// With no live value rendered, named uncontrolled fields suffice.
 function ItemForm() {
 	return (
 		<form onSubmit={submit}>
@@ -67,4 +67,4 @@ function ItemFormWithFeedback() {
 }
 ```
 
-Live validation feedback does not replace parsing at submission. Server-callable boundaries must also enforce their own input and authorization contracts regardless of a typed caller. Keep pending, failure, and reset behavior with the operation owner, and preserve `textarea` newline behavior and explicit shortcuts.
+Live validation feedback does not replace parsing at submission. Server-callable boundaries must also enforce their own input and authorization contracts regardless of a typed caller. Keep pending, failure, and reset behavior with the operation owner. Preserve `textarea` newline behavior and explicit shortcuts.

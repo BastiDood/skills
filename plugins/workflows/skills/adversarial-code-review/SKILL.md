@@ -5,7 +5,7 @@ description: Use when independently and adversarially reviewing completed implem
 
 # Adversarial Code Review
 
-Use an independent reviewer to challenge completed changes against the agreed plan or specification, so that the final result has verified alignment and clear follow-up actions.
+Use an independent reviewer to challenge completed changes against the agreed plan or specification to give the final result verified alignment and clear follow-up actions.
 
 ## Workflow
 
@@ -14,4 +14,4 @@ Use an independent reviewer to challenge completed changes against the agreed pl
 3. Present the findings with a consistent verdict, deviation, and recommendation structure.
    - [Follow the review summary template.](./assets/review-summary-template.md)
 
-The "Concrete Recommendations" section is particularly critical because it determines the possible next phase of the work.
+The "Concrete Recommendations" section is particularly critical. It determines the possible next phase of the work.

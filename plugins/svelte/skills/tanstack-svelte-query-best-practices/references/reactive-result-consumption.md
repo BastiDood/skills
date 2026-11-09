@@ -1,6 +1,6 @@
 # Reactive Result Consumption
 
-Svelte query and mutation results are `Proxy` objects whose properties resolve dynamically. Consumers must not destructure them, including results returned by mutation wrappers. Destructuring reads each property once, so the extracted values stop updating. Retain the result object and read its properties directly in reactive contexts. Call methods through the object, too: `query.refetch`, `mutation.mutate`, and `mutation.mutateAsync`.
+Svelte query and mutation results are `Proxy` objects whose properties resolve dynamically. Consumers must not destructure them, including results returned by mutation wrappers. Destructuring reads each property once. The extracted values stop updating. Retain the result object and read its properties directly in reactive contexts. Call methods through the object, too: `query.refetch`, `mutation.mutate`, and `mutation.mutateAsync`.
 
 ```svelte
 <script lang="ts">

@@ -30,7 +30,7 @@ function BadTeamReport({ teamId }: { teamId: string }) {
 	return <p>{report ?? 'Loading report'}</p>;
 }
 
-// GOOD: the query factory defines the operation; TanStack Query runs it.
+// GOOD: the query factory defines the operation. TanStack Query runs it.
 const teamQueries = {
 	report: (teamId: string) =>
 		queryOptions({
@@ -57,8 +57,8 @@ For an infinite query, the factory owns page acquisition and continuation throug
 
 Do not call `useQueryClient()` in components to fetch, read, write, or invalidate cache entries; let `useQuery` own reads and mutation definitions own writes through `context.client`. Two cases are allowed because no hook expresses them:
 
-- Prefetch on hover or focus, so the request starts before navigation needs it.
-- Ensure data in an event handler, which returns cached data or fetches it once before the handler acts.
+- Prefetch on hover or focus to start the request before navigation needs it.
+- Ensure data in an event handler to return cached data or fetch it once before the handler acts.
 
 ```tsx
 import { startTransition } from 'react';
@@ -89,7 +89,7 @@ function JobLink({ jobId }: { jobId: string }) {
 			try {
 				await queryClient.query(jobQueries.detail(jobId));
 			} catch {
-				// A failed prefetch stays silent; the query that renders the job reports the error.
+				// A failed prefetch stays silent. The query that renders the job reports the error.
 			}
 		});
 	}
@@ -116,4 +116,4 @@ function JobLink({ jobId }: { jobId: string }) {
 }
 ```
 
-Use `queryClient.query()` for both cases, never `prefetchQuery()` or `ensureQueryData()`. A prefetch catches and ignores its error; an ensure sets `staleTime: 'static'`. Keep each `try` block around the `query()` call alone, so errors from the follow-up action are not reported as load failures.
+Use `queryClient.query()` for both cases, never `prefetchQuery()` or `ensureQueryData()`. A prefetch catches and ignores its error. An ensure sets `staleTime: 'static'`. Wrap only the `query()` call in each `try` block to keep errors from the follow-up action out of the load-failure path.

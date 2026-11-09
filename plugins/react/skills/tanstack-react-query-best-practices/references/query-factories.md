@@ -1,6 +1,6 @@
 # Query Factories
 
-Define each entity's queries as `queryOptions()` factories grouped in one object. A factory returns the key, query function, and per-query options together, so `useQuery`, `useSuspenseQuery`, prefetching, cache reads, and invalidation share one definition. The same object owns key prefixes for broad invalidation; do not keep a separate key-factory object beside it.
+Define each entity's queries as `queryOptions()` factories grouped in one object. A factory returns the key, query function, and per-query options together to give `useQuery`, `useSuspenseQuery`, prefetching, cache reads, and invalidation one shared definition. The same object owns key prefixes for broad invalidation; do not keep a separate key-factory object beside it.
 
 ```typescript
 import { queryOptions } from '@tanstack/react-query';
@@ -56,13 +56,13 @@ function JobTitle({ jobId }: { jobId: string }) {
 }
 ```
 
-Address cached data through the factory's `queryKey`, and spread the factory to add observer-specific options.
+Address cached data through the factory's `queryKey`. Spread the factory to add observer-specific options.
 
 ```tsx
 import { type QueryClient, useQuery } from '@tanstack/react-query';
 
 function readCachedJob(queryClient: QueryClient, jobId: string) {
-	// The factory's key carries the data type, so this returns `Job | undefined` without a type argument.
+	// With the data type carried by the factory's key, this returns `Job | undefined` without a type argument.
 	const { queryKey } = jobQueries.detail(jobId);
 	return queryClient.getQueryData(queryKey);
 }

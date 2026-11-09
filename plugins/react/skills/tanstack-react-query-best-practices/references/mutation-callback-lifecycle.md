@@ -35,7 +35,7 @@ function BadJobForm() {
 	return null;
 }
 
-// GOOD: the mutation owns status; its call site owns the mounted consequence.
+// GOOD: the mutation owns status. Its call site owns the mounted consequence.
 function JobForm() {
 	const { mutate, isPending, error } = useUpdateJob();
 
@@ -47,13 +47,13 @@ function JobForm() {
 }
 ```
 
-Use `onSuccess` for success consequences and `onError` for expected failure presentation. Per-call callbacks do not run if the component unmounts before the mutation finishes, and consecutive `mutate` calls fire them only once, for the last call. Put required persistence, cache policy, and operation-owned cleanup in the mutation definition, whose callbacks run for every invocation.
+Use `onSuccess` for success consequences and `onError` for expected failure presentation. Per-call callbacks do not run if the component unmounts before the mutation finishes. Consecutive `mutate` calls fire them only once, for the last call. Put required persistence, cache policy, and operation-owned cleanup in the mutation definition to run them for every invocation.
 
 Read pending and errors from their existing owner instead of clearing duplicate local flags in `onSettled`. Use `onSettled` only for real operation-owned cleanup required after either result.
 
 ## Concurrent Invocations
 
-Use `mutateAsync` only inside a `Promise.*` combinator, when one mutation runs concurrently for several inputs and the caller awaits them together. Per-call callbacks cannot express that consequence, because only the last call's callbacks fire.
+Use `mutateAsync` only inside a `Promise.*` combinator, when one mutation runs concurrently for several inputs and the caller awaits them together. Only the last call's callbacks fire. Per-call callbacks cannot express that consequence.
 
 ```tsx
 import { startTransition } from 'react';

@@ -18,4 +18,4 @@ const rows = parseIsolationRows(result.rows);
 
 Keep the statement static. Interpolate values only through Drizzle's SQL template so the driver receives parameters instead of concatenated SQL.
 
-Document the missing builder or helper beside the boundary. Keep driver-specific result handling there because raw execution result shapes differ across drivers.
+Document the missing builder or helper beside the boundary. Keep driver-specific result handling there to contain raw execution result shapes that differ across drivers.

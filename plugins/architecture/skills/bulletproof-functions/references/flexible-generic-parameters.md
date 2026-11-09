@@ -3,7 +3,7 @@
 Empathetic functions show consideration for the caller by minimizing the constraints/preconditions that it imposes on the caller.
 
 ```cpp
-// This is a bad example because it unnecessarily imposes order and contiguity constraints on the caller.
+// This bad example unnecessarily imposes order and contiguity constraints on the caller.
 // Worse: the signature incorrectly imposes that a dynamically sized container is necessary (when it's not).
 // It's not fair for this function to dictate those constraints on the caller!
 void iterate_values(const std::vector<int>& values) {
@@ -22,7 +22,7 @@ int main() {
 ## Solution: Allowing Any Contiguous Sequence
 
 ```cpp
-// This is better because type erasure allows any array-like contiguous sequence.
+// This better example uses type erasure to allow any array-like contiguous sequence.
 void iterate_values(const std::span<const int> values) {
     for (const auto& value : values) {
         // ...

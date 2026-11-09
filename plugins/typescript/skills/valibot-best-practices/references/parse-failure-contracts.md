@@ -36,7 +36,7 @@ function parseCountsRepeatedly(rows: readonly string[]) {
 ```
 
 ```typescript
-// GOOD: invalid provider rows abort; construction belongs to the schema owner.
+// GOOD: invalid provider rows abort. Construction belongs to the schema owner.
 const Count = v.pipe(v.string(), v.toNumber(), v.integer(), v.minValue(0));
 const parseCount = v.parser(Count);
 function parseCounts(rows: readonly string[]) {

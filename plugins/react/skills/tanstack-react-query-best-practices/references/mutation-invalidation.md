@@ -1,6 +1,6 @@
 # Mutation Invalidation
 
-Invalidate the cache entry identified by successful mutation variables, from the mutation definition's `onSuccess`, through the callback context's `QueryClient`. Await or return the `invalidateQueries` promise: TanStack Query awaits a promise returned from `onSuccess`, so the mutation stays pending until the refetch completes.
+Invalidate the cache entry identified by successful mutation variables, from the mutation definition's `onSuccess`, through the callback context's `QueryClient`. Await or return the `invalidateQueries` promise to keep the mutation pending until the refetch completes. TanStack Query awaits a promise returned from `onSuccess`.
 
 ```typescript
 import { queryOptions, useMutation } from '@tanstack/react-query';
@@ -22,7 +22,7 @@ const jobQueries = {
 		}),
 };
 
-// BAD: the floating promise lets the mutation settle before the refetch, and every edit invalidates unrelated records.
+// BAD: the floating promise lets the mutation settle before the refetch. Every edit invalidates unrelated records.
 function useBroadUpdateJob() {
 	return useMutation({
 		mutationFn: updateJob,
@@ -32,7 +32,7 @@ function useBroadUpdateJob() {
 	});
 }
 
-// GOOD: mutation variables identify the stale entry, and the mutation stays pending until it refetches.
+// GOOD: mutation variables identify the stale entry. The mutation stays pending until it refetches.
 export function useUpdateJob() {
 	return useMutation({
 		mutationFn: updateJob,

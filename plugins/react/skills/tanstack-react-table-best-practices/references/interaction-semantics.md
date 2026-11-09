@@ -13,7 +13,7 @@ interface Person {
 
 const features = tableFeatures({ rowSelectionFeature });
 
-// BAD: "some" means at least one, so this stays true when every row is selected.
+// BAD: with "some" meaning at least one, this stays true when every row is selected.
 function isIndeterminateAtFullSelection(table: Table<typeof features, Person>) {
 	return table.getIsSomeRowsSelected();
 }
@@ -24,7 +24,7 @@ function isIndeterminate(table: Table<typeof features, Person>) {
 }
 ```
 
-`getIsSomeRowsSelected()` and `getIsSomePageRowsSelected()` return `true` when every row is selected, so derive the indeterminate state with the check above.
+Derive the indeterminate state with the check above. `getIsSomeRowsSelected()` and `getIsSomePageRowsSelected()` return `true` when every row is selected.
 
 Use `start`/`end` pinning and CSS logical insets so pinning also works with right-to-left text.
 

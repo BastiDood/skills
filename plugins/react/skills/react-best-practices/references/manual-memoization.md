@@ -1,6 +1,6 @@
 # Manual Memoization
 
-Use `useMemo` for every pure render-time computation worse than O(1): O(log n) search, O(n) scan or reduction, O(n log n) sorting, and more expensive work. Result shape is irrelevant: a count is scalar, and a single result from `some`, `find`, or `includes` can still require a scan. Keep O(1) derivations inline.
+Use `useMemo` for every pure render-time computation worse than O(1): O(log n) search, O(n) scan or reduction, O(n log n) sorting, and more expensive work. Result shape is irrelevant: a scalar count or a single result from `some`, `find`, or `includes` can still require a scan. Keep O(1) derivations inline.
 
 Apply this rule with or without React Compiler. Profiling is not a prerequisite.
 

@@ -46,6 +46,6 @@ function PeopleTable({ data }: { data: Person[] }) {
 }
 ```
 
-A slice owned through the `atoms` option is the exception: the external atom owns both the value and its updates, so it needs no `on[State]Change` callback. External atoms take precedence over external `state`; give each slice exactly one owner.
+A slice owned through the `atoms` option is the exception. With the external atom owning both the value and its updates, the slice needs no `on[State]Change` callback. External atoms take precedence over external `state`; give each slice exactly one owner.
 
 Read state at the narrowest boundary. `table.atoms.<slice>.get()` reads one slice, but in React it is not a subscription; use it in event handlers and other non-render code. For rendered state, use the `useTable` selector, `table.Subscribe`, or the standalone `Subscribe` with an atom `source`. Read the full `table.store` snapshot only for debug output or a computation that needs every slice.

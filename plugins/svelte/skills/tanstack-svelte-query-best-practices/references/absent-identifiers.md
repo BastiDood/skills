@@ -1,6 +1,6 @@
 # Absent Identifiers and Defaulted Key Values
 
-Never default a value that flows into a query key. This covers `??` and `||` fallbacks, default parameters, and destructuring defaults whose binding reaches the key. A default fabricates request input: the cache stores a real response under an identity the caller never chose, and absence becomes indistinguishable from an explicit value.
+Never default a value that flows into a query key. This covers `??` and `||` fallbacks, default parameters, and destructuring defaults whose binding reaches the key. A default fabricates request input: the cache stores a real response under an identity the caller never chose, making absence indistinguishable from an explicit value.
 
 ```typescript
 import { queryOptions } from '@tanstack/svelte-query';
@@ -34,7 +34,7 @@ export const badQueries = {
 };
 ```
 
-Resolve a required input at the boundary that owns it, such as a parsed route schema or a required prop, and give the factory a required parameter. When an identifier is genuinely absent, preserve the absence in the key and select `skipToken`.
+Resolve a required input at the boundary that owns it, such as a parsed route schema or a required prop. Give the factory a required parameter. When an identifier is genuinely absent, preserve the absence in the key and select `skipToken`.
 
 ```typescript
 import { queryOptions, skipToken } from '@tanstack/svelte-query';
@@ -57,7 +57,7 @@ export const jobQueries = {
 };
 ```
 
-Choosing `skipToken` from the factory's argument does not narrow the optional ID in the query-function context, so guard the key-derived ID before the request. This avoids a cast, non-null assertion, or fake default. Create the query unconditionally:
+Choosing `skipToken` from the factory's argument does not narrow the optional ID in the query-function context. Guard the key-derived ID before the request. This avoids a cast, non-null assertion, or fake default. Create the query unconditionally:
 
 ```svelte
 <script lang="ts">
@@ -71,7 +71,7 @@ Choosing `skipToken` from the factory's argument does not narrow the optional ID
 
 	const { jobId }: Props = $props();
 
-	// GOOD: the query always exists; `skipToken` keeps the request idle while `jobId` is absent.
+	// GOOD: the query always exists. `skipToken` keeps the request idle while `jobId` is absent.
 	const query = createQuery(() => jobQueries.optionalDetail(jobId));
 </script>
 ```

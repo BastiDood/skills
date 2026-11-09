@@ -13,7 +13,7 @@ A meaningful test protects an exact project-owned invariant with an independentl
 
 Test behavior that the project owns. Assume third-party libraries are correct and already tested.
 
-Add a test only when it can fail because project-owned behavior is wrong.
+Add a test only when wrong project-owned behavior can make it fail.
 
 Before adding or retaining a test, require all of the following:
 

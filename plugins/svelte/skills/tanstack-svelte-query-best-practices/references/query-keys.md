@@ -1,6 +1,6 @@
 # Cache Identity
 
-Every application input that can change a query response belongs in its query key. Build the key inside the entity's `queryOptions()` factory, so fetching, prefetching, cache reads, and invalidation all address the same hierarchy.
+Every application input that can change a query response belongs in its query key. Build the key inside the entity's `queryOptions()` factory to make fetching, prefetching, cache reads, and invalidation all address the same hierarchy.
 
 ```typescript
 import { queryOptions } from '@tanstack/svelte-query';
@@ -14,7 +14,7 @@ declare function fetchItems(filters: ItemFilters, signal: AbortSignal): Promise<
 
 export const itemQueries = {
 	all: () => ['items'] as const,
-	// BAD: `locale` changes the response but is missing from the key, so every locale shares one entry.
+	// BAD: `locale` changes the response but is missing from the key. Every locale shares one entry.
 	partialList: (filters: ItemFilters) =>
 		queryOptions({
 			queryKey: ['items', 'list', filters.status] as const,
@@ -31,7 +31,7 @@ export const itemQueries = {
 };
 ```
 
-Include filters, sorting, locale, tenant, page size, and other response-changing inputs. A paginated query includes its page in the key. An infinite query receives its cursor through `pageParam`, so its pages form one keyed result.
+Include filters, sorting, locale, tenant, page size, and other response-changing inputs. A paginated query includes its page in the key. An infinite query receives its cursor through `pageParam` to make its pages form one keyed result.
 
 Put a second identity in a cursor only when it verifies a named compatibility invariant; it does not prove pagination correctness or efficiency. Keep presentation-only values outside the key and query function. Never include tokens, API keys, cookies, authorization codes, other credentials, functions, clients, or `AbortSignal` instances in a key.
 

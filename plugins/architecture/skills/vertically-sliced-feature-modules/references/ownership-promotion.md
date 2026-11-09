@@ -42,4 +42,4 @@ Shared UI primitives, integration transports, persistence infrastructure, protoc
 
 If one feature needs behavior that belongs to another feature, do not import the owning feature. Promote only the genuinely common behavior, then let both features depend on the lower owner. If the consumers require different policy, keep separate feature-local implementations instead of forcing them behind a generic abstraction.
 
-Do not promote code because it looks reusable. Wait until production consumers prove one stable contract.
+Do not promote code on reusable appearance alone. Wait until production consumers prove one stable contract.

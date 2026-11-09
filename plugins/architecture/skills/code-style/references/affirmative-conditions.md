@@ -10,6 +10,6 @@ if (!request.isInvalid) execute(request);
 if (request.isValid) execute(request);
 ```
 
-Do not create an inverse name only to avoid one necessary negation. `if (!request.isAuthenticated)` is clear because the underlying concept is affirmative. The target is semantic clarity, not the mechanical removal of every `!`.
+Do not create an inverse name only to avoid one necessary negation. The affirmative underlying concept keeps `if (!request.isAuthenticated)` clear. The target is semantic clarity, not the mechanical removal of every `!`.
 
 During review, rewrite conditions that require mental truth tables or repeated negation.

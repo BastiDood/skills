@@ -29,4 +29,4 @@ Read the references that apply to the current task before writing or reviewing T
    - [Narrow optional values with `typeof` guards before required calls](./references/optional-value-narrowing.md), or preserve absence in the return or state contract when it is expected.
    - [Do not fabricate a default for missing required input](./references/no-fabricated-defaults.md) unless the domain contract assigns that exact omitted-value meaning.
    - [Narrow indexed access and destructured bindings](./references/indexed-access-and-destructuring.md) before required use when `noUncheckedIndexedAccess` preserves possible absence.
-   - [Validate a required regular-expression capture first](./references/regex-capture-groups.md) because named and positional groups can be absent.
+   - [Validate a required regular-expression capture first](./references/regex-capture-groups.md). Named and positional groups can be absent.

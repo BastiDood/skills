@@ -29,7 +29,7 @@ interface User {
 	name: string;
 }
 
-// GOOD: a throwing declaration can infer `void`; `never` states that it cannot return.
+// GOOD: a throwing declaration can infer `void`. `never` states that it cannot return.
 function fail(message: string): never {
 	throw new Error(message);
 }
@@ -96,7 +96,7 @@ const values = ['Ada', 0, '', 42];
 // BAD: the explicit predicate repeats inference and can assert an incorrect result.
 const assertedNames = values.filter((value): value is string => typeof value === 'string');
 
-// GOOD: the callback infers `string[]`; retain `filter` instead of substituting `flatMap`.
+// GOOD: the callback infers `string[]`. Retain `filter` instead of substituting `flatMap`.
 const names = values.filter(value => typeof value === 'string');
 
 const candidates = [
@@ -123,7 +123,7 @@ export function summarize(rows: readonly number[]) {
 	return { count: rows.length, total: rows.reduce((sum, value) => sum + value, 0) };
 }
 
-// Export a contract only when consumers need it; reuse an existing domain/schema
+// Export a contract only when consumers need it. Reuse an existing domain/schema
 // type or an owner-local alias. No return annotation or forwarding wrapper is needed.
 export type Summary = ReturnType<typeof summarize>;
 ```

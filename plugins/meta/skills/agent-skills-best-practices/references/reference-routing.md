@@ -4,7 +4,7 @@ Link every reference exactly once from `SKILL.md` with an explicit `./` relative
 
 Put the governing hook before progressive disclosure so the agent learns the triggering situation, opinion, or failure mode without opening the reference. Hyperlink the phrase that names the relevant decision.
 
-Use the smallest structure that expresses the guidance clearly. A router can be an inline citation, one list item, or an indented link beneath a parent strategy shared by several references. Hierarchical lists are appropriate when the parent states the shared opinion and each child names a distinct decision. Do not repeat the parent synopsis in every child.
+Use the smallest structure that expresses the guidance clearly. A router can be an inline citation, one list item, or an indented link beneath a parent strategy shared by several references. Hierarchical lists are appropriate when the parent states the shared opinion and each child names a distinct decision; do not repeat the parent synopsis in every child.
 
 <reference_routing_examples>
 
@@ -42,4 +42,4 @@ Use the smallest structure that expresses the guidance clearly. A router can be 
 
 </reference_routing_examples>
 
-Keep each router to one sentence. A parent hook may add enough prose and hierarchy to communicate the governing opinion. The linked reference owns the procedural details.
+Keep each router to one sentence; a parent hook may add enough prose and hierarchy to communicate the governing opinion. The linked reference owns the procedural details.

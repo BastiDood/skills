@@ -70,7 +70,7 @@ Slide 3:
 
 <why_the_anti_example_fails>
 
-It creates one slide per paragraph, mirrors full note sentences, treats a clipped sentence plus ellipsis as compression, and uses a sentence prefix that does not express a complete concept. The three source groups make one cumulative audience point and share one visual state, so one compact slide can support the entire scripted passage.
+It creates one slide per paragraph, mirrors full note sentences, treats a clipped sentence plus ellipsis as compression, and uses a sentence prefix that does not express a complete concept. One compact slide can support the entire scripted passage of three source groups that make one cumulative audience point and share one visual state.
 
 </why_the_anti_example_fails>
 

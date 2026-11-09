@@ -32,7 +32,7 @@ Use a typed snippet parameter only when the component provides behavior or state
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	// GOOD: the parameter is justified because the component provides behavior.
+	// GOOD: component-provided behavior justifies the parameter.
 	interface ToggleState {
 		isOpen: boolean;
 		toggle(): void;

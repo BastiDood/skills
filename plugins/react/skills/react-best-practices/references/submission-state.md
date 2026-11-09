@@ -25,7 +25,7 @@ function disableSubmitter(event: FormEvent<HTMLFormElement>) {
 	}
 }
 
-// GOOD: the operation owner supplies status; submission parses its own snapshot.
+// GOOD: the operation owner supplies status. Submission parses its own snapshot.
 function Form({ onSave, isPending, error }: FormProps) {
 	function submit(event: FormEvent<HTMLFormElement>) {
 		event.preventDefault();

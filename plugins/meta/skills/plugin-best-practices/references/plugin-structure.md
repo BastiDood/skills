@@ -6,7 +6,7 @@ Public skills own consumer-facing outcomes. Private skills own reusable implemen
 
 Do not expose a private stage only because it is implemented as a skill. Promote it only when consumers can request it as a coherent capability of its own.
 
-Keep skill directories as flat siblings under the plugin's skill root. Visibility and responsibility establish the boundary, not directory depth.
+Keep skill directories as flat siblings under the plugin's skill root. Visibility and responsibility establish the boundary; directory depth does not.
 
 ```text
 # BAD: consumers must understand and invoke implementation stages.

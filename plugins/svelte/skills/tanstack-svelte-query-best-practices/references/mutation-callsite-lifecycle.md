@@ -33,11 +33,11 @@ Attach mounted UI consequences to the invocation that caused them. Read pending 
 
 Use per-call `onError` for invocation-specific expected-failure presentation and `onSettled` for real cleanup needed after either result. Do not use settlement callbacks merely to clear a duplicate pending flag.
 
-Per-call callbacks do not run if the component unmounts before the mutation finishes, and consecutive `mutate` calls fire them only once, for the last call. Required every-invocation policy belongs in the definition, whose callbacks run for every invocation.
+Per-call callbacks do not run if the component unmounts before the mutation finishes. Consecutive `mutate` calls fire them only once, for the last call. Required every-invocation policy belongs in the definition. Definition callbacks run for every invocation.
 
 ## Concurrent Invocations
 
-Use `mutateAsync` only inside a `Promise.*` combinator, when one mutation runs concurrently for several inputs and the caller awaits them together. Per-call callbacks cannot express that consequence, because only the last call's callbacks fire.
+Use `mutateAsync` only inside a `Promise.*` combinator, when one mutation runs concurrently for several inputs and the caller awaits them together. Only the last call's callbacks fire. Per-call callbacks cannot express that consequence.
 
 ```svelte
 <script lang="ts">

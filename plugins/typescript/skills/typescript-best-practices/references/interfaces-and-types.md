@@ -1,6 +1,6 @@
 # Interfaces and Types
 
-Default handwritten object contracts to `interface`. When composing object shapes, prefer `extends` over `&`: interface relationships are cached, while intersections recursively merge their constituents and require more work during type checking. At scale, `extends` is far cheaper, and it is sufficient for most object composition.
+Default handwritten object contracts to `interface`. When composing object shapes, prefer `extends` over `&`: interface relationships are cached, while intersections recursively merge their constituents and require more work during type checking. At scale, `extends` is far cheaper and sufficient for most object composition.
 
 ```typescript
 interface Identified {

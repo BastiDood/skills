@@ -104,7 +104,7 @@ Translate the Markdown hierarchy into actual PowerPoint note paragraphs:
 - Preserve each planned sentence or two-sentence unit as its own note paragraph.
 - Preserve colon-ended setup clauses as level-0 bullets with their introduced material beneath them.
 
-Verify notes slide by slide after export. Inspect the note paragraph levels, not merely the visible bullet glyph, because different levels may use the same glyph. Confirm that no structured note body was flattened into a prose block. Check the plan's word count, character count, and pacing status. Do not accept notes above 155 words or 900 characters without an explicit exception rationale. If the available output path cannot author or preserve hierarchical presenter notes, report the blocker rather than silently flattening or omitting them.
+Verify notes slide by slide after export. Different levels may use the same glyph. Inspect the note paragraph levels, not merely the visible bullet glyph. Confirm that no structured note body was flattened into a prose block. Check the plan's word count, character count, and pacing status. Do not accept notes above 155 words or 900 characters without an explicit exception rationale. If the available output path cannot author or preserve hierarchical presenter notes, report the blocker rather than silently flattening or omitting them.
 
 ### 6. Implement Code, Diagrams, Images, and Placeholders
 

@@ -43,7 +43,7 @@ Read the references that apply to the current task before writing or reviewing S
    - [Make a form with resolved inputs pure through resolved form props](./references/resolved-form-props.md), keeping its upstream data request outside.
    - [Prefer SvelteKit's progressive lifecycle through form action defaults](./references/form-action-defaults.md) when an action exists rather than competing client submission ownership.
    - [Return expected invalid input as structured state](./references/form-action-validation.md), not an exception path.
-   - [Call `update()` deliberately after custom enhancement](./references/enhanced-form-lifecycle.md), because a callback replaces SvelteKit defaults.
+   - [Call `update()` deliberately after custom enhancement](./references/enhanced-form-lifecycle.md). A callback replaces SvelteKit defaults.
    - [Place representation conversion by its actual dependencies](./references/server-form-decoding.md), then validate external input at the server boundary.
    - [Decode and validate a submitted `FormData` snapshot in the SPA submit driver](./references/client-form-decoding.md) before invoking the mutation.
    - [Read form-wide pending and failure state from the submission owner](./references/submission-state.md), with explicit progress and reusable controls after failure.

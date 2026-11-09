@@ -3,13 +3,13 @@
 `z.object` strips unknown keys by default. State stricter or looser intent with a dedicated constructor, not a chained modifier.
 
 ```typescript
-// Strips unknown keys; use for lenient forward-compatible payloads.
+// Strips unknown keys. Use for lenient forward-compatible payloads.
 z.object({ name: z.string() });
 
-// Rejects extras; use for closed contracts where extras signal a bug.
+// Rejects extras. Use for closed contracts where extras signal a bug.
 z.strictObject({ name: z.string() });
 
-// Preserves extras; use only for opaque pass-through data.
+// Preserves extras. Use only for opaque pass-through data.
 z.looseObject({ name: z.string() });
 ```
 

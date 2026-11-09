@@ -4,9 +4,9 @@ Choose the wrapper that matches a field's wire semantics, not whichever one comp
 
 ```typescript
 const Record = v.object({
-	// Always present; value can be `null`.
+	// Always present with a value that can be `null`.
 	created_at: v.nullable(v.string()),
-	// Can be absent; when present, has a value.
+	// Can be absent but has a value when present.
 	source: v.optional(v.string()),
 	// Can be absent or `null`.
 	category: v.nullish(v.string()),

@@ -51,7 +51,7 @@ async function create(database: Database, redirectUri: string) {
 }
 ```
 
-The injected `database` resource is contextual, and `redirectUri` is operation-specific. Their order follows that hierarchy. Web Crypto remains direct standard-platform usage rather than another parameter or a member of a dependency bag.
+The injected `database` resource is contextual. The `redirectUri` parameter is operation-specific. Their order follows that hierarchy. Web Crypto remains direct standard-platform usage rather than another parameter or a member of a dependency bag.
 
 ```cpp
 struct SetTimerParams {

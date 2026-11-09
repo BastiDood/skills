@@ -71,8 +71,8 @@ Load infinite-query pages incrementally through an `infiniteQueryOptions()` fact
 
 Do not call `useQueryClient()` in components to fetch, read, write, or invalidate cache entries; let `createQuery` own reads and mutation definitions own writes through `context.client`. Two cases are allowed because no reactive primitive expresses them:
 
-- Prefetch on hover or focus, so the request starts before navigation needs it.
-- Ensure data in an event handler, which returns cached data or fetches it once before the handler acts.
+- Prefetch on hover or focus to start the request before navigation needs it.
+- Ensure data in an event handler to return cached data or fetch it once before the handler acts.
 
 ```svelte
 <script lang="ts">
@@ -93,7 +93,7 @@ Do not call `useQueryClient()` in components to fetch, read, write, or invalidat
 		try {
 			await queryClient.query(itemQueries.detail(itemId));
 		} catch {
-			// A failed prefetch stays silent; the query that renders the item reports the error.
+			// A failed prefetch stays silent. The query that renders the item reports the error.
 		}
 	}
 
@@ -115,4 +115,4 @@ Do not call `useQueryClient()` in components to fetch, read, write, or invalidat
 </button>
 ```
 
-Use `queryClient.query()` for both cases, never `prefetchQuery()` or `ensureQueryData()`. A prefetch catches and ignores its error; an ensure sets `staleTime: 'static'`. Keep each `try` block around the `query()` call alone, so errors from the follow-up action are not reported as load failures.
+Use `queryClient.query()` for both cases, never `prefetchQuery()` or `ensureQueryData()`. A prefetch catches and ignores its error. An ensure sets `staleTime: 'static'`. Wrap only the `query()` call in each `try` block to keep errors from the follow-up action out of the load-failure path.

@@ -6,7 +6,7 @@ This policy is language-agnostic. JavaScript examples illustrate how another lan
 
 ## Set Span Status from the Outcome
 
-Set span status to `Ok` after the represented operation completes all fallible work successfully. Leave it set. Do not set `Ok` early: OpenTelemetry treats it as final, so a later attempt to set `Error` or `Unset` has no effect. Set `Error` when the operation fails according to its active semantic convention. Leave the status `Unset` only when the convention classifies the outcome as neither successful nor failed.
+Set span status to `Ok` after the represented operation completes all fallible work successfully. Leave it set. Do not set `Ok` early: OpenTelemetry treats it as final and ignores a later attempt to set `Error` or `Unset`. Set `Error` when the operation fails according to its active semantic convention. Leave the status `Unset` only when the convention classifies the outcome as neither successful nor failed.
 
 Set each span's status independently when its operation ends. Do not recursively mutate ancestor spans:
 

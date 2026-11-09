@@ -1,6 +1,6 @@
 # Dialog Form Ownership
 
-Keep the dialog or sheet shell responsible for visibility. Put mutable drafts and submission work in the form, and decide whether the draft should survive closing before choosing its mount lifetime.
+Keep the dialog or sheet shell responsible for visibility. Put mutable drafts and submission work in the form. Decide whether the draft should survive closing before choosing its mount lifetime.
 
 ```svelte
 <!-- BAD: shell visibility and mutable form state are coupled. -->

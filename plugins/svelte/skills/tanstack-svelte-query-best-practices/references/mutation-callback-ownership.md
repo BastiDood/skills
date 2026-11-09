@@ -22,7 +22,7 @@ Put every-invocation cache policy in the mutation definition and mounted compone
 
 	const { draftName, updateItem, closeDialog, showSavedName }: Props = $props();
 
-	// BAD: shared cache work depends on an observer, and a later draft is not the result.
+	// BAD: shared cache work depends on an observer. A later draft is not the result.
 	const badMutation = createMutation(() => ({
 		mutationFn: updateItem,
 		onSuccess: () => closeDialog(),
@@ -38,7 +38,7 @@ Put every-invocation cache policy in the mutation definition and mounted compone
 		});
 	}
 
-	// GOOD: each invocation refreshes its entry; mounted UI uses its confirmed result.
+	// GOOD: each invocation refreshes its entry. Mounted UI uses its confirmed result.
 	const mutation = createMutation(() => ({
 		mutationFn: updateItem,
 		async onSuccess(_data, variables, _onMutateResult, context) {
@@ -58,4 +58,4 @@ Put every-invocation cache policy in the mutation definition and mounted compone
 </script>
 ```
 
-Per-call callbacks do not run after unmount or for a superseded invocation, so they cannot own consequences required for every invocation. Capturing a stable UI capability such as `closeDialog` remains appropriate. Read pending and failure state from the mutation rather than maintaining another submission flag.
+Per-call callbacks cannot own consequences required for every invocation. They do not run after unmount or for a superseded invocation. Capturing a stable UI capability such as `closeDialog` remains appropriate. Read pending and failure state from the mutation rather than maintaining another submission flag.

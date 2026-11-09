@@ -24,4 +24,4 @@ Use a loader component as the query-state boundary between a shell and resolved 
 
 The loader alone owns query execution and status handling. Keep resolved presentation and owned business decisions sans-I/O when they deserve direct unit tests.
 
-Keep mutations in a narrow form driver below the resolved boundary. A component that owns a mutation is an I/O driver and does not become unit-testable merely because it sits below the loader. Mount the loader only while conditionally visible UI is open, and mount stateful presentation only after its required data resolves.
+Keep mutations in a narrow form driver below the resolved boundary. A component that owns a mutation is an I/O driver and does not become unit-testable merely because it sits below the loader. Mount the loader only while conditionally visible UI is open. Mount stateful presentation only after its required data resolves.
