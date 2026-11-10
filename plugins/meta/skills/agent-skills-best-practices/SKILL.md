@@ -20,7 +20,7 @@ Read each linked reference that applies to the current skill-design task.
    - [Explain when each reference applies.](./references/reference-routing.md)
    - [State each requirement once, in the section or file that owns it.](./references/requirement-ownership.md)
    - [Contrast approaches and explain why the difference matters.](./references/examples.md)
-   - [Keep prose direct, formatting consistent, and examples fenced apart from instructions.](./references/prose-and-formatting.md)
+   - [Keep prose direct, defined terms distinct, formatting consistent, and examples fenced apart from instructions.](./references/prose-and-formatting.md)
 3. Use scripts for deterministic work and models for judgment.
    - [Lock script dependencies before release and keep scripts usable from read-only installations.](./references/executable-scripts.md)
    - [Define classification schemes as label tables calibrated with few-shot example tables that span their labels.](./references/judgment-calibration.md)

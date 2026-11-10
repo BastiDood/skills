@@ -36,4 +36,26 @@ Order the rows by "Risk", then "Impact", then package name.
 
 </column_reference_examples>
 
+Treat each key term that a skill defines as a contract treats a defined term. Define it once in Title Case and reuse that exact casing at every mention. Capitalization separates the defined term from the ordinary phrase it resembles. The model reads "the target environment" as any environment that the task mentions, but it reads "Target Environment" as the one input that the skill defined. Keep the casing identical in every place that defines or fills the term, such as a list label, a prompt heading, and a template section. A term cased two ways reads as two terms. Leave a phrase in lowercase when the skill does not define it.
+
+<defined_term_examples>
+
+```markdown
+<!-- BAD: the label and the template heading case one term two ways. -->
+
+- **Target environment:** the deployment that receives the release.
+
+## Target Environment
+```
+
+```markdown
+<!-- GOOD: the label and the heading share one casing. -->
+
+- **Target Environment:** the deployment that receives the release.
+
+## Target Environment
+```
+
+</defined_term_examples>
+
 Use ordinary ASCII quotes and apostrophes in Markdown. En dashes, em dashes, and directory-tree glyphs are acceptable when they improve readability.
