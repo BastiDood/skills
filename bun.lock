@@ -5,11 +5,14 @@
     "": {
       "name": "bastidood-skills",
       "devDependencies": {
+        "@bastidood/oxfmt-config": "^0.2.1",
         "oxfmt": "^0.77.0",
       },
     },
   },
   "packages": {
+    "@bastidood/oxfmt-config": ["@bastidood/oxfmt-config@0.2.1", "", { "peerDependencies": { "@astrojs/compiler-rs": "^0.5.2", "oxfmt": "^0.77.0", "svelte": "^5.0.0" }, "optionalPeers": ["@astrojs/compiler-rs", "svelte"] }, "sha512-58iHCNjGr3/UUOt599VxXjkHIEpTBZX9XJnX/obs7ULhQrzCCYlrTIdXZGzInRkhcGSoSLe374AygPYDV+pFhA=="],
+
     "@oxfmt/binding-android-arm-eabi": ["@oxfmt/binding-android-arm-eabi@0.77.0", "", { "os": "android", "cpu": "arm" }, "sha512-zmPiuOvkuu0csMx4U3gdMunIFWNcWulzikFMdAPBzLazVAA3LhdHzv9yzgUgAckv/zje5vz4XJcseNQKdSsWMw=="],
 
     "@oxfmt/binding-android-arm64": ["@oxfmt/binding-android-arm64@0.77.0", "", { "os": "android", "cpu": "arm64" }, "sha512-shXOIK9sj3bvt4H6K47qFWNKaYBwEhzj97iUwoLGyyRDrXt1OdAAuCiupCinG1i7ETL81knjEKeB+JmhOOfPew=="],

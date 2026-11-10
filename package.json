@@ -1,11 +1,12 @@
 {
-	"name": "bastidood-skills",
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"fmt": "oxfmt --check",
 		"fmt:fix": "oxfmt --write"
 	},
 	"devDependencies": {
+		"@bastidood/oxfmt-config": "^0.2.1",
 		"oxfmt": "^0.77.0"
 	}
 }
