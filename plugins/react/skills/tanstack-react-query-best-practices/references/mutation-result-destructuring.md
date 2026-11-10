@@ -3,8 +3,8 @@
 Destructure every consumed field from `useMutation`. The complete mutation result object is not referentially stable and must not become a hook dependency, prop, context value, or component-level alias.
 
 ```tsx
-import { useCallback } from 'react';
 import { useMutation } from '@tanstack/react-query';
+import { useCallback } from 'react';
 
 async function saveJob(name: string) {
 	await fetch('/jobs', { method: 'POST', body: name });
@@ -20,8 +20,8 @@ function SaveJobButton({ name }: { name: string }) {
 ```
 
 ```tsx
-import { useCallback } from 'react';
 import { useMutation } from '@tanstack/react-query';
+import { useCallback } from 'react';
 
 async function saveJob(name: string) {
 	await fetch('/jobs', { method: 'POST', body: name });

@@ -3,9 +3,9 @@
 Intercept `onSubmit` for both controlled and uncontrolled forms. Prevent default navigation, decode and parse a fresh `FormData` snapshot, then pass the validated domain input through mutation variables. Controlled state belongs to live rendered feedback; submission must not assemble its payload from that changing state.
 
 ```tsx
-import type { FormEvent } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { decode } from 'decode-formdata';
+import type { FormEvent } from 'react';
 import * as v from 'valibot';
 
 const UpdateJobInput = v.object({ title: v.pipe(v.string(), v.minLength(1)) });

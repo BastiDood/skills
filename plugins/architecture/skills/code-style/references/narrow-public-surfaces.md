@@ -5,10 +5,14 @@ Expose only stable capabilities intended for consumers. Keep construction detail
 ```typescript
 // BAD: a root import activates unrelated infrastructure.
 import { Model } from '@project/database';
+```
 
+```typescript
 // GOOD: consumers import the precise, side-effect-free surface.
 import { Model } from '@project/database/models';
+```
 
+```typescript
 // GOOD: only the entry point imports resource construction.
 import { openDatabase } from '@project/database/client';
 ```

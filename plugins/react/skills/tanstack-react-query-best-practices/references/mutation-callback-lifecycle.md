@@ -3,8 +3,8 @@
 Put every-invocation policy in the mutation definition and mounted UI consequences at the call site. Trigger one invocation with `mutate` and attach the consequences of that invocation as per-call callbacks.
 
 ```tsx
-import { useEffect, type ReactNode } from 'react';
 import { useMutation } from '@tanstack/react-query';
+import { useEffect, type ReactNode } from 'react';
 
 interface UpdateJobRequest {
 	id: string;
@@ -56,8 +56,8 @@ Read pending and errors from their existing owner instead of clearing duplicate 
 Use `mutateAsync` only inside a `Promise.*` combinator, when one mutation runs concurrently for several inputs and the caller awaits them together. Only the last call's callbacks fire. Per-call callbacks cannot express that consequence.
 
 ```tsx
-import { startTransition } from 'react';
 import { useMutation } from '@tanstack/react-query';
+import { startTransition } from 'react';
 
 declare function archiveJob(id: string): Promise<void>;
 declare function reportArchiveFailures(count: number): void;

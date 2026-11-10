@@ -3,8 +3,8 @@
 Read pending, result, and error state from the existing submission owner and pass that state to the form when the owner lives above it. Do not mirror the operation lifecycle in local flags or couple it to the controlled state used for live input feedback. Every submit control must reflect the same pending state.
 
 ```tsx
-import type { FormEvent } from 'react';
 import { decode } from 'decode-formdata';
+import type { FormEvent } from 'react';
 import * as v from 'valibot';
 
 const SaveInput = v.object({ name: v.pipe(v.string(), v.minLength(1)) });

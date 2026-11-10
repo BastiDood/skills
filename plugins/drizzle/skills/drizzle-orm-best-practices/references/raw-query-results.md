@@ -5,8 +5,8 @@ Prefer Drizzle builders and helpers. Use raw execution only when they cannot rep
 Ban generic result assertions such as `db.execute<T>(...)`. They do not validate driver output. Define a complete runtime schema for every returned row and parse the full collection before domain code consumes it.
 
 ```typescript
-import * as v from 'valibot'; // or alternatively `zod`
 import { sql } from 'drizzle-orm';
+import * as v from 'valibot'; // or alternatively `zod`
 
 const IsolationRowSchema = v.object({ transaction_isolation: v.string() });
 const parseIsolationRows = v.parser(v.array(IsolationRowSchema));

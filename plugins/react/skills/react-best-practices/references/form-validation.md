@@ -5,8 +5,8 @@ Use a semantic form with named fields. Keep inputs uncontrolled unless their liv
 In both cases, intercept `onSubmit`, prevent the browser's default navigation, and take a fresh `FormData` snapshot from `event.currentTarget`. Decode its transport representation and validate it before calling the domain operation. Submission reads the named form controls rather than capturing the input state that changes on every keystroke.
 
 ```tsx
-import { useState, type FormEvent } from 'react';
 import { decode } from 'decode-formdata';
+import { useState, type FormEvent } from 'react';
 import * as v from 'valibot';
 
 const minimumNameLength = 3;

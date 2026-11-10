@@ -3,7 +3,6 @@
 Give every controlled slice both halves of its contract. If you provide an `on[State]Change` callback, also provide the corresponding value in `state`.
 
 ```tsx
-import { useState } from 'react';
 import {
 	createColumnHelper,
 	createPaginatedRowModel,
@@ -11,6 +10,7 @@ import {
 	tableFeatures,
 	useTable,
 } from '@tanstack/react-table';
+import { useState } from 'react';
 
 interface Person {
 	name: string;

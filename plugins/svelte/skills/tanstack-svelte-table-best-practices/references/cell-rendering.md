@@ -41,6 +41,7 @@ Define component and snippet cells with the adapter helpers; `FlexRender` resolv
 
 ```typescript
 import { renderComponent } from '@tanstack/svelte-table';
+
 import StatusCell from './status-cell.svelte';
 
 // GOOD: return a render description. Let `FlexRender` own component creation and updates.

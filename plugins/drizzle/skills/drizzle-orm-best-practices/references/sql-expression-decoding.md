@@ -18,8 +18,8 @@ const unsafeRows = await db
 ```
 
 ```typescript
-import * as v from 'valibot';
 import { sql } from 'drizzle-orm';
+import * as v from 'valibot';
 
 const NullableTitleSchema = v.nullable(v.string());
 const parseNullableTitle = v.parser(NullableTitleSchema);

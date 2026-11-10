@@ -3,8 +3,8 @@
 Let TanStack Query own cache identity, cancellation, retries, deduplication, and pending/error state. An effect plus local state duplicates that lifecycle and makes the view responsible for request coordination.
 
 ```tsx
-import { startTransition, useEffect, useState } from 'react';
 import { queryOptions, useQuery } from '@tanstack/react-query';
+import { startTransition, useEffect, useState } from 'react';
 
 async function fetchTeamReport(teamId: string, signal: AbortSignal) {
 	const response = await fetch('/api/team-report/' + encodeURIComponent(teamId), { signal });
@@ -61,8 +61,8 @@ Do not call `useQueryClient()` in components to fetch, read, write, or invalidat
 - Ensure data in an event handler to return cached data or fetch it once before the handler acts.
 
 ```tsx
-import { startTransition } from 'react';
 import { queryOptions, useQueryClient } from '@tanstack/react-query';
+import { startTransition } from 'react';
 
 interface Job {
 	id: string;
