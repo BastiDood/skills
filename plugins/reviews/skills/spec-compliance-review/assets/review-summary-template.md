@@ -12,7 +12,7 @@
 
 ## Concrete Recommendations
 
-<!-- Bulleted list of recommendations (with rationale) for the author to improve the implementation. Propose the easy fixes here. -->
+<!-- Bulleted list of recommendations (with rationale) for the author to improve the implementation. Propose the easy fixes here. This section determines the next phase of the work. -->
 
 ## Open Decisions
 

@@ -16,7 +16,7 @@
 
 ## Concrete Recommendations
 
-<!-- Deduplicated bulleted list of the easy fixes (with rationale) that the reviews propose. -->
+<!-- Deduplicated bulleted list of the easy fixes (with rationale) that the reviews propose. This section determines the next phase of the work. -->
 
 ## Open Decisions
 
