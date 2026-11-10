@@ -1,0 +1,3 @@
+interface:
+  display_name: 'Review Loop'
+  short_description: 'Review code in rounds until nothing is accepted.'
