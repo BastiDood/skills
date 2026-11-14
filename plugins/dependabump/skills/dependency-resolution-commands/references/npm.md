@@ -62,7 +62,7 @@ npm ls "$PACKAGE" --all --package-lock-only
 npm find-dupes
 ```
 
-`npm dedupe` takes no package names. To collapse the copies of one package onto a locked version, land it with the steps from "Update" in a member that declares it; the install also removes the nested copies whose dependents accept `$VERSION`. Cover a package that no member declares directly with an entry under "Override".
+`npm dedupe` takes no package names. To collapse the copies of one package onto a locked version, use the targeted steps from "Update" in a member that declares it. The install also removes nested copies whose dependents accept `$VERSION`. Cover a package that no member declares directly with an entry under "Override".
 
 ```bash
 # Collapse every duplicated package across the tree.
@@ -76,7 +76,15 @@ Edit the declared range of `$PACKAGE` in the member's `package.json`: raise only
 
 ## Update
 
-No single command lands a package on exactly `$VERSION` and keeps its range. Run the first command, edit the range that it wrote back to the range from "Constrain", then run the second command; it keeps the locked `$VERSION` because the range admits it. For the root, omit `--workspace`.
+Use `--workspace` for selected members and `--include-workspace-root` when the selection includes the root.
+
+```bash
+# Update within declared ranges. `npm update` requires `--save` to write the new ranges.
+# Mutates: `package.json`, `package-lock.json` or `npm-shrinkwrap.json`, and `node_modules`.
+npm update --save
+```
+
+For a targeted update, install the exact version, then restore the range from "Constrain" and re-resolve the lockfile. The second resolution keeps the locked `$VERSION` because the range admits it. For the root, omit `--workspace`.
 
 ```bash
 # Lock exactly the target version in one member.

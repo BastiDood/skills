@@ -56,7 +56,7 @@ pnpm why "$PACKAGE" --recursive
 pnpm dedupe --check
 ```
 
-`pnpm dedupe` takes no package names. To collapse the copies of one package onto a locked version, run the first command from "Update"; it fails with `ERR_PNPM_UPDATE_VERSION_ON_INDIRECT_DEP` for a package that no member declares directly, which needs an entry under "Override" instead.
+`pnpm dedupe` takes no package names. To collapse the copies of one package onto a locked version, run the targeted command from "Update". It fails with `ERR_PNPM_UPDATE_VERSION_ON_INDIRECT_DEP` for a package that no member declares directly, which needs an entry under "Override" instead.
 
 ```bash
 # Collapse every duplicated package onto the newest version the lockfile already holds inside its range.
@@ -70,7 +70,15 @@ Edit the declared range of `$PACKAGE` in the member's `package.json`: raise only
 
 ## Update
 
-The first command lands `$PACKAGE` on exactly `$VERSION` in every member whose range admits it and leaves the manifest ranges unchanged.
+Use `--recursive` for the whole workspace, `--filter` for selected members, bare package names to narrow selection, and `--peer` for approved peer updates.
+
+```bash
+# Update dependencies within their declared ranges and save the resulting ranges.
+# Mutates: `package.json`, `pnpm-workspace.yaml`, `pnpm-lock.yaml`, and `node_modules`.
+pnpm up
+```
+
+For a direct dependency with a plain version range, the targeted update below locks `$VERSION` wherever that range admits it.
 
 ```bash
 # Land a package on exactly the target version, keeping the declared ranges.

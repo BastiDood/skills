@@ -70,13 +70,19 @@ One environment holds one version per package. `pip-compile` writes one pin per 
 rg --line-number --fixed-strings "==" --glob "requirements*.txt"
 ```
 
-`pip` has no dedupe command. In a `pip-tools` project, run the "Update" command for each pair that pins the package; in a plain `pip` project, rewrite the pin in each file as in "Constrain".
+`pip` has no dedupe command. In a `pip-tools` project, use the targeted "Update" for each pair that pins the package. In a plain `pip` project, rewrite each pin as in "Constrain".
 
 ## Constrain
 
 Rewrite the specifier with the file-edit tool: raise only the floor to `$VERSION` and keep the operator and any explicit upper bound (`>=1.2,<1.5` becomes `>=$VERSION,<1.5`). In a `pip-tools` `.in` file, an exact `==` pin becomes `>=$VERSION,<$NEXT_MAJOR`, where `$NEXT_MAJOR` increments the first non-zero component of `$VERSION` (`1.3.4` gives `2`, `0.4.2` gives `0.5`); in a plain `pip` requirements file, an exact pin stays exact at `==$VERSION`.
 
 ## Update
+
+```bash
+# Update all pins within the requirements of one `.in`/`.txt` pair.
+# Mutates: the compiled requirements file.
+pip-compile --upgrade --output-file "$TXT" "$IN"
+```
 
 In a `pip-tools` project, the `==$VERSION` constraint applies to this one compile; the `.in` file keeps its range and every other pin stays unless it conflicts. Compile each `.in`/`.txt` pair that pins the package.
 

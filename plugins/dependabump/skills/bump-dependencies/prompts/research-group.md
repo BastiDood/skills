@@ -18,11 +18,10 @@ Work read-only: do not copy the repository, change its packages, or write its fi
    - Changelog files in the repository root or the package's own directory in a monorepo, such as `CHANGELOG.md`, `HISTORY.md`, `NEWS.md`, or `RELEASES.md`.
    - Official migration guides and release announcements. Always read these for a major bump or when release notes link to them.
    - A web search, last, accepting only the maintainers' own channels as authoritative.
-3. Compare each member's dependency ranges, peer ranges, and engine or runtime constraints between the current and target versions. Report every new dependency, raised floor, lowered ceiling, and engine or runtime constraint change, which decide whether the lockfile gains duplicates and whether the project's runtime still fits.
-4. Search everything that the project owns for each changed contract: imports, call sites, configuration keys, environment variables, and runtime or engine declarations. Exclude dependency directories, build output, vendored code, and generated files. Cite each hit as a repository-relative `path:line`.
-5. For each finding, determine its effect on our code and the cheapest fix. When behavior changes, find the setting or pin that keeps the current behavior.
-6. Note deprecations that our code uses, deprecations that it does not use yet, and local workarounds that an upstream fix makes unnecessary. Claim an obsolete workaround only with both the upstream source and the local `path:line`.
-7. Check that the grouping holds. Report a member that can move independently, a newer compatible pairing, or another package that must move with the group.
+3. Compare each member's published dependency ranges, peer ranges, and engine or runtime constraints between the current and target versions. Include optional dependencies and peers.
+4. Search project-owned imports, call sites, configuration keys, environment variables, and runtime or engine declarations for changed contracts and workarounds that upstream fixes make obsolete. Exclude dependency directories, build output, vendored code, and generated files.
+5. Scope relevant target regressions to the affected versions, platforms, and triggers.
+6. Check that the grouping holds. Report a member that can move independently, a newer compatible pairing, or another package that must move with the group.
 
 ## Report
 
@@ -38,17 +37,18 @@ Reply with this Markdown record and nothing else. Head it with the members' pack
 ### Findings
 
 - **The change** (`version`, [source](url)):
-  - Usage: `path:line` for each hit, or "none".
-  - Effect: none, stops compiling or linting, behaves differently, or removes a contract we use.
-  - Fix: none, the rote edits, the setting that keeps current behavior, or the redesign needed.
+  - Usage: repository-relative `path:line` for each hit, or "none".
+  - Effect: the local consequence and any concrete payoff for this project.
+  - Migration: the smallest behavior-preserving edit or setting, or the design choice and where it applies. Name the check that verifies the affected contract when applicable.
 
 ### Dependency Changes
 
-- `dependency` or engine: the old range → the new range, or "added" with its range.
+- `dependent` → `dependency` (dependency kind, [manifest](url)): exact old → new range, or added or removed with its range. Use the same format for engine and runtime constraints.
 
 ### Notes
 
-- Deprecations, future hazards, and obsolete workarounds, each with its source.
+- Decision-relevant regressions and deprecations, each with its source.
+- Obsolete workarounds, each with the upstream fix and the repository-relative `path:line` of the workaround.
 
 ### Gaps
 

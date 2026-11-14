@@ -76,7 +76,15 @@ Edit the declared range of `$PACKAGE` in the member's `package.json`: raise only
 
 ## Update
 
-No single command lands a package on exactly `$VERSION` and keeps its range. Edit the member's range to the exact `$VERSION` and run the first command, then edit it to the range from "Constrain" and run the first command again; the second run keeps the locked `$VERSION` because the range admits it. Nested copies under other packages keep their locked versions.
+Use `--recursive` for all workspace members or `--filter` for selected members.
+
+```bash
+# Update dependencies within their declared ranges and save the resulting ranges.
+# Mutates: `package.json`, `bun.lock`, and `node_modules`.
+bun update
+```
+
+For a targeted update, pin the member to `$VERSION` and re-resolve the lockfile. Restore the range from "Constrain" and re-resolve again. The second resolution keeps the locked `$VERSION` because the range admits it. Nested copies under other packages keep their locked versions.
 
 ```bash
 # Re-resolve the lockfile after editing package.json.

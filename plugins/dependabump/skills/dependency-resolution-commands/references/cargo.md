@@ -70,7 +70,13 @@ In the table that declares the crate, raise only the floor of the requirement to
 
 ## Update
 
-The first command sets the locked package to exactly `$VERSION` and leaves the manifest requirement unchanged; it fails when a dependent's requirement excludes `$VERSION`. Cargo has no installed environment; the second command downloads every crate in `Cargo.lock` and fails when the lockfile does not match the manifests.
+```bash
+# Update the entire lockfile within the workspace requirements.
+# Mutates: `Cargo.lock`.
+cargo update
+```
+
+A targeted update fails when a dependent excludes `$VERSION`.
 
 ```bash
 # Lock one package at exactly the target version.

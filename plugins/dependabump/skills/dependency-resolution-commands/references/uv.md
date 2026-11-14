@@ -84,6 +84,12 @@ Rewrite the specifier in `pyproject.toml` with the file-edit tool: raise only th
 
 ## Update
 
+```bash
+# Update the entire lockfile within the project constraints.
+# Mutates: `uv.lock`.
+uv lock --upgrade
+```
+
 The `==$VERSION` constraint applies to this one resolution only; `pyproject.toml` keeps its range and every other package keeps its locked version unless it conflicts.
 
 ```bash

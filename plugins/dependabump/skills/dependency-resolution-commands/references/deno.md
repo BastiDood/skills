@@ -64,7 +64,13 @@ Edit the declared range of `$PACKAGE` in the member's `deno.json` `imports` valu
 
 ## Update
 
-No Deno command or edit sequence lands a package on exactly `$VERSION` under a range. Changing a requirement drops its locked entry; the next resolution takes the newest version that matches. The first command writes the exact requirement `$VERSION` in every member that declares the package. To keep a range instead, apply the edit from "Constrain" and run the second command, which locks the newest version inside it.
+```bash
+# Update within declared ranges, using --recursive for the whole workspace.
+# Mutates: `deno.json` or `package.json`, `deno.lock`, the global module cache, and `node_modules` when used.
+deno update
+```
+
+For an exact target, pin `$VERSION` with the targeted command. To keep a range, edit it as in "Constrain" and re-resolve the lockfile, which picks the newest matching version.
 
 ```bash
 # Pin a package to exactly the target version in every member.

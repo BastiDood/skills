@@ -76,7 +76,13 @@ Edit the declared range of `$PACKAGE` in the member's `package.json`: raise only
 
 ## Update
 
-The first command makes one lockfile descriptor resolve to exactly `$VERSION` and leaves the manifest unchanged. The descriptor is `$PACKAGE@npm:$RANGE`, with `$RANGE` as "Dependents" prints it; run the command once per descriptor. After an edit from "Constrain", run the re-resolve command from "Override" first.
+```bash
+# Re-resolve matching package names across the project within their declared ranges.
+# Mutates: `yarn.lock`, `node_modules` or `.pnp.cjs`, and the package cache.
+yarn up --recursive "$PACKAGE"
+```
+
+For an exact target, run `set resolution` for each descriptor `$PACKAGE@npm:$RANGE` from "Dependents". After a "Constrain" edit, run the re-resolve command from "Override" first.
 
 ```bash
 # Land one descriptor on exactly the target version, keeping the declared range.
