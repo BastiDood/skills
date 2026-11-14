@@ -1,7 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
 	"name": "dependabump",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Bump and clean project dependencies with researched, duplication-aware verdicts.",
 	"author": {
 		"name": "Basti Ortiz",
