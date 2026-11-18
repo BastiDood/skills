@@ -67,6 +67,7 @@ Classify documentation, internal fixes, and dev tooling fixes by the review effo
 - Body: must explain _why_ (not just _what_), can be in prose or bullet points (concise and high-level)
 - Body: must disclaim breaking changes if applicable
 - Body: should include issue references if applicable
+- Identifiers: wrap notable identifiers in backticks in the title and body (e.g., functions, types, files, commands, packages, config keys, etc.)
 
 ### Allowed Types
 

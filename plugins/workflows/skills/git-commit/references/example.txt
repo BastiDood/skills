@@ -1,7 +1,7 @@
 feat(auth)!: add JWT login flow
 
-- Implemented JWT token validation logic
-- Added documentation for the validation component
+- Implemented JWT token validation logic in `verifyToken`
+- Added documentation for the `TokenValidator` component
 - Removes the old password authentication
 
 Signed-off-by: Example <user@example.com>
