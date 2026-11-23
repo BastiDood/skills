@@ -18,7 +18,7 @@ Add a test only when wrong project-owned behavior can make it fail.
 Before adding or retaining a test, require all of the following:
 
 - Name the exact project-owned invariant that the test protects.
-- Name a realistic defect that violates that invariant and causes the test to fail.
+- Name a realistic defect that violates that invariant, fails the test, and passes every other test in the suite.
 - Derive the expected result independently of test-double configuration.
 - Select the test level capable of observing that defect.
 - Treat missing contract or integration infrastructure as a coverage gap. Test doubles cannot substitute for that infrastructure.
@@ -43,6 +43,8 @@ Delete a test when it only:
 - Asserts test-double configuration.
 - Checks getters, constructors, or field assignment without behavior.
 - Exercises framework plumbing without a project-owned contract.
+- Catches defects that other tests already catch.
+- Asserts one constant or definition against another.
 
 Do not preserve a useless test for coverage. Coverage is evidence of execution, not evidence of meaningful verification.
 
@@ -56,3 +58,5 @@ Follow the guidelines below. Read each linked reference that applies before writ
 2. Require independent evidence that a test protects a project-owned invariant.
    - [Reject circular fixtures and substituted-boundary claims with the test-double admission diagnostics.](./references/test-double-admission.md)
    - [Match each defect to an observable test level, including no test when the available level cannot provide meaningful evidence.](./references/test-level-selection.md)
+3. Give every test and assertion protection that no other test in the suite provides.
+   - [Delete duplicates, repair fixtures that coincide with constants, and fill uncovered branches with the redundancy diagnostics.](./references/redundant-tests.md)
