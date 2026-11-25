@@ -29,7 +29,7 @@ Research each candidate against the codebase and the lockfile. Recommend each gr
    - Check the resolution before making code changes. For a targeted update, first collapse new duplicates with the playbook's scoped "Duplicates" commands that add no override. Use the starting baseline and the same per-package duplicate rule. Check each direct declaration in each member against its approved target or starting version. Review the working-tree diff for scope and trace transitive moves back to the approved groups.
    - If the update or dedupe left dependencies to install, install from the checked resolution as "Update" shows. Make the approved code changes and run the project's existing type-check, lint, and test scripts.
    - Present the changes and check results. Stop for the user's review unless the user consented to autonomous refactors. An update or install failure, a new duplicate, an unapproved change, or a failed project check that the approved changes do not fix stops the run before cleanup. When the user rejects a group, restore the working tree with Git (including the untracked files that the run created) and apply the remaining groups again. Leave commits to the user.
-9. Unless the user opted out of cleanup, run `Skill(dependabump:clean-dependencies)` on the same scope. Pass the approved and held direct versions, the constraints that keep ordinary updates within scope, and this run's expected uncommitted changes.
+9. Invoke `Skill(dependabump:clean-dependencies)` immediately after. Pass the approved and held direct versions, the constraints that keep ordinary updates within scope, and this run's expected uncommitted changes.
 
 ## Classification
 
